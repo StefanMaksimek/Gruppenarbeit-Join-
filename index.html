@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="shortcut icon" href="./css-importe/favicon.png" type="image/x-icon">
+    <title>Join</title>
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
     <!-- JavaScript Bundle with Popper -->
@@ -19,78 +19,333 @@
 </head>
 
 <body onload="loadEditors()">
+    <div class="side-bar" id="side-bar">
+        <div class="side-bar-holder">
+            <div class="logo">
+                <img src="img/joinlogo.png" alt="">
+            </div>
 
+            <h3 id="board-h3">Board</h3>
+            <h3 id="backlog-h3">Backlog</h3>
+            <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
+            <h3 id="help-h3">Help</h3>
+            <h3 id="impressum-h3" onclick="openImpressum()">Impressum</h3>
+            <h3 id="datenschutz-h3" onclick="openDatenschutz()">Datenschutz</h3>
 
-    <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div class="user" id="user">
+                <img src="./img/001_fb copy.jpg" alt="">
+            </div>
+        </div>
 
-    <!--
+    </div>
+
+    <div class="main" id="main">
+        <div class="header" id="header">
+            <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+            <!--
         Hier kann man auswählen, wer gerade daran arbeitet. Dient als Vorstufe zum richtigen Login mit Passwort
         h1 kann später gelöscht werden, dient vorerst der Orientierung
     -->
-    <h1>Login</h1>
-    <div id="login" class="login">
-        <input type="text" name="editors" list="all-editors" placeholder="editors">
-        <datalist id="all-editors">
+            <h1>Login</h1>
 
-        </datalist>
-    </div>
+            <div id="login" class="login">
+                <input type="text" name="editors" list="all-editors" placeholder="editors">
+                <datalist id="all-editors">
 
-    <div>
-        <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
-        <input id="new-editor-inputfield-pw" type="text" placeholder="password">
-        <button onclick="submitNewEditor()">Submit</button>
-    </div>
-    <!-- ----------------------------- Login END ----------------------------- -->
+                </datalist>
+            </div>
 
-
-    <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-
-    <!--
-        h1 kann später gelöscht werden, dient vorerst der Orientierung
-    -->
-    <h1>ADD TASK</h1>
-    <div id="add-task" class="add-task">
-        <input type="text" placeholder="title" id="title-task">
-        <input type="text" name="priority" list="priority-state" placeholder="priority" id="priority-state-input">
-        <datalist id="priority-state">
-            <option value="high">
-            <option value="normal">
-        </datalist>
-        <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
-        <datalist id="category-list">
-            <option value="IT">
-            <option value="Marketing">
-            <option value="Sales">
-            <option value="Management"></option>
-        </datalist>
-        <div>
-            <div>Due Date</div>
-            <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
+            <div>
+                <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
+                <input id="new-editor-inputfield-pw" type="text" placeholder="password">
+                <button onclick="submitNewEditor()">Submit</button>
+            </div>
+            <!-- ----------------------------- Login END ----------------------------- -->
         </div>
-        <input type="text" name="editors" list="task-editor" placeholder="editors" id="task-editor-input">
-        <datalist id="task-editor">
 
-        </datalist>
+        <div class="content" id="content">
+            <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div id="add-task" class="d-none">
+                <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
+                <h1>ADD TASK</h1>
 
-        <input type="text" name="status" list="status-list" placeholder="status" id="status-list-input">
-        <datalist id="status-list">
-            <option value="ToDo">
-            <option value="IN PROGRESS">
-            <option value="TESTING">
-            <option value="DONE"></option>
-        </datalist>
+                <input type="text" placeholder="title" id="title-task">
+                <input type="text" name="priority" list="priority-state" placeholder="priority"
+                    id="priority-state-input">
+                <datalist id="priority-state">
+                    <option value="high">
+                    <option value="normal">
+                </datalist>
+                <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
+                <datalist id="category-list">
+                    <option value="IT">
+                    <option value="Marketing">
+                    <option value="Sales">
+                    <option value="Management"></option>
+                </datalist>
 
-        <!--copied from bootstrap-->
-        <!-- Textarea with class .w-75 -->
-        <div class="form-outline w-75 mb-4">
-            <textarea class="form-control" id="task-description" rows="3"></textarea>
+                <div>
+                    <div>Due Date</div>
+                    <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
+                </div>
+
+                <input type="text" name="editors" list="task-editor" placeholder="editors" id="task-editor-input">
+                <datalist id="task-editor">
+
+                </datalist>
+
+                <input type="text" name="status" list="status-list" placeholder="status" id="status-list-input">
+                <datalist id="status-list">
+                    <option value="ToDo">
+                    <option value="IN PROGRESS">
+                    <option value="TESTING">
+                    <option value="DONE"></option>
+                </datalist>
+
+                <!--copied from bootstrap-->
+                <!-- Textarea with class .w-75 -->
+                <div class="form-outline w-75 mb-4">
+                    <textarea class="form-control" id="task-description" rows="3"></textarea>
+                </div>
+                <!--copied from bootstrap-->
+                <button onclick="createTask()">Create Task</button>
+
+            </div>
+            <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+
+            <div class="d-none" id="impressum">
+                <h1>Impressum</h1>
+                <p>Angaben gemäß § 5 TMG</p>
+                <p>Stefan MAKSIMEK <br>
+                    Ohfeldring 8<br>
+                    27432 Bremervörde <br>
+                </p>
+                <p> <strong>Vertreten durch: </strong><br>
+                    Stefan MAKSIMEK<br>
+                </p>
+                <p><strong>Kontakt:</strong> <br>
+                    Telefon: 0160-90971802<br>
+                    E-Mail: <a href='mailto:s.raile86@gmail.com'>s.raile86@gmail.com</a></br></p>
+                <p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Inhalte</strong><br><br>
+                    Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+                    Vollständigkeit und
+                    Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß
+                    § 7 Abs.1
+                    TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis
+                    10 TMG sind
+                    wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+                    Informationen zu
+                    überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                    Verpflichtungen zur
+                    Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon
+                    unberührt.
+                    Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten
+                    Rechtsverletzung
+                    möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend
+                    entfernen.<br><br><strong>Haftung für Links</strong><br><br>
+                    Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss
+                    haben. Deshalb
+                    können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+                    Seiten ist
+                    stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden
+                    zum
+                    Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum
+                    Zeitpunkt der
+                    Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch
+                    ohne konkrete
+                    Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden
+                    wir
+                    derartige Links umgehend entfernen.<br><br><strong>Datenschutz</strong><br><br>
+                    Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit
+                    auf unseren
+                    Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden,
+                    erfolgt dies,
+                    soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung
+                    nicht an
+                    Dritte weitergegeben. <br>
+                    Wir weisen darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail)
+                    Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist
+                    nicht
+                    möglich. <br>
+                    Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur
+                    Übersendung von
+                    nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich
+                    widersprochen.
+                    Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten
+                    Zusendung von
+                    Werbeinformationen, etwa durch Spam-Mails, vor.<br>
+                </p><br>
+                Impressum vom <a href="https://www.impressum-generator.de">Impressum Generator</a> der <a
+                    href="https://www.kanzlei-hasselbach.de/">Kanzlei Hasselbach, Rechtsanwälte für Arbeitsrecht und
+                    Familienrecht</a>
+            </div>
+
+            <div class="d-none" id="datenschutz">
+                <h1>Datenschutzerklärung</h1>
+                <h2 id="m14">Einleitung</h2>
+                <p>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer
+                    personenbezogenen Daten (nachfolgend auch kurz als "Daten“ bezeichnet) wir zu welchen Zwecken und in
+                    welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten
+                    Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch
+                    insbesondere auf unseren Webseiten, in mobilen Applikationen sowie innerhalb externer
+                    Onlinepräsenzen, wie z.B. unserer Social-Media-Profile (nachfolgend zusammenfassend bezeichnet als
+                    "Onlineangebot“).</p>
+                <p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
+                <p>Stand: 2. Juli 2022</p>
+                <h2>Inhaltsübersicht</h2>
+                <ul class="index">
+                    <li><a class="index-link" href="#m14">Einleitung</a></li>
+                    <li><a class="index-link" href="#m3">Verantwortlicher</a></li>
+                    <li><a class="index-link" href="#mOverview">Übersicht der Verarbeitungen</a></li>
+                    <li><a class="index-link" href="#m13">Maßgebliche Rechtsgrundlagen</a></li>
+                    <li><a class="index-link" href="#m27">Sicherheitsmaßnahmen</a></li>
+                    <li><a class="index-link" href="#m12">Löschung von Daten</a></li>
+                    <li><a class="index-link" href="#m225">Bereitstellung des Onlineangebotes und Webhosting</a></li>
+                    <li><a class="index-link" href="#m42">Begriffsdefinitionen</a></li>
+                </ul>
+                <h2 id="m3">Verantwortlicher</h2>
+                <p>Stefan MAKSIMEK<br>Ohfeldring 8<br>27432 Bremervörde</p>
+                E-Mail-Adresse: <p><a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a></p>
+                <h2 id="mOverview">Übersicht der Verarbeitungen</h2>
+                <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer Verarbeitung
+                    zusammen und verweist auf die betroffenen Personen.</p>
+                <h3>Arten der verarbeiteten Daten</h3>
+                <ul>
+                    <li>Inhaltsdaten.</li>
+                    <li>Nutzungsdaten.</li>
+                    <li>Meta-/Kommunikationsdaten.</li>
+                </ul>
+                <h3>Kategorien betroffener Personen</h3>
+                <ul>
+                    <li>Nutzer.</li>
+                </ul>
+                <h3>Zwecke der Verarbeitung</h3>
+                <ul>
+                    <li>Bereitstellung unseres Onlineangebotes und Nutzerfreundlichkeit.</li>
+                    <li>Informationstechnische Infrastruktur.</li>
+                </ul>
+                <h3 id="m13">Maßgebliche Rechtsgrundlagen</h3>
+                <p>Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir
+                    personenbezogene Daten verarbeiten. Bitte nehmen Sie zur Kenntnis, dass neben den Regelungen der
+                    DSGVO nationale Datenschutzvorgaben in Ihrem bzw. unserem Wohn- oder Sitzland gelten können. Sollten
+                    ferner im Einzelfall speziellere Rechtsgrundlagen maßgeblich sein, teilen wir Ihnen diese in der
+                    Datenschutzerklärung mit.</p>
+                <ul>
+                    <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO)</strong> - Die Verarbeitung
+                        ist zur Wahrung der berechtigten Interessen des Verantwortlichen oder eines Dritten
+                        erforderlich, sofern nicht die Interessen oder Grundrechte und Grundfreiheiten der betroffenen
+                        Person, die den Schutz personenbezogener Daten erfordern, überwiegen.</li>
+                </ul>
+                <p>Zusätzlich zu den Datenschutzregelungen der Datenschutz-Grundverordnung gelten nationale Regelungen
+                    zum Datenschutz in Deutschland. Hierzu gehört insbesondere das Gesetz zum Schutz vor Missbrauch
+                    personenbezogener Daten bei der Datenverarbeitung (Bundesdatenschutzgesetz – BDSG). Das BDSG enthält
+                    insbesondere Spezialregelungen zum Recht auf Auskunft, zum Recht auf Löschung, zum
+                    Widerspruchsrecht, zur Verarbeitung besonderer Kategorien personenbezogener Daten, zur Verarbeitung
+                    für andere Zwecke und zur Übermittlung sowie automatisierten Entscheidungsfindung im Einzelfall
+                    einschließlich Profiling. Des Weiteren regelt es die Datenverarbeitung für Zwecke des
+                    Beschäftigungsverhältnisses (§ 26 BDSG), insbesondere im Hinblick auf die Begründung, Durchführung
+                    oder Beendigung von Beschäftigungsverhältnissen sowie die Einwilligung von Beschäftigten. Ferner
+                    können Landesdatenschutzgesetze der einzelnen Bundesländer zur Anwendung gelangen.</p>
+                <h2 id="m27">Sicherheitsmaßnahmen</h2>
+                <p>Wir treffen nach Maßgabe der gesetzlichen Vorgaben unter Berücksichtigung des Stands der Technik, der
+                    Implementierungskosten und der Art, des Umfangs, der Umstände und der Zwecke der Verarbeitung sowie
+                    der unterschiedlichen Eintrittswahrscheinlichkeiten und des Ausmaßes der Bedrohung der Rechte und
+                    Freiheiten natürlicher Personen geeignete technische und organisatorische Maßnahmen, um ein dem
+                    Risiko angemessenes Schutzniveau zu gewährleisten.</p>
+                <p>Zu den Maßnahmen gehören insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit
+                    von Daten durch Kontrolle des physischen und elektronischen Zugangs zu den Daten als auch des sie
+                    betreffenden Zugriffs, der Eingabe, der Weitergabe, der Sicherung der Verfügbarkeit und ihrer
+                    Trennung. Des Weiteren haben wir Verfahren eingerichtet, die eine Wahrnehmung von
+                    Betroffenenrechten, die Löschung von Daten und Reaktionen auf die Gefährdung der Daten
+                    gewährleisten. Ferner berücksichtigen wir den Schutz personenbezogener Daten bereits bei der
+                    Entwicklung bzw. Auswahl von Hardware, Software sowie Verfahren entsprechend dem Prinzip des
+                    Datenschutzes, durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen.</p>
+                <p>SSL-Verschlüsselung (https): Um Ihre via unserem Online-Angebot übermittelten Daten zu schützen,
+                    nutzen wir eine SSL-Verschlüsselung. Sie erkennen derart verschlüsselte Verbindungen an dem Präfix
+                    https:// in der Adresszeile Ihres Browsers.</p>
+                <h2 id="m12">Löschung von Daten</h2>
+                <p>Die von uns verarbeiteten Daten werden nach Maßgabe der gesetzlichen Vorgaben gelöscht, sobald deren
+                    zur Verarbeitung erlaubten Einwilligungen widerrufen werden oder sonstige Erlaubnisse entfallen
+                    (z.B. wenn der Zweck der Verarbeitung dieser Daten entfallen ist oder sie für den Zweck nicht
+                    erforderlich sind). Sofern die Daten nicht gelöscht werden, weil sie für andere und gesetzlich
+                    zulässige Zwecke erforderlich sind, wird deren Verarbeitung auf diese Zwecke beschränkt. D.h., die
+                    Daten werden gesperrt und nicht für andere Zwecke verarbeitet. Das gilt z.B. für Daten, die aus
+                    handels- oder steuerrechtlichen Gründen aufbewahrt werden müssen oder deren Speicherung zur
+                    Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer
+                    anderen natürlichen oder juristischen Person erforderlich ist. </p>
+                <p>Unsere Datenschutzhinweise können ferner weitere Angaben zu der Aufbewahrung und Löschung von Daten
+                    beinhalten, die für die jeweiligen Verarbeitungen vorrangig gelten.</p>
+                <h2 id="m225">Bereitstellung des Onlineangebotes und Webhosting</h2>
+                <p>Um unser Onlineangebot sicher und effizient bereitstellen zu können, nehmen wir die Leistungen von
+                    einem oder mehreren Webhosting-Anbietern in Anspruch, von deren Servern (bzw. von ihnen verwalteten
+                    Servern) das Onlineangebot abgerufen werden kann. Zu diesen Zwecken können wir Infrastruktur- und
+                    Plattformdienstleistungen, Rechenkapazität, Speicherplatz und Datenbankdienste sowie
+                    Sicherheitsleistungen und technische Wartungsleistungen in Anspruch nehmen.</p>
+                <p>Zu den im Rahmen der Bereitstellung des Hostingangebotes verarbeiteten Daten können alle die Nutzer
+                    unseres Onlineangebotes betreffenden Angaben gehören, die im Rahmen der Nutzung und der
+                    Kommunikation anfallen. Hierzu gehören regelmäßig die IP-Adresse, die notwendig ist, um die Inhalte
+                    von Onlineangeboten an Browser ausliefern zu können, und alle innerhalb unseres Onlineangebotes oder
+                    von Webseiten getätigten Eingaben.</p>
+                <ul class="m-elements">
+                    <li><strong>Verarbeitete Datenarten:</strong> Inhaltsdaten (z.B. Eingaben in Onlineformularen);
+                        Nutzungsdaten (z.B. besuchte Webseiten, Interesse an Inhalten, Zugriffszeiten);
+                        Meta-/Kommunikationsdaten (z.B. Geräte-Informationen, IP-Adressen).</li>
+                    <li><strong>Betroffene Personen:</strong> Nutzer (z.B. Webseitenbesucher, Nutzer von
+                        Onlinediensten).</li>
+                    <li><strong>Zwecke der Verarbeitung:</strong> Bereitstellung unseres Onlineangebotes und
+                        Nutzerfreundlichkeit; Informationstechnische Infrastruktur (Betrieb und Bereitstellung von
+                        Informationssystemen und technischen Geräten (Computer, Server etc.).).</li>
+                    <li><strong>Rechtsgrundlagen:</strong> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f. DSGVO).
+                    </li>
+                </ul>
+                <p><strong>Weitere Hinweise zu Verarbeitungsprozessen, Verfahren und Diensten:</strong></p>
+                <ul class="m-elements">
+                    <li><strong>Erhebung von Zugriffsdaten und Logfiles: </strong>Wir selbst (bzw. unser
+                        Webhostinganbieter) erheben Daten zu jedem Zugriff auf den Server (sogenannte Serverlogfiles).
+                        Zu den Serverlogfiles können die Adresse und Name der abgerufenen Webseiten und Dateien, Datum
+                        und Uhrzeit des Abrufs, übertragene Datenmengen, Meldung über erfolgreichen Abruf, Browsertyp
+                        nebst Version, das Betriebssystem des Nutzers, Referrer URL (die zuvor besuchte Seite) und im
+                        Regelfall IP-Adressen und der anfragende Provider gehören.
+
+                        Die Serverlogfiles können zum einen zu Zwecken der Sicherheit eingesetzt werden, z.B., um eine
+                        Überlastung der Server zu vermeiden (insbesondere im Fall von missbräuchlichen Angriffen,
+                        sogenannten DDoS-Attacken) und zum anderen, um die Auslastung der Server und ihre Stabilität
+                        sicherzustellen; <strong>Rechtsgrundlagen:</strong> Berechtigte Interessen (Art. 6 Abs. 1 S. 1
+                        lit. f. DSGVO); <strong>Löschung von Daten:</strong> Logfile-Informationen werden für die Dauer
+                        von maximal 30 Tagen gespeichert und danach gelöscht oder anonymisiert. Daten, deren weitere
+                        Aufbewahrung zu Beweiszwecken erforderlich ist, sind bis zur endgültigen Klärung des jeweiligen
+                        Vorfalls von der Löschung ausgenommen.</li>
+                </ul>
+                <h2 id="m42">Begriffsdefinitionen</h2>
+                <p>In diesem Abschnitt erhalten Sie eine Übersicht über die in dieser Datenschutzerklärung verwendeten
+                    Begrifflichkeiten. Viele der Begriffe sind dem Gesetz entnommen und vor allem im Art. 4 DSGVO
+                    definiert. Die gesetzlichen Definitionen sind verbindlich. Die nachfolgenden Erläuterungen sollen
+                    dagegen vor allem dem Verständnis dienen. Die Begriffe sind alphabetisch sortiert.</p>
+                <ul class="glossary">
+                    <li><strong>Personenbezogene Daten:</strong> "Personenbezogene Daten“ sind alle Informationen, die
+                        sich auf eine identifizierte oder identifizierbare natürliche Person (im Folgenden "betroffene
+                        Person“) beziehen; als identifizierbar wird eine natürliche Person angesehen, die direkt oder
+                        indirekt, insbesondere mittels Zuordnung zu einer Kennung wie einem Namen, zu einer Kennnummer,
+                        zu Standortdaten, zu einer Online-Kennung (z.B. Cookie) oder zu einem oder mehreren besonderen
+                        Merkmalen identifiziert werden kann, die Ausdruck der physischen, physiologischen, genetischen,
+                        psychischen, wirtschaftlichen, kulturellen oder sozialen Identität dieser natürlichen Person
+                        sind. </li>
+                    <li><strong>Verantwortlicher:</strong> Als "Verantwortlicher“ wird die natürliche oder juristische
+                        Person, Behörde, Einrichtung oder andere Stelle, die allein oder gemeinsam mit anderen über die
+                        Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet, bezeichnet. </li>
+                    <li><strong>Verarbeitung:</strong> "Verarbeitung" ist jeder mit oder ohne Hilfe automatisierter
+                        Verfahren ausgeführte Vorgang oder jede solche Vorgangsreihe im Zusammenhang mit
+                        personenbezogenen Daten. Der Begriff reicht weit und umfasst praktisch jeden Umgang mit Daten,
+                        sei es das Erheben, das Auswerten, das Speichern, das Übermitteln oder das Löschen. </li>
+                </ul>
+                <p class="seal"><a href="https://datenschutz-generator.de/"
+                        title="Rechtstext von Dr. Schwenke - für weitere Informationen bitte anklicken." target="_blank"
+                        rel="noopener noreferrer nofollow">Erstellt mit kostenlosem Datenschutz-Generator.de von Dr.
+                        Thomas Schwenke</a></p>
+            </div>
         </div>
-        <!--copied from bootstrap-->
-        <button onclick="createTask()">Create Task</button>
-
-
-        <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
-
+    </div>
 </body>
 
 </html>

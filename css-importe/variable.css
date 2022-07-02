@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    --main-font: 'PT Sans';
+
+    --clr-primary: hsl(240, 50%, 40%);
+    --clr-secondary: hsl(0, 100%, 30%);
+
+    --clr-primary-hvr: hsl(240, 50%, 50%);
+    --clr-secondary-hvr: hsl(0, 100%, 40%);
+
+    --px-low: 8px;
+    --px-mid: 16px;
+    --px-high: 32px;
+}
+
+.d-none {
+    display: none;
+}
+
+body {
+    font-family: var(--main-font);
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
+    padding-left: var(--px-mid);
+    margin-bottom: var(--px-mid);
+    border-left: 5px solid transparent;
+    padding: var(--px-low);
+}
+
+.active-h3 {
+    border-left: 5px solid white;
+}
+
+h3:hover {
+    cursor: pointer;
+    background-color: var(--clr-primary-hvr);
+    border-radius: 0.2rem;
+}
+
+.side-bar {
+    position: relative;
+    padding: var(--px-high) var(--px-mid);
+    width: 180px;
+    background-color: var(--clr-primary);
+    color: white;
+    
+}
+
+.side-bar-holder {
+    position: fixed;
+    
+  
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--px-high);
+}
+
+.user {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.user img {
+    position: fixed;
+    bottom: var(--px-mid);
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header {
+    background-color: var(--clr-secondary);
+    height: 116px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding: var(--px-mid);
+    display: flex;
+}
+
+.content {
+    padding: var(--px-high);
+}
