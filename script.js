@@ -19,13 +19,24 @@ let editors = [
     "password": '*****'}
 ]
 
+let tasks = [
+    {
+        "title": 'Design of Concept',
+        "priority": 'high',
+        "category": 'IT',
+        "due-date": '',
+        "editor": 'Martin',
+        "status": 'ToDo',
+        "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
+    }
+]
 
-//Der aktuelle Bearbeiter wird über den Login definiert
+//the current editor will be chosen by login
 let currentEditor;
 
 
 
-// Login Funktionen
+// Login function
 
 
 function submitNewEditor(){
@@ -41,7 +52,7 @@ function submitNewEditor(){
     newEditorPassword.value = '';
     loadEditors();
 }
-/** Auswahl der Bearbeiter */
+/** Choice of editor */
 function loadEditors() {
 
     let editorOptions = document.getElementById('all-editors');
@@ -60,4 +71,25 @@ function setEditor(name){
     currentEditor = `${name}`;
 }
 
-console.log(currentEditor)
+function createTask() {
+
+    let title = document.getElementById('title-task');
+    let priority = document.getElementById('priority-state-input');
+    let category = document.getElementById('category-list-input');
+    let editor = document.getElementById('task-editor-input');
+    let status = document.getElementById('status-list-input');
+    let description = document.getElementById('task-description');
+
+    let task = {
+        "title": title.value,
+        "priority": priority.value,
+        "category": category.value,
+        "due-date": '',
+        "editor": editor.value,
+        "status": status.value,
+        "description": description.value
+    }
+
+    tasks.push(task)
+
+}

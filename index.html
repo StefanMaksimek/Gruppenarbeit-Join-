@@ -50,13 +50,13 @@
     -->
     <h1>ADD TASK</h1>
     <div id="add-task" class="add-task">
-        <input type="text" placeholder="title">
-        <input type="text" name="priority" list="priority-state" placeholder="priority">
+        <input type="text" placeholder="title" id="title-task">
+        <input type="text" name="priority" list="priority-state" placeholder="priority" id="priority-state-input">
         <datalist id="priority-state">
             <option value="high">
             <option value="normal">
         </datalist>
-        <input type="text" name="category" list="category-list" placeholder="category">
+        <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
         <datalist id="category-list">
             <option value="IT">
             <option value="Marketing">
@@ -67,12 +67,12 @@
             <div>Due Date</div>
             <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
         </div>
-        <input type="text" name="editors" list="task-editor" placeholder="editors">
+        <input type="text" name="editors" list="task-editor" placeholder="editors" id="task-editor-input">
         <datalist id="task-editor">
 
         </datalist>
 
-        <input type="text" name="status" list="status-list" placeholder="status">
+        <input type="text" name="status" list="status-list" placeholder="status" id="status-list-input">
         <datalist id="status-list">
             <option value="ToDo">
             <option value="IN PROGRESS">
@@ -83,11 +83,10 @@
         <!--copied from bootstrap-->
         <!-- Textarea with class .w-75 -->
         <div class="form-outline w-75 mb-4">
-            <textarea class="form-control" id="textAreaExample6" rows="3"></textarea>
-            <label class="form-label" for="textAreaExample6">75% width of the parent</label>
+            <textarea class="form-control" id="task-description" rows="3"></textarea>
         </div>
         <!--copied from bootstrap-->
-        <button onclick="creatTask()">Create Task</button>
+        <button onclick="createTask()">Create Task</button>
 
 
         <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
