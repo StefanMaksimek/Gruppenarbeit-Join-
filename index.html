@@ -19,12 +19,53 @@
 </head>
 
 <body>
+
+
+    <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
     <div id="add-task" class="add-task">
         <input type="text" placeholder="title">
-        <input type="text" placeholder="title">
-        <input type="text" placeholder="title">
-        <input type="text" placeholder="title">
-        <input type="text" placeholder="title">
+        <input type="text" name="priority" list="priority-state" placeholder="priority">
+        <datalist id="priority-state">
+            <option value="high">
+            <option value="normal">
+        </datalist>
+        <div>
+            <div>Due Date</div>
+            <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
+        </div>
+        <input type="text" placeholder="editor">
+        <!--copied from bootstrap-->
+        <div class="form-outline">
+            <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
+            <label class="form-label" for="textAreaExample">Message</label>
+        </div>
+        <!--copied from bootstrap-->
+
+        <!-- ----------------------------- Login END ----------------------------- -->
+
+
+        <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <div id="add-task" class="add-task">
+            <input type="text" placeholder="title">
+            <input type="text" name="priority" list="priority-state" placeholder="priority">
+            <datalist id="priority-state">
+                <option value="high">
+                <option value="normal">
+            </datalist>
+            <div>
+                <div>Due Date</div>
+                <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
+            </div>
+            <input type="text" placeholder="editor">
+            <!--copied from bootstrap-->
+            <div class="form-outline">
+                <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
+                <label class="form-label" for="textAreaExample">Message</label>
+            </div>
+            <!--copied from bootstrap-->
+
+            <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+
 </body>
 
 </html>
