@@ -27,11 +27,27 @@ let currentEditor;
 
 // Login Funktionen
 
+
+function submitNewEditor(){
+    let newEditor = document.getElementById('new-editor-inputfield-login')
+    let newEditorPassword = document.getElementById('new-editor-inputfield-pw')
+    let editor = {
+        "name": newEditor.value,
+        "password": newEditorPassword.value
+    };
+
+    editors.push(editor);
+    newEditor.value = '';
+    newEditorPassword.value = '';
+    loadEditors();
+}
 /** Auswahl der Bearbeiter */
 function loadEditors() {
 
     let editorOptions = document.getElementById('all-editors');
     let taskEditors = document.getElementById('task-editor');
+    editorOptions.innerHTML = '';
+    taskEditors.innerHTML = '';
 
     for (let i = 0; i < editors.length; i++) {
         const editorName = editors[i].name;

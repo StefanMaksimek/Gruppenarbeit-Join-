@@ -37,6 +37,7 @@
 
     <div>
         <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
+        <input id="new-editor-inputfield-pw" type="text" placeholder="password">
         <button onclick="submitNewEditor()">Submit</button>
     </div>
     <!-- ----------------------------- Login END ----------------------------- -->
@@ -70,6 +71,15 @@
         <datalist id="task-editor">
 
         </datalist>
+
+        <input type="text" name="status" list="status-list" placeholder="status">
+        <datalist id="status-list">
+            <option value="ToDo">
+            <option value="IN PROGRESS">
+            <option value="TESTING">
+            <option value="DONE"></option>
+        </datalist>
+
         <!--copied from bootstrap-->
         <!-- Textarea with class .w-75 -->
         <div class="form-outline w-75 mb-4">
@@ -77,6 +87,8 @@
             <label class="form-label" for="textAreaExample6">75% width of the parent</label>
         </div>
         <!--copied from bootstrap-->
+        <button onclick="creatTask()">Create Task</button>
+
 
         <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 
