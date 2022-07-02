@@ -18,10 +18,20 @@
     <script src="./script.js"></script>
 </head>
 
-<body>
+<body onload="loadEditors()">
 
 
     <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+    <div id="login" class="login">
+        <input type="text" name="editors" list="all-editors" placeholder="editors">
+        <datalist id="all-editors">
+
+        </datalist>
+    </div>
+    <!-- ----------------------------- Login END ----------------------------- -->
+
+
+    <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
     <div id="add-task" class="add-task">
         <input type="text" placeholder="title">
         <input type="text" name="priority" list="priority-state" placeholder="priority">
@@ -33,7 +43,10 @@
             <div>Due Date</div>
             <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
         </div>
-        <input type="text" placeholder="editor">
+        <input type="text" name="editors" list="task-editor" placeholder="editors">
+        <datalist id="task-editor">
+
+        </datalist>
         <!--copied from bootstrap-->
         <div class="form-outline">
             <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
@@ -41,30 +54,7 @@
         </div>
         <!--copied from bootstrap-->
 
-        <!-- ----------------------------- Login END ----------------------------- -->
-
-
-        <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-        <div id="add-task" class="add-task">
-            <input type="text" placeholder="title">
-            <input type="text" name="priority" list="priority-state" placeholder="priority">
-            <datalist id="priority-state">
-                <option value="high">
-                <option value="normal">
-            </datalist>
-            <div>
-                <div>Due Date</div>
-                <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
-            </div>
-            <input type="text" placeholder="editor">
-            <!--copied from bootstrap-->
-            <div class="form-outline">
-                <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
-                <label class="form-label" for="textAreaExample">Message</label>
-            </div>
-            <!--copied from bootstrap-->
-
-            <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+        <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 
 </body>
 
