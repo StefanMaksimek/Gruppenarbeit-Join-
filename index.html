@@ -22,22 +22,45 @@
 
 
     <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+    <!--
+        Hier kann man auswählen, wer gerade daran arbeitet. Dient als Vorstufe zum richtigen Login mit Passwort
+        h1 kann später gelöscht werden, dient vorerst der Orientierung
+    -->
+    <h1>Login</h1>
     <div id="login" class="login">
         <input type="text" name="editors" list="all-editors" placeholder="editors">
         <datalist id="all-editors">
 
         </datalist>
     </div>
+
+    <div>
+        <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
+        <button onclick="submitNewEditor()">Submit</button>
+    </div>
     <!-- ----------------------------- Login END ----------------------------- -->
 
 
     <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+
+    <!--
+        h1 kann später gelöscht werden, dient vorerst der Orientierung
+    -->
+    <h1>ADD TASK</h1>
     <div id="add-task" class="add-task">
         <input type="text" placeholder="title">
         <input type="text" name="priority" list="priority-state" placeholder="priority">
         <datalist id="priority-state">
             <option value="high">
             <option value="normal">
+        </datalist>
+        <input type="text" name="category" list="category-list" placeholder="category">
+        <datalist id="category-list">
+            <option value="IT">
+            <option value="Marketing">
+            <option value="Sales">
+            <option value="Management"></option>
         </datalist>
         <div>
             <div>Due Date</div>
@@ -48,9 +71,10 @@
 
         </datalist>
         <!--copied from bootstrap-->
-        <div class="form-outline">
-            <textarea class="form-control" id="textAreaExample1" rows="4"></textarea>
-            <label class="form-label" for="textAreaExample">Message</label>
+        <!-- Textarea with class .w-75 -->
+        <div class="form-outline w-75 mb-4">
+            <textarea class="form-control" id="textAreaExample6" rows="3"></textarea>
+            <label class="form-label" for="textAreaExample6">75% width of the parent</label>
         </div>
         <!--copied from bootstrap-->
 
