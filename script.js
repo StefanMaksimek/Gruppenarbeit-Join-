@@ -64,19 +64,25 @@ function submitNewUser() {
     let newUserPassword = document.getElementById('new-user-inputfield-pw')
     let userId = users.length;
 
-    //if function necessary which proof, if there already exist a user with the same name
-    let user = {
-        "id": userId,
-        "name": newUser.value,
-        "password": newUserPassword.value,
-        "icon": ''
-    };
+    if (checkIfUserNameAlreadyExist(newUser) == true) {
+        alert('Usersname already exist')
+    }
+    else {
+        let user = {
+            "id": userId,
+            "name": newUser.value,
+            "password": newUserPassword.value,
+            "icon": ''
+        };
 
-    users.push(user);
-    newUser.value = '';
-    newUserPassword.value = '';
-    loadUsers();
+        users.push(user);
+        newUser.value = '';
+        newUserPassword.value = '';
+        loadUsers();
+        console.log(users)
+    }
 }
+
 
 function checkLoginParaneters() {
     let usersLoginName = document.getElementById('login-user-inputfield')
@@ -112,10 +118,16 @@ function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
 }
 
 
+function checkIfUserNameAlreadyExist(newUser) {
+    return users.some(user => user.name === newUser.value);
+}
+
+
 function showLogoutButton() {
     let logoutButton = document.getElementById('logout-button');
     logoutButton.classList.remove('d-none')
 }
+
 
 function hideLogoutButton() {
     let logoutButton = document.getElementById('logout-button');
@@ -136,9 +148,9 @@ function executeLogout() {
 }
 
 
-function showUsersImage(usersLoginName){
+function showUsersImage(usersLoginName) {
     let content = document.getElementById('user')
-    let searchObject = users.find((user)=>user.name == usersLoginName); //find object in array according user login name
+    let searchObject = users.find((user) => user.name == usersLoginName); //find object in array according user login name
     let imageSource = searchObject.icon //get the image source of the users image
 
     content.innerHTML = `
@@ -147,7 +159,7 @@ function showUsersImage(usersLoginName){
 }
 
 
-function deleteUsersImageAfterLogout(){
+function deleteUsersImageAfterLogout() {
     let content = document.getElementById('user');
     content.innerHTML = '';
 }
@@ -168,9 +180,11 @@ function loadUsers() {
     }
 }
 
+
 function setUser(name) {
     currentUser = `${name}`;
 }
+
 
 function createTask() {
 
@@ -192,7 +206,6 @@ function createTask() {
     }
 
     tasks.push(task)
-
 }
 
 function openAddTask() {
