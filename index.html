@@ -18,7 +18,7 @@
     <script src="./script.js"></script>
 </head>
 
-<body onload="loadEditors()">
+<body onload="loadUsers(); loadUsersPictures()">
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
             <div class="logo">
@@ -31,9 +31,8 @@
             <h3 id="help-h3">Help</h3>
             <h3 id="impressum-h3" onclick="openImpressum()">Impressum</h3>
             <h3 id="datenschutz-h3" onclick="openDatenschutz()">Datenschutz</h3>
-
+<!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
             <div class="user" id="user">
-                <img src="./img/001_fb copy.jpg" alt="">
             </div>
         </div>
 
@@ -50,18 +49,18 @@
             <h1>Login</h1>
             <div id="login-container">
                 <div id="login" class="login">
-                    <input id="login-editor-inputfield" type="text" name="editors" list="all-editors"
-                        placeholder="editors">
-                    <datalist id="all-editors">
+                    <input id="login-user-inputfield" type="text" name="users" list="all-users"
+                        placeholder="users">
+                    <datalist id="all-users">
                     </datalist>
-                    <input id="login-editor-inputfield-pw" type="text" placeholder="password">
+                    <input id="login-user-inputfield-pw" type="text" placeholder="password">
                     <button onclick="checkLoginParaneters()">Login</button>
                 </div>
 
                 <div>
-                    <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
-                    <input id="new-editor-inputfield-pw" type="text" placeholder="password">
-                    <button onclick="submitNewEditor()">Submit</button>
+                    <input id="new-user-inputfield-login" type="text" placeholder="new user">
+                    <input id="new-user-inputfield-pw" type="text" placeholder="password">
+                    <button onclick="submitNewUser()">Submit</button>
                 </div>
             </div>
             <button id="logout-button" onclick="executeLogout()" class="d-none">Logout</button>
@@ -94,8 +93,8 @@
                     <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
                 </div>
 
-                <input type="text" name="editors" list="task-editor" placeholder="editors" id="task-editor-input">
-                <datalist id="task-editor">
+                <input type="text" name="users" list="task-user" placeholder="editors" id="task-user-input">
+                <datalist id="task-user">
 
                 </datalist>
 
