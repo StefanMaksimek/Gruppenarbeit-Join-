@@ -18,7 +18,7 @@
     <script src="./script.js"></script>
 </head>
 
-<body onload="loadUsers(); loadUsersPictures()">
+<body onload="loadUsers()">
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
             <div class="logo">
@@ -48,7 +48,7 @@
     -->
             <h1>Login</h1>
             <div id="login-container">
-                <div id="login" class="login">
+                <div id="login" class="login" style="border: 1px solid green; padding: 8px;">
                     <input id="login-user-inputfield" type="text" name="users" list="all-users"
                         placeholder="users">
                     <datalist id="all-users">
@@ -57,7 +57,7 @@
                     <button onclick="checkLoginParaneters()">Login</button>
                 </div>
 
-                <div>
+                <div style="border: 1px solid blue; padding: 8px;">
                     <input id="new-user-inputfield-login" type="text" placeholder="new user">
                     <input id="new-user-inputfield-pw" type="text" placeholder="password">
                     <button onclick="submitNewUser()">Submit</button>

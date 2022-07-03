@@ -4,30 +4,35 @@
 //Wir brauchen für den Bereich "user" bei Add Task  ein Array mit allen Teilnehmern, die Zugang zu der Liste haben. Überschneidung mit Login
 let users = [
     {
+        "id": 0,
         "name": 'Martin',
         "password": '*****',
         "icon": "./img/001_fb copy.jpg"
     },
 
     {
+        "id": 1,
         "name": 'Stefan',
         "password": '*****',
         "icon": "./img/001_fb copy.jpg"
     },
 
     {
+        "id": 2,
         "name": 'Julia',
         "password": '*****',
         "icon": "./img/001_fb copy.jpg"
     },
 
     {
+        "id": 3,
         "name": 'Michael',
         "password": '*****',
         "icon": "./img/github.jpg"
     },
 
     {
+        "id": 4,
         "name": 'Sahra',
         "password": '*****',
         "icon": "./img/001_fb copy.jpg"
@@ -57,11 +62,14 @@ let currentUser;
 function submitNewUser() {
     let newUser = document.getElementById('new-user-inputfield-login')
     let newUserPassword = document.getElementById('new-user-inputfield-pw')
+    let userId = users.length;
 
     //if function necessary which proof, if there already exist a user with the same name
     let user = {
+        "id": userId,
         "name": newUser.value,
-        "password": newUserPassword.value
+        "password": newUserPassword.value,
+        "icon": ''
     };
 
     users.push(user);
@@ -73,11 +81,13 @@ function submitNewUser() {
 function checkLoginParaneters() {
     let usersLoginName = document.getElementById('login-user-inputfield')
     let usersLoginPW = document.getElementById('login-user-inputfield-pw')
+    let userName = usersLoginName.value
 
     if (checkIfLoginParameterExist(usersLoginName, usersLoginPW)) {
         hideLoginInputfields();
         showLogoutButton();
         clearLoginInputfields();
+        showUsersImage(userName);
     } else {
         alert("There is no user with this name or wrong password");
         clearLoginInputfields();
@@ -122,16 +132,24 @@ function showLoginArea() {
 function executeLogout() {
     hideLogoutButton();
     showLoginArea();
+    deleteUsersImageAfterLogout();
 }
 
-function loadUsersPictures(){
+
+function showUsersImage(usersLoginName){
     let content = document.getElementById('user')
-    for (let i = 0; i < users.length; i++) {
-        const imageSource = users[i].icon;
-        content.innerHTML += `
-        <img id="users-image-${i}" src="${imageSource}" class="d-none">
-        `
-    }
+    let searchObject = users.find((user)=>user.name == usersLoginName); //find object in array according user login name
+    let imageSource = searchObject.icon //get the image source of the users image
+
+    content.innerHTML = `
+    <img src="${imageSource}">
+    `
+}
+
+
+function deleteUsersImageAfterLogout(){
+    let content = document.getElementById('user');
+    content.innerHTML = '';
 }
 
 
