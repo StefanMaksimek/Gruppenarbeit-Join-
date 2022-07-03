@@ -3,20 +3,30 @@
 
 //Wir brauchen für den Bereich "editor" bei Add Task  ein Array mit allen Teilnehmern, die Zugang zu der Liste haben. Überschneidung mit Login
 let editors = [
-    {"name": 'Martin',
-    "password": '*****'},
+    {
+        "name": 'Martin',
+        "password": '*****'
+    },
 
-    {"name": 'Stefan',
-    "password": '*****'}, 
+    {
+        "name": 'Stefan',
+        "password": '*****'
+    },
 
-    {"name": 'Julia',
-    "password": '*****'},
+    {
+        "name": 'Julia',
+        "password": '*****'
+    },
 
-    {"name": 'Michael',
-    "password": '*****'},
+    {
+        "name": 'Michael',
+        "password": '*****'
+    },
 
-    {"name": 'Sahra',
-    "password": '*****'}
+    {
+        "name": 'Sahra',
+        "password": '*****'
+    }
 ]
 
 let tasks = [
@@ -39,9 +49,11 @@ let currentEditor;
 // Login function
 
 
-function submitNewEditor(){
+function submitNewEditor() {
     let newEditor = document.getElementById('new-editor-inputfield-login')
     let newEditorPassword = document.getElementById('new-editor-inputfield-pw')
+
+    //if function necessary which proof, if there already exist a editor with the same name
     let editor = {
         "name": newEditor.value,
         "password": newEditorPassword.value
@@ -52,6 +64,63 @@ function submitNewEditor(){
     newEditorPassword.value = '';
     loadEditors();
 }
+
+function checkLoginParaneters() {
+    let editorsLoginName = document.getElementById('login-editor-inputfield')
+    let editorsLoginPW = document.getElementById('login-editor-inputfield-pw')
+
+    if (checkIfLoginParameterExist(editorsLoginName, editorsLoginPW)) {
+        hideLoginInputfields();
+        showLogoutButton();
+        clearLoginInputfields();
+    } else {
+        alert("There is no user with this name or wrong password");
+        clearLoginInputfields();
+    }
+    
+}
+
+
+function clearLoginInputfields() {
+    document.getElementById('login-editor-inputfield-pw').value = '';
+    document.getElementById('login-editor-inputfield').value = '';
+}
+
+
+function hideLoginInputfields() {
+    let content = document.getElementById('login-container');
+    content.classList.add('d-none')
+}
+
+
+function checkIfLoginParameterExist(editorsLoginName, editorsLoginPW) {
+    return editors.some(editor => editor.name === editorsLoginName.value && editor.password === editorsLoginPW.value);
+}
+
+
+function showLogoutButton() {
+    let logoutButton = document.getElementById('logout-button');
+    logoutButton.classList.remove('d-none')
+}
+
+function hideLogoutButton() {
+    let logoutButton = document.getElementById('logout-button');
+    logoutButton.classList.add('d-none')
+}
+
+
+function showLoginArea(){
+    let loginArea = document.getElementById('login-container');
+    loginArea.classList.remove('d-none')
+}
+
+
+function executeLogout() {
+    hideLogoutButton();
+    showLoginArea();
+}
+
+
 /** Choice of editor */
 function loadEditors() {
 
@@ -67,7 +136,7 @@ function loadEditors() {
     }
 }
 
-function setEditor(name){
+function setEditor(name) {
     currentEditor = `${name}`;
 }
 

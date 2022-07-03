@@ -48,19 +48,23 @@
         h1 kann später gelöscht werden, dient vorerst der Orientierung
     -->
             <h1>Login</h1>
+            <div id="login-container">
+                <div id="login" class="login">
+                    <input id="login-editor-inputfield" type="text" name="editors" list="all-editors"
+                        placeholder="editors">
+                    <datalist id="all-editors">
+                    </datalist>
+                    <input id="login-editor-inputfield-pw" type="text" placeholder="password">
+                    <button onclick="checkLoginParaneters()">Login</button>
+                </div>
 
-            <div id="login" class="login">
-                <input type="text" name="editors" list="all-editors" placeholder="editors">
-                <datalist id="all-editors">
-
-                </datalist>
+                <div>
+                    <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
+                    <input id="new-editor-inputfield-pw" type="text" placeholder="password">
+                    <button onclick="submitNewEditor()">Submit</button>
+                </div>
             </div>
-
-            <div>
-                <input id="new-editor-inputfield-login" type="text" placeholder="new editor">
-                <input id="new-editor-inputfield-pw" type="text" placeholder="password">
-                <button onclick="submitNewEditor()">Submit</button>
-            </div>
+            <button id="logout-button" onclick="executeLogout()" class="d-none">Logout</button>
             <!-- ----------------------------- Login END ----------------------------- -->
         </div>
 
