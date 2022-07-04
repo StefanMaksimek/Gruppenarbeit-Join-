@@ -81,7 +81,7 @@ function submitNewUser() {
         newUser.value = '';
         newUserPassword.value = '';
         loadUsers();
-        console.log(users)
+        closeRegisterBox();
     }
 }
 
@@ -166,6 +166,38 @@ function deleteUsersImageAfterLogout() {
     content.innerHTML = '';
 }
 
+function openRegisterBox() {
+    let content = document.getElementById('register-box')
+    content.innerHTML = #html`
+    <input id="new-user-inputfield-login" type="text" placeholder="name">
+    <input id="new-user-inputfield-pw" type="text" placeholder="password">
+    <input type="text" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
+    <button onclick="openWindowIconSelection()">Icons</button>
+    <div>
+        <button onclick="checkPasswortInRegestrationProcess()">Submit</button>
+        <button onclick="closeRegisterBox()">Cancel</button>
+        </div>
+    `
+}
+
+
+function checkPasswortInRegestrationProcess() {
+    let password = document.getElementById('new-user-inputfield-pw').value
+    let passwortRepeat = document.getElementById('new-user-inputfield-pw-repeat').value
+
+    if (password == passwortRepeat) {
+        submitNewUser()
+    }
+    else {
+        alert('please check your password')
+    }
+}
+
+
+function closeRegisterBox() {
+    let content = document.getElementById('register-box')
+    content.innerHTML = '';
+}
 
 /** Choice of user */
 function loadUsers() {

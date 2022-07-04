@@ -64,8 +64,18 @@
                 </div>
             </div>
             <button id="logout-button" onclick="executeLogout()" class="d-none">Logout</button>
-            <!-- ----------------------------- Login END ----------------------------- -->
+
+            <Button onclick="openRegisterBox()">Registration</Button>
         </div>
+
+        <div id="register-box">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Password">
+            <input type="text" placeholder="Repeat password">
+            <button onclick="openIconWindow()">Icon</button>
+        </div>
+        <!-- ----------------------------- Login END ----------------------------- -->
+
 
         <div class="content" id="content">
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
@@ -174,32 +184,32 @@
             <div class="backlog" id="backlog">
                 <table class="table">
                     <thead>
-                      <tr>
-                        <th scope="col" colspan="2">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                      </tr>
+                        <tr>
+                            <th scope="col" colspan="2">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
                     </tbody>
-                  </table>
+                </table>
             </div>
 
             <div class="d-none" id="impressum">
