@@ -1,0 +1,29 @@
+/*##################   BOARD.CSS   #########################*/
+
+.board {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    box-shadow: 2px 2px 6px 1px hsl(0deg 0% 0% / 20%);;
+}
+
+.to-do-holder {
+    border-bottom-left-radius: 0.2rem;
+    border-bottom-right-radius: 0.2rem;
+    background-color: var(--clr-primary-tr);
+    height: 60vh;
+}
+
+.to-do {
+    width: calc((100vw - 180px) * 0.21 );
+    padding: var(--px-low);
+    margin: var(--px-low);
+    border-radius: 0.2rem;
+    background-color: var(--clr-secondary-tr);
+}
+
+.board h2 {
+    margin: 0;
+}

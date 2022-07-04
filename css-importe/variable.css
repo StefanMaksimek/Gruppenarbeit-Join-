@@ -5,6 +5,9 @@
     --clr-primary: hsl(240, 50%, 40%);
     --clr-secondary: hsl(0, 100%, 30%);
 
+    --clr-primary-tr: hsl(240, 50%, 40%, 0.2);
+    --clr-secondary-tr: hsla(0, 100%, 30%, 0.2);
+
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);
 
@@ -87,6 +90,7 @@ h3:hover {
 }
 
 .header {
+    z-index: 10;
     background-color: var(--clr-secondary);
     height: 116px;
     width: 100%;
@@ -97,5 +101,18 @@ h3:hover {
 }
 
 .content {
-    padding: var(--px-high);
+    padding: var(--px-mid);
+}
+
+/*##################   BACKLOG.CSS   #########################*/
+
+.backlog table {
+    border-collapse: separate;
+    border-spacing: 0 var(--px-low);
+}
+
+.backlog td {
+    margin: var(--px-low);
+    background-color: var(--clr-primary-tr)
+    ;
 }

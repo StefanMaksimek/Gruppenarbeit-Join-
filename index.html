@@ -15,23 +15,24 @@
         crossorigin="anonymous"></script>
     <script src="./scriptImporte/JSON.js"></script>
     <script src="./scriptImporte/HTML.js"></script>
+    <script src="./scriptImporte/globalScript.js"></script>
     <script src="./script.js"></script>
 </head>
 
-<body onload="loadUsers()">
+<body onload="init()">
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
             <div class="logo">
                 <img src="img/joinlogo.png" alt="">
             </div>
 
-            <h3 id="board-h3">Board</h3>
-            <h3 id="backlog-h3">Backlog</h3>
+            <h3 id="board-h3" onclick="openBoard()">Board</h3>
+            <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
             <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
             <h3 id="help-h3">Help</h3>
             <h3 id="impressum-h3" onclick="openImpressum()">Impressum</h3>
             <h3 id="datenschutz-h3" onclick="openDatenschutz()">Datenschutz</h3>
-<!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
+            <!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
             <div class="user" id="user">
             </div>
         </div>
@@ -49,8 +50,7 @@
             <h1>Login</h1>
             <div id="login-container">
                 <div id="login" class="login" style="border: 1px solid green; padding: 8px;">
-                    <input id="login-user-inputfield" type="text" name="users" list="all-users"
-                        placeholder="users">
+                    <input id="login-user-inputfield" type="text" name="users" list="all-users" placeholder="users">
                     <datalist id="all-users">
                     </datalist>
                     <input id="login-user-inputfield-pw" type="text" placeholder="password">
@@ -116,6 +116,91 @@
 
             </div>
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+
+            <div class="board" id="board">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>ToDo</h2>
+                    </div>
+                    <div class="to-do-holder">
+                        <div class="to-do">Aufgaben 1</div>
+                        <div class="to-do">Aufgaben 2</div>
+                        <div class="to-do">Aufgaben 3</div>
+                        <div class="to-do">Aufgaben 4</div>
+                        <div class="to-do">Aufgaben 5</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>In Progress</h2>
+                    </div>
+                    <div class="to-do-holder">
+                        <div class="to-do">Aufgaben 1</div>
+                        <div class="to-do">Aufgaben 2</div>
+                        <div class="to-do">Aufgaben 3</div>
+                        <div class="to-do">Aufgaben 4</div>
+                        <div class="to-do">Aufgaben 5</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Testing</h2>
+                    </div>
+                    <div class="to-do-holder">
+                        <div class="to-do">Aufgaben 1</div>
+                        <div class="to-do">Aufgaben 2</div>
+                        <div class="to-do">Aufgaben 3</div>
+                        <div class="to-do">Aufgaben 4</div>
+                        <div class="to-do">Aufgaben 5</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Done</h2>
+                    </div>
+                    <div class="to-do-holder">
+                        <div class="to-do">Aufgaben 1</div>
+                        <div class="to-do">Aufgaben 2</div>
+                        <div class="to-do">Aufgaben 3</div>
+                        <div class="to-do">Aufgaben 4</div>
+                        <div class="to-do">Aufgaben 5</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="backlog" id="backlog">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col" colspan="2">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
 
             <div class="d-none" id="impressum">
                 <h1>Impressum</h1>
