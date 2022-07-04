@@ -168,8 +168,8 @@ function deleteUsersImageAfterLogout() {
 
 function openRegisterBox() {
     let content = document.getElementById('register-box')
-    content.innerHTML = #html`
-    <input id="new-user-inputfield-login" type="text" placeholder="name">
+    content.innerHTML = 
+    `<input id="new-user-inputfield-login" type="text" placeholder="name">
     <input id="new-user-inputfield-pw" type="text" placeholder="password">
     <input type="text" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
     <button onclick="openWindowIconSelection()">Icons</button>
