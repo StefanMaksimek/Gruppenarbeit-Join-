@@ -224,22 +224,28 @@ function deleteUsersImageAfterLogout() {
 }
 
 function openRegisterBox() {
-    let content = document.getElementById('register-box')
-    content.innerHTML =
-        `<input id="new-user-inputfield-login" type="text" placeholder="name">
+    let content = document.getElementById('registration-box')
+    content.classList.remove('d-none')
+    content.innerHTML = //task: put the following in a template
+        `<div class="registration-box-input"><input id="new-user-inputfield-login" type="text" placeholder="name">
     <input id="new-user-inputfield-pw" type="text" placeholder="password">
     <input type="text" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
-    <button onclick="openWindowIconSelection()">Icons</button>
-    <div>
-        <button onclick="checkPasswortInRegestrationProcess()">Submit</button>
-        <button onclick="closeRegisterBox()">Cancel</button>
+    <div class="icon-container">
+        <button onclick="openWindowIconSelection()">Icons</button>
+        <div id="icon-box" class="icons-box"><img src="/img/icon-unknown.svg"></div>
         </div>
+    <div class="registration-buttons">
+        <button onclick="closeRegisterBox()">Cancel</button>
+        <button onclick="checkPasswortInRegestrationProcess()">Submit</button>
+        </div>
+    </div>
     `
 }
 
 
 function openWindowIconSelection() {
     let content = document.getElementById('icon-box')
+    content.innerHTML = '';
     for (let i = 0; i < icons.length; i++) {
         const icon = icons[i].icon;
         content.innerHTML += `<img src="${icon}" onclick="saveSelectionOfIcon('${icon}')">`
@@ -251,6 +257,13 @@ function saveSelectionOfIcon(icon) {
     temporaryIconArray.length = 0; // clear array, because only the last clicked icon should be pushed
     temporaryIconArray.push(icon)
     closeIconOverview()
+    showSelectedIcon(icon)
+}
+
+
+function showSelectedIcon(icon){
+    let content = document.getElementById('icon-box')
+    content.innerHTML = `<img src="${icon}">`
 }
 
 
@@ -274,8 +287,9 @@ function checkPasswortInRegestrationProcess() {
 
 
 function closeRegisterBox() {
-    let content = document.getElementById('register-box')
+    let content = document.getElementById('registration-box')
     content.innerHTML = '';
+    content.classList.add('d-none')
 }
 
 

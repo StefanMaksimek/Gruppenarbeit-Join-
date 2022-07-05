@@ -111,6 +111,8 @@ h3:hover {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    height: 116px;
+    overflow-y: scroll;
 }
 
 .icons-box img {
@@ -136,6 +138,44 @@ h3:hover {
     border: 3px solid rgba(0, 0, 0, 1);
 }
 
+.registration-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+}
+
+.registration-box-input{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+    background-color: white;
+    width: 450px;
+}
+
+.registration-box-input input {
+    margin-bottom: 25px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 116px;
+}
+
+.registration-buttons{
+    display: flex;
+    justify-content: space-between;
+}
 
 /*##################   BACKLOG.CSS   #########################*/
 
