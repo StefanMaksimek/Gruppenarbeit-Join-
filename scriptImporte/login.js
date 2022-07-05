@@ -1,3 +1,8 @@
+//wenn kein Icon ausgewählt wurde, das Unknown Icon einsetzen mit Alert "willst du kein Icon wählen"
+
+
+
+
 //Wir brauchen für den Bereich "user" bei Add Task  ein Array mit allen Teilnehmern, die Zugang zu der Liste haben. Überschneidung mit Login
 let users = [
     {
