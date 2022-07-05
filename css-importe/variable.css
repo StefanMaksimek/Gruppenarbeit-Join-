@@ -99,6 +99,7 @@ h3:hover {
     top: 0;
     padding: var(--px-mid);
     display: flex;
+    justify-content: end;
 }
 
 .content {
@@ -107,12 +108,30 @@ h3:hover {
 
 
 /*##################   LOGIN CSS   #########################*/
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.login {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.login input {
+    margin-right: 8px;
+}
+
+
 .icons-box {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: 116px;
-    overflow-y: scroll;
+    height: 120px;
+    overflow: auto;
 }
 
 .icons-box img {
@@ -124,7 +143,6 @@ h3:hover {
     margin-right: 6px;
     margin-top: 6px;
     margin-bottom: 6px;
-    
 }
 
 .icons-box img:hover{
@@ -169,7 +187,8 @@ h3:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 116px;
+    height: 120px;
+    margin-bottom: 25px;
 }
 
 .registration-buttons{

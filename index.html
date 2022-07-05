@@ -18,6 +18,7 @@
     <script src="./scriptImporte/globalScript.js"></script>
     <script src="./script.js"></script>
     <script src="./login.js"></script>
+
 </head>
 
 <body onload="init()">
@@ -44,27 +45,26 @@
         <div class="header" id="header">
             <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
 
-
-
-            <div id="login-container">
+            <div id="login-container" class="login-container">
                 <div id="login" class="login">
-                    <input id="login-user-inputfield" type="text" name="users" list="all-users" placeholder="users">
+                    <input id="login-user-inputfield" type="text" name="User" list="all-users" placeholder="User">
                     <datalist id="all-users">
                     </datalist>
-                    <input id="login-user-inputfield-pw" type="text" placeholder="password">
-                    <button onclick="checkLoginParaneters()">Login</button>
+                    <input id="login-user-inputfield-pw" type="password" placeholder="Password">
+                    <button onclick="checkLoginParaneters()" class="btn btn-primary">Login</button>
                 </div>
 
+                <button id="logout-button" onclick="executeLogout()" class="d-none btn btn-primary">Logout</button>
+                <div><button onclick="openRegisterBox()" id="registration-btn"
+                        class="btn btn-primary">Registration</button></div>
+
             </div>
-            <button id="logout-button" onclick="executeLogout()" class="d-none">Logout</button>
 
-            <Button onclick="openRegisterBox()" id="registration-btn">Registration</Button>
+            <div id="registration-box" class="registration-box d-none"></div>
+
+            <!-- ----------------------------- Login END ----------------------------- -->
+
         </div>
-
-        <div id="registration-box" class="registration-box d-none"></div>
-        
-        
-        <!-- ----------------------------- Login END ----------------------------- -->
 
 
         <div class="content" id="content">

@@ -109,8 +109,8 @@ function submitNewUser() {
     let userId = users.length;
     let iconSource = temporaryIconArray[0]
 
-    if (checkIfUserNameAlreadyExist(newUser) == true) {
-        alert('Usersname already exist')
+    if (checkIfUserNameAlreadyExist(newUser) == true || noIconIsSelected()) {
+        alert('Usersname already exist or no icon is selected')
     }
     else {
         let user = {
@@ -125,7 +125,17 @@ function submitNewUser() {
         newUserPassword.value = '';
         loadUsers();
         closeRegisterBox();
+        clearTemporaryIconArray()
     }
+}
+
+
+function clearTemporaryIconArray(){
+    temporaryIconArray.length = 0
+}
+
+function noIconIsSelected(){
+    return temporaryIconArray.length == 0
 }
 
 
@@ -227,9 +237,13 @@ function openRegisterBox() {
     let content = document.getElementById('registration-box')
     content.classList.remove('d-none')
     content.innerHTML = //task: put the following in a template
-        `<div class="registration-box-input"><input id="new-user-inputfield-login" type="text" placeholder="name">
-    <input id="new-user-inputfield-pw" type="text" placeholder="password">
-    <input type="text" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
+        `
+        <div class="registration-box-input">
+        <h2>Registration</h2>
+        <input id="new-user-inputfield-login" type="text" placeholder="Name">
+        <input id="new-user-inputfield-pw" type="password" placeholder="Password">
+    <input type="password" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
+    <div><input type="checkbox" onclick="showPassword()"> Show Password</div>
     <div class="icon-container">
         <button onclick="openWindowIconSelection()">Icons</button>
         <div id="icon-box" class="icons-box"><img src="/img/icon-unknown.svg"></div>
@@ -242,6 +256,15 @@ function openRegisterBox() {
     `
 }
 
+
+function showPassword(){
+    let x = document.getElementById("new-user-inputfield-pw");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
 function openWindowIconSelection() {
     let content = document.getElementById('icon-box')
