@@ -28,7 +28,7 @@
                 <img src="img/joinlogo.png" alt="">
             </div>
 
-            <h3 id="board-h3" onclick="openBoard()">Board</h3>
+            <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
             <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
             <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
             <h3 id="help-h3">Help</h3>
@@ -37,8 +37,8 @@
             <div id="login-logout">
                 <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
                 <h3 id="logout-h3" onclick="executeLogout()" class="d-none">Logout</h3>
-                </div>
-            
+            </div>
+
             <!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
             <div class="user" id="user">
             </div>
@@ -59,7 +59,7 @@
                     <div class="registration-buttons margin-bottom">
                         <button onclick="closeLoginBox()" class="btn btn-primary">Cancel</button>
                         <button onclick="checkLoginParameters()" class="btn btn-primary">Submit</button>
-                        </div>
+                    </div>
                     <div>
                         <button onclick="openRegisterBox()" id="registration-btn"
                             class="btn btn-primary">Registration</button>
@@ -79,19 +79,19 @@
                     <input type="password" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
                     <div>
                         <input type="checkbox" onclick="showPassword()"> Show Password
-                        </div>
+                    </div>
                     <div class="icon-container">
                         <button onclick="openWindowIconSelection()" class="btn btn-primary">Icons</button>
                         <div id="icon-box" class="icons-box">
                             <img src="/img/icon-unknown.svg">
-                            </div>
                         </div>
+                    </div>
                     <div class="registration-buttons">
                         <button onclick="closeRegisterBox()" class="btn btn-primary">Cancel</button>
                         <button onclick="checkPasswortInRegestrationProcess()" class="btn btn-primary">Submit</button>
-                        </div>
                     </div>
                 </div>
+            </div>
 
             <!-- ----------------------------- Login END ----------------------------- -->
 
@@ -99,55 +99,6 @@
 
 
         <div class="content" id="content">
-            <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-            <div id="add-task" class="d-none">
-                <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
-                <h1>ADD TASK</h1>
-
-                <input type="text" placeholder="title" id="title-task">
-                <input type="text" name="priority" list="priority-state" placeholder="priority"
-                    id="priority-state-input">
-                <datalist id="priority-state">
-                    <option value="high">
-                    <option value="normal">
-                </datalist>
-                <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
-                <datalist id="category-list">
-                    <option value="IT">
-                    <option value="Marketing">
-                    <option value="Sales">
-                    <option value="Management"></option>
-                </datalist>
-
-                <div>
-                    <div>Due Date</div>
-                    <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
-                </div>
-
-                <input type="text" name="users" list="task-user" placeholder="editors" id="task-user-input">
-                <datalist id="task-user">
-
-                </datalist>
-
-                <input type="text" name="status" list="status-list" placeholder="status" id="status-list-input">
-                <datalist id="status-list">
-                    <option value="ToDo">
-                    <option value="IN PROGRESS">
-                    <option value="TESTING">
-                    <option value="DONE"></option>
-                </datalist>
-
-                <!--copied from bootstrap-->
-                <!-- Textarea with class .w-75 -->
-                <div class="form-outline w-75 mb-4">
-                    <textarea class="form-control" id="task-description" rows="3"></textarea>
-                </div>
-                <!--copied from bootstrap-->
-                <button onclick="createTask()">Create Task</button>
-
-            </div>
-            <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
-
             <div class="board" id="board">
                 <div class="card">
                     <div class="card-header">
@@ -202,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="backlog" id="backlog">
+            <div class="d-none" id="backlog">
                 <table class="table">
                     <thead>
                         <tr>
@@ -232,6 +183,55 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div class="d-none" id="add-task">
+                <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
+                <h1>ADD TASK</h1>
+
+                <input type="text" placeholder="title" id="title-task">
+                <input type="text" name="priority" list="priority-state" placeholder="priority"
+                    id="priority-state-input">
+                <datalist id="priority-state">
+                    <option value="high">
+                    <option value="normal">
+                </datalist>
+                <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
+                <datalist id="category-list">
+                    <option value="IT">
+                    <option value="Marketing">
+                    <option value="Sales">
+                    <option value="Management"></option>
+                </datalist>
+
+                <div>
+                    <div>Due Date</div>
+                    <input type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31">
+                </div>
+
+                <input type="text" name="users" list="task-user" placeholder="editors" id="task-user-input">
+                <datalist id="task-user">
+
+                </datalist>
+
+                <input type="text" name="status" list="status-list" placeholder="status" id="status-list-input">
+                <datalist id="status-list">
+                    <option value="ToDo">
+                    <option value="IN PROGRESS">
+                    <option value="TESTING">
+                    <option value="DONE"></option>
+                </datalist>
+
+                <!--copied from bootstrap-->
+                <!-- Textarea with class .w-75 -->
+                <div class="form-outline w-75 mb-4">
+                    <textarea class="form-control" id="task-description" rows="3"></textarea>
+                </div>
+                <!--copied from bootstrap-->
+                <button onclick="createTask()">Create Task</button>
+
+            </div>
+            <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 
             <div class="d-none" id="impressum">
                 <h1>Impressum</h1>
