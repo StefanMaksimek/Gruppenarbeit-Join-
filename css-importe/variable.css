@@ -108,6 +108,10 @@ h3:hover {
 
 
 /*##################   LOGIN CSS   #########################*/
+.margin-bottom{
+    margin-bottom: 8px;
+}
+
 .login-container {
     display: flex;
     flex-direction: column;

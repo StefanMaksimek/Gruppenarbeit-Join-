@@ -139,17 +139,17 @@ function noIconIsSelected(){
 }
 
 
-function checkLoginParaneters() {
+function checkLoginParameters() {
     let usersLoginName = document.getElementById('login-user-inputfield')
     let usersLoginPW = document.getElementById('login-user-inputfield-pw')
     let userName = usersLoginName.value
 
     if (checkIfLoginParameterExist(usersLoginName, usersLoginPW)) {
-        hideLoginInputfields();
-        showLogoutButton();
+        hideLoginBox();
+        showLogout();
         clearLoginInputfields();
         showUsersImage(userName);
-        hideRegistrationButton()
+        hideLoginButton()
     } else {
         alert("There is no user with this name or wrong password");
         clearLoginInputfields();
@@ -175,8 +175,14 @@ function clearLoginInputfields() {
 }
 
 
-function hideLoginInputfields() {
+function hideLoginBox() {
     let content = document.getElementById('login-container');
+    content.classList.add('d-none')
+}
+
+
+function hideLoginButton() {
+    let content = document.getElementById('login-h3');
     content.classList.add('d-none')
 }
 
@@ -191,27 +197,27 @@ function checkIfUserNameAlreadyExist(newUser) {
 }
 
 
-function showLogoutButton() {
-    let logoutButton = document.getElementById('logout-button');
+function showLogout() {
+    let logoutButton = document.getElementById('logout-h3');
     logoutButton.classList.remove('d-none')
 }
 
 
 function hideLogoutButton() {
-    let logoutButton = document.getElementById('logout-button');
+    let logoutButton = document.getElementById('logout-h3');
     logoutButton.classList.add('d-none')
 }
 
 
-function showLoginArea() {
-    let loginArea = document.getElementById('login-container');
+function showLoginButton() {
+    let loginArea = document.getElementById('login-h3');
     loginArea.classList.remove('d-none')
 }
 
 
 function executeLogout() {
     hideLogoutButton();
-    showLoginArea();
+    showLoginButton();
     deleteUsersImageAfterLogout();
     showRegistrationButton()
 }
@@ -236,24 +242,34 @@ function deleteUsersImageAfterLogout() {
 function openRegisterBox() {
     let content = document.getElementById('registration-box')
     content.classList.remove('d-none')
-    content.innerHTML = //task: put the following in a template
-        `
-        <div class="registration-box-input">
-        <h2>Registration</h2>
-        <input id="new-user-inputfield-login" type="text" placeholder="Name">
-        <input id="new-user-inputfield-pw" type="password" placeholder="Password">
-    <input type="password" placeholder="Repeat password" id="new-user-inputfield-pw-repeat">
-    <div><input type="checkbox" onclick="showPassword()"> Show Password</div>
-    <div class="icon-container">
-        <button onclick="openWindowIconSelection()">Icons</button>
-        <div id="icon-box" class="icons-box"><img src="/img/icon-unknown.svg"></div>
-        </div>
-    <div class="registration-buttons">
-        <button onclick="closeRegisterBox()">Cancel</button>
-        <button onclick="checkPasswortInRegestrationProcess()">Submit</button>
-        </div>
-    </div>
-    `
+}
+
+function openLoginBox(){
+    let content = document.getElementById('login-container')
+    content.classList.remove('d-none')
+}
+
+
+function closeLoginBox(){
+    let content = document.getElementById('login-container')
+    content.classList.add('d-none')
+    clearInputfieldsLogin();
+}
+
+function clearInputfieldsLogin(){
+    let input1 = document.getElementById('login-user-inputfield')
+    let input2 = document.getElementById('login-user-inputfield-pw')
+    input1.value = '';
+    input2.value = '';
+}
+
+function clearInputfieldsRegistration(){
+    let input1 = document.getElementById('new-user-inputfield-login')
+    let input2 = document.getElementById('new-user-inputfield-pw')
+    let input3 = document.getElementById('new-user-inputfield-pw-repeat')
+    input1.value = '';
+    input2.value = '';
+    input3.value = '';
 }
 
 
@@ -265,6 +281,7 @@ function showPassword(){
     x.type = "password";
   }
 }
+
 
 function openWindowIconSelection() {
     let content = document.getElementById('icon-box')
@@ -311,8 +328,10 @@ function checkPasswortInRegestrationProcess() {
 
 function closeRegisterBox() {
     let content = document.getElementById('registration-box')
-    content.innerHTML = '';
     content.classList.add('d-none')
+    clearInputfieldsRegistration();
+    let icons = document.getElementById('icon-box')
+    icons.innerHTML = '<img src="/img/icon-unknown.svg">';
 }
 
 
