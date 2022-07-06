@@ -100,6 +100,7 @@ let icons = [
     }
 ]
 
+
 let temporaryIconArray = [];
 
 //the current user will be chosen by login

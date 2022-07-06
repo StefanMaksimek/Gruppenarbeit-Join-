@@ -107,6 +107,37 @@ h3:hover {
 }
 
 /*##################   AddTask.CSS   #########################*/
+.margin-top {
+    margin-top: 8px;
+}
+
+.margin-right{
+    margin-right: 8px;
+}
+
+.margin-left{
+    margin-left: 8px;
+}
+
+.width-180{
+    width: 180px;
+}
+
+.btns-add-task {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editor-and-date-box{
+    display: flex;
+    align-items: center;
+}
+
+.input-selection-group {
+    display: flex;
+    justify-content: space-between;
+}
+
 #color-picker-selection-box {
     display: flex;
     align-items: center;
@@ -132,6 +163,7 @@ h3:hover {
 .color-picker-container{
     display: flex;
 }
+
 
 /*##################   BACKLOG.CSS   #########################*/
 
