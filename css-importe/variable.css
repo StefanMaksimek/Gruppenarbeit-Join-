@@ -106,7 +106,32 @@ h3:hover {
     padding: var(--px-mid);
 }
 
+/*##################   AddTask.CSS   #########################*/
+#color-picker-selection-box {
+    display: flex;
+    align-items: center;
+}
+.color-picker-1 {
+    height: 32px;
+    width: 32px;
+    z-index: 5;
+    background-color: blue;
+}
 
+.color-picker-box {
+    height: 25px;
+    width: 25px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.color-picker-box:hover {
+    cursor: pointer;
+}
+
+.color-picker-container{
+    display: flex;
+}
 
 /*##################   BACKLOG.CSS   #########################*/
 

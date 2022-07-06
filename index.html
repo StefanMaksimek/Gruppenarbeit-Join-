@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div  id="registration-request-no-icon-selected-box" class="background-box d-none">
+            <div id="registration-request-no-icon-selected-box" class="background-box d-none">
                 <div class="registration-request-no-icon-selected">
                     <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
                     <div>
@@ -192,21 +192,47 @@
             <div class="d-none" id="add-task">
                 <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
                 <h1>ADD TASK</h1>
+                <div>
+                    <input type="text" placeholder="title" id="title-task">
+                </div>
 
-                <input type="text" placeholder="title" id="title-task">
-                <input type="text" name="priority" list="priority-state" placeholder="priority"
-                    id="priority-state-input">
-                <datalist id="priority-state">
-                    <option value="high">
-                    <option value="normal">
-                </datalist>
-                <input type="text" name="category" list="category-list" placeholder="category" id="category-list-input">
-                <datalist id="category-list">
-                    <option value="IT">
-                    <option value="Marketing">
-                    <option value="Sales">
-                    <option value="Management"></option>
-                </datalist>
+                <div>
+                    <input type="text" name="priority" list="priority-state" placeholder="priority"
+                        id="priority-state-input">
+                    <datalist id="priority-state">
+                        <option value="high">
+                        <option value="normal">
+                    </datalist>
+                    <input type="text" name="category" list="category-list" placeholder="category"
+                        id="category-list-input">
+                    <datalist id="category-list">
+                        <option value="IT">
+                        <option value="Marketing">
+                        <option value="Sales">
+                        <option value="Management"></option>
+                    </datalist>
+
+                    <div id="color-picker-selection-box">
+                        <button onclick="showColor()" class="btn btn-primary" id="add-task-color-button">Color</button>
+                        <div class="d-none color-picker-container" id="color-picker">
+                            <div class="color-picker-box" onclick="takeColor('background-color: blue')"
+                                style="background-color: blue;"></div>
+                            <div class="color-picker-box" onclick="takeColor('background-color: green')"
+                                style="background-color: green;"></div>
+                            <div class="color-picker-box" onclick="takeColor('background-color: red')"
+                                style="background-color: red;"></div>
+                            <div class="color-picker-box" onclick="takeColor('background-color: rgb(255, 255, 0)')"
+                                style="background-color: rgb(255, 255, 0);"></div>
+                            <div class="color-picker-box" onclick="takeColor('background-color: rgb(187, 123, 5)')"
+                                style="background-color: rgb(187, 123, 5);"></div>
+                            <div class="color-picker-box" onclick="takeColor('background-color: rgb(175, 30, 175)')"
+                                style="background-color: rgb(175, 30, 175);"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+
 
                 <div>
                     <div>Due Date</div>
