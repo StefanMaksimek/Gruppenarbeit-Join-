@@ -93,6 +93,10 @@ let icons = [
     {
         "id": 12,
         "icon": "./img/icon_male_6.png"
+    },
+    {
+        "id": 13,
+        "icon": "./img/icon-unknown.svg"
     }
 ]
 
