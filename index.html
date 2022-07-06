@@ -67,10 +67,6 @@
                 </div>
             </div>
 
-            <button id="logout-button" onclick="executeLogout()" class="d-none btn btn-primary">Logout</button>
-
-
-
             <div id="registration-box" class="registration-box d-none">
                 <div class="registration-box-input">
                     <h2>Registration</h2>
@@ -92,7 +88,15 @@
                     </div>
                 </div>
             </div>
-
+            <div  id="registration-request-no-icon-selected-box" class="registration-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
+                    <div>
+                        <button class="btn btn-primary" onclick="closeAskForIconSelection()">No</button>
+                        <button class="btn btn-primary" onclick="submitNewUserWithUnknownIcon()">Yes</button>
+                    </div>
+                </div>
+            </div>
             <!-- ----------------------------- Login END ----------------------------- -->
 
         </div>

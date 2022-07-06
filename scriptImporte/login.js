@@ -107,40 +107,10 @@ function init() {
 }
 
 
-// Login function
-function submitNewUser() {
-    let newUser = document.getElementById('new-user-inputfield-login')
-    let newUserPassword = document.getElementById('new-user-inputfield-pw')
-    let userId = users.length;
-    let iconSource = temporaryIconArray[0]
-
-    if (checkIfUserNameAlreadyExist(newUser) == true || noIconIsSelected()) {
-        alert('Usersname already exist or no icon is selected')
-    }
-    else {
-        let user = {
-            "id": userId,
-            "name": newUser.value,
-            "password": newUserPassword.value,
-            "icon": iconSource
-        };
-
-        users.push(user);
-        newUser.value = '';
-        newUserPassword.value = '';
-        loadUsers();
-        closeRegisterBox();
-        clearTemporaryIconArray()
-    }
-}
-
-
-function clearTemporaryIconArray(){
-    temporaryIconArray.length = 0
-}
-
-function noIconIsSelected(){
-    return temporaryIconArray.length == 0
+// ####### Login functions #######
+function openLoginBox() {
+    let content = document.getElementById('login-container')
+    content.classList.remove('d-none')
 }
 
 
@@ -150,11 +120,10 @@ function checkLoginParameters() {
     let userName = usersLoginName.value
 
     if (checkIfLoginParameterExist(usersLoginName, usersLoginPW)) {
-        hideLoginBox();
         showLogout();
-        clearLoginInputfields();
+        closeLoginBox();
         showUsersImage(userName);
-        hideLoginButton()
+        hideLoginButton();
     } else {
         alert("There is no user with this name or wrong password");
         clearLoginInputfields();
@@ -162,21 +131,14 @@ function checkLoginParameters() {
 }
 
 
-function hideRegistrationButton(){
-    let content = document.getElementById('registration-btn')
-    content.classList.add('d-none')
+function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
+    return users.some(user => user.name === usersLoginName.value && user.password === usersLoginPW.value);
 }
 
 
-function showRegistrationButton(){
-    let content = document.getElementById('registration-btn')
-    content.classList.remove('d-none')
-}
-
-
-function clearLoginInputfields() {
-    document.getElementById('login-user-inputfield-pw').value = '';
-    document.getElementById('login-user-inputfield').value = '';
+function closeLoginBox() {
+    hideLoginBox();
+    clearLoginInputfields();
 }
 
 
@@ -186,141 +148,33 @@ function hideLoginBox() {
 }
 
 
-function hideLoginButton() {
-    let content = document.getElementById('login-h3');
-    content.classList.add('d-none')
+function clearLoginInputfields() {
+    let input1 = document.getElementById('login-user-inputfield');
+    let input2 = document.getElementById('login-user-inputfield-pw');
+    input1.value = '';
+    input2.value = '';
 }
 
 
-function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
-    return users.some(user => user.name === usersLoginName.value && user.password === usersLoginPW.value);
-}
-
-
-function checkIfUserNameAlreadyExist(newUser) {
-    return users.some(user => user.name === newUser.value);
-}
-
-
-function showLogout() {
-    let logoutButton = document.getElementById('logout-h3');
-    logoutButton.classList.remove('d-none')
-}
-
-
-function hideLogoutButton() {
-    let logoutButton = document.getElementById('logout-h3');
-    logoutButton.classList.add('d-none')
-}
-
-
-function showLoginButton() {
-    let loginArea = document.getElementById('login-h3');
-    loginArea.classList.remove('d-none')
-}
-
-
-function executeLogout() {
-    hideLogoutButton();
-    showLoginButton();
-    deleteUsersImageAfterLogout();
-    showRegistrationButton()
-}
-
-
-function showUsersImage(usersLoginName) {
-    let content = document.getElementById('user')
-    let searchObject = users.find((user) => user.name == usersLoginName); //find object in array according user login name
-    let imageSource = searchObject.icon //get the image source of the users image
-
-    content.innerHTML = `
-    <img src="${imageSource}">
-    `
-}
-
-
-function deleteUsersImageAfterLogout() {
-    let content = document.getElementById('user');
-    content.innerHTML = '';
-}
-
+// ####### Registration functions #######
 function openRegisterBox() {
-    let content = document.getElementById('registration-box')
-    content.classList.remove('d-none')
-}
-
-function openLoginBox(){
-    let content = document.getElementById('login-container')
-    content.classList.remove('d-none')
+    let content = document.getElementById('registration-box');
+    content.classList.remove('d-none');
+    clearLoginInputfields()
 }
 
 
-function closeLoginBox(){
-    let content = document.getElementById('login-container')
-    content.classList.add('d-none')
-    clearInputfieldsLogin();
-}
-
-function clearInputfieldsLogin(){
-    let input1 = document.getElementById('login-user-inputfield')
-    let input2 = document.getElementById('login-user-inputfield-pw')
-    input1.value = '';
-    input2.value = '';
-}
-
-function clearInputfieldsRegistration(){
-    let input1 = document.getElementById('new-user-inputfield-login')
-    let input2 = document.getElementById('new-user-inputfield-pw')
-    let input3 = document.getElementById('new-user-inputfield-pw-repeat')
-    input1.value = '';
-    input2.value = '';
-    input3.value = '';
-}
-
-
-function showPassword(){
-    let x = document.getElementById("new-user-inputfield-pw");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
-}
-
-
-function openWindowIconSelection() {
-    let content = document.getElementById('icon-box')
-    content.innerHTML = '';
-    for (let i = 0; i < icons.length; i++) {
-        const icon = icons[i].icon;
-        content.innerHTML += `<img src="${icon}" onclick="saveSelectionOfIcon('${icon}')">`
-    }
-}
-
-
-function saveSelectionOfIcon(icon) {
-    temporaryIconArray.length = 0; // clear array, because only the last clicked icon should be pushed
-    temporaryIconArray.push(icon)
-    closeIconOverview()
-    showSelectedIcon(icon)
-}
-
-
-function showSelectedIcon(icon){
-    let content = document.getElementById('icon-box')
-    content.innerHTML = `<img src="${icon}">`
-}
-
-
-function closeIconOverview(){
-    let content = document.getElementById('icon-box')
-    content.innerHTML = '';
+function closeRegisterBox() {
+    let content = document.getElementById('registration-box');
+    content.classList.add('d-none');
+    clearInputfieldsRegistration();
+    clearIconSelection();
 }
 
 
 function checkPasswortInRegestrationProcess() {
-    let password = document.getElementById('new-user-inputfield-pw').value
-    let passwortRepeat = document.getElementById('new-user-inputfield-pw-repeat').value
+    let password = document.getElementById('new-user-inputfield-pw').value;
+    let passwortRepeat = document.getElementById('new-user-inputfield-pw-repeat').value;
 
     if (password == passwortRepeat) {
         submitNewUser()
@@ -331,15 +185,183 @@ function checkPasswortInRegestrationProcess() {
 }
 
 
-function closeRegisterBox() {
-    let content = document.getElementById('registration-box')
-    content.classList.add('d-none')
-    clearInputfieldsRegistration();
-    let icons = document.getElementById('icon-box')
+function submitNewUser() {
+    let newUser = document.getElementById('new-user-inputfield-login');
+    let newUserPassword = document.getElementById('new-user-inputfield-pw');
+    let iconSource = temporaryIconArray[0];
+
+    if (checkIfUserNameAlreadyExist(newUser) == true) {
+        alert('Username already exist or no icon is selected')
+    }
+    else {
+        if (noIconIsSelected()) {
+            openWindowAskForConfirmationToUseUnknownImage();
+        }
+        else {
+            pushNewUserInArrayUsers(newUser, newUserPassword, iconSource)
+        }
+    }
+}
+
+
+function checkIfUserNameAlreadyExist(newUser) {
+    return users.some(user => user.name === newUser.value);
+}
+
+
+function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource) {
+    let userId = users.length;
+    let user = {
+        "id": userId,
+        "name": newUser.value,
+        "password": newUserPassword.value,
+        "icon": iconSource
+    };
+    users.push(user);
+    loadUsers();
+    closeRegisterBox();
+    clearTemporaryIconArray();
+    alert('Ready for login')
+}
+
+
+function clearInputfieldsRegistration() {
+    let input1 = document.getElementById('new-user-inputfield-login')
+    let input2 = document.getElementById('new-user-inputfield-pw')
+    let input3 = document.getElementById('new-user-inputfield-pw-repeat')
+    input1.value = '';
+    input2.value = '';
+    input3.value = '';
+}
+
+
+// Registration functions - show password
+function showPassword() {
+    let x = document.getElementById("new-user-inputfield-pw");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+// Registration functions - icons
+function openWindowIconSelection() {
+    let content = document.getElementById('icon-box')
+    content.innerHTML = '';
+    for (let i = 0; i < icons.length; i++) {
+        const icon = icons[i].icon;
+        content.innerHTML += `<img src="${icon}" onclick="saveSelectionOfIcon('${icon}')">`;
+    }
+}
+
+
+function saveSelectionOfIcon(icon) {
+    temporaryIconArray.length = 0; // clear array, because only the last clicked icon should be pushed
+    temporaryIconArray.push(icon);
+    closeIconOverview();
+    showSelectedIcon(icon);
+}
+
+
+function closeIconOverview() {
+    let content = document.getElementById('icon-box');
+    content.innerHTML = '';
+}
+
+
+function showSelectedIcon(icon) {
+    let content = document.getElementById('icon-box');
+    content.innerHTML = `<img src="${icon}">`;
+}
+
+
+function clearIconSelection(){
+    let icons = document.getElementById('icon-box');
     icons.innerHTML = '<img src="/img/icon-unknown.svg">';
 }
 
 
+// No Icon selected
+function openWindowAskForConfirmationToUseUnknownImage() {
+    let content = document.getElementById('registration-request-no-icon-selected-box');
+    content.classList.remove('d-none');
+}
+
+
+function closeAskForIconSelection() {
+    let content = document.getElementById('registration-request-no-icon-selected-box');
+    content.classList.add('d-none');
+}
+
+
+function submitNewUserWithUnknownIcon() {
+    let iconSource = './img/icon-unknown.svg';
+    let newUser = document.getElementById('new-user-inputfield-login');
+    let newUserPassword = document.getElementById('new-user-inputfield-pw');
+    closeAskForIconSelection();
+    pushNewUserInArrayUsers(newUser, newUserPassword, iconSource);
+}
+
+
+function clearTemporaryIconArray() {
+    temporaryIconArray.length = 0
+}
+
+
+function noIconIsSelected() {
+    return temporaryIconArray.length == 0
+}
+
+
+//sidebar visibility login, logout, userImage
+function hideLoginButton() {
+    let content = document.getElementById('login-h3');
+    content.classList.add('d-none');
+}
+
+
+function showLogout() {
+    let logoutButton = document.getElementById('logout-h3');
+    logoutButton.classList.remove('d-none');
+}
+
+
+function hideLogoutButton() {
+    let logoutButton = document.getElementById('logout-h3');
+    logoutButton.classList.add('d-none');
+}
+
+
+function showLoginButton() {
+    let loginArea = document.getElementById('login-h3');
+    loginArea.classList.remove('d-none');
+}
+
+
+function showUsersImage(usersLoginName) {
+    let content = document.getElementById('user');
+    let searchObject = users.find((user) => user.name == usersLoginName); //find object in array according user login name
+    let imageSource = searchObject.icon; //get the image source of the users image
+
+    content.innerHTML = `
+    <img src="${imageSource}">
+    `;
+}
+
+
+// Logout function
+function executeLogout() {
+    hideLogoutButton();
+    showLoginButton();
+    deleteUsersImageAfterLogout();
+}
+
+
+function deleteUsersImageAfterLogout() {
+    let content = document.getElementById('user');
+    content.innerHTML = '';
+}
 
 
 /** Choice of user */
