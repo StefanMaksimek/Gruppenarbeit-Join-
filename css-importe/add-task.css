@@ -1,0 +1,58 @@
+/*##################   AddTask.CSS   #########################*/
+.margin-top {
+    margin-top: 8px;
+}
+
+.margin-right{
+    margin-right: 8px;
+}
+
+.margin-left{
+    margin-left: 8px;
+}
+
+.width-180{
+    width: 180px;
+}
+
+.btns-add-task {
+    display: flex;
+    justify-content: space-between;
+}
+
+.editor-and-date-box{
+    display: flex;
+    align-items: center;
+}
+
+.input-selection-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+#color-picker-selection-box {
+    display: flex;
+    align-items: center;
+}
+
+.color-picker-1 {
+    height: 32px;
+    width: 32px;
+    z-index: 5;
+    background-color: blue;
+}
+
+.color-picker-box {
+    height: 25px;
+    width: 25px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.color-picker-box:hover {
+    cursor: pointer;
+}
+
+.color-picker-container{
+    display: flex;
+}
