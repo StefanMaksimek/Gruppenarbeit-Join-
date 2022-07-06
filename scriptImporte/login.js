@@ -373,14 +373,12 @@ function deleteUsersImageAfterLogout() {
 function loadUsers() {
 
     let userOptions = document.getElementById('all-users');
-    let taskUsers = document.getElementById('task-user');
+
     userOptions.innerHTML = '';
-    taskUsers.innerHTML = '';
 
     for (let i = 0; i < users.length; i++) {
         const userName = users[i].name;
         userOptions.innerHTML += `<option value="${userName}" onclick="setUser(${userName})"></option>`;
-        taskUsers.innerHTML += `<option value="${userName}" onclick="setUser(${userName})"></option>`;
     }
 }
 
@@ -396,3 +394,4 @@ function loginAsTestuser(){
     document.getElementById('login-user-inputfield').value = 'Testuser'
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
 }
+

@@ -23,11 +23,11 @@
     <script>
         setURL('https://michael-strauss.developerakademie.net/smalles_backend_ever-master')
 
-        async function init(){
-           await downloadFromServer();
-           users = JSON.parse(backend.getItem('users')) || [];
-           loadUsers();
-        }
+        /**async function init() {
+            //await downloadFromServer();
+            //users = JSON.parse(backend.getItem('users')) || [];
+            loadUsers();
+        }*/
     </script>
 
 </head>
@@ -238,22 +238,27 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="margin-top editor-and-date-box">
                     <div class="margin-right width-180">Due Date:</div>
-                    <input class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31"
-                        id="due-date">
-                     <input type="text" name="users" list="task-user" placeholder="Editor" id="task-user-input" class="form-control">
-                    <datalist id="task-user"></datalist>   
+                    <input class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value=""
+                        min="2022-01-01" max="2030-12-31" id="due-date">
+                    <button class="btn btn-primary" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</button>
+                    <div id="add-task-editor-list"></div>
                 </div>
-                <div class="margin-top">
-                    
 
+                <div id="list-of-employees-box" class="background-box d-none">
+                    <div class="registration-request-no-icon-selected">
+                        <h2>Please select</h2>
+                        <div id="add-task-editor-list">
+<img src="">
 
-
-
+                        </div>
+                        <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
+                    </div>
                 </div>
+
                 <!--copied from bootstrap-->
                 <!-- Textarea with class .w-75 -->
                 <div class="form-outline mb-4 margin-top">
@@ -261,25 +266,25 @@
                 </div>
                 <!--copied from bootstrap-->
                 <div class="btns-add-task">
-                <div id="color-picker-selection-box" class="margin-top">
-                    <button onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</button>
-                    <div class="d-none color-picker-container" id="color-picker">
-                        <div class="color-picker-box" onclick="takeColor('blue')" style="background-color: blue;">
+                    <div id="color-picker-selection-box" class="margin-top">
+                        <button onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</button>
+                        <div class="d-none color-picker-container" id="color-picker">
+                            <div class="color-picker-box" onclick="takeColor('blue')" style="background-color: blue;">
+                            </div>
+                            <div class="color-picker-box" onclick="takeColor('green')" style="background-color: green;">
+                            </div>
+                            <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
+                            </div>
+                            <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
+                                style="background-color: rgb(178, 202, 43);"></div>
+                            <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
+                                style="background-color: rgb(187, 123, 5);"></div>
+                            <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
+                                style="background-color: rgb(175, 30, 175);"></div>
                         </div>
-                        <div class="color-picker-box" onclick="takeColor('green')" style="background-color: green;">
-                        </div>
-                        <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
-                        </div>
-                        <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
-                            style="background-color: rgb(178, 202, 43);"></div>
-                        <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
-                            style="background-color: rgb(187, 123, 5);"></div>
-                        <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
-                            style="background-color: rgb(175, 30, 175);"></div>
                     </div>
+                    <button class="btn btn-primary" onclick="createTask()">Create Task</button>
                 </div>
-                <button class="btn btn-primary" onclick="createTask()">Create Task</button>
-            </div>
             </div>
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 

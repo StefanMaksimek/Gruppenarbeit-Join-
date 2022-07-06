@@ -25,7 +25,7 @@ function showColor() {
 }
 
 
-function colorOptionsAreHiding(content){
+function colorOptionsAreHiding(content) {
     return content.classList.contains('d-none');
 }
 
@@ -80,7 +80,7 @@ function checkInputValueOfAddTask(task) {
 }
 
 
-function lengthOfTitle(){
+function lengthOfTitle() {
     return document.getElementById('title-task').value.length;
 }
 
@@ -97,11 +97,44 @@ function clearTaskInputfields() {
     clearColorofButtonForColorSelection()
 }
 
-function setTemporaryArrayColorToStandard(){
+function setTemporaryArrayColorToStandard() {
     let color = 'lightblue'; // if no color is selected, lightblue wil be pushed
     temporaryArrayColor[0] = color;
 }
 
-function clearColorofButtonForColorSelection(){
+function clearColorofButtonForColorSelection() {
     document.getElementById('add-task-color-button').style.backgroundColor = null;
+}
+
+
+function closeListOfEmployeesBoxForAddTask() {
+    let content = document.getElementById('list-of-employees-box')
+    content.classList.add('d-none')
+    clearUserListForAddEmployees()
+}
+
+
+function openListOfEmployeesBoxForAddTask() {
+    let content = document.getElementById('list-of-employees-box');
+    content.classList.remove('d-none');
+    loadUserListForAddEmployees()
+}
+
+
+function loadUserListForAddEmployees() {
+    let content = document.getElementById('add-task-editor-list')
+    for (let i = 0; i < users.length; i++) {
+        const userName = users[i].name;
+        const userIcon = users[i].icon;
+
+        content.innerHTML += `<div class="user">
+        <img src="${userIcon}">
+        <span>${userName}</span>
+        </div>`
+    }
+}
+
+function clearUserListForAddEmployees() {
+    let content = document.getElementById('add-task-editor-list')
+    content.innerHTML = ''
 }
