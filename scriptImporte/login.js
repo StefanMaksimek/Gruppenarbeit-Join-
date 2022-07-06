@@ -7,9 +7,9 @@
 let users = [
     {
         "id": 0,
-        "name": 'Martin',
-        "password": '*****',
-        "icon": "./img/icon_male_2.png"
+        "name": 'Testuser',
+        "password": 'e=mc²',
+        "icon": "./img/icon-unknown.svg"
     },
 
     {
@@ -107,9 +107,9 @@ let temporaryIconArray = [];
 let currentUser;
 
 // init function for body-onloading to load more functions as one!
-function init() {
-    loadUsers()
-}
+
+
+
 
 
 // ####### Login functions #######
@@ -387,4 +387,12 @@ function loadUsers() {
 
 function setUser(name) {
     currentUser = `${name}`;
+}
+
+
+// Testuser
+
+function loginAsTestuser(){
+    document.getElementById('login-user-inputfield').value = 'Testuser'
+    document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
 }
