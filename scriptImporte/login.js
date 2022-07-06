@@ -380,6 +380,7 @@ function loadUsers() {
         const userName = users[i].name;
         userOptions.innerHTML += `<option value="${userName}" onclick="setUser(${userName})"></option>`;
     }
+    loadAllUserNamesInArray() //for search function in Add Task
 }
 
 

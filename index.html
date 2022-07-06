@@ -245,15 +245,19 @@
                     <input class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value=""
                         min="2022-01-01" max="2030-12-31" id="due-date">
                     <button class="btn btn-primary" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</button>
-                    <div id="add-task-editor-list"></div>
+                    <div id="responsible-editor-list"></div>
                 </div>
 
                 <div id="list-of-employees-box" class="background-box d-none">
                     <div class="registration-request-no-icon-selected">
                         <h2>Please select</h2>
-                        <div id="add-task-editor-list">
-<img src="">
+                        <div>
+                            <div class="search-bar">
+                                <input type="text" placeholder="Search" id="search" onkeyup="startSearchUser()">
+                            </div>
+                            <div id="add-task-editor-list">
 
+                            </div>
                         </div>
                         <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                     </div>

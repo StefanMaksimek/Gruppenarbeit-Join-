@@ -117,17 +117,17 @@ function closeListOfEmployeesBoxForAddTask() {
 function openListOfEmployeesBoxForAddTask() {
     let content = document.getElementById('list-of-employees-box');
     content.classList.remove('d-none');
-    loadUserListForAddEmployees()
+    //loadUserListForAddEmployees()
 }
 
-
+/*
 function loadUserListForAddEmployees() {
     let content = document.getElementById('add-task-editor-list')
     for (let i = 0; i < users.length; i++) {
         const userName = users[i].name;
         const userIcon = users[i].icon;
 
-        content.innerHTML += `<div class="user">
+        content.innerHTML += `<div class="add-task-select-employees">
         <img src="${userIcon}">
         <span>${userName}</span>
         </div>`
@@ -137,4 +137,54 @@ function loadUserListForAddEmployees() {
 function clearUserListForAddEmployees() {
     let content = document.getElementById('add-task-editor-list')
     content.innerHTML = ''
+}*/
+
+//Search Function
+
+const search = document.getElementById('search')
+const matchList = document.getElementById('add-task-editor-list')
+
+let userNames = [];
+
+function loadAllUserNamesInArray(){
+    for (let i = 0; i < users.length; i++) {
+        const name = users[i].name;
+        userNames.push(name)
+    }
+}
+
+function startSearchUser() {
+    let searchText = document.getElementById('search').value;
+    searchUser(searchText)
+}
+
+function searchUser(searchText) {
+    const editors = userNames
+    let matches = editors.filter(editor => {
+        const regex = new RegExp(`^${searchText}`, "gi")
+        return editor.match(regex)
+    })
+
+    if (document.getElementById('search').value == '') {
+        matches = '';
+        document.getElementById('add-task-editor-list').innerHTML = '';
+    }
+
+    showMatches(matches)
+}
+
+function showMatches(matches) {
+    if (matches.length > 0) {
+        let userProposals = document.getElementById('add-task-editor-list')
+        document.getElementById('add-task-editor-list').innerHTML = '';
+        for (let i = 0; i < matches.length; i++) {
+            let user = matches[i];
+            userProposals.innerHTML += `
+            <div class="list-search-result" id="pokemon-match-${i}" onclick="addUserToResponsibleEmployees('${user}')">
+                ${user}
+            </div>`
+        }
+    }
+
+    matches = [];
 }
