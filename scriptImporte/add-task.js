@@ -66,7 +66,7 @@ function createTask() {
         "color": color
     }
     pushAllUsersInTask(task)
-    tasks.push(task)  
+    tasks.push(task)
     clearTaskInputfields()
 }
 
@@ -173,34 +173,79 @@ function showMatches(matches) {
             let user = matches[i];
             let icon = users.find(t => t.name == user).icon
 
-            if(alreadyResponsibleUserAdded(user)){ //if user is already in the editor list, it has not to be shown as possible editor
+            if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
             }
-            else{
-               userProposals.innerHTML += `
+            else {
+                userProposals.innerHTML += `
             <div class="list-search-result" id="${user}-${icon}">
             <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
-                <p id="responsible-employees-${i}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
-            </div>` 
+                <p id="responsible-employees-${user}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
+            </div>`
             }
-            
+
         }
     }
 
     matches = [];
 }
 
-function alreadyResponsibleUserAdded(user){
+function alreadyResponsibleUserAdded(user) {
     return document.getElementById('responsible-editor-list').contains(document.getElementById(`${user}-responsible-editor-img`))
 }
 
 function addUserToResponsibleEmployees(user, icon) {
-    let content = document.getElementById('responsible-editor-list')
-    content.innerHTML += `<div> <img id="${user}-responsible-editor-img" class="list-search-result-img" src="${icon}"</div>`
-    temporaryArrayResponsibleEmployees.push(user)
+    let responsibleUser = {
+        "user": user,
+        "icon": icon
+    }
+    temporaryArrayResponsibleEmployees.push(responsibleUser)
+    renderResponsibleUserList()
     deleteFromList(user, icon);
 }
+
+function renderResponsibleUserList() {
+    let content = document.getElementById('responsible-editor-list')
+    content.innerHTML = '';
+
+    for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
+        const name = temporaryArrayResponsibleEmployees[i].user;
+        const img = temporaryArrayResponsibleEmployees[i].icon;
+        content.innerHTML += ` 
+        <img id="${name}-responsible-editor-img" draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="list-search-result-img" src="${img}">`
+    }
+}
+
+/**content.innerHTML += `<div id="${name}-responsible-editor-box" draggable="true" ondragstart="deleteResponsibleEmployee(${name})"> 
+        <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}"></div>` */
 
 function deleteFromList(user, icon) {
     let content = document.getElementById(`${user}-${icon}`)
     content.parentNode.removeChild(content)
+}
+
+let currentDraggedUserAddTask;
+let currentDraggedIconAddTask;
+
+
+function deleteResponsibleEmployee(user, icon) {
+    currentDraggedUserAddTask = user;
+    currentDraggedIconAddTask = icon
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function highlight() {
+    document.getElementById('responsible-editor-list-bin').classList.add('drag-area-highlight')
+}
+
+
+//delete by moving the img to the bin
+function moveToBin() {
+    const index = temporaryArrayResponsibleEmployees.findIndex(x => x.user === currentDraggedUserAddTask);
+if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
+
+    //temporaryArrayResponsibleEmployees.splice(currentDraggedUserAddTask, 1)
+    renderResponsibleUserList()
 }

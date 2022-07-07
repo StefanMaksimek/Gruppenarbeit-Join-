@@ -268,7 +268,8 @@
                     </div>
                     <div class="responsible-editor-list-container form-control">
                         <div>Responsible Employees</div>
-                        <div id="responsible-editor-list" class="responsible-editor-list"></div>
+                        <div id="responsible-editor-list" class="responsible-editor-list" ondragover="allowDrop(event)"></div>
+                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event); highlight()" ondrop="moveToBin()">Bin</div>
                     </div>
                     
 
@@ -281,25 +282,6 @@
                     </div>
                     <!--copied from bootstrap-->
                     <div class="btns-add-task">
-                        <div id="color-picker-selection-box" class="margin-top">
-                            <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
-                            <div class="d-none color-picker-container" id="color-picker">
-                                <div class="color-picker-box" onclick="takeColor('blue')"
-                                    style="background-color: blue;">
-                                </div>
-                                <div class="color-picker-box" onclick="takeColor('green')"
-                                    style="background-color: green;">
-                                </div>
-                                <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
-                                </div>
-                                <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
-                                    style="background-color: rgb(178, 202, 43);"></div>
-                                <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
-                                    style="background-color: rgb(187, 123, 5);"></div>
-                                <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
-                                    style="background-color: rgb(175, 30, 175);"></div>
-                            </div>
-                        </div>
                         <button type="submit" class="btn btn-primary">Create Task</button>
                     </div>
                 </form>
@@ -320,8 +302,6 @@
                     <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                 </div>
             </div>
-
-            <div id="test"></div>
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 
             <div class="d-none" id="impressum">
