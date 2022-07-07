@@ -4,7 +4,7 @@ let tasks = [
         "priority": 'high',
         "category": 'IT',
         "due-date": '',
-        "user": '',
+        "user": ['Martin', 'Sahra', 'Stefan'],
         "status": 'ToDo',
         "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
     }
@@ -60,18 +60,25 @@ function createTask() {
         "priority": priority.value,
         "category": category.value,
         "due-date": dueDate.value,
-        "user": temporaryArrayResponsibleEmployees,
+        "user": [],
         "status": status.value,
         "description": description.value,
         "color": color
     }
-    
+    pushAllUsersInTask(task)
     tasks.push(task)
-    console.log(tasks)
+    
     clearTaskInputfields()
+    console.log(tasks)
     testOfInputOfTasksArray()
 }
 
+function pushAllUsersInTask(task) {
+    for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
+        const name = temporaryArrayResponsibleEmployees[i];
+        task.user.push(name)
+    }
+}
 
 function lengthOfTitle() {
     return document.getElementById('title-task').value.length;
@@ -91,11 +98,11 @@ function clearTaskInputfields() {
     clearColorofButtonForColorSelection()
 }
 
-function clearResponsibleEditorList(){
+function clearResponsibleEditorList() {
     document.getElementById('responsible-editor-list').innerHTML = '';
 }
 
-function setTemporaryArrayResponsibleEmployeesToStandard(){
+function setTemporaryArrayResponsibleEmployeesToStandard() {
     temporaryArrayResponsibleEmployees.length = 0;
 }
 
@@ -148,7 +155,7 @@ const matchList = document.getElementById('add-task-editor-list')
 
 let userNames = [];
 
-function loadAllUserNamesInArray(){
+function loadAllUserNamesInArray() {
     for (let i = 0; i < users.length; i++) {
         const name = users[i].name;
         userNames.push(name)
@@ -181,7 +188,7 @@ function showMatches(matches) {
         document.getElementById('add-task-editor-list').innerHTML = '';
         for (let i = 0; i < matches.length; i++) {
             let user = matches[i];
-            let icon = users.find(t=>t.name == user).icon
+            let icon = users.find(t => t.name == user).icon
             userProposals.innerHTML += `
             <div class="list-search-result" id="${user}-${icon}">
             <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
@@ -193,25 +200,24 @@ function showMatches(matches) {
     matches = [];
 }
 
-function addUserToResponsibleEmployees(user, icon){
-let content = document.getElementById('responsible-editor-list')
-content.innerHTML += `<div> <img class="list-search-result-img" src="${icon}"</div>`
-temporaryArrayResponsibleEmployees.push(user)
-deleteFromList(user, icon);
+function addUserToResponsibleEmployees(user, icon) {
+    let content = document.getElementById('responsible-editor-list')
+    content.innerHTML += `<div> <img class="list-search-result-img" src="${icon}"</div>`
+    temporaryArrayResponsibleEmployees.push(user)
+    console.log(temporaryArrayResponsibleEmployees)
+    deleteFromList(user, icon);
 }
 
-function deleteFromList(user, icon){
-   let content = document.getElementById(`${user}-${icon}`)
-   content.parentNode.removeChild(content)
+function deleteFromList(user, icon) {
+    let content = document.getElementById(`${user}-${icon}`)
+    content.parentNode.removeChild(content)
 }
 
 
-function testOfInputOfTasksArray(){
+function testOfInputOfTasksArray() {
     let content = document.getElementById('test')
     for (let i = 0; i < tasks[1].user.length; i++) {
-        const name = tasks[1].user;
+        const name = tasks[1].user[i];
         content.innerHTML += `<div>${name}</div>`
-        
     }
-    
 }
