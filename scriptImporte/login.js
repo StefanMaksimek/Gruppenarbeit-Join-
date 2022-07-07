@@ -38,6 +38,27 @@ let users = [
         "name": 'Sahra',
         "password": '*****',
         "icon": "./img/icon_female_6.png"
+    },
+
+    {
+        "id": 5,
+        "name": 'Sebastian Müller-Wagner',
+        "password": '*****',
+        "icon": "./img/icon_male_6.png"
+    },
+
+    {
+        "id": 6,
+        "name": 'Sandro',
+        "password": '*****',
+        "icon": "./img/icon_male_5.jpg"
+    },
+
+    {
+        "id": 7,
+        "name": 'Sven',
+        "password": '*****',
+        "icon": "./img/icon_male_2.png"
     }
 ]
 

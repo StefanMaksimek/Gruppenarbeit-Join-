@@ -4,13 +4,14 @@ let tasks = [
         "priority": 'high',
         "category": 'IT',
         "due-date": '',
-        "user": 'Martin',
+        "user": ['Martin'],
         "status": 'ToDo',
         "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
     }
 ];
 
 let temporaryArrayColor = ['lightblue'];
+let temporaryArrayResponsibleEmployees = [];
 
 
 function showColor() {
@@ -49,7 +50,6 @@ function createTask() {
     let title = document.getElementById('title-task');
     let priority = document.getElementById('priority-state-input');
     let category = document.getElementById('category-list-input');
-    let user = document.getElementById('task-user-input');
     let status = document.getElementById('status-list-input');
     let description = document.getElementById('task-description');
     let dueDate = document.getElementById('due-date')
@@ -60,7 +60,7 @@ function createTask() {
         "priority": priority.value,
         "category": category.value,
         "due-date": dueDate.value,
-        "user": user.value,
+        "user": temporaryArrayResponsibleEmployees[0],
         "status": status.value,
         "description": description.value,
         "color": color
@@ -89,12 +89,21 @@ function clearTaskInputfields() {
     document.getElementById('title-task').value = '';
     document.getElementById('priority-state-input').value = 'Priority...';
     document.getElementById('category-list-input').value = 'Category...';
-    document.getElementById('task-user-input').value = '';
     document.getElementById('status-list-input').value = 'Status...';
     document.getElementById('task-description').value = '...';
     document.getElementById('due-date').value = '';
+    clearResponsibleEditorList();
     setTemporaryArrayColorToStandard();
+    setTemporaryArrayResponsibleEmployeesToStandard();
     clearColorofButtonForColorSelection()
+}
+
+function clearResponsibleEditorList(){
+    document.getElementById('responsible-editor-list').innerHTML = '';
+}
+
+function setTemporaryArrayResponsibleEmployeesToStandard(){
+    temporaryArrayResponsibleEmployees.length = 0;
 }
 
 function setTemporaryArrayColorToStandard() {
@@ -133,11 +142,11 @@ function loadUserListForAddEmployees() {
         </div>`
     }
 }
-
+*/
 function clearUserListForAddEmployees() {
-    let content = document.getElementById('add-task-editor-list')
-    content.innerHTML = ''
-}*/
+    let content = document.getElementById('search')
+    content.value = ''
+}
 
 //Search Function
 
@@ -179,12 +188,26 @@ function showMatches(matches) {
         document.getElementById('add-task-editor-list').innerHTML = '';
         for (let i = 0; i < matches.length; i++) {
             let user = matches[i];
+            let icon = users.find(t=>t.name == user).icon
             userProposals.innerHTML += `
-            <div class="list-search-result" id="pokemon-match-${i}" onclick="addUserToResponsibleEmployees('${user}')">
-                ${user}
+            <div class="list-search-result" id="${user}-${icon}">
+            <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
+                <p id="responsible-employees-${i}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
             </div>`
         }
     }
 
     matches = [];
+}
+
+function addUserToResponsibleEmployees(user, icon){
+let content = document.getElementById('responsible-editor-list')
+content.innerHTML += `<div> <img class="list-search-result-img" src="${icon}"</div>`
+temporaryArrayResponsibleEmployees.push(user)
+deleteFromList(user, icon);
+}
+
+function deleteFromList(user, icon){
+   let content = document.getElementById(`${user}-${icon}`)
+   content.parentNode.removeChild(content)
 }

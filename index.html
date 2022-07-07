@@ -204,8 +204,9 @@
             <div class="d-none" id="add-task">
                 <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
                 <h1>ADD TASK</h1>
+                <form onsubmit="createTask()">
                 <div>
-                    <input type="text" placeholder="Title" id="title-task" class="form-control">
+                    <input required type="text" placeholder="Title" id="title-task" class="form-control">
                 </div>
                 <div class="margin-top input-selection-group">
                     <div class="input-group">
@@ -242,36 +243,23 @@
 
                 <div class="margin-top editor-and-date-box">
                     <div class="margin-right width-180">Due Date:</div>
-                    <input class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value=""
+                    <input required class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value=""
                         min="2022-01-01" max="2030-12-31" id="due-date">
-                    <button class="btn btn-primary" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</button>
+                    <div class="btn btn-info" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</div>
                     <div id="responsible-editor-list"></div>
                 </div>
 
-                <div id="list-of-employees-box" class="background-box d-none">
-                    <div class="registration-request-no-icon-selected">
-                        <h2>Please select</h2>
-                        <div>
-                            <div class="search-bar">
-                                <input type="text" placeholder="Search" id="search" onkeyup="startSearchUser()">
-                            </div>
-                            <div id="add-task-editor-list">
-
-                            </div>
-                        </div>
-                        <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
-                    </div>
-                </div>
+                
 
                 <!--copied from bootstrap-->
                 <!-- Textarea with class .w-75 -->
                 <div class="form-outline mb-4 margin-top">
-                    <textarea class="form-control" id="task-description" rows="3" placeholder="..."></textarea>
+                    <textarea required class="form-control" id="task-description" rows="3" placeholder="..."></textarea>
                 </div>
                 <!--copied from bootstrap-->
                 <div class="btns-add-task">
                     <div id="color-picker-selection-box" class="margin-top">
-                        <button onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</button>
+                        <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
                         <div class="d-none color-picker-container" id="color-picker">
                             <div class="color-picker-box" onclick="takeColor('blue')" style="background-color: blue;">
                             </div>
@@ -287,7 +275,23 @@
                                 style="background-color: rgb(175, 30, 175);"></div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" onclick="createTask()">Create Task</button>
+                    <button class="btn btn-primary">Create Task</button>
+                </div>
+            </form>
+            </div>
+
+            <div id="list-of-employees-box" class="background-box d-none">
+                <div class="select-employees-container">
+                    <h2>Please select</h2>
+                    <div class="select-employees-container-list">
+                        <div class="search-bar">
+                            <input class="input-search-employees" type="text" placeholder="Search" id="search" onkeyup="startSearchUser()">
+                        </div>
+                        <div id="add-task-editor-list" class="add-task-editor-list">
+
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                 </div>
             </div>
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
