@@ -66,11 +66,8 @@ function createTask() {
         "color": color
     }
     pushAllUsersInTask(task)
-    tasks.push(task)
-    
+    tasks.push(task)  
     clearTaskInputfields()
-    console.log(tasks)
-    testOfInputOfTasksArray()
 }
 
 function pushAllUsersInTask(task) {
@@ -126,23 +123,9 @@ function closeListOfEmployeesBoxForAddTask() {
 function openListOfEmployeesBoxForAddTask() {
     let content = document.getElementById('list-of-employees-box');
     content.classList.remove('d-none');
-    //loadUserListForAddEmployees()
 }
 
-/*
-function loadUserListForAddEmployees() {
-    let content = document.getElementById('add-task-editor-list')
-    for (let i = 0; i < users.length; i++) {
-        const userName = users[i].name;
-        const userIcon = users[i].icon;
 
-        content.innerHTML += `<div class="add-task-select-employees">
-        <img src="${userIcon}">
-        <span>${userName}</span>
-        </div>`
-    }
-}
-*/
 function clearUserListForAddEmployees() {
     let content = document.getElementById('search')
     content.value = ''
@@ -189,35 +172,35 @@ function showMatches(matches) {
         for (let i = 0; i < matches.length; i++) {
             let user = matches[i];
             let icon = users.find(t => t.name == user).icon
-            userProposals.innerHTML += `
+
+            if(alreadyResponsibleUserAdded(user)){ //if user is already in the editor list, it has not to be shown as possible editor
+            }
+            else{
+               userProposals.innerHTML += `
             <div class="list-search-result" id="${user}-${icon}">
             <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
                 <p id="responsible-employees-${i}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
-            </div>`
+            </div>` 
+            }
+            
         }
     }
 
     matches = [];
 }
 
+function alreadyResponsibleUserAdded(user){
+    return document.getElementById('responsible-editor-list').contains(document.getElementById(`${user}-responsible-editor-img`))
+}
+
 function addUserToResponsibleEmployees(user, icon) {
     let content = document.getElementById('responsible-editor-list')
-    content.innerHTML += `<div> <img class="list-search-result-img" src="${icon}"</div>`
+    content.innerHTML += `<div> <img id="${user}-responsible-editor-img" class="list-search-result-img" src="${icon}"</div>`
     temporaryArrayResponsibleEmployees.push(user)
-    console.log(temporaryArrayResponsibleEmployees)
     deleteFromList(user, icon);
 }
 
 function deleteFromList(user, icon) {
     let content = document.getElementById(`${user}-${icon}`)
     content.parentNode.removeChild(content)
-}
-
-
-function testOfInputOfTasksArray() {
-    let content = document.getElementById('test')
-    for (let i = 0; i < tasks[1].user.length; i++) {
-        const name = tasks[1].user[i];
-        content.innerHTML += `<div>${name}</div>`
-    }
 }
