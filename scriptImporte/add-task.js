@@ -4,7 +4,7 @@ let tasks = [
         "priority": 'high',
         "category": 'IT',
         "due-date": '',
-        "user": ['Martin'],
+        "user": '',
         "status": 'ToDo',
         "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
     }
@@ -60,23 +60,16 @@ function createTask() {
         "priority": priority.value,
         "category": category.value,
         "due-date": dueDate.value,
-        "user": temporaryArrayResponsibleEmployees[0],
+        "user": temporaryArrayResponsibleEmployees,
         "status": status.value,
         "description": description.value,
         "color": color
     }
-    checkInputValueOfAddTask(task)
-}
-
-
-function checkInputValueOfAddTask(task) {
-    if (lengthOfTitle() < 1) {
-        alert('please write some title')
-    }
-    else {
-        tasks.push(task)
-        clearTaskInputfields()
-    }
+    
+    tasks.push(task)
+    console.log(tasks)
+    clearTaskInputfields()
+    testOfInputOfTasksArray()
 }
 
 
@@ -210,4 +203,15 @@ deleteFromList(user, icon);
 function deleteFromList(user, icon){
    let content = document.getElementById(`${user}-${icon}`)
    content.parentNode.removeChild(content)
+}
+
+
+function testOfInputOfTasksArray(){
+    let content = document.getElementById('test')
+    for (let i = 0; i < tasks[1].user.length; i++) {
+        const name = tasks[1].user;
+        content.innerHTML += `<div>${name}</div>`
+        
+    }
+    
 }

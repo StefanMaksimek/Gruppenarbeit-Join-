@@ -91,7 +91,7 @@
                     <div class="icon-container">
                         <button onclick="openWindowIconSelection()" class="btn btn-primary">Icons</button>
                         <div id="icon-box" class="icons-box">
-                            <img src="/img/icon-unknown.svg">
+                            <img src="./img/icon-unknown.svg">
                         </div>
                     </div>
                     <div class="registration-buttons">
@@ -204,80 +204,83 @@
             <div class="d-none" id="add-task">
                 <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
                 <h1>ADD TASK</h1>
-                <form onsubmit="createTask()">
-                <div>
-                    <input required type="text" placeholder="Title" id="title-task" class="form-control">
-                </div>
-                <div class="margin-top input-selection-group">
-                    <div class="input-group">
-                        <select class="form-select" id="priority-state-input"
-                            aria-label="Example select with button addon">
-                            <option selected>Priority...</option>
-                            <option value="high">high</option>
-                            <option value="normal">normal</option>
-                        </select>
+                <form onsubmit="createTask(); return false">
+                    <div>
+                        <input required type="text" placeholder="Title" id="title-task" class="form-control">
                     </div>
-                    <div class="input-group">
-                        <select class="form-select margin-right margin-left" id="category-list-input"
-                            aria-label="Example select with button addon">
-                            <option selected>Category...</option>
-                            <option value="IT">IT</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Sales">Sales</option>
-                            <option value="Management">Management</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <select class="form-select" id="status-list-input"
-                            aria-label="Example select with button addon">
-                            <option selected>Status...</option>
-                            <option value="ToDo">ToDo</option>
-                            <option value="IN PROGRESS">IN PROGRESS</option>
-                            <option value="TESTING">TESTING</option>
-                            <option value="DONE">DONE</option>
-                        </select>
-                    </div>
-                </div>
-
-
-
-                <div class="margin-top editor-and-date-box">
-                    <div class="margin-right width-180">Due Date:</div>
-                    <input required class="margin-right form-control" type="date" name="begin" placeholder="dd-mm-yyyy" value=""
-                        min="2022-01-01" max="2030-12-31" id="due-date">
-                    <div class="btn btn-info" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</div>
-                    <div id="responsible-editor-list"></div>
-                </div>
-
-                
-
-                <!--copied from bootstrap-->
-                <!-- Textarea with class .w-75 -->
-                <div class="form-outline mb-4 margin-top">
-                    <textarea required class="form-control" id="task-description" rows="3" placeholder="..."></textarea>
-                </div>
-                <!--copied from bootstrap-->
-                <div class="btns-add-task">
-                    <div id="color-picker-selection-box" class="margin-top">
-                        <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
-                        <div class="d-none color-picker-container" id="color-picker">
-                            <div class="color-picker-box" onclick="takeColor('blue')" style="background-color: blue;">
-                            </div>
-                            <div class="color-picker-box" onclick="takeColor('green')" style="background-color: green;">
-                            </div>
-                            <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
-                            </div>
-                            <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
-                                style="background-color: rgb(178, 202, 43);"></div>
-                            <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
-                                style="background-color: rgb(187, 123, 5);"></div>
-                            <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
-                                style="background-color: rgb(175, 30, 175);"></div>
+                    <div class="margin-top input-selection-group">
+                        <div class="input-group">
+                            <select class="form-select" id="priority-state-input"
+                                aria-label="Example select with button addon">
+                                <option selected>Priority...</option>
+                                <option value="high">high</option>
+                                <option value="normal">normal</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select class="form-select margin-right margin-left" id="category-list-input"
+                                aria-label="Example select with button addon">
+                                <option selected>Category...</option>
+                                <option value="IT">IT</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Management">Management</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <select class="form-select" id="status-list-input"
+                                aria-label="Example select with button addon">
+                                <option selected>Status...</option>
+                                <option value="ToDo">ToDo</option>
+                                <option value="IN PROGRESS">IN PROGRESS</option>
+                                <option value="TESTING">TESTING</option>
+                                <option value="DONE">DONE</option>
+                            </select>
                         </div>
                     </div>
-                    <button class="btn btn-primary">Create Task</button>
-                </div>
-            </form>
+
+
+
+                    <div class="margin-top editor-and-date-box">
+                        <div class="margin-right width-180">Due Date:</div>
+                        <input required class="margin-right form-control" type="date" name="begin"
+                            placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
+                        <div class="btn btn-info" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</div>
+                        <div id="responsible-editor-list"></div>
+                    </div>
+
+
+
+                    <!--copied from bootstrap-->
+                    <!-- Textarea with class .w-75 -->
+                    <div class="form-outline mb-4 margin-top">
+                        <textarea required class="form-control" id="task-description" rows="3"
+                            placeholder="..."></textarea>
+                    </div>
+                    <!--copied from bootstrap-->
+                    <div class="btns-add-task">
+                        <div id="color-picker-selection-box" class="margin-top">
+                            <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
+                            <div class="d-none color-picker-container" id="color-picker">
+                                <div class="color-picker-box" onclick="takeColor('blue')"
+                                    style="background-color: blue;">
+                                </div>
+                                <div class="color-picker-box" onclick="takeColor('green')"
+                                    style="background-color: green;">
+                                </div>
+                                <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
+                                </div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
+                                    style="background-color: rgb(178, 202, 43);"></div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
+                                    style="background-color: rgb(187, 123, 5);"></div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
+                                    style="background-color: rgb(175, 30, 175);"></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Task</button>
+                    </div>
+                </form>
             </div>
 
             <div id="list-of-employees-box" class="background-box d-none">
@@ -285,7 +288,8 @@
                     <h2>Please select</h2>
                     <div class="select-employees-container-list">
                         <div class="search-bar">
-                            <input class="input-search-employees" type="text" placeholder="Search" id="search" onkeyup="startSearchUser()">
+                            <input class="input-search-employees" type="text" placeholder="Search" id="search"
+                                onkeyup="startSearchUser()">
                         </div>
                         <div id="add-task-editor-list" class="add-task-editor-list">
 
@@ -294,6 +298,8 @@
                     <button class="btn btn-primary" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                 </div>
             </div>
+
+            <div id="test"></div>
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
 
             <div class="d-none" id="impressum">
