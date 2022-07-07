@@ -245,33 +245,38 @@
                         <div class="margin-right width-80">Due Date:</div>
                         <input required class="margin-right form-control input-due-date" type="date" name="begin"
                             placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
-                            <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
-                                <div class="d-none color-picker-container" id="color-picker">
-                                    <div class="color-picker-box" onclick="takeColor('blue')"
-                                        style="background-color: blue;">
-                                    </div>
-                                    <div class="color-picker-box" onclick="takeColor('green')"
-                                        style="background-color: green;">
-                                    </div>
-                                    <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
-                                    </div>
-                                    <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
-                                        style="background-color: rgb(178, 202, 43);"></div>
-                                    <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
-                                        style="background-color: rgb(187, 123, 5);"></div>
-                                    <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
-                                        style="background-color: rgb(175, 30, 175);"></div>
+                        <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                            <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
+                            <div class="d-none color-picker-container" id="color-picker">
+                                <div class="color-picker-box" onclick="takeColor('blue')"
+                                    style="background-color: blue;">
                                 </div>
+                                <div class="color-picker-box" onclick="takeColor('green')"
+                                    style="background-color: green;">
+                                </div>
+                                <div class="color-picker-box" onclick="takeColor('red')" style="background-color: red;">
+                                </div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(178, 202, 43)')"
+                                    style="background-color: rgb(178, 202, 43);"></div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(187, 123, 5)')"
+                                    style="background-color: rgb(187, 123, 5);"></div>
+                                <div class="color-picker-box" onclick="takeColor('rgb(175, 30, 175)')"
+                                    style="background-color: rgb(175, 30, 175);"></div>
                             </div>
-                        <div class="btn btn-info btn-employees" onclick="openListOfEmployeesBoxForAddTask()">Add Employees</div>
+                        </div>
+                        <div class="btn btn-info btn-employees" onclick="openListOfEmployeesBoxForAddTask()">Add
+                            Employees</div>
                     </div>
                     <div class="responsible-editor-list-container form-control">
-                        <div>Responsible Employees</div>
-                        <div id="responsible-editor-list" class="responsible-editor-list" ondragover="allowDrop(event)"></div>
-                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event); highlight()" ondrop="moveToBin()">Bin</div>
+                        <div>
+                            <div>Responsible Employees</div>
+                            <div id="responsible-editor-list" class="responsible-editor-list"
+                                ondragover="allowDrop(event)"></div>
+                        </div>
+                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()"><img
+                                class="add-task-img-bin" src="./img/trash-bin.svg"></div>
                     </div>
-                    
+
 
 
                     <!--copied from bootstrap-->

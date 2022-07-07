@@ -151,6 +151,7 @@
 
 .responsible-editor-list-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-top: 8px;
 }
@@ -159,6 +160,11 @@
     width: 300px;
 }
 
-.drag-area-highlight {
+.add-task-img-bin{
+    height: 60px;
+    object-fit: cover;
+}
+
+.add-task-img-bin:hover{
     background-color: rgba(0, 0, 0, 0.2);
 }

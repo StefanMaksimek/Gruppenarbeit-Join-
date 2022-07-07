@@ -236,10 +236,6 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function highlight() {
-    document.getElementById('responsible-editor-list-bin').classList.add('drag-area-highlight')
-}
-
 
 //delete by moving the img to the bin
 function moveToBin() {
