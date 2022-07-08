@@ -1,9 +1,3 @@
-//wenn kein Icon ausgewählt wurde, das Unknown Icon einsetzen mit Alert "willst du kein Icon wählen"
-
-
-
-
-//Wir brauchen für den Bereich "user" bei Add Task  ein Array mit allen Teilnehmern, die Zugang zu der Liste haben. Überschneidung mit Login
 let users = [
     {
         "id": 0,
@@ -157,7 +151,6 @@ let timeInfoShown = 2000;
 let timeInfoShownLong = 2500;
 
 
-
 // ####### Login functions #######
 function openLoginBox() {
     let content = document.getElementById('login-container')
@@ -193,7 +186,6 @@ function hideLoginAlertUsernameNotExist(){
     let alertReadyForLogin = document.getElementById('registration-wrung-username-alert')
     alertReadyForLogin.classList.add('d-none')
 }
-
 
 
 function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
@@ -353,8 +345,8 @@ function showPassword() {
     } else {
         y.type = "password";
     }
-
 }
+
 
 // Registration functions - icons
 function openWindowIconSelection() {
