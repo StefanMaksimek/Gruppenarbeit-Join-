@@ -140,6 +140,10 @@
     margin: 6px 6px 6px 6px;
 }
 
+.list-search-result-img:hover {
+    cursor: pointer;
+}
+
 .btn-employees {
     width: 220px;
 }
@@ -167,4 +171,33 @@
 
 .add-task-img-bin:hover{
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.responsible-editor-container-box{
+    position: relative;
+}
+
+.name-responsible-editor{
+    display: none;
+    z-index: 2;
+}
+
+.name-responsible-editor:hover{
+    display: block;
+}
+
+.name-responsible-editor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: wheat;
+    border-radius: 8px;
+    border: 1px solid black;
+    display: none;
+    cursor: pointer;
+}
+
+.list-search-result-img:hover + .name-responsible-editor {
+    display: block;
 }

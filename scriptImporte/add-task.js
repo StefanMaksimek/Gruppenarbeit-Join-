@@ -210,8 +210,11 @@ function renderResponsibleUserList() {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
         const name = temporaryArrayResponsibleEmployees[i].user;
         const img = temporaryArrayResponsibleEmployees[i].icon;
-        content.innerHTML += ` 
-        <img id="${name}-responsible-editor-img" draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="list-search-result-img" src="${img}">`
+        content.innerHTML += `<div draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="responsible-editor-container-box">
+        <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}">
+        <div class="name-responsible-editor">${name}</div>
+        </div> 
+        `
     }
 }
 

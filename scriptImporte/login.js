@@ -9,56 +9,80 @@ let users = [
         "id": 0,
         "name": 'Testuser',
         "password": 'e=mc²',
-        "icon": "./img/icon-unknown.svg"
+        "icon": "./img/icon-unknown.svg",
+        "category": "Management",
+        "Hobbys": "",
+        "city": ""
     },
 
     {
         "id": 1,
         "name": 'Stefan',
         "password": '*****',
-        "icon": "./img/001_fb copy.jpg"
+        "icon": "./img/001_fb copy.jpg",
+        "category": "IT",
+        "Hobbys": "Walking with my dog",
+        "city": "Bremerhaven"
     },
 
     {
         "id": 2,
         "name": 'Julia',
         "password": '*****',
-        "icon": "./img/icon_female_3.jpg"
+        "icon": "./img/icon_female_3.jpg",
+        "category": "Sales",
+        "Hobbys": "Shopping",
+        "city": "Prague"
     },
 
     {
         "id": 3,
         "name": 'Michael',
         "password": '*****',
-        "icon": "./img/github.jpg"
+        "icon": "./img/github.jpg",
+        "category": "IT",
+        "Hobbys": "Swimming",
+        "city": "Fürth"
     },
 
     {
         "id": 4,
         "name": 'Sahra',
         "password": '*****',
-        "icon": "./img/icon_female_6.png"
+        "icon": "./img/icon_female_6.png",
+        "category": "Management",
+        "Hobbys": "Gardening",
+        "city": "Los Angeles"
     },
 
     {
         "id": 5,
         "name": 'Sebastian Müller-Wagner',
         "password": '*****',
-        "icon": "./img/icon_male_6.png"
+        "icon": "./img/icon_male_6.png",
+        "category": "Sales",
+        "Hobbys": "Tennis",
+        "city": "Munich"
     },
 
     {
         "id": 6,
         "name": 'Sandro',
         "password": '*****',
-        "icon": "./img/icon_male_5.jpg"
+        "icon": "./img/icon_male_5.jpg",
+        "category": "IT",
+        "Hobbys": "Volleyball",
+        "city": "Houston"
     },
 
     {
         "id": 7,
         "name": 'Sven',
         "password": '*****',
-        "icon": "./img/icon_male_2.png"
+        "icon": "./img/icon_male_2.png",
+        "category": "Sales",
+        "Hobbys": "Football",
+        "city": "Denver"
     }
 ]
 
