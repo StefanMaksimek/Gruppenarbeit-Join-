@@ -153,7 +153,8 @@ let currentUser;
 
 // init function for body-onloading to load more functions as one!
 
-
+let timeInfoShown = 2000;
+let timeInfoShownLong = 2500;
 
 
 
@@ -175,10 +176,24 @@ function checkLoginParameters() {
         showUsersImage(userName);
         hideLoginButton();
     } else {
-        alert("There is no user with this name or wrong password");
+        showLoginAlertUsernameNotExist();
+        setTimeout(hideLoginAlertUsernameNotExist, timeInfoShownLong)
         clearLoginInputfields();
     }
 }
+
+
+function showLoginAlertUsernameNotExist(){
+    let alertReadyForLogin = document.getElementById('registration-wrung-username-alert')
+    alertReadyForLogin.classList.remove('d-none')
+}
+
+
+function hideLoginAlertUsernameNotExist(){
+    let alertReadyForLogin = document.getElementById('registration-wrung-username-alert')
+    alertReadyForLogin.classList.add('d-none')
+}
+
 
 
 function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
@@ -219,6 +234,7 @@ function closeRegisterBox() {
     content.classList.add('d-none');
     clearInputfieldsRegistration();
     clearIconSelection();
+    clearTemporaryIconArray();
 }
 
 
@@ -230,8 +246,21 @@ function checkPasswortInRegestrationProcess() {
         submitNewUser()
     }
     else {
-        alert('please check your password')
+        showRegistrationAlertContent();
+        setTimeout(hideRegistrationAlertContent, timeInfoShown)
     }
+}
+
+
+function showRegistrationAlertContent(){
+    let alertContent = document.getElementById('registration-check-password-alert')
+    alertContent.classList.remove('d-none')
+}
+
+
+function hideRegistrationAlertContent(){
+    let alertContent = document.getElementById('registration-check-password-alert')
+    alertContent.classList.add('d-none')
 }
 
 
@@ -241,7 +270,8 @@ function submitNewUser() {
     let iconSource = temporaryIconArray[0];
 
     if (checkIfUserNameAlreadyExist(newUser) == true) {
-        alert('Username already exist or no icon is selected')
+        showRegistrationAlertUserAlreadyExist()
+        setTimeout(hideRegistrationAlertUserAlreadyExist, timeInfoShown)
     }
     else {
         if (noIconIsSelected()) {
@@ -251,6 +281,18 @@ function submitNewUser() {
             pushNewUserInArrayUsers(newUser, newUserPassword, iconSource)
         }
     }
+}
+
+
+function showRegistrationAlertUserAlreadyExist(){
+    let alertReadyForLogin = document.getElementById('registration-user-already-exist-alert')
+    alertReadyForLogin.classList.remove('d-none')
+}
+
+
+function hideRegistrationAlertUserAlreadyExist(){
+    let alertReadyForLogin = document.getElementById('registration-user-already-exist-alert')
+    alertReadyForLogin.classList.add('d-none')
 }
 
 
@@ -270,8 +312,20 @@ function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource) {
     users.push(user);
     loadUsers();
     closeRegisterBox();
-    clearTemporaryIconArray();
-    alert('Ready for login')
+    showRegistrationAlertReadyForLogin();
+    setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown)
+}
+
+
+function showRegistrationAlertReadyForLogin(){
+    let alertReadyForLogin = document.getElementById('registration-ready-for-login-alert')
+    alertReadyForLogin.classList.remove('d-none')
+}
+
+
+function hideRegistrationAlertReadyForLogin(){
+    let alertReadyForLogin = document.getElementById('registration-ready-for-login-alert')
+    alertReadyForLogin.classList.add('d-none')
 }
 
 
@@ -293,6 +347,13 @@ function showPassword() {
     } else {
         x.type = "password";
     }
+    let y = document.getElementById("new-user-inputfield-pw-repeat");
+    if (y.type === "password") {
+        y.type = "text";
+    } else {
+        y.type = "password";
+    }
+
 }
 
 // Registration functions - icons

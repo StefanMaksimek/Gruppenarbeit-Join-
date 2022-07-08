@@ -112,3 +112,8 @@
 .registration-request-no-icon-selected h2{
     text-align: center;
 }
+
+.login-input-fields{
+    display: flex;
+    flex-direction: column;
+}
