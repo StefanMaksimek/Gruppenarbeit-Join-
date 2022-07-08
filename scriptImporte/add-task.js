@@ -1,14 +1,4 @@
-let tasks = [
-    {
-        "title": 'Design of Concept',
-        "priority": 'high',
-        "category": 'IT',
-        "due-date": '',
-        "user": ['Martin', 'Sahra', 'Stefan'],
-        "status": 'ToDo',
-        "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
-    }
-];
+
 
 let temporaryArrayColor = ['lightblue'];
 let temporaryArrayResponsibleEmployees = [];
