@@ -55,8 +55,9 @@ function createTask() {
         "description": description.value,
         "color": color
     }
-    pushAllUsersInTask(task)
-    tasks.push(task)
+    pushAllUsersInTask(task);
+    tasks.push(task);
+    addTasks();
     clearTaskInputfields()
 }
 

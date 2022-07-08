@@ -166,7 +166,9 @@ function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource) {
     loadUsers();
     closeRegisterBox();
     showRegistrationAlertReadyForLogin();
-    setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown)
+
+    setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown);
+    addUser();
 }
 
 
