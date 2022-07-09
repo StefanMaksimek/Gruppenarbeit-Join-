@@ -1,2 +1,6 @@
 renderBacklog :
     Wenn mehrere User vorhanden ist wird nur der Erste angezeigt.
+    
+    tasks: wir brauchen noch eine ID und den Zeitstempel. Am besten den zeitstempel mit New Date().getTime und die Zahl auch gleich als ID speichern
+    
+    
