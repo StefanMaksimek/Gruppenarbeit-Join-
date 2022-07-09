@@ -1,0 +1,44 @@
+/*##################   BACKLOG.CSS   #########################*/
+
+.backlog table {
+    border-collapse: separate;
+    border-spacing: 0 var(--px-low);
+    color: var(--clr-font1);
+}
+.backlog tr {
+    vertical-align: middle;
+}
+
+.backlog th:last-child {
+    text-align: end;
+}
+
+.backlog td:first-child {
+    border-left: 0.4rem solid black;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+
+.backlog td:last-child {
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
+.backlog td {
+    padding: var(--px-low) var(--px-mid);
+    margin: var(--px-low);
+    background-color: var(--clr-primary-tr);
+}
+
+.assigned-to img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.backlog td h3 {
+   padding: 0;
+   margin: 0;
+   border: none;
+}

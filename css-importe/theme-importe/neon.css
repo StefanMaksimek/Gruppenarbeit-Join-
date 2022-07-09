@@ -1,0 +1,24 @@
+body[data-theme='neon'] {
+    --main-font: 'PT Sans';
+
+    --clr-primary:hsl(283, 99%, 54%);
+    --clr-secondary: hsl(348, 100%, 51%);
+    --clr-bg: #cfff04;
+    --clr-font1:rgb(0, 0, 0);
+    --clr-font2:black;
+
+    --clr-primary-tr: hsl(283, 99%, 54%, 0.2);
+    --clr-secondary-tr: hsla(348, 100%, 51%, 0.2);
+
+    --clr-primary-hvr: hsl(283, 99%, 64%);
+    --clr-secondary-hvr: hsl(348, 100%, 61%);
+
+    --px-low: 8px;
+    --px-mid: 16px;
+    --px-high: 32px;
+
+    --clr-IT: red;
+    --clr-Management: yellow;
+    --clr-Marketing: blue;
+    --clr-Sales: green;
+}

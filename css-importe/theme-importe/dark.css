@@ -1,0 +1,24 @@
+body[data-theme='dark'] {
+    --main-font: 'PT Sans';
+
+    --clr-primary: hsl(240, 100%, 10%);
+    --clr-secondary: hsl(0, 100%, 20%);
+    --clr-bg:hsl(0, 0%, 10%);
+    --clr-font1:white;
+    --clr-font2:black;
+
+    --clr-primary-tr: hsl(240, 100%, 10%, 0.4);
+    --clr-secondary-tr: hsl(0, 100%, 20%, 0.4);
+
+    --clr-primary-hvr: hsl(240, 100%, 15%);
+    --clr-secondary-hvr: hsl(0, 100%, 30%);
+
+    --px-low: 8px;
+    --px-mid: 16px;
+    --px-high: 32px;
+
+    --clr-IT: red;
+    --clr-Management: yellow;
+    --clr-Marketing: blue;
+    --clr-Sales: green;
+}
