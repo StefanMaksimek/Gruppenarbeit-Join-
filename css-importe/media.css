@@ -1,0 +1,42 @@
+@media screen and (max-width: 1030px) {
+    * {
+        font-size: 0.9rem;
+    }
+
+    .header {
+        padding: var(--px-low);
+    }
+
+    .test {
+        display: flex;
+    }
+
+    .side-bar {
+        transform: translate(-100%);
+        position: absolute;
+    }
+
+    .board {
+        flex-direction: column;
+    }
+
+    .card {
+        width: auto;
+    }
+
+    .to-do-holder {
+        height: auto;
+    }
+
+    .theme-select button {
+        padding: 0.1rem;
+        font-size: 1.1rem;
+    }
+}
+
+.active-mobile-side {
+    position: absolute;
+    min-height: calc(100vh - 60px);
+    width: 80%;
+    transform: translate(0, 60px);
+}

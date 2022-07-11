@@ -5,7 +5,10 @@ let temporaryArrayResponsibleEmployees = [];
 function showColor() {
     let content = document.getElementById('color-picker')
     content.innerHTML = '';
-    content.innerHTML = renderColorPicker();
+    //content.innerHTML = renderColorPicker();
+    colorPicker.forEach(color => {
+        content.innerHTML += colorPickerHTML(color)
+    });
 
     if (colorOptionsAreHiding(content)) {
         content.classList.remove('d-none')
@@ -46,6 +49,8 @@ function createTask() {
     let color = temporaryArrayColor[0]
     let id = tasks.length
 
+    convertStatus(status)
+
     let task = {
         "id": id,
         "title": title.value,
@@ -59,9 +64,29 @@ function createTask() {
         "color": color
     }
     pushAllUsersInTask(task);
-    //tasks.push(task);
+    tasks.push(task);
     clearAddTask()
 }
+
+function convertStatus(status) {
+    if (status == 'ToDo') {
+        status = 'to-do'
+    } else {
+        if (status == 'IN PROGRESS') {
+            status = 'in-progress'
+        } else {
+            if (status == 'TESTING') {
+                status = 'testing'
+            } else {
+                if (status == 'DONE') {
+                    status = 'done'
+                }
+            }
+        }
+    }
+    return status
+}
+
 
 function pushAllUsersInTask(task) {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
@@ -69,6 +94,7 @@ function pushAllUsersInTask(task) {
         task.user.push(name)
     }
 }
+
 
 function lengthOfTitle() {
     return document.getElementById('title-task').value.length;
@@ -83,24 +109,29 @@ function clearAddTask() {
     clearColorofButtonForColorSelection()
 }
 
+
 function clearTaskInputfields() {
     document.getElementById('title-task').value = '';
     document.getElementById('task-description').value = '';
     document.getElementById('due-date').value = '';
 }
 
+
 function clearResponsibleEditorList() {
     document.getElementById('responsible-editor-list').innerHTML = '';
 }
+
 
 function setTemporaryArrayResponsibleEmployeesToStandard() {
     temporaryArrayResponsibleEmployees.length = 0;
 }
 
+
 function setTemporaryArrayColorToStandard() {
     let color = 'lightblue'; // if no color is selected, lightblue wil be pushed
     temporaryArrayColor[0] = color;
 }
+
 
 function clearColorofButtonForColorSelection() {
     document.getElementById('add-task-color-button').style.backgroundColor = null;
@@ -139,10 +170,12 @@ function loadAllUserNamesInArray() {
     }
 }
 
+
 function startSearchUser() {
     let searchText = document.getElementById('search').value;
     searchUser(searchText)
 }
+
 
 function searchUser(searchText) {
     const editors = userNames
@@ -158,6 +191,7 @@ function searchUser(searchText) {
 
     showMatches(matches)
 }
+
 
 function showMatches(matches) {
     if (matches.length > 0) {
@@ -183,9 +217,11 @@ function showMatches(matches) {
     matches = [];
 }
 
+
 function alreadyResponsibleUserAdded(user) {
     return document.getElementById('responsible-editor-list').contains(document.getElementById(`${user}-responsible-editor-img`))
 }
+
 
 function addUserToResponsibleEmployees(user, icon) {
     let responsibleUser = {
@@ -196,6 +232,7 @@ function addUserToResponsibleEmployees(user, icon) {
     renderResponsibleUserList()
     deleteFromList(user, icon);
 }
+
 
 function renderResponsibleUserList() {
     let content = document.getElementById('responsible-editor-list')
@@ -212,6 +249,7 @@ function renderResponsibleUserList() {
     }
 }
 
+
 /**content.innerHTML += `<div id="${name}-responsible-editor-box" draggable="true" ondragstart="deleteResponsibleEmployee(${name})"> 
         <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}"></div>` */
 
@@ -220,6 +258,7 @@ function deleteFromList(user, icon) {
     content.parentNode.removeChild(content)
 }
 
+
 let currentDraggedUserAddTask;
 let currentDraggedIconAddTask;
 
@@ -227,10 +266,6 @@ let currentDraggedIconAddTask;
 function deleteResponsibleEmployee(user, icon) {
     currentDraggedUserAddTask = user;
     currentDraggedIconAddTask = icon
-}
-
-function allowDrop(ev) {
-    ev.preventDefault();
 }
 
 

@@ -4,7 +4,14 @@ function renderBacklog() {
     let bc = document.getElementById('backlog-content')
 
     bc.innerHTML = ``
-   tasks.reverse().forEach(task => {
+   x.reverse().forEach(task => {
         bc.innerHTML += renderBacklogHTML(task)
     });
+    x.reverse()
+}
+
+
+function moveTo(status) {
+    x[currentDraggedElement].status = status
+    renderBoard()
 }

@@ -9,6 +9,8 @@
     box-shadow: 2px 2px 6px 1px hsl(0deg 0% 0% / 20%);
     color: var(--clr-font1);
     background-color: transparent;
+    width: calc((100vw - 180px) * 0.21 );
+    margin: var(--px-mid);
 }
 
 .to-do-holder {
@@ -19,7 +21,6 @@
 }
 
 .to-do {
-    width: calc((100vw - 180px) * 0.21 );
     padding: var(--px-low);
     margin: var(--px-low);
     border-radius: 0.2rem;
@@ -28,4 +29,10 @@
 
 .board h2 {
     margin: 0;
+}
+
+.drag-area-highlight {
+    z-index: 100;
+    background-color: var(--clr-primary-tr);
+    transform: scale(1.05);
 }

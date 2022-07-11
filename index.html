@@ -15,7 +15,6 @@
         crossorigin="anonymous"></script>
     <script src="./scriptImporte/JSON.js"></script>
     <script src="./scriptImporte/HTML.js"></script>
-    <script src="./scriptImporte/themeSwitch.js"></script>
     <script src="./scriptImporte/globalScript.js"></script>
     <script src="./scriptImporte/board.js"></script>
     <script src="./scriptImporte/backlog.js"></script>
@@ -80,6 +79,14 @@
 
     <div class="main" id="main">
         <div class="header" id="header">
+            <div class="test" id="burger" onclick="openMobileSide()">
+                <a class="burger" href="#">
+                  <div class="line1"></div>
+                  <div class="line2"></div>
+                  <div class="line3"></div>
+                </a>
+              </div>
+
             <div class="theme-select">
                 <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
                 <button onclick="setTheme('dark')" data-theme="theme-dark" class="theme-switch">Dark</button>
@@ -97,7 +104,7 @@
                     <div class="card-header">
                         <h2>ToDo</h2>
                     </div>
-                    <div class="to-do-holder" id="to-do-holder">
+                    <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')" ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -110,7 +117,7 @@
                     <div class="card-header">
                         <h2>In Progress</h2>
                     </div>
-                    <div class="to-do-holder" id="in-progress">
+                    <div class="to-do-holder" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')" ondragleave="removeHighlight('in-progress')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -123,7 +130,7 @@
                     <div class="card-header">
                         <h2>Testing</h2>
                     </div>
-                    <div class="to-do-holder" id="testing">
+                    <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -136,7 +143,7 @@
                     <div class="card-header">
                         <h2>Done</h2>
                     </div>
-                    <div class="to-do-holder" id="done">
+                    <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -166,7 +173,7 @@
                                 <a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a>
                             </td>
                             <td class="category">IT</td>
-                            <td class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.</td>
+                            <td class="details"  style="border-bottom:0.4rem solid red">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -175,7 +182,6 @@
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="add-task">
                 <!-- h1 kann später gelöscht werden, dient vorerst der Orientierung -->
-                <h1>ADD TASK</h1>
                 <form onsubmit="createTask(); return false">
                     <div>
                         <input required type="text" placeholder="Title" id="title-task" class="form-control">

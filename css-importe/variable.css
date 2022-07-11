@@ -1,26 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Merriweather:ital,wght@0,400;0,700;1,300&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    --color-picker1: hsl(229, 100%, 26%);
+    --color-picker2: hsl(125, 100%, 26%);
+    --color-picker3: hsl(0, 100%, 26%);
+    --color-picker4: hsl(65, 85%, 35%);
+    --color-picker5: hsl(38, 93%, 30%);
+    --color-picker6: hsl(301, 100%, 26%);
+}
 
 body[data-theme='default'] {
     --main-font: 'PT Sans';
 
     --clr-primary: hsl(240, 50%, 40%);
     --clr-secondary: hsl(0, 100%, 30%);
-    --clr-bg:rgb(244, 244, 244);
-    --clr-font1:rgb(0, 0, 0);
-    --clr-font2:black;
+    --clr-bg: rgb(244, 244, 244);
+    --clr-font1: rgb(0, 0, 0);
+    --clr-font2: black;
 
     --clr-primary-tr: hsl(240, 50%, 40%, 0.2);
     --clr-secondary-tr: hsla(0, 100%, 30%, 0.2);
 
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);
-
-    --color-picker-1: hsl(229, 100%, 26%);
-    --color-picker-2: hsl(125, 100%, 26%);
-    --color-picker-3: hsl(0, 100%, 26%);
-    --color-picker-4: hsl(65, 85%, 35%);
-    --color-picker-5: hsl(38, 93%, 30%);
-    --color-picker-6: hsl(301, 100%, 26%);
 
     --px-low: 8px;
     --px-mid: 16px;
@@ -64,6 +66,7 @@ h3 {
 }
 
 .side-bar {
+    z-index: 5;
     position: relative;
     padding: var(--px-high) var(--px-mid);
     width: 180px;
@@ -73,7 +76,7 @@ h3 {
 }
 
 .side-bar-holder {
-    position: fixed;
+    position: relative;
 
 
 }
@@ -109,7 +112,7 @@ h3 {
 .header {
     z-index: 10;
     background-color: var(--clr-secondary);
-    height: 116px;
+    height: 60px;
     width: 100%;
     position: sticky;
     top: 0;
@@ -121,7 +124,7 @@ h3 {
 .theme-select {
     display: flex;
     align-items: center;
-    
+
 }
 
 .theme-select button {
@@ -130,7 +133,7 @@ h3 {
     border: none;
     margin: 0 1rem 0 0;
     background-color: var(--clr-primary);
-    color: white; 
+    color: white;
     min-width: 5rem;
 }
 
@@ -139,7 +142,7 @@ h3 {
     background-color: var(--clr-primary-hvr);
 }
 
-.info-header{
+.info-header {
     display: flex;
     align-items: center;
     color: white;
@@ -150,4 +153,40 @@ h3 {
     color: var(--clr-font1);
 }
 
+.test {
+    padding: var(--px-low);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger {
+    flex-direction: column;
+    border-radius: 100%;
+}
+
+.burger:hover {
+    cursor: pointer;
+    background-color: var(--clr-secondary-hvr);
+}
+
+.toggle .line1 {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(-45deg) translate(8px, -8px);
+}
+
+.burger div {
+    height: 3px;
+    width: var(--px-high);
+    background-color: var(--clr-bg);
+    margin: 10px;
+    transition: all ease 0.225s;
+}
 

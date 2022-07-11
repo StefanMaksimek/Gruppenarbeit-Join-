@@ -42,12 +42,23 @@ function openDatenschutz() {
 
 
 function closeAllContent() {
+    removeBorderInSidebar()
+    closeContentWindows()
+    document.getElementById('side-bar').classList.remove('active-mobile-side');
+    document.getElementById('burger').classList.remove('toggle');
+}
+
+
+function closeContentWindows() {
     document.getElementById('impressum').className = 'd-none'
     document.getElementById('datenschutz').className = 'd-none'
     document.getElementById('board').className = 'd-none'
     document.getElementById('add-task').className = 'd-none'
     document.getElementById('backlog').className = 'd-none'
+}
 
+
+function removeBorderInSidebar() {
     document.getElementById('board-h3').className = ''
     document.getElementById('backlog-h3').className = ''
     document.getElementById('add-task-h3').className = ''
@@ -56,6 +67,12 @@ function closeAllContent() {
     document.getElementById('datenschutz-h3').className = ''
 }
 
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
 /**
  * for switching the themes
  * 
@@ -63,4 +80,10 @@ function closeAllContent() {
  */
 function setTheme(theme) {
     document.body.dataset.theme = theme
-};
+}
+
+
+function openMobileSide() {
+    document.getElementById('side-bar').classList.toggle('active-mobile-side');
+    document.getElementById('burger').classList.toggle('toggle');
+}

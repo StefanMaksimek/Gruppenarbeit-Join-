@@ -1,5 +1,5 @@
 body[data-theme='dark'] {
-    --main-font: 'PT Sans';
+    --main-font: 'Merriweather';
 
     --clr-primary: hsl(240, 100%, 10%);
     --clr-secondary: hsl(0, 100%, 20%);

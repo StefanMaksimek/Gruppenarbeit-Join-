@@ -1,16 +1,16 @@
 body[data-theme='neon'] {
-    --main-font: 'PT Sans';
+    --main-font: 'Megrim';
 
-    --clr-primary:hsl(283, 99%, 54%);
+    --clr-primary:hsl(200, 93%, 60%);
     --clr-secondary: hsl(348, 100%, 51%);
-    --clr-bg: #cfff04;
+    --clr-bg: #feffed;
     --clr-font1:rgb(0, 0, 0);
     --clr-font2:black;
 
-    --clr-primary-tr: hsl(283, 99%, 54%, 0.2);
+    --clr-primary-tr: hsl(200, 93%, 60%, 0.2);
     --clr-secondary-tr: hsla(348, 100%, 51%, 0.2);
 
-    --clr-primary-hvr: hsl(283, 99%, 64%);
+    --clr-primary-hvr: hsl(200, 93%, 70%);
     --clr-secondary-hvr: hsl(348, 100%, 61%);
 
     --px-low: 8px;
