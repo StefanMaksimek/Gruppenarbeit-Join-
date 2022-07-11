@@ -1,4 +1,4 @@
-/** 
+
 let users = [
     {
         "id": 0,
@@ -7,7 +7,8 @@ let users = [
         "icon": "./img/icon-unknown.svg",
         "category": "Management",
         "Hobbys": "",
-        "city": ""
+        "city": "",
+        "mail": "testuser@gmail.net"
     },
 
     {
@@ -17,7 +18,8 @@ let users = [
         "icon": "./img/001_fb copy.jpg",
         "category": "IT",
         "Hobbys": "Walking with my dog",
-        "city": "Bremerhaven"
+        "city": "Bremerfjörde",
+        "mail": "stefan@gmail.net"
     },
 
     {
@@ -27,7 +29,8 @@ let users = [
         "icon": "./img/icon_female_3.jpg",
         "category": "Sales",
         "Hobbys": "Shopping",
-        "city": "Prague"
+        "city": "Prague",
+        "mail": "julia@gmail.net"
     },
 
     {
@@ -37,7 +40,8 @@ let users = [
         "icon": "./img/github.jpg",
         "category": "IT",
         "Hobbys": "Swimming",
-        "city": "Fürth"
+        "city": "Fürth",
+        "mail": "michael@gmail.net"
     },
 
     {
@@ -47,7 +51,8 @@ let users = [
         "icon": "./img/icon_female_6.png",
         "category": "Management",
         "Hobbys": "Gardening",
-        "city": "Los Angeles"
+        "city": "Los Angeles",
+        "mail": "sahra@gmail.net"
     },
 
     {
@@ -57,7 +62,8 @@ let users = [
         "icon": "./img/icon_male_6.png",
         "category": "Sales",
         "Hobbys": "Tennis",
-        "city": "Munich"
+        "city": "Munich",
+        "mail": "sebastian@gmail.net"
     },
 
     {
@@ -67,7 +73,8 @@ let users = [
         "icon": "./img/icon_male_5.jpg",
         "category": "IT",
         "Hobbys": "Volleyball",
-        "city": "Houston"
+        "city": "Houston",
+        "mail": "sandro@gmail.net"
     },
 
     {
@@ -77,11 +84,12 @@ let users = [
         "icon": "./img/icon_male_2.png",
         "category": "Sales",
         "Hobbys": "Football",
-        "city": "Denver"
+        "city": "Denver",
+        "mail": "sven@gmail.net"
     }
-] */
+]
 
-/** 
+
 let icons = [
     {
         "id": 0,
@@ -151,4 +159,4 @@ let tasks = [
         "status": 'ToDo',
         "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
     }
-];*/
+]

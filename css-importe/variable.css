@@ -12,6 +12,15 @@
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);
 
+    /* color picker */
+
+    --color-picker-1: hsl(229, 100%, 26%);
+    --color-picker-2: hsl(125, 100%, 26%);
+    --color-picker-3: hsl(0, 100%, 26%);
+    --color-picker-4: hsl(65, 85%, 35%);
+    --color-picker-5: hsl(38, 93%, 30%);
+    --color-picker-6: hsl(301, 100%, 26%);
+
     --px-low: 8px;
     --px-mid: 16px;
     --px-high: 32px;

@@ -6,6 +6,8 @@ let temporaryArrayResponsibleEmployees = [];
 
 function showColor() {
     let content = document.getElementById('color-picker')
+    content.innerHTML = '';
+    content.innerHTML = renderColorPicker();
 
     if (colorOptionsAreHiding(content)) {
         content.classList.remove('d-none')
@@ -44,21 +46,23 @@ function createTask() {
     let description = document.getElementById('task-description');
     let dueDate = document.getElementById('due-date')
     let color = temporaryArrayColor[0]
+    let id = tasks.length
 
     let task = {
+        "id": id,
         "title": title.value,
         "priority": priority.value,
         "category": category.value,
-        "due-date": dueDate.value,
+        "createdAt": new Date().getTime(),
+        "dueDate": new Date().getTime(dueDate.value),
         "user": [],
         "status": status.value,
         "description": description.value,
         "color": color
     }
     pushAllUsersInTask(task);
-    tasks.push(task);
-    addTasks();
-    clearTaskInputfields()
+    //tasks.push(task);
+    clearAddTask()
 }
 
 function pushAllUsersInTask(task) {
@@ -73,17 +77,18 @@ function lengthOfTitle() {
 }
 
 
-function clearTaskInputfields() {
-    document.getElementById('title-task').value = '';
-    document.getElementById('priority-state-input').value = 'Priority...';
-    document.getElementById('category-list-input').value = 'Category...';
-    document.getElementById('status-list-input').value = 'Status...';
-    document.getElementById('task-description').value = '...';
-    document.getElementById('due-date').value = '';
+function clearAddTask() {
+    clearTaskInputfields();
     clearResponsibleEditorList();
     setTemporaryArrayColorToStandard();
     setTemporaryArrayResponsibleEmployeesToStandard();
     clearColorofButtonForColorSelection()
+}
+
+function clearTaskInputfields() {
+    document.getElementById('title-task').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('due-date').value = '';
 }
 
 function clearResponsibleEditorList() {
@@ -234,7 +239,7 @@ function allowDrop(ev) {
 //delete by moving the img to the bin
 function moveToBin() {
     const index = temporaryArrayResponsibleEmployees.findIndex(x => x.user === currentDraggedUserAddTask);
-if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
+    if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 
     //temporaryArrayResponsibleEmployees.splice(currentDraggedUserAddTask, 1)
     renderResponsibleUserList()
