@@ -15,7 +15,10 @@
         crossorigin="anonymous"></script>
     <script src="./scriptImporte/JSON.js"></script>
     <script src="./scriptImporte/HTML.js"></script>
+    <script src="./scriptImporte/themeSwitch.js"></script>
     <script src="./scriptImporte/globalScript.js"></script>
+    <script src="./scriptImporte/board.js"></script>
+    <script src="./scriptImporte/backlog.js"></script>
     <script src="./backupArrays.js"></script>
     <script src="./script.js"></script>
     <script src="./scriptImporte/login.js"></script>
@@ -42,22 +45,15 @@
             icons = JSON.parse(backend.getItem('icons')) || [];
  
             loadUsers();
-            setTimeout(refreshDatasFromBackend, 180000) // aller 3min wird 
-        }
-
-        async function refreshDatasFromBackend(){
-            await downloadFromServer();
-            users = JSON.parse(backend.getItem('users')) || [];
-            tasks = JSON.parse(backend.getItem('tasks')) || [];
-            icons = JSON.parse(backend.getItem('icons')) || [];
-            loadUsers();
-            // function has to be generated -> renderBoard(); <- and integrated here
+            console.log(tasks)
+            renderBoard()
+            renderBacklog()
         }
     </script>
 
 </head>
 
-<body onload="init()">
+<body onload="init()" data-theme="default">
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
             <div class="logo">
@@ -84,91 +80,16 @@
 
     <div class="main" id="main">
         <div class="header" id="header">
-            <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-            <div id="login-container" class="background-box d-none">
-                <div id="login" class="registration-box-input">
-                    <h2>Login</h2>
-                    <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
-                        <input required id="login-user-inputfield" type="text" name="User" list="all-users"
-                            placeholder="User">
-                        <datalist id="all-users">
-                        </datalist>
-                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
-                        <div class="registration-buttons margin-bottom">
-                            <div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>
-                            <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
-                    <div>
-                        <button onclick="openRegisterBox()" id="registration-btn"
-                            class="btn btn-primary">Registration</button>
-                    </div>
-                </div>
+            <div class="theme-select">
+                <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
+                <button onclick="setTheme('dark')" data-theme="theme-dark" class="theme-switch">Dark</button>
+                <button onclick="setTheme('neon')" data-theme="theme-neon" class="theme-switch">Neon</button>
             </div>
 
-            <div id="registration-box" class="background-box d-none">
-                <form onsubmit="checkPasswortInRegestrationProcess(); return false">
-                    <div class="registration-box-input">
-                        <h2>Registration</h2>
-                        <input required id="new-user-inputfield-login" type="text" placeholder="Name">
-                        <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
-                        <input required type="password" placeholder="Repeat password"
-                            id="new-user-inputfield-pw-repeat">
-                        <div>
-                            <input type="checkbox" onclick="showPassword()"> Show Password
-                        </div>
-                        <div class="icon-container">
-                            <div onclick="openWindowIconSelection()" class="btn btn-primary">Icons</div>
-                            <div id="icon-box" class="icons-box">
-                                <img src="./img/icon-unknown.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="registration-buttons">
-                            <div onclick="closeRegisterBox()" class="btn btn-primary">Cancel</div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </form>
+            <div class="info-header" id="info-header">
+                <h1>Board</h1>
             </div>
-            <div id="registration-request-no-icon-selected-box" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
-                    <div>
-                        <button class="btn btn-primary" onclick="closeAskForIconSelection()">No</button>
-                        <button class="btn btn-primary" onclick="submitNewUserWithUnknownIcon()">Yes</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ## Registration Alert Wrong Password Entry ## -->
-            <div id="registration-check-password-alert" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <h2>Please check your password entry</h2>
-                </div>
-            </div>
-            <!-- ## Registration Alert Wrong Password Entry ## -->
-            <div id="registration-ready-for-login-alert" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <h2>Ready for Login</h2>
-                </div>
-            </div>
-            <!-- ## Registration Alert User already exist ## -->
-            <div id="registration-user-already-exist-alert" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <h2>User already exist</h2>
-                </div>
-            </div>
-            <!-- ## Login Alert There is no User with this name ## -->
-            <div id="registration-wrung-username-alert" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <h2>Wrong Username. This user does not exist.</h2>
-                </div>
-            </div>
-            <!-- ----------------------------- Login END ----------------------------- -->
         </div>
-
-
 
         <div class="content" id="content">
             <div class="board" id="board">
@@ -176,12 +97,12 @@
                     <div class="card-header">
                         <h2>ToDo</h2>
                     </div>
-                    <div class="to-do-holder">
-                        <div class="to-do">Aufgaben 1</div>
-                        <div class="to-do">Aufgaben 2</div>
-                        <div class="to-do">Aufgaben 3</div>
-                        <div class="to-do">Aufgaben 4</div>
-                        <div class="to-do">Aufgaben 5</div>
+                    <div class="to-do-holder" id="to-do-holder">
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -189,12 +110,12 @@
                     <div class="card-header">
                         <h2>In Progress</h2>
                     </div>
-                    <div class="to-do-holder">
-                        <div class="to-do">Aufgaben 1</div>
-                        <div class="to-do">Aufgaben 2</div>
-                        <div class="to-do">Aufgaben 3</div>
-                        <div class="to-do">Aufgaben 4</div>
-                        <div class="to-do">Aufgaben 5</div>
+                    <div class="to-do-holder" id="in-progress">
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -202,12 +123,12 @@
                     <div class="card-header">
                         <h2>Testing</h2>
                     </div>
-                    <div class="to-do-holder">
-                        <div class="to-do">Aufgaben 1</div>
-                        <div class="to-do">Aufgaben 2</div>
-                        <div class="to-do">Aufgaben 3</div>
-                        <div class="to-do">Aufgaben 4</div>
-                        <div class="to-do">Aufgaben 5</div>
+                    <div class="to-do-holder" id="testing">
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -215,42 +136,37 @@
                     <div class="card-header">
                         <h2>Done</h2>
                     </div>
-                    <div class="to-do-holder">
-                        <div class="to-do">Aufgaben 1</div>
-                        <div class="to-do">Aufgaben 2</div>
-                        <div class="to-do">Aufgaben 3</div>
-                        <div class="to-do">Aufgaben 4</div>
-                        <div class="to-do">Aufgaben 5</div>
+                    <div class="to-do-holder" id="done">
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
+                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
             </div>
 
             <div class="d-none" id="backlog">
                 <table class="table">
+                    <caption>Learning Management System Projekt</caption>
                     <thead>
                         <tr>
-                            <th scope="col" colspan="2">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col" colspan="2">ASSINGED TO</th>
+                            <th scope="col">CATEGORY</th>
+                            <th scope="col">DETAILS</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="backlog-content">
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
+                            <td class="assigned-to" style="border-left:0.4rem solid red">
+                                <img src="./img/001_fb copy.jpg" alt="">
+                            </td>
+                            <td class="assigned-to">
+                                <h3>Stefan</h3>
+                                <a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a>
+                            </td>
+                            <td class="category">IT</td>
+                            <td class="details">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -304,7 +220,7 @@
                         <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
                             <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
                             <div class="d-none color-picker-container" id="color-picker">
-                                
+                            
                             </div>
                         </div>
                         <div class="btn btn-info btn-employees" onclick="openListOfEmployeesBoxForAddTask()">Add
@@ -317,7 +233,7 @@
                                 ondragover="allowDrop(event)"></div>
                         </div>
                         <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
-                            <img class="add-task-img-bin" src="./img/trash-bin.svg" alt="">
+                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
                         </div>
                     </div>
 
@@ -647,6 +563,91 @@
                         Datenschutz-Generator.de von Dr.
                         Thomas Schwenke</a></p>
             </div>
+        </div>
+
+        <div class="log-in-box">
+            <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+        <div id="login-container" class="background-box d-none">
+            <div id="login" class="registration-box-input">
+                <h2>Login</h2>
+                <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
+                    <input required id="login-user-inputfield" type="text" name="User" list="all-users"
+                        placeholder="User">
+                    <datalist id="all-users">
+                    </datalist>
+                    <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
+                    <div class="registration-buttons margin-bottom">
+                        <div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>
+                        <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <div>
+                    <button onclick="openRegisterBox()" id="registration-btn"
+                        class="btn btn-primary">Registration</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="registration-box" class="background-box d-none">
+            <form onsubmit="checkPasswortInRegestrationProcess(); return false">
+                <div class="registration-box-input">
+                    <h2>Registration</h2>
+                    <input required id="new-user-inputfield-login" type="text" placeholder="Name">
+                    <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
+                    <input required type="password" placeholder="Repeat password"
+                        id="new-user-inputfield-pw-repeat">
+                    <div>
+                        <input type="checkbox" onclick="showPassword()"> Show Password
+                    </div>
+                    <div class="icon-container">
+                        <div onclick="openWindowIconSelection()" class="btn btn-primary">Icons</div>
+                        <div id="icon-box" class="icons-box">
+                            <img src="./img/icon-unknown.svg">
+                        </div>
+                    </div>
+                    <div class="registration-buttons">
+                        <div onclick="closeRegisterBox()" class="btn btn-primary">Cancel</div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="registration-request-no-icon-selected-box" class="background-box d-none">
+            <div class="registration-request-no-icon-selected">
+                <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
+                <div>
+                    <button class="btn btn-primary" onclick="closeAskForIconSelection()">No</button>
+                    <button class="btn btn-primary" onclick="submitNewUserWithUnknownIcon()">Yes</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ## Registration Alert Wrong Password Entry ## -->
+        <div id="registration-check-password-alert" class="background-box d-none">
+            <div class="registration-request-no-icon-selected">
+                <h2>Please check your password entry</h2>
+            </div>
+        </div>
+        <!-- ## Registration Alert Wrong Password Entry ## -->
+        <div id="registration-ready-for-login-alert" class="background-box d-none">
+            <div class="registration-request-no-icon-selected">
+                <h2>Ready for Login</h2>
+            </div>
+        </div>
+        <!-- ## Registration Alert User already exist ## -->
+        <div id="registration-user-already-exist-alert" class="background-box d-none">
+            <div class="registration-request-no-icon-selected">
+                <h2>User already exist</h2>
+            </div>
+        </div>
+        <!-- ## Login Alert There is no User with this name ## -->
+        <div id="registration-wrung-username-alert" class="background-box d-none">
+            <div class="registration-request-no-icon-selected">
+                <h2>Wrong Username. This user does not exist.</h2>
+            </div>
+        </div>
+        <!-- ----------------------------- Login END ----------------------------- -->
         </div>
     </div>
 </body>

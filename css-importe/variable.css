@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-* {
+body[data-theme='default'] {
     --main-font: 'PT Sans';
 
     --clr-primary: hsl(240, 50%, 40%);
     --clr-secondary: hsl(0, 100%, 30%);
+    --clr-bg:rgb(244, 244, 244);
+    --clr-font1:rgb(0, 0, 0);
+    --clr-font2:black;
 
     --clr-primary-tr: hsl(240, 50%, 40%, 0.2);
     --clr-secondary-tr: hsla(0, 100%, 30%, 0.2);
 
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);
-
-    /* color picker */
 
     --color-picker-1: hsl(229, 100%, 26%);
     --color-picker-2: hsl(125, 100%, 26%);
@@ -24,6 +25,11 @@
     --px-low: 8px;
     --px-mid: 16px;
     --px-high: 32px;
+
+    --clr-IT: red;
+    --clr-Management: yellow;
+    --clr-Marketing: blue;
+    --clr-Sales: green;
 }
 
 .d-none {
@@ -32,6 +38,7 @@
 
 body {
     font-family: var(--main-font);
+    background-color: var(--clr-bg);
     display: flex;
     width: 100%;
     min-height: 100vh;
@@ -50,7 +57,7 @@ h3 {
     border-left: 5px solid white;
 }
 
-h3:hover {
+.side-bar h3:hover {
     cursor: pointer;
     background-color: var(--clr-primary-hvr);
     border-radius: 0.2rem;
@@ -108,22 +115,39 @@ h3:hover {
     top: 0;
     padding: var(--px-mid);
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+}
+
+.theme-select {
+    display: flex;
+    align-items: center;
+    
+}
+
+.theme-select button {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: none;
+    margin: 0 1rem 0 0;
+    background-color: var(--clr-primary);
+    color: white; 
+    min-width: 5rem;
+}
+
+.theme-select button:hover {
+    cursor: pointer;
+    background-color: var(--clr-primary-hvr);
+}
+
+.info-header{
+    display: flex;
+    align-items: center;
+    color: white;
 }
 
 .content {
     padding: var(--px-mid);
+    color: var(--clr-font1);
 }
 
 
-/*##################   BACKLOG.CSS   #########################*/
-
-.backlog table {
-    border-collapse: separate;
-    border-spacing: 0 var(--px-low);
-}
-
-.backlog td {
-    margin: var(--px-low);
-    background-color: var(--clr-primary-tr);
-}
