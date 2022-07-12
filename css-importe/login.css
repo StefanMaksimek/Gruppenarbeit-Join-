@@ -1,5 +1,5 @@
 /*##################   LOGIN CSS   #########################*/
-.margin-bottom{
+.margin-bottom {
     margin-bottom: 8px;
 }
 
@@ -40,7 +40,7 @@
     margin-bottom: 6px;
 }
 
-.icons-box img:hover{
+.icons-box img:hover {
     cursor: pointer;
     width: 110px;
     height: 110px;
@@ -61,8 +61,8 @@
     z-index: 10;
 }
 
-.registration-box-input{
-    position: fixed;
+.registration-box-input {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -71,12 +71,22 @@
 
     padding: 25px;
     background-color: white;
-    width: 450px;
+    min-width: 300px;
+    max-width: 450px;
+
 }
 
 .registration-box-input input {
-    margin-bottom: 25px;
+    margin-bottom: 12px;
 }
+
+.registration-box-input-more{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    overflow: auto;
+}
+
 
 .icon-container {
     display: flex;
@@ -86,7 +96,7 @@
     margin-bottom: 25px;
 }
 
-.registration-buttons{
+.registration-buttons {
     display: flex;
     justify-content: space-between;
 }
@@ -104,16 +114,27 @@
     border-radius: 16px;
 }
 
-.registration-request-no-icon-selected div{
+.registration-request-no-icon-selected div {
     display: flex;
     justify-content: space-evenly;
 }
 
-.registration-request-no-icon-selected h2{
+.registration-request-no-icon-selected h2 {
     text-align: center;
 }
 
-.login-input-fields{
+.login-input-fields {
     display: flex;
     flex-direction: column;
+}
+
+#new-user-registration-input-more{
+    width: 40px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#new-user-registration-input-more:hover{
+    color: blue;
+    cursor: pointer;
 }

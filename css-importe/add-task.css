@@ -151,6 +151,7 @@
 .responsible-editor-list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .responsible-editor-list-container {

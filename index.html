@@ -24,7 +24,7 @@
     <script src="./scriptImporte/add-task.js"></script>
     <script src="./mini_backend.js"></script>
     <script>
-        setURL('https://michael-strauss.developerakademie.net/smallest_backend_ever-master')       
+        setURL('https://michael-strauss.developerakademie.net/smallest_backend_ever-master')
         async function addUser() {
             await backend.setItem('users', JSON.stringify(users));
         }
@@ -42,7 +42,7 @@
             users = JSON.parse(backend.getItem('users')) || [];
             tasks = JSON.parse(backend.getItem('tasks')) || [];
             icons = JSON.parse(backend.getItem('icons')) || [];
- 
+
             loadUsers();
             console.log(tasks)
             renderBoard()
@@ -81,11 +81,11 @@
         <div class="header" id="header">
             <div class="test" id="burger" onclick="openMobileSide()">
                 <a class="burger" href="#">
-                  <div class="line1"></div>
-                  <div class="line2"></div>
-                  <div class="line3"></div>
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
                 </a>
-              </div>
+            </div>
 
             <div class="theme-select">
                 <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
@@ -104,7 +104,8 @@
                     <div class="card-header">
                         <h2>ToDo</h2>
                     </div>
-                    <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')" ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
+                    <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
+                        ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -117,7 +118,10 @@
                     <div class="card-header">
                         <h2>In Progress</h2>
                     </div>
-                    <div class="to-do-holder" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')" ondragover="allowDrop(event); highlight('in-progress')" ondragleave="removeHighlight('in-progress')">
+                    <div class="to-do-holder" id="in-progress"
+                        ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
+                        ondragover="allowDrop(event); highlight('in-progress')"
+                        ondragleave="removeHighlight('in-progress')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -130,7 +134,8 @@
                     <div class="card-header">
                         <h2>Testing</h2>
                     </div>
-                    <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')" ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
+                    <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
+                        ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -143,7 +148,8 @@
                     <div class="card-header">
                         <h2>Done</h2>
                     </div>
-                    <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')" ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
+                    <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
+                        ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
@@ -173,7 +179,9 @@
                                 <a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a>
                             </td>
                             <td class="category">IT</td>
-                            <td class="details"  style="border-bottom:0.4rem solid red">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.</td>
+                            <td class="details" style="border-bottom:0.4rem solid red">Lorem ipsum dolor sit, amet
+                                consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -190,15 +198,13 @@
                         <div class="input-group">
                             <select class="form-select" id="priority-state-input"
                                 aria-label="Example select with button addon">
-                                <option selected>Priority...</option>
-                                <option value="high">high</option>
                                 <option value="normal">normal</option>
+                                <option value="high">high</option>
                             </select>
                         </div>
                         <div class="input-group">
                             <select class="form-select margin-right margin-left" id="category-list-input"
                                 aria-label="Example select with button addon">
-                                <option selected>Category...</option>
                                 <option value="IT">IT</option>
                                 <option value="Marketing">Marketing</option>
                                 <option value="Sales">Sales</option>
@@ -208,7 +214,6 @@
                         <div class="input-group">
                             <select class="form-select" id="status-list-input"
                                 aria-label="Example select with button addon">
-                                <option selected>Status...</option>
                                 <option value="to-do">ToDo</option>
                                 <option value="in-progress">IN PROGRESS</option>
                                 <option value="testing">TESTING</option>
@@ -226,7 +231,7 @@
                         <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
                             <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
                             <div class="d-none color-picker-container" id="color-picker">
-                            
+
                             </div>
                         </div>
                         <div class="btn btn-info btn-employees" onclick="openListOfEmployeesBoxForAddTask()">Add
@@ -573,87 +578,95 @@
 
         <div class="log-in-box">
             <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-        <div id="login-container" class="background-box d-none">
-            <div id="login" class="registration-box-input">
-                <h2>Login</h2>
-                <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
-                    <input required id="login-user-inputfield" type="text" name="User" list="all-users"
-                        placeholder="User">
-                    <datalist id="all-users">
-                    </datalist>
-                    <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
-                    <div class="registration-buttons margin-bottom">
-                        <div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>
-                        <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+            <div id="login-container" class="background-box d-none">
+                <div id="login" class="registration-box-input">
+                    <h2>Login</h2>
+                    <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
+                        <input required id="login-user-inputfield" type="text" name="User" list="all-users"
+                            placeholder="User">
+                        <datalist id="all-users">
+                        </datalist>
+                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
+                        <div class="registration-buttons margin-bottom">
+                            <div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>
+                            <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                    <div>
+                        <button onclick="openRegisterBox()" id="registration-btn"
+                            class="btn btn-primary">Registration</button>
                     </div>
-                </form>
-                <div>
-                    <button onclick="openRegisterBox()" id="registration-btn"
-                        class="btn btn-primary">Registration</button>
                 </div>
             </div>
-        </div>
 
-        <div id="registration-box" class="background-box d-none">
-            <form onsubmit="checkPasswortInRegestrationProcess(); return false">
-                <div class="registration-box-input">
-                    <h2>Registration</h2>
-                    <input required id="new-user-inputfield-login" type="text" placeholder="Name">
-                    <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
-                    <input required type="password" placeholder="Repeat password"
-                        id="new-user-inputfield-pw-repeat">
-                    <div>
-                        <input type="checkbox" onclick="showPassword()"> Show Password
+            <div id="registration-box" class="background-box d-none">
+                <form onsubmit="checkPasswortInRegestrationProcess(); return false">
+                    <div class="registration-box-input">
+                        <h2>Registration</h2>
+                        <input required id="new-user-inputfield-login" type="text" placeholder="Name">
+                        <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
+                        <input required type="password" placeholder="Repeat password"
+                            id="new-user-inputfield-pw-repeat">
+                            <div id="new-user-registration-input-more" onclick="showMoreRegistrationInput()">more ></div>
+                            <div id="registration-box-input-more" class="registration-box-input-more d-none">
+                        <input type="text" placeholder="Category like Sales or IT" id="new-user-inputfield-category">
+                        <input type="email" placeholder="your E-Mail ...@..." id="new-user-inputfield-mail">
+                        <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
+                        <input type="text" placeholder="residence" id="new-user-inputfield-city">
+                        <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
                     </div>
-                    <div class="icon-container">
-                        <div onclick="openWindowIconSelection()" class="btn btn-primary">Icons</div>
-                        <div id="icon-box" class="icons-box">
-                            <img src="./img/icon-unknown.svg">
+                        <div>
+                            <input type="checkbox" onclick="showPassword()"> Show Password
+                        </div>
+                        <div class="icon-container">
+                            <div onclick="openWindowIconSelection()" class="btn btn-primary">Icons</div>
+                            <div id="icon-box" class="icons-box">
+                                <img src="./img/icon-unknown.svg">
+                            </div>
+                        </div>
+                        <div class="registration-buttons">
+                            <div onclick="closeRegisterBox()" class="btn btn-primary">Cancel</div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>
-                    <div class="registration-buttons">
-                        <div onclick="closeRegisterBox()" class="btn btn-primary">Cancel</div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div id="registration-request-no-icon-selected-box" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
+                    <div>
+                        <button class="btn btn-primary" onclick="closeAskForIconSelection()">No</button>
+                        <button class="btn btn-primary" onclick="submitNewUserWithUnknownIcon()">Yes</button>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div id="registration-request-no-icon-selected-box" class="background-box d-none">
-            <div class="registration-request-no-icon-selected">
-                <h2>Do you want to take the "Unknown Avatar" as icon?</h2>
-                <div>
-                    <button class="btn btn-primary" onclick="closeAskForIconSelection()">No</button>
-                    <button class="btn btn-primary" onclick="submitNewUserWithUnknownIcon()">Yes</button>
+            </div>
+
+            <!-- ## Registration Alert Wrong Password Entry ## -->
+            <div id="registration-check-password-alert" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>Please check your password entry</h2>
                 </div>
             </div>
-        </div>
-
-        <!-- ## Registration Alert Wrong Password Entry ## -->
-        <div id="registration-check-password-alert" class="background-box d-none">
-            <div class="registration-request-no-icon-selected">
-                <h2>Please check your password entry</h2>
+            <!-- ## Registration Alert Wrong Password Entry ## -->
+            <div id="registration-ready-for-login-alert" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>Ready for Login</h2>
+                </div>
             </div>
-        </div>
-        <!-- ## Registration Alert Wrong Password Entry ## -->
-        <div id="registration-ready-for-login-alert" class="background-box d-none">
-            <div class="registration-request-no-icon-selected">
-                <h2>Ready for Login</h2>
+            <!-- ## Registration Alert User already exist ## -->
+            <div id="registration-user-already-exist-alert" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>User already exist</h2>
+                </div>
             </div>
-        </div>
-        <!-- ## Registration Alert User already exist ## -->
-        <div id="registration-user-already-exist-alert" class="background-box d-none">
-            <div class="registration-request-no-icon-selected">
-                <h2>User already exist</h2>
+            <!-- ## Login Alert There is no User with this name ## -->
+            <div id="registration-wrung-username-alert" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <h2>Wrong Username. This user does not exist.</h2>
+                </div>
             </div>
-        </div>
-        <!-- ## Login Alert There is no User with this name ## -->
-        <div id="registration-wrung-username-alert" class="background-box d-none">
-            <div class="registration-request-no-icon-selected">
-                <h2>Wrong Username. This user does not exist.</h2>
-            </div>
-        </div>
-        <!-- ----------------------------- Login END ----------------------------- -->
+            <!-- ----------------------------- Login END ----------------------------- -->
         </div>
     </div>
 </body>

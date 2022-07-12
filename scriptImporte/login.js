@@ -120,6 +120,9 @@ function hideRegistrationAlertContent(){
 function submitNewUser() {
     let newUser = document.getElementById('new-user-inputfield-login');
     let newUserPassword = document.getElementById('new-user-inputfield-pw');
+    let newUserMail = document.getElementById('new-user-inputfield-mail');
+    let newUserTel = document.getElementById('new-user-inputfield-tel');
+    let newUserCity = document.getElementById('new-user-inputfield-city');
     let iconSource = temporaryIconArray[0];
 
     if (checkIfUserNameAlreadyExist(newUser) == true) {
@@ -131,7 +134,7 @@ function submitNewUser() {
             openWindowAskForConfirmationToUseUnknownImage();
         }
         else {
-            pushNewUserInArrayUsers(newUser, newUserPassword, iconSource)
+            pushNewUserInArrayUsers(newUser, newUserPassword, iconSource, newUserMail, newUserTel, newUserCity)
         }
     }
 }
@@ -154,13 +157,18 @@ function checkIfUserNameAlreadyExist(newUser) {
 }
 
 
-function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource) {
+function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource, newUserMail, newUserTel, newUserCity) {
     let userId = users.length;
     let user = {
         "id": userId,
         "name": newUser.value,
         "password": newUserPassword.value,
-        "icon": iconSource
+        "icon": iconSource,
+        "category": "",
+        "Hobbys": "",
+        "city": newUserCity.value,
+        "mail": newUserMail.value,
+        "telephon": newUserTel.value
     };
     users.push(user);
     loadUsers();
@@ -357,3 +365,15 @@ function loginAsTestuser(){
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
 }
 
+
+function showMoreRegistrationInput(){
+    let content = document.getElementById('new-user-registration-input-more')
+    if(document.getElementById('registration-box-input-more').classList.contains('d-none')){
+        content.innerHTML = 'less <'
+        document.getElementById('registration-box-input-more').classList.remove('d-none')
+    }
+    else{
+        content.innerHTML = 'more >'
+        document.getElementById('registration-box-input-more').classList.add('d-none')
+    }
+}
