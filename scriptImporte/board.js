@@ -52,8 +52,6 @@ function renderDone() {
 
 function startDragging(id) {
     currentDraggedElement = id
-
-    console.log(currentDraggedElement)
 }
 
 

@@ -63,11 +63,13 @@ function createTask() {
         "description": description.value,
         "color": color
     }
-    console.log(task)
     pushAllUsersInTask(task);
     tasks.push(task);
     addTasks();
     clearAddTask()
+    renderBoard()
+    renderBacklog()
+    openBoard()
 }
 
 
