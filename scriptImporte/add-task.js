@@ -67,6 +67,7 @@ function createTask() {
     console.log(task)
     pushAllUsersInTask(task);
     tasks.push(task);
+    addTasks();
     clearAddTask()
 }
 
