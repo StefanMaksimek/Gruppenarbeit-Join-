@@ -76,7 +76,8 @@ function createTask() {
 function pushAllUsersInTask(task) {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
         const name = temporaryArrayResponsibleEmployees[i];
-        task.user.push(name)
+        const responsibleUser = users.find(t => users.name = name)
+        task.user.push(responsibleUser)
     }
 }
 

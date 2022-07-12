@@ -8,7 +8,8 @@ let users = [
         "category": "Management",
         "Hobbys": "",
         "city": "",
-        "mail": "testuser@gmail.net"
+        "mail": "testuser@gmail.net",
+        "phone": "0176/99225544"
     },
 
     {
@@ -19,7 +20,8 @@ let users = [
         "category": "IT",
         "Hobbys": "Walking with my dog",
         "city": "Bremerfjörde",
-        "mail": "stefan@gmail.net"
+        "mail": "stefan@gmail.net",
+        "phone": "0176/91123444"
     },
 
     {
@@ -30,7 +32,8 @@ let users = [
         "category": "Sales",
         "Hobbys": "Shopping",
         "city": "Prague",
-        "mail": "julia@gmail.net"
+        "mail": "julia@gmail.net",
+        "phone": "0176/99223447"
     },
 
     {
@@ -41,7 +44,8 @@ let users = [
         "category": "IT",
         "Hobbys": "Swimming",
         "city": "Fürth",
-        "mail": "michael@gmail.net"
+        "mail": "michael@gmail.net",
+        "phone": "0176/99223474"
     },
 
     {
@@ -52,7 +56,8 @@ let users = [
         "category": "Management",
         "Hobbys": "Gardening",
         "city": "Los Angeles",
-        "mail": "sahra@gmail.net"
+        "mail": "sahra@gmail.net",
+        "phone": "0176/99228444"
     },
 
     {
@@ -63,7 +68,8 @@ let users = [
         "category": "Sales",
         "Hobbys": "Tennis",
         "city": "Munich",
-        "mail": "sebastian@gmail.net"
+        "mail": "sebastian@gmail.net",
+        "phone": "0176/91223444"
     },
 
     {
@@ -74,7 +80,8 @@ let users = [
         "category": "IT",
         "Hobbys": "Volleyball",
         "city": "Houston",
-        "mail": "sandro@gmail.net"
+        "mail": "sandro@gmail.net",
+        "phone": "0176/99225444"        
     },
 
     {
@@ -85,7 +92,8 @@ let users = [
         "category": "Sales",
         "Hobbys": "Football",
         "city": "Denver",
-        "mail": "sven@gmail.net"
+        "mail": "sven@gmail.net",
+        "phone": "0176/99223444"
     }
 ]
 
@@ -151,14 +159,8 @@ let icons = [
 
 let tasks = [
     {
-        "title": 'Design of Concept',
-        "priority": 'high',
-        "category": 'IT',
-        "due-date": '',
-        "user": ['Martin', 'Sahra', 'Stefan'],
-        "status": 'ToDo',
-        "description": 'create some ideas how we can resolve the problem of the responsible design and the arrangement of the object of the side'
     }
+]
 ]*/
 
 
