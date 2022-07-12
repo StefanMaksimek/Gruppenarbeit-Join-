@@ -70,26 +70,6 @@ function createTask() {
     clearAddTask()
 }
 
-/* i have changed the value in index.html
-function convertStatus(status) {
-    if (status == 'ToDo') {
-        status = 'to-do'
-    } else {
-        if (status == 'IN PROGRESS') {
-            status = 'in-progress'
-        } else {
-            if (status == 'TESTING') {
-                status = 'testing'
-            } else {
-                if (status == 'DONE') {
-                    status = 'done'
-                }
-            }
-        }
-    }
-    return status
-}*/
-
 
 function pushAllUsersInTask(task) {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {

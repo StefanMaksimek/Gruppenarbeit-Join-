@@ -8,6 +8,10 @@
  * @returns HTML snippet for renderBacklog function
  */
 function renderBacklogHTML(task) {
+   let u = users.find(user => {
+       return user.name == task.user[0].user
+    })
+    let mail = u.mail
     // Shows only the first USER! forEach cannot be reapplied
     return `
         <tr>
@@ -15,11 +19,11 @@ function renderBacklogHTML(task) {
                 <img src="${task.user[0].icon}" alt="">
             </td>
             <td class="assigned-to">
-                <h3>${task.user[0].name}</h3>
-                <a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a>
+                <h3>${task.user[0].user}</h3>
+                <a href="mailto:${mail}">${mail}</a>
             </td>
             <td class="category">${task.category}</td>
-            <td class="details" style="border:0.4rem solid var(--color-${task.color})">${task.description}</td>
+            <td class="details" style="border:0.4rem solid ${task.color}">${task.description}</td>
         </tr>
     `
 }
