@@ -34,6 +34,12 @@
     }
 }
 
+@media screen and (max-width: 405px) {
+    .theme-select {
+        display: none;
+    }
+}
+
 .active-mobile-side {
     position: absolute;
     min-height: calc(100vh - 60px);
