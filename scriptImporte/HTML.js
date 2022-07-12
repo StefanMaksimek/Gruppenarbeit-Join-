@@ -95,3 +95,21 @@ function colorPickerHTML(color) {
         </div>
     `
 }
+
+
+function renderSearchedEmployeesHTML(user, icon){
+    return `
+    <div class="list-search-result" id="${user}-${icon}">
+    <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
+        <p id="responsible-employees-${user}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
+    </div>`
+}
+
+
+function renderSelectedEmployeesHTML(name, img){
+    return `<div draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="responsible-editor-container-box">
+    <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}">
+    <div class="name-responsible-editor">${name}</div>
+    </div> 
+    `
+}

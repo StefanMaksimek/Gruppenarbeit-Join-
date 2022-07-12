@@ -1,7 +1,7 @@
 let temporaryArrayColor = ['lightblue'];
 let temporaryArrayResponsibleEmployees = [];
 
-
+// ###### Color Options Start ######
 function showColor() {
     let content = document.getElementById('color-picker')
     content.innerHTML = '';
@@ -37,6 +37,7 @@ function takeColor(color) {
     changeButtonColorOfColorPicker(color)
 }
 
+// ###### Color Options End ######
 
 function createTask() {
 
@@ -49,7 +50,7 @@ function createTask() {
     let color = temporaryArrayColor[0]
     let id = tasks.length
 
-    convertStatus(status)
+    //convertStatus(status)
 
     let task = {
         "id": id,
@@ -63,11 +64,13 @@ function createTask() {
         "description": description.value,
         "color": color
     }
+    console.log(task)
     pushAllUsersInTask(task);
     tasks.push(task);
     clearAddTask()
 }
 
+/* i have changed the value in index.html
 function convertStatus(status) {
     if (status == 'ToDo') {
         status = 'to-do'
@@ -85,7 +88,7 @@ function convertStatus(status) {
         }
     }
     return status
-}
+}*/
 
 
 function pushAllUsersInTask(task) {
@@ -204,16 +207,10 @@ function showMatches(matches) {
             if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
             }
             else {
-                userProposals.innerHTML += `
-            <div class="list-search-result" id="${user}-${icon}">
-            <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
-                <p id="responsible-employees-${user}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
-            </div>`
+                userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
-
         }
     }
-
     matches = [];
 }
 
@@ -241,11 +238,7 @@ function renderResponsibleUserList() {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
         const name = temporaryArrayResponsibleEmployees[i].user;
         const img = temporaryArrayResponsibleEmployees[i].icon;
-        content.innerHTML += `<div draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="responsible-editor-container-box">
-        <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}">
-        <div class="name-responsible-editor">${name}</div>
-        </div> 
-        `
+        content.innerHTML += renderSelectedEmployeesHTML(name, img);
     }
 }
 
@@ -258,7 +251,7 @@ function deleteFromList(user, icon) {
     content.parentNode.removeChild(content)
 }
 
-
+/*
 let currentDraggedUserAddTask;
 let currentDraggedIconAddTask;
 
@@ -267,7 +260,7 @@ function deleteResponsibleEmployee(user, icon) {
     currentDraggedUserAddTask = user;
     currentDraggedIconAddTask = icon
 }
-
+*/
 
 //delete by moving the img to the bin
 function moveToBin() {
