@@ -75,9 +75,8 @@ function createTask() {
 
 function pushAllUsersInTask(task) {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
-        const name = temporaryArrayResponsibleEmployees[i];
-        const responsibleUser = users.find(t => users.name = name)
-        task.user.push(responsibleUser)
+        const nameResponsibleUserObj = temporaryArrayResponsibleEmployees[i];
+        task.user.push(nameResponsibleUserObj)
     }
 }
 
@@ -185,7 +184,8 @@ function showMatches(matches) {
         document.getElementById('add-task-editor-list').innerHTML = '';
         for (let i = 0; i < matches.length; i++) {
             let user = matches[i];
-            let icon = users.find(t => t.name == user).icon
+            let userObj = users.find(t => t.name == user)
+            let icon = userObj.icon
 
             if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
             }
@@ -204,11 +204,8 @@ function alreadyResponsibleUserAdded(user) {
 
 
 function addUserToResponsibleEmployees(user, icon) {
-    let responsibleUser = {
-        "user": user,
-        "icon": icon
-    }
-    temporaryArrayResponsibleEmployees.push(responsibleUser)
+    let userObj = users.find(t => t.name == user)
+    temporaryArrayResponsibleEmployees.push(userObj)
     renderResponsibleUserList()
     deleteFromList(user, icon);
 }

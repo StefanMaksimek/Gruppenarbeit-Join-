@@ -8,10 +8,10 @@
  * @returns HTML snippet for renderBacklog function
  */
 function renderBacklogHTML(task) {
-   let u = users.find(user => {
-       return user.name == task.user[0].user
-    })
-    let mail = u.mail
+   /*let u = users.find(user => {
+       return user.name == task.user[0].name
+    })*/
+    let mail = task.user[0].mail
     // Shows only the first USER! forEach cannot be reapplied
     return `
         <tr>
