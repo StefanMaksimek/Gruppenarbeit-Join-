@@ -6,7 +6,7 @@ function renderBoard() {
     renderInProgress()
     renderTesting()
     renderDone()
-    x.sort((a, b) => (a.id > b.id ? 1 : -1))
+    tasks.sort((a, b) => (a.id > b.id ? 1 : -1))
 }
 
 
@@ -14,7 +14,7 @@ function renderToDo() {
     let td = document.getElementById('to-do')
 
     td.innerHTML = ``
-    x.filter(task => task.status == "to-do").forEach(toDos => {
+    tasks.filter(task => task.status == "to-do").forEach(toDos => {
         td.innerHTML += renderToDoHTML(toDos)
     })
 }
@@ -24,7 +24,7 @@ function renderInProgress() {
     let ip = document.getElementById('in-progress')
 
     ip.innerHTML = ``
-    x.filter(task => task.status == "in-progress").forEach(inProgress => {
+    tasks.filter(task => task.status == "in-progress").forEach(inProgress => {
         ip.innerHTML += renderInProgressHTML(inProgress)
     })
 }
@@ -34,7 +34,7 @@ function renderTesting() {
     let t = document.getElementById('testing')
 
     t.innerHTML = ``
-    x.filter(task => task.status == "testing").forEach(testing => {
+    tasks.filter(task => task.status == "testing").forEach(testing => {
         t.innerHTML += renderTestingHTML(testing)
     })
 }
@@ -44,7 +44,7 @@ function renderDone() {
     let d = document.getElementById('done')
 
     d.innerHTML = ``
-    x.filter(task => task.status == "done").forEach(done => {
+    tasks.filter(task => task.status == "done").forEach(done => {
         d.innerHTML += renderDoneHTML(done)
     })
 }
@@ -58,8 +58,8 @@ function startDragging(id) {
 
 
 function moveTo(status) {
-    x[currentDraggedElement].status = status
-    
+    tasks[currentDraggedElement].status = status
+    addTasks()
     renderBoard()
     removeHighlight(status)
 }

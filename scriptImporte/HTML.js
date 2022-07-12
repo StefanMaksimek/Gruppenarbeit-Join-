@@ -1,5 +1,7 @@
 
-// HTML Snippets for Backlog
+/////////////////////////// HTML Snippets for Backlog
+
+
 /**
  * 
  * @param {*} task JSON
@@ -21,9 +23,12 @@ function renderBacklogHTML(task) {
         </tr>
     `
 }
+/////////////////////////////////////////////////////////////////////////////////
 
 
-// HTML Snippets for Board
+/////////////////////////// HTML Snippets for Board
+
+
 /**
  * 
  * @param {*} toDos JSON 
@@ -70,23 +75,11 @@ function renderDoneHTML(done) {
         <div class="to-do" draggable="true" ondragstart="startDragging(${done["id"]})">${done.title}</div>
     `
 }
+/////////////////////////////////////////////////////////////////////////////////
 
-//function renderColorPicker(){
-//    return `<div class="color-picker-box" onclick="takeColor('var(--color-picker-1)')"
-//    style="background-color: var(--color-picker-1);">
-//</div>
-//<div class="color-picker-box" onclick="takeColor('var(--color-picker-2)')"
-//    style="background-color: var(--color-picker-2);">
-//</div>
-//<div class="color-picker-box" onclick="takeColor('var(--color-picker-3)')" style="background-color: var(--color-picker-3);">
-//</div>
-//<div class="color-picker-box" onclick="takeColor('var(--color-picker-4)')"
-//    style="background-color: var(--color-picker-4);"></div>
-//<div class="color-picker-box" onclick="takeColor('var(--color-picker-5)')"
-//    style="background-color: var(--color-picker-5);"></div>
-//<div class="color-picker-box" onclick="takeColor('var(--color-picker-6)')"
-//    style="background-color: var(--color-picker-6);"></div>`
-//}
+
+/////////////////////////// HTML Snippets for Add Task
+
 
 function colorPickerHTML(color) {
     return `

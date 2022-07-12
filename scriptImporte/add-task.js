@@ -5,7 +5,6 @@ let temporaryArrayResponsibleEmployees = [];
 function showColor() {
     let content = document.getElementById('color-picker')
     content.innerHTML = '';
-    //content.innerHTML = renderColorPicker();
     colorPicker.forEach(color => {
         content.innerHTML += colorPickerHTML(color)
     });
