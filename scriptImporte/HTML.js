@@ -98,7 +98,7 @@ function renderSearchedEmployeesHTML(user, icon){
     return `
     <div class="list-search-result" id="${user}-${icon}">
     <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
-        <p id="responsible-employees-${user}"  onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</p>
+        <div id="responsible-employees-${user}" class="list-search-result-name-under-icon" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">${user}</div>
     </div>`
 }
 

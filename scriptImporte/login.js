@@ -353,6 +353,16 @@ function loadUsers() {
 }
 
 
+let userNames = [];
+
+function loadAllUserNamesInArray() {
+    for (let i = 0; i < users.length; i++) {
+        const name = users[i].name;
+        userNames.push(name)
+    }
+}
+
+
 function setUser(name) {
     currentUser = `${name}`;
 }

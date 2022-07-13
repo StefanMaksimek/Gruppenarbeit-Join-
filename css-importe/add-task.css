@@ -122,7 +122,14 @@
 }
 
 .input-search-employees {
-    height: 40px;
+    height: 30px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
 }
 
 .add-task-editor-list {
@@ -254,4 +261,14 @@
 
 .padding-left {
     padding-left: 8px;
+}
+
+.list-search-result-name-under-icon{
+    height: 30px;
+    overflow: auto;
+}
+
+.search-switch-text:hover{
+    color: blue;
+    cursor: pointer;
 }

@@ -133,44 +133,110 @@ function closeListOfEmployeesBoxForAddTask() {
 function openListOfEmployeesBoxForAddTask() {
     let content = document.getElementById('list-of-employees-box');
     content.classList.remove('d-none');
+    showTwentyUsersAsProbosals();
 }
 
 
 function clearUserListForAddEmployees() {
-    let content = document.getElementById('search')
-    content.value = ''
+    let contentName = document.getElementById('search-name')
+    contentName.value = ''
+
+    let contentMail = document.getElementById('search-mail')
+    contentMail.value = ''
 }
 
 //Search Function
 
-const search = document.getElementById('search')
+const search = document.getElementById('search-name')
 const matchList = document.getElementById('add-task-editor-list')
 
-let userNames = [];
+function showSearchInputfield(show, hide){
+    let contentShow = document.getElementById(`show-search-${show}-inputfield`)
+    contentShow.classList.remove('d-none') //if show search Mail is clicked, show clickable text search Name appear
+    let contentHide = document.getElementById(`show-search-${hide}-inputfield`)
+    contentHide.classList.add('d-none') // and clickable text search mail disappear
 
-function loadAllUserNamesInArray() {
-    for (let i = 0; i < users.length; i++) {
-        const name = users[i].name;
-        userNames.push(name)
-    }
+    let inputfieldShow = document.getElementById(`search-${show}`)
+    let inputfieldHide = document.getElementById(`search-${hide}`)
+
+    inputfieldShow.classList.add('d-none')
+    inputfieldHide.classList.remove('d-none')
+    clearHidedInputfield(show)
+}
+
+
+function clearHidedInputfield(show){
+    let inputfieldShow = document.getElementById(`search-${show}`)
+    inputfieldShow.value = ''
 }
 
 
 function startSearchUser() {
-    let searchText = document.getElementById('search').value;
-    searchUser(searchText)
+    let searchText = document.getElementById('search-name').value;
+    searchUserName(searchText);
+}
+
+function startSearchMail(){
+    let searchText = document.getElementById('search-mail').value;
+    searchUserMail(searchText);
 }
 
 let searchMatches;
+let searchMatchesMails;
+/*
+function searchUserMail(searchText) {
+    let userMails = users.map(function(item) {
+        return [item["Mail Only"],
+          item["employee + Spouse/Partner"],
+          item["Annual OOP max / entire famliy"]
+        ]
+      }).join(',').split(',');
 
-function searchUser(searchText) {
+    const editors = userMails
+    searchMatchesMails = editors.filter(editor => {
+        const regex = new RegExp(`^${searchText}`, "gi")
+        return editor.match(regex)
+    })
+
+    if (document.getElementById('search-name').value == '') {
+        searchMatches = '';
+        document.getElementById('add-task-editor-list').innerHTML = '';
+    }
+
+    showMatchesMail()
+}
+
+
+
+
+function showMatchesMail() {
+    if (searchMatchesMails.length > 0) {
+        let userProposals = document.getElementById('add-task-editor-list')
+        document.getElementById('add-task-editor-list').innerHTML = '';
+        for (let i = 0; i < searchMatchesMails.length; i++) {
+            let user = searchMatchesMails[i];
+            let userObj = users.find(t => t.name == user)
+            let icon = userObj.icon
+
+            if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+            }
+            else {
+                userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
+            }
+        }
+    }
+    searchMatches = [];
+}
+*/
+
+function searchUserName(searchText) {
     const editors = userNames
     searchMatches = editors.filter(editor => {
         const regex = new RegExp(`^${searchText}`, "gi")
         return editor.match(regex)
     })
 
-    if (document.getElementById('search').value == '') {
+    if (document.getElementById('search-name').value == '') {
         searchMatches = '';
         document.getElementById('add-task-editor-list').innerHTML = '';
     }
@@ -179,13 +245,54 @@ function searchUser(searchText) {
 }
 
 
-function showTheFirstTwentyUsersAsProbosals(){
-if(noUserHasBeenSearched())
+function showTwentyUsersAsProbosals() {
+    let userProposals = document.getElementById('add-task-editor-list')
+    if (noUserHasBeenSearched()) {
+        if (notMoreUserObjectsThanTwenty()) {
+            renderUsersAsProposals(userProposals)
+        }
+        else {
+            renderFirstTwentyUsersAsProposals(userProposals)
+        }
+    }
 }
 
 
-function noUserHasBeenSearched(){
-    return searchMatches.length == 0;
+function renderUsersAsProposals(userProposals) {
+    for (let i = 0; i < users.length; i++) {
+        let user = users[i].name;
+        let icon = users[i].icon
+
+        if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        }
+        else {
+            userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
+        }
+    }
+}
+
+
+function renderFirstTwentyUsersAsProposals(userProposals) {
+    for (let i = 0; i < 20; i++) {
+        let user = users[i].name;
+        let icon = users[i].icon
+
+        if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        }
+        else {
+            userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
+        }
+    }
+}
+
+
+function noUserHasBeenSearched() {
+    return document.getElementById('search-name').value == '' && document.getElementById('search-mail').value == '';
+}
+
+
+function notMoreUserObjectsThanTwenty() {
+    return users.length < 20;
 }
 
 
@@ -271,7 +378,7 @@ function showUserDetails(user) {
     let category = userObj.category;
     let city = userObj.city;
     let hobby = userObj.Hobbys;
-    
+
     let content = document.getElementById('show-user-details-container');
     content.classList.remove('d-none')
 
