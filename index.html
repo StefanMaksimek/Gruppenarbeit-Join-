@@ -46,6 +46,7 @@
             loadUsers();
             renderBoard()
             renderBacklog()
+            openAddTask()
         }
     </script>
 
@@ -61,9 +62,12 @@
             <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
             <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
             <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
-            <h3 id="help-h3">Help</h3>
+            <hr>
+            <h3 id="help-h3" onclick="openHelp()">Help</h3>
+            <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
             <h3 id="impressum-h3" onclick="openImpressum()">Impressum</h3>
             <h3 id="datenschutz-h3" onclick="openDatenschutz()">Datenschutz</h3>
+            <hr>
             <div id="login-logout">
                 <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
                 <h3 id="logout-h3" onclick="executeLogout()" class="d-none">Logout</h3>
@@ -86,14 +90,13 @@
                 </a>
             </div>
 
-            <div class="theme-select">
-                <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
-                <button onclick="setTheme('dark')" data-theme="theme-dark" class="theme-switch">Dark</button>
-                <button onclick="setTheme('neon')" data-theme="theme-neon" class="theme-switch">Neon</button>
-            </div>
-
-            <div class="info-header" id="info-header">
-                <h1>Board</h1>
+            <div class="info-header">
+                <div class="info-header" id="info-header">
+                    <h1>Board</h1>
+                </div>
+                <span>
+                    Learning Management System Projekt
+                </span>
             </div>
         </div>
 
@@ -189,99 +192,164 @@
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="add-task">
                 <form onsubmit="createTask(); return false">
-                    <div>
-                        <input required type="text" placeholder="Title" id="title-task" class="form-control">
+                    <div class="left">
+                        <div class="input-holder">
+                            <h3>TITLE</h3>
+
+                            <div>
+                                <input required type="text" placeholder="Title" id="title-task" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="input-holder2">
+                            <div class="input-holder">
+                                <h3>CATEGORY</h3>
+    
+                                <div class="input-group">
+                                    <select class="form-select" id="category-list-input"
+                                        aria-label="Example select with button addon">
+                                        <option value="IT">IT</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Sales">Sales</option>
+                                        <option value="Management">Management</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-holder">
+                                <h3>COLOR</h3>
+
+                                <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                                    <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">choose</div>
+                                    <div class="d-none color-picker-container" id="color-picker">
+            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="input-holder">
+                            <h3>DESCRIPTION</h3>
+
+                            <!--copied from bootstrap-->
+                            <!-- Textarea with class .w-75 -->
+                            <div class="form-outline mb-4 margin-top">
+                                <textarea required class="form-control" id="task-description" rows="8"
+                                    placeholder="..."></textarea>
+                            </div>
+                            <!--copied from bootstrap-->
+                        </div>
                     </div>
-                    <div class="margin-top input-selection-group">
-                        <div class="input-group">
-                            <select class="form-select" id="priority-state-input"
-                                aria-label="Example select with button addon">
-                                <option value="normal">normal</option>
-                                <option value="high">high</option>
-                            </select>
+
+                    <div class="right">
+                        <div class="input-holder">
+                            <h3>DUE DATE</h3>
+
+                            <input required class="form-control input-due-date" type="date" name="begin"
+                                placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
                         </div>
-                        <div class="input-group">
-                            <select class="form-select margin-right margin-left" id="category-list-input"
-                                aria-label="Example select with button addon">
-                                <option value="IT">IT</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Sales">Sales</option>
-                                <option value="Management">Management</option>
-                            </select>
+
+
+                        <div class="input-holder2">
+                            <div class="input-holder">
+                                <h3>URGENCY</h3>
+
+                                <select class="form-select" id="priority-state-input"
+                                    aria-label="Example select with button addon">
+                                    <option value="normal">normal</option>
+                                    <option value="high">high</option>
+                                </select>
+                            </div>
+
+                            <div class="input-holder">
+                                <h3>STATUS</h3>
+
+                                <select class="form-select" id="status-list-input"
+                                    aria-label="Example select with button addon">
+                                    <option value="to-do">ToDo</option>
+                                    <option value="in-progress">IN PROGRESS</option>
+                                    <option value="testing">TESTING</option>
+                                    <option value="done">DONE</option>
+                                </select>
+                            </div>
+
+                            
                         </div>
-                        <div class="input-group">
-                            <select class="form-select" id="status-list-input"
-                                aria-label="Example select with button addon">
-                                <option value="to-do">ToDo</option>
-                                <option value="in-progress">IN PROGRESS</option>
-                                <option value="testing">TESTING</option>
-                                <option value="done">DONE</option>
-                            </select>
+
+
+                        <div class="input-holder">
+                            <h3>ASSINGED TO</h3>
+
+                            <div class="assinged-to">
+                                <div class="responsible-editor-list-container">
+                                    <div class="employees-holder">
+                                        <div class="btn-employees" onclick="openListOfEmployeesBoxForAddTask()">
+                                            <div class="btn-line1"></div>
+                                            <div class="btn-line2"></div>
+                                        </div>
+
+                                        <div id="responsible-editor-list" class="responsible-editor-list" ondragover="allowDrop(event)">
+                                        </div>
+                                    </div>
+                                    <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btns-add-task">
+                            <button onclick="openBoard()" class="btn-cancel">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Create Task</button>
                         </div>
                     </div>
+                </form>
 
+             
+                
 
-
-                    <div class="margin-top editor-and-date-box">
-                        <div class="margin-right width-80">Due Date:</div>
-                        <input required class="margin-right form-control input-due-date" type="date" name="begin"
-                            placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
-                        <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                            <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">Color</div>
-                            <div class="d-none color-picker-container" id="color-picker">
+                <div id="list-of-employees-box" class="background-box d-none">
+                    <div class="select-employees-container">
+                        <h2>Please select</h2>
+                        <div class="select-employees-container-list">
+                            <div class="search-bar">
+                                <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
+                                    onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
+                                <div class="show-switch-text" id="show-search-mail-inputfield"
+                                    onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
+                                <input class="input-search-employees" type="text" placeholder="Search for name"
+                                    id="search-name" onkeyup="startSearchUser()">
+                                <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
+                                    id="search-mail" onkeyup="startSearchMail()">
+                            </div>
+                            <div id="add-task-editor-list" class="add-task-editor-list">
 
                             </div>
                         </div>
-                        <div class="btn btn-info btn-employees" onclick="openListOfEmployeesBoxForAddTask()">Add
-                            Employees</div>
+                        <button class="btn btn-primary margin-top"
+                            onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                     </div>
-                    <div class="responsible-editor-list-container form-control">
-                        <div>
-                            <div>Responsible Employees</div>
-                            <div id="responsible-editor-list" class="responsible-editor-list"
-                                ondragover="allowDrop(event)"></div>
-                        </div>
-                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
-                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
-                        </div>
-                    </div>
-
-
-
-                    <!--copied from bootstrap-->
-                    <!-- Textarea with class .w-75 -->
-                    <div class="form-outline mb-4 margin-top">
-                        <textarea required class="form-control" id="task-description" rows="3"
-                            placeholder="..."></textarea>
-                    </div>
-                    <!--copied from bootstrap-->
-                    <div class="btns-add-task">
-                        <button type="submit" class="btn btn-primary">Create Task</button>
-                    </div>
-                </form>
-            </div>
-
-            <div id="list-of-employees-box" class="background-box d-none">
-                <div class="select-employees-container">
-                    <h2>Please select</h2>
-                    <div class="select-employees-container-list">
-                        <div class="search-bar">
-                            <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none" onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
-                            <div class="show-switch-text" id="show-search-mail-inputfield" onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
-                            <input class="input-search-employees" type="text" placeholder="Search for name" id="search-name"
-                                onkeyup="startSearchUser()">
-                            <input class="input-search-employees d-none" type="text" placeholder="Search for mail" id="search-mail"
-                                onkeyup="startSearchMail()">
-                        </div>
-                        <div id="add-task-editor-list" class="add-task-editor-list">
-
-                        </div>
-                    </div>
-                    <button class="btn btn-primary margin-top"
-                        onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                 </div>
             </div>
+
+
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+
+            <div class="d-none" id="help">
+                <h1>help</h1>
+            </div>
+
+            <div class="d-none" id="settings">
+                <div class="theme-holder">
+                    <h2>Choose yor theme</h2>
+                    <div class="theme-select">
+                        <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
+                        <button onclick="setTheme('dark')" data-theme="theme-dark" class="theme-switch">Dark</button>
+                        <button onclick="setTheme('neon')" data-theme="theme-neon" class="theme-switch">Neon</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="d-none" id="impressum">
                 <h1>Impressum</h1>
@@ -610,7 +678,8 @@
                         <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
                         <input required type="password" placeholder="Repeat password"
                             id="new-user-inputfield-pw-repeat">
-                        <div class="show-switch-text" id="new-user-registration-input-more" class="search-switch-text" onclick="showMoreRegistrationInput()">more ></div>
+                        <div class="show-switch-text" id="new-user-registration-input-more" class="search-switch-text"
+                            onclick="showMoreRegistrationInput()">more ></div>
                         <div id="registration-box-input-more" class="registration-box-input-more d-none">
                             <input type="text" placeholder="Category like Sales or IT"
                                 id="new-user-inputfield-category">

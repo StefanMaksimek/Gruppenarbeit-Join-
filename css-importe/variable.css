@@ -7,6 +7,8 @@
     --color-picker4: hsl(65, 85%, 35%);
     --color-picker5: hsl(38, 93%, 30%);
     --color-picker6: hsl(301, 100%, 26%);
+
+    transition: 225ms;
 }
 
 body[data-theme='default'] {
@@ -16,10 +18,10 @@ body[data-theme='default'] {
     --clr-secondary: hsl(0, 100%, 30%);
     --clr-bg: rgb(244, 244, 244);
     --clr-font1: rgb(0, 0, 0);
-    --clr-font2: black;
+    --clr-font2: rgb(255, 254, 254);
 
-    --clr-primary-tr: hsl(240, 50%, 40%, 0.2);
-    --clr-secondary-tr: hsla(0, 100%, 30%, 0.2);
+    --clr-primary-tr: hsl(240, 50%, 90%);
+    --clr-secondary-tr: hsla(0, 100%, 80%);
 
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);
@@ -34,3 +36,95 @@ body[data-theme='default'] {
     --clr-Sales: green;
 }
 
+/*##################   AddTask.CSS   #########################*/
+
+.add-task form {
+    background-color: var(--clr-primary-tr);
+    width: 100%;
+    border: 2px solid var(--clr-primary);
+    border-radius: 0.4rem;
+    display: flex;
+    padding: var(--px-mid);
+}
+
+.add-task form h3 {
+    margin-bottom: var(--px-low);
+    font-weight: bold;
+    border: none;
+    padding: 0;
+    color: var(--clr-primary);
+
+}
+
+.left {
+    width: 50%;
+    padding: var(--px-mid);
+}
+
+.right {
+    width: 50%;
+    padding: var(--px-mid);
+}
+
+.input-holder {
+    margin-bottom: var(--px-mid);
+}
+
+.input-holder2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.assinged-to {
+    display: flex;
+    height: 150px;
+}
+
+.btn-employees {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.5rem;
+    height: 2.5rem;
+    background-color: var(--clr-primary-tr);
+    border-radius: 50%;;
+}
+
+.btn-line1 {
+    position: absolute;
+    width: 80%;
+    height: 0.1rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--clr-primary);
+    transform: translateY(0.2rem);
+}
+
+.btn-line2 {
+    position: absolute;
+    width: 80%;
+    height: 0.1rem;
+    background-color: var(--clr-primary);
+    transform: rotate(90deg);
+}
+
+.btns-add-task {
+    display: flex;
+    justify-content: end;
+}
+
+.btn-cancel {
+    border: none;
+    background-color: transparent;
+    color: var(--clr-primary);
+    font-weight: bold;
+    margin-right: var(--px-mid);
+    width: 100px;
+}
+
+.employees-holder {
+    display: flex;
+    align-items: center;
+}

@@ -5,6 +5,15 @@
     border-spacing: 0 var(--px-low);
     color: var(--clr-font1);
 }
+
+caption {
+    color: var(--clr-font1);
+}
+
+td {
+    border-style: none;
+}
+
 .backlog tr {
     vertical-align: middle;
 }

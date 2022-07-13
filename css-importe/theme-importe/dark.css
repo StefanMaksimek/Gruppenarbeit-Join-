@@ -5,10 +5,10 @@ body[data-theme='dark'] {
     --clr-secondary: hsl(0, 100%, 20%);
     --clr-bg:hsl(0, 0%, 10%);
     --clr-font1:white;
-    --clr-font2:black;
+    --clr-font2:rgb(0, 0, 0);
 
-    --clr-primary-tr: hsl(240, 100%, 10%, 0.4);
-    --clr-secondary-tr: hsl(0, 100%, 20%, 0.4);
+    --clr-primary-tr: hsl(240, 100%, 80%);
+    --clr-secondary-tr: hsl(0, 100%, 80%);
 
     --clr-primary-hvr: hsl(240, 100%, 15%);
     --clr-secondary-hvr: hsl(0, 100%, 30%);

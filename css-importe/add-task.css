@@ -15,10 +15,7 @@
     width: 80px;
 }
 
-.btns-add-task {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .editor-and-date-box {
     display: flex;
@@ -108,10 +105,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background-color: var(--clr-primary-tr);
+    color: var(--clr-font1);
     padding: 25px;
     width: 450px;
-    border: 1px solid blue;
+    border: 2px solid var(--clr-primary);
     border-radius: 16px;
 }
 
@@ -151,10 +149,6 @@
     cursor: pointer;
 }
 
-.btn-employees {
-    width: 220px;
-}
-
 .responsible-editor-list {
     display: flex;
     justify-content: center;
@@ -165,12 +159,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 8px;
+    padding: var(--px-low);
+    width: 100%;
 }
 
-.input-due-date {
-    width: 300px;
-}
+
 
 .add-task-img-bin {
     height: 60px;
@@ -198,10 +191,11 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: wheat;
-    border-radius: 8px;
-    border: 1px solid black;
+    transform: translate(-50%, +100%);
+    background-color: var(--clr-bg);
+    color: var(--clr-font1);
+    border-radius: 0.4rem;
+    border: 1px solid var(--clr-primary);
     display: none;
     cursor: pointer;
 }
@@ -227,7 +221,7 @@
     background-color: white;
     padding: 25px;
     width: 300px;
-    border: 1px solid blue;
+    border: 2px solid var(--clr-primary);
     border-radius: 16px;
 
     display: flex;

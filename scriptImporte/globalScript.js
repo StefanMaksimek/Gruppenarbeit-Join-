@@ -25,6 +25,22 @@ function openAddTask() {
 }
 
 
+function openHelp() {
+    closeAllContent()
+    document.getElementById('help').className = 'help'
+    document.getElementById('help-h3').className = 'active-h3'
+    document.getElementById('info-header').innerHTML = `<h1>Help</h1>`
+}
+
+
+function openSettings() {
+    closeAllContent()
+    document.getElementById('settings').className = 'settings'
+    document.getElementById('settings-h3').className = 'active-h3'
+    document.getElementById('info-header').innerHTML = `<h1>Settings</h1>`
+}
+
+
 function openImpressum() {
     closeAllContent()
     document.getElementById('impressum').className = 'impressum'
@@ -55,6 +71,9 @@ function closeContentWindows() {
     document.getElementById('board').className = 'd-none'
     document.getElementById('add-task').className = 'd-none'
     document.getElementById('backlog').className = 'd-none'
+    document.getElementById('help').className = 'd-none'
+    document.getElementById('settings').className = 'd-none'
+
 }
 
 
@@ -65,6 +84,9 @@ function removeBorderInSidebar() {
     document.getElementById('help-h3').className = ''
     document.getElementById('impressum-h3').className = ''
     document.getElementById('datenschutz-h3').className = ''
+    document.getElementById('help-h3').className = ''
+    document.getElementById('settings-h3').className = ''
+
 }
 
 

@@ -5,6 +5,7 @@
 
     .header {
         padding: var(--px-low);
+        justify-content: space-between;
     }
 
     .test {
@@ -31,12 +32,6 @@
     .theme-select button {
         padding: 0.1rem;
         font-size: 1.1rem;
-    }
-}
-
-@media screen and (max-width: 405px) {
-    .theme-select {
-        display: none;
     }
 }
 
