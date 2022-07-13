@@ -216,7 +216,7 @@ function renderResponsibleUserList() {
     content.innerHTML = '';
 
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
-        const name = temporaryArrayResponsibleEmployees[i].user;
+        const name = temporaryArrayResponsibleEmployees[i].name;
         const img = temporaryArrayResponsibleEmployees[i].icon;
         content.innerHTML += renderSelectedEmployeesHTML(name, img);
     }
@@ -249,4 +249,80 @@ function moveToBin() {
 
     //temporaryArrayResponsibleEmployees.splice(currentDraggedUserAddTask, 1)
     renderResponsibleUserList()
+}
+
+
+function showUserDetails(user) {
+    let userObj = users.find(t => t.name == user);
+    let icon = userObj.icon;
+    let mail = userObj.mail;
+    let tel = userObj.phone;
+    let category = userObj.category;
+    let city = userObj.city;
+    let hobby = userObj.Hobbys;
+    fillUserDetails(user, icon, mail, tel, category, city, hobby);
+    let content = document.getElementById('show-user-details-container');
+    content.classList.remove('d-none')
+}
+
+function fillUserDetails(user, icon, mail, tel, category, city, hobby) {
+    fillUserName(user);
+    fillUserIcon(icon);
+    fillUserMail(mail);
+    fillUserPhone(tel);
+    fillUserCategory(category);
+    fillUserCity(city);
+    fillUserHobby(hobby)
+}
+
+function closeUserDetails() {
+    let content = document.getElementById('show-user-details-container');
+    content.classList.add('d-none');
+    clearUserDetails()
+}
+
+function clearUserDetails() {
+    document.getElementById('show-user-details-box-name').innerHTML = '';
+    document.getElementById('show-user-details-box-icon').src = '';
+    document.getElementById('show-user-details-box-mail').innerHTML = '';
+    document.getElementById('show-user-details-box-tel').innerHTML = '';
+    document.getElementById('show-user-details-box-category').innerHTML = '';
+    document.getElementById('show-user-details-box-city').innerHTML = '';
+    document.getElementById('show-user-details-box-hobby').innerHTML = '';
+}
+
+function fillUserName(name) {
+    let userName = document.getElementById('show-user-details-box-name')
+    userName.innerHTML = `${name}`
+}
+
+function fillUserIcon(icon) {
+    let userIcon = document.getElementById('show-user-details-box-icon')
+    userIcon.src = `${icon}`
+}
+
+function fillUserMail(mail) {
+    let userMail = document.getElementById('show-user-details-box-mail')
+    userMail.innerHTML = `${mail}`
+}
+
+function fillUserPhone(tel) {
+    let userTel = document.getElementById('show-user-details-box-tel')
+    userTel.innerHTML = `${tel}`
+}
+
+function fillUserCategory(category) {
+    let userCategory = document.getElementById('show-user-details-box-category')
+    userCategory.innerHTML = `${category}`
+}
+
+
+function fillUserCity(city) {
+    let userCity = document.getElementById('show-user-details-box-city')
+    userCity.innerHTML = `${city}`
+}
+
+function fillUserHobby(hobby) {
+    let userHobby = document.getElementById('show-user-details-box-hobby')
+    userHobby.innerHTML = `${hobby}`
 }

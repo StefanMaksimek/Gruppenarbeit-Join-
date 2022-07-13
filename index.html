@@ -24,7 +24,7 @@
     <script src="./mini_backend.js"></script>
     <script>
         setURL('https://gruppe-272.developerakademie.net/smallest_backend_ever-master')
-        
+
         async function uploadUser() {
             await backend.setItem('users', JSON.stringify(users));
         }
@@ -37,7 +37,7 @@
             await backend.setItem('icons', JSON.stringify(icons));
         }
 
-       async function init() {
+        async function init() {
             await downloadFromServer();
             users = JSON.parse(backend.getItem('users')) || [];
             tasks = JSON.parse(backend.getItem('tasks')) || [];
@@ -606,14 +606,15 @@
                         <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
                         <input required type="password" placeholder="Repeat password"
                             id="new-user-inputfield-pw-repeat">
-                            <div id="new-user-registration-input-more" onclick="showMoreRegistrationInput()">more ></div>
-                            <div id="registration-box-input-more" class="registration-box-input-more d-none">
-                        <input type="text" placeholder="Category like Sales or IT" id="new-user-inputfield-category">
-                        <input type="email" placeholder="your E-Mail ...@..." id="new-user-inputfield-mail">
-                        <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
-                        <input type="text" placeholder="residence" id="new-user-inputfield-city">
-                        <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
-                    </div>
+                        <div id="new-user-registration-input-more" onclick="showMoreRegistrationInput()">more ></div>
+                        <div id="registration-box-input-more" class="registration-box-input-more d-none">
+                            <input type="text" placeholder="Category like Sales or IT"
+                                id="new-user-inputfield-category">
+                            <input type="email" placeholder="your E-Mail ...@..." id="new-user-inputfield-mail">
+                            <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
+                            <input type="text" placeholder="residence" id="new-user-inputfield-city">
+                            <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
+                        </div>
                         <div>
                             <input type="checkbox" onclick="showPassword()"> Show Password
                         </div>
@@ -666,6 +667,46 @@
             </div>
             <!-- ----------------------------- Login END ----------------------------- -->
         </div>
+
+        <div id="show-user-details-container" class="background-box d-none">
+            <div class="show-user-details-box">
+                <div class="close-user-details-box">
+                    <div class="close-user-details" onclick="closeUserDetails()">X</div>
+                </div>
+
+                <h2 id="show-user-details-box-name"></h2>
+                <img id="show-user-details-box-icon" class="list-search-result-img" src="" alt="">
+                <table>
+                    <tr>
+                        <td>Mail:</td>
+                        <td class="padding-left" id="show-user-details-box-mail"></td>
+                    </tr>
+                    <tr>
+                        <td>Phone-Number:</td>
+                        <td class="padding-left" id="show-user-details-box-tel"></td>
+                    </tr>
+                    <tr>
+                        <td>Department:</td>
+                        <td class="padding-left" id="show-user-details-box-category"></td>
+                    </tr>
+                    <tr>
+                        <td>Residence:</td>
+                        <td class="padding-left" id="show-user-details-box-city"></td>
+                    </tr>
+                    <tr>
+                        <td>Hobby:</td>
+                        <td class="padding-left" id="show-user-details-box-hobby"></td>
+                    </tr>
+                </table>
+                <!--
+                <div ></div>
+                <div id="show-user-details-box-tel"></div>
+                <div id="show-user-details-box-category"></div>
+                <div id="show-user-details-box-city"></div>
+                <div id="show-user-details-box-hobby"></div>-->
+            </div>
+        </div>
+
     </div>
 </body>
 
