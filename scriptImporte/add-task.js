@@ -361,7 +361,7 @@ function deleteResponsibleEmployee(user, icon) {
 
 //delete by moving the img to the bin
 function moveToBin() {
-    const index = temporaryArrayResponsibleEmployees.findIndex(x => x.user === currentDraggedUserAddTask);
+    const index = temporaryArrayResponsibleEmployees.findIndex(x => x.name === currentDraggedUserAddTask);
     if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 
     //temporaryArrayResponsibleEmployees.splice(currentDraggedUserAddTask, 1)
@@ -460,13 +460,10 @@ function showHintForBin(){
     
     let content = document.getElementById('add-task-bin-info-box')
     content.classList.remove('d-none')
-
-    setTimeout(hideHintForBin, 3000)
 }
 
 
 function hideHintForBin(){
-    
     let content = document.getElementById('add-task-bin-info-box')
     content.classList.add('d-none')
 }

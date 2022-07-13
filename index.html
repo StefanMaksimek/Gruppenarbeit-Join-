@@ -204,7 +204,7 @@
                         <div class="input-holder2">
                             <div class="input-holder">
                                 <h3>CATEGORY</h3>
-    
+
                                 <div class="input-group">
                                     <select class="form-select" id="category-list-input"
                                         aria-label="Example select with button addon">
@@ -220,9 +220,10 @@
                                 <h3>COLOR</h3>
 
                                 <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                    <div onclick="showColor()" class="btn btn-info" id="add-task-color-button">choose</div>
+                                    <button type="button" onclick="showColor()" class="btn btn-info" id="add-task-color-button">choose
+                                    </button>
                                     <div class="d-none color-picker-container" id="color-picker">
-            
+
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +275,7 @@
                                 </select>
                             </div>
 
-                            
+
                         </div>
 
 
@@ -289,25 +290,28 @@
                                             <div class="btn-line2"></div>
                                         </div>
 
-                                        <div id="responsible-editor-list" class="responsible-editor-list" ondragover="allowDrop(event)">
+                                        <div id="responsible-editor-list" class="responsible-editor-list"
+                                            ondragover="allowDrop(event)">
                                         </div>
                                     </div>
-                                    <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()" onclick="showHintForBin()">
-                                        <img class="add-task-img-bin" src="./img/trash-bin.svg" onclick="showHintForBin()">
+                                    <div id="responsible-editor-list-bin" ondragover="allowDrop(event)"
+                                        ondrop="moveToBin()" onclick="showHintForBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg"
+                                            onclick="showHintForBin()">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="btns-add-task">
-                            <button onclick="openBoard()" class="btn-cancel">Cancel</button>
+                            <button type="button" onclick="openBoard()" class="btn-cancel">Cancel</button>
                             <button type="submit" class="btn btn-primary">Create Task</button>
                         </div>
                     </div>
                 </form>
 
-             
-                
+
+
 
                 <div id="list-of-employees-box" class="background-box d-none">
                     <div class="select-employees-container">
@@ -334,6 +338,9 @@
 
                 <div id="add-task-bin-info-box" class="background-box d-none">
                     <div class="registration-request-no-icon-selected">
+                        <div class="close-x-div-box">
+                            <div onclick="hideHintForBin()" class="close-x-div">X</div>
+                        </div>
                         <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.</h2>
                     </div>
                 </div>
@@ -654,7 +661,7 @@
 
         <div class="log-in-box">
             <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-            <div id="login-container" class="background-box d-none">
+            <div id="login-container" class="background-box">
                 <div id="login" class="registration-box-input">
                     <h2>Login</h2>
                     <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
@@ -664,7 +671,7 @@
                         </datalist>
                         <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
                         <div class="registration-buttons margin-bottom">
-                            <div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>
+                            <!--<div onclick="closeLoginBox()" class="btn btn-primary">Cancel</div>-->
                             <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -704,7 +711,7 @@
                             </div>
                         </div>
                         <div class="registration-buttons">
-                            <div onclick="closeRegisterBox()" class="btn btn-primary">Cancel</div>
+                            <button type="button" onclick="closeRegisterBox()" class="btn btn-primary">Cancel</button>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
                     </div>

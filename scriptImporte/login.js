@@ -343,6 +343,7 @@ function executeLogout() {
     hideLogoutButton();
     showLoginButton();
     deleteUsersImageAfterLogout();
+    openLoginBox()
 }
 
 
