@@ -268,7 +268,7 @@
     overflow: auto;
 }
 
-.search-switch-text:hover{
+.show-switch-text:hover{
     color: blue;
     cursor: pointer;
 }

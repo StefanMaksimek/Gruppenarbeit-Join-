@@ -182,23 +182,21 @@ function startSearchMail(){
 }
 
 let searchMatches;
-let searchMatchesMails;
-/*
-function searchUserMail(searchText) {
-    let userMails = users.map(function(item) {
-        return [item["Mail Only"],
-          item["employee + Spouse/Partner"],
-          item["Annual OOP max / entire famliy"]
-        ]
-      }).join(',').split(',');
+let searchMatchesMails = [];
 
-    const editors = userMails
-    searchMatchesMails = editors.filter(editor => {
+function searchUserMail(searchText) {
+    let allUsersMails = users.filter(t => t.mail != '')
+    let mails = allUsersMails.map(function(element){
+        return `${element.mail}`
+    })
+    
+    
+    searchMatchesMails = mails.filter(editor => {
         const regex = new RegExp(`^${searchText}`, "gi")
         return editor.match(regex)
     })
 
-    if (document.getElementById('search-name').value == '') {
+    if (document.getElementById('search-mail').value == '') {
         searchMatches = '';
         document.getElementById('add-task-editor-list').innerHTML = '';
     }
@@ -214,9 +212,10 @@ function showMatchesMail() {
         let userProposals = document.getElementById('add-task-editor-list')
         document.getElementById('add-task-editor-list').innerHTML = '';
         for (let i = 0; i < searchMatchesMails.length; i++) {
-            let user = searchMatchesMails[i];
-            let userObj = users.find(t => t.name == user)
+            let mail = searchMatchesMails[i];
+            let userObj = users.find(t => t.mail == mail)
             let icon = userObj.icon
+            let user = userObj.name
 
             if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
             }
@@ -227,7 +226,7 @@ function showMatchesMail() {
     }
     searchMatches = [];
 }
-*/
+
 
 function searchUserName(searchText) {
     const editors = userNames
