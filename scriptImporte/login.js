@@ -1,6 +1,6 @@
 
 
-
+let userRegistrationObj;
 let temporaryIconArray = [];
 
 //the current user will be chosen by login
@@ -37,13 +37,13 @@ function checkLoginParameters() {
 }
 
 
-function showLoginAlertUsernameNotExist(){
+function showLoginAlertUsernameNotExist() {
     let alertReadyForLogin = document.getElementById('registration-wrung-username-alert')
     alertReadyForLogin.classList.remove('d-none')
 }
 
 
-function hideLoginAlertUsernameNotExist(){
+function hideLoginAlertUsernameNotExist() {
     let alertReadyForLogin = document.getElementById('registration-wrung-username-alert')
     alertReadyForLogin.classList.add('d-none')
 }
@@ -96,7 +96,7 @@ function checkPasswortInRegestrationProcess() {
     let passwortRepeat = document.getElementById('new-user-inputfield-pw-repeat').value;
 
     if (password == passwortRepeat) {
-        submitNewUser()
+        takeInfosFromRegistration()
     }
     else {
         showRegistrationAlertContent();
@@ -105,26 +105,20 @@ function checkPasswortInRegestrationProcess() {
 }
 
 
-function showRegistrationAlertContent(){
+function showRegistrationAlertContent() {
     let alertContent = document.getElementById('registration-check-password-alert')
     alertContent.classList.remove('d-none')
 }
 
 
-function hideRegistrationAlertContent(){
+function hideRegistrationAlertContent() {
     let alertContent = document.getElementById('registration-check-password-alert')
     alertContent.classList.add('d-none')
 }
 
 
 function submitNewUser() {
-    let newUser = document.getElementById('new-user-inputfield-login');
-    let newUserPassword = document.getElementById('new-user-inputfield-pw');
-    let newUserMail = document.getElementById('new-user-inputfield-mail');
-    let newUserTel = document.getElementById('new-user-inputfield-tel');
-    let newUserCity = document.getElementById('new-user-inputfield-city');
-    let iconSource = temporaryIconArray[0];
-
+    let newUser = userRegistrationObj.name
     if (checkIfUserNameAlreadyExist(newUser) == true) {
         showRegistrationAlertUserAlreadyExist()
         setTimeout(hideRegistrationAlertUserAlreadyExist, timeInfoShown)
@@ -134,19 +128,19 @@ function submitNewUser() {
             openWindowAskForConfirmationToUseUnknownImage();
         }
         else {
-            pushNewUserInArrayUsers(newUser, newUserPassword, iconSource, newUserMail, newUserTel, newUserCity)
+            pushNewUserInArrayUsers()
         }
     }
 }
 
 
-function showRegistrationAlertUserAlreadyExist(){
+function showRegistrationAlertUserAlreadyExist() {
     let alertReadyForLogin = document.getElementById('registration-user-already-exist-alert')
     alertReadyForLogin.classList.remove('d-none')
 }
 
 
-function hideRegistrationAlertUserAlreadyExist(){
+function hideRegistrationAlertUserAlreadyExist() {
     let alertReadyForLogin = document.getElementById('registration-user-already-exist-alert')
     alertReadyForLogin.classList.add('d-none')
 }
@@ -157,36 +151,57 @@ function checkIfUserNameAlreadyExist(newUser) {
 }
 
 
-function pushNewUserInArrayUsers(newUser, newUserPassword, iconSource, newUserMail, newUserTel, newUserCity) {
-    let userId = users.length;
-    let user = {
-        "id": userId,
-        "name": newUser.value,
-        "password": newUserPassword.value,
-        "icon": iconSource,
-        "category": "",
-        "Hobbys": "",
-        "city": newUserCity.value,
-        "mail": newUserMail.value,
-        "telephon": newUserTel.value
-    };
-    users.push(user);
-    loadUsers();
-    closeRegisterBox();
-    showRegistrationAlertReadyForLogin();
+function takeInfosFromRegistration() {
+    let newUser = document.getElementById('new-user-inputfield-login');
+    let newUserPassword = document.getElementById('new-user-inputfield-pw');
+    let newUserMail = document.getElementById('new-user-inputfield-mail');
+    let newUserTel = document.getElementById('new-user-inputfield-tel');
+    let newUserCity = document.getElementById('new-user-inputfield-city');
+    let newUserCategory = document.getElementById('new-user-inputfield-category');
+    let newUserHobby = document.getElementById('new-user-inputfield-hobby');
+    let iconSource = temporaryIconArray[0];
 
-    setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown);
-    uploadUser();
+    createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource)
 }
 
 
-function showRegistrationAlertReadyForLogin(){
+function createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource){
+    userRegistrationObj = {
+            "id": "",
+            "name": newUser.value,
+            "password": newUserPassword.value,
+            "icon": iconSource,
+            "category": newUserCategory.value,
+            "Hobbys": newUserHobby.value,
+            "city": newUserCity.value,
+            "mail": newUserMail.value,
+            "telephon": newUserTel.value
+        };
+        submitNewUser();
+    }
+
+
+    function pushNewUserInArrayUsers() {
+        let userId = users.length;
+        userRegistrationObj.id = userId
+            
+        users.push(userRegistrationObj);
+        loadUsers();
+        closeRegisterBox();
+        showRegistrationAlertReadyForLogin();
+    
+        setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown);
+        uploadUser();
+    }
+
+
+function showRegistrationAlertReadyForLogin() {
     let alertReadyForLogin = document.getElementById('registration-ready-for-login-alert')
     alertReadyForLogin.classList.remove('d-none')
 }
 
 
-function hideRegistrationAlertReadyForLogin(){
+function hideRegistrationAlertReadyForLogin() {
     let alertReadyForLogin = document.getElementById('registration-ready-for-login-alert')
     alertReadyForLogin.classList.add('d-none')
 }
@@ -250,7 +265,7 @@ function showSelectedIcon(icon) {
 }
 
 
-function clearIconSelection(){
+function clearIconSelection() {
     let icons = document.getElementById('icon-box');
     icons.innerHTML = '<img src="/img/icon-unknown.svg">';
 }
@@ -270,11 +285,10 @@ function closeAskForIconSelection() {
 
 
 function submitNewUserWithUnknownIcon() {
-    let iconSource = './img/icon-unknown.svg';
-    let newUser = document.getElementById('new-user-inputfield-login');
-    let newUserPassword = document.getElementById('new-user-inputfield-pw');
+	let iconSource = './img/icon-unknown.svg';
+	userRegistrationObj.icon = iconSource
     closeAskForIconSelection();
-    pushNewUserInArrayUsers(newUser, newUserPassword, iconSource);
+    pushNewUserInArrayUsers();
 }
 
 
@@ -370,19 +384,19 @@ function setUser(name) {
 
 // Testuser
 
-function loginAsTestuser(){
+function loginAsTestuser() {
     document.getElementById('login-user-inputfield').value = 'Testuser'
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
 }
 
 
-function showMoreRegistrationInput(){
+function showMoreRegistrationInput() {
     let content = document.getElementById('new-user-registration-input-more')
-    if(document.getElementById('registration-box-input-more').classList.contains('d-none')){
+    if (document.getElementById('registration-box-input-more').classList.contains('d-none')) {
         content.innerHTML = 'less <'
         document.getElementById('registration-box-input-more').classList.remove('d-none')
     }
-    else{
+    else {
         content.innerHTML = 'more >'
         document.getElementById('registration-box-input-more').classList.add('d-none')
     }

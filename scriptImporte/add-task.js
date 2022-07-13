@@ -49,8 +49,11 @@ function createTask() {
     let color = temporaryArrayColor[0]
     let id = tasks.length
 
-    //convertStatus(status)
+    createObjTask(title, priority, category, status, description, dueDate, color, id)
+}
 
+
+function createObjTask(title, priority, category, status, description, dueDate, color, id){
     let task = {
         "id": id,
         "title": title.value,
@@ -153,6 +156,7 @@ const matchList = document.getElementById('add-task-editor-list')
 function showSearchInputfield(show, hide){
     let contentShow = document.getElementById(`show-search-${show}-inputfield`)
     contentShow.classList.remove('d-none') //if show search Mail is clicked, show clickable text search Name appear
+
     let contentHide = document.getElementById(`show-search-${hide}-inputfield`)
     contentHide.classList.add('d-none') // and clickable text search mail disappear
 
@@ -217,9 +221,7 @@ function showMatchesMail() {
             let icon = userObj.icon
             let user = userObj.name
 
-            if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
-            }
-            else {
+            if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
                 userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
         }
@@ -304,9 +306,7 @@ function showMatches() {
             let userObj = users.find(t => t.name == user)
             let icon = userObj.icon
 
-            if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
-            }
-            else {
+            if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
                 userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
         }
@@ -453,4 +453,20 @@ function clearUserDetails() {
     document.getElementById('show-user-details-box-category').innerHTML = '';
     document.getElementById('show-user-details-box-city').innerHTML = '';
     document.getElementById('show-user-details-box-hobby').innerHTML = '';
+}
+
+
+function showHintForBin(){
+    
+    let content = document.getElementById('add-task-bin-info-box')
+    content.classList.remove('d-none')
+
+    setTimeout(hideHintForBin, 3000)
+}
+
+
+function hideHintForBin(){
+    
+    let content = document.getElementById('add-task-bin-info-box')
+    content.classList.add('d-none')
 }
