@@ -4,6 +4,7 @@ body[data-theme='neon'] {
     --clr-primary:hsl(200, 93%, 60%);
     --clr-secondary: hsl(348, 100%, 51%);
     --clr-bg: #feffed;
+    --clr-bg2: #edeee1;
     --clr-font1:rgb(0, 0, 0);
     --clr-font2:black;
 

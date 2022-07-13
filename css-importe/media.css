@@ -5,7 +5,13 @@
 
     .header {
         padding: var(--px-low);
+        align-items: center;
         justify-content: space-between;
+        background-color: var(--clr-bg2);
+    }
+
+    .info-header {
+        margin: 0;
     }
 
     .test {
@@ -33,6 +39,18 @@
         padding: 0.1rem;
         font-size: 1.1rem;
     }
+
+    
+}
+
+@media screen and (max-width: 700px) {
+    .add-task form {
+        flex-direction: column;
+    }
+    
+    .left, .right {
+        width: 100%;
+    }
 }
 
 .active-mobile-side {
@@ -41,3 +59,4 @@
     width: 80%;
     transform: translate(0, 60px);
 }
+

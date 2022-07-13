@@ -150,8 +150,7 @@
 }
 
 .responsible-editor-list {
-    display: flex;
-    justify-content: flex-start;
+    display: contents;
     width: 200px;
     height: 120px;
     overflow: auto;

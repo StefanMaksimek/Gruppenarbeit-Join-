@@ -5,10 +5,10 @@
     flex-direction: column;
     align-items: center;
     padding: var(--px-mid);
-    border: 2px solid var(--clr-primary);
     border-radius: 0.4rem;
-    background-color: var(--clr-primary-tr);
+    background-color: var(--clr-bg2);
     transition: none;
+    margin-top: var(--px-mid);
 }
 
 .theme-holder h2 {

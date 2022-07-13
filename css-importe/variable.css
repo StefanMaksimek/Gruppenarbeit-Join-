@@ -17,6 +17,7 @@ body[data-theme='default'] {
     --clr-primary: hsl(240, 50%, 40%);
     --clr-secondary: hsl(0, 100%, 30%);
     --clr-bg: rgb(244, 244, 244);
+    --clr-bg2: #e9e6fe;
     --clr-font1: rgb(0, 0, 0);
     --clr-font2: rgb(255, 254, 254);
 
@@ -39,9 +40,8 @@ body[data-theme='default'] {
 /*##################   AddTask.CSS   #########################*/
 
 .add-task form {
-    background-color: var(--clr-primary-tr);
+    background-color: var(--clr-bg2);
     width: 100%;
-    border: 2px solid var(--clr-primary);
     border-radius: 0.4rem;
     display: flex;
     padding: var(--px-mid);
@@ -89,22 +89,20 @@ body[data-theme='default'] {
     align-items: center;
     width:2.5rem;
     height: 2.5rem;
-    background-color: var(--clr-primary-tr);
+    background-color: #d8d8d8;
     border-radius: 50%;;
 }
 
 .btn-line1 {
     position: absolute;
-    width: 80%;
+    width: 60%;
     height: 0.1rem;
-    margin-bottom: 0.5rem;
     background-color: var(--clr-primary);
-    transform: translateY(0.2rem);
 }
 
 .btn-line2 {
     position: absolute;
-    width: 80%;
+    width: 60%;
     height: 0.1rem;
     background-color: var(--clr-primary);
     transform: rotate(90deg);

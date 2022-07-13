@@ -60,10 +60,11 @@ h3 {
 
 .user img {
     position: fixed;
-    bottom: var(--px-mid);
-    width: 100px;
-    height: 100px;
+    bottom: var(--px-high);
+    width: 80px;
+    height: 80px;
     object-fit: cover;
+    border: solid 2px white;
     border-radius: 100%;
 }
 
@@ -75,29 +76,31 @@ h3 {
 
 .header {
     z-index: 10;
-    background-color: var(--clr-secondary);
-    height: 80px;
     width: 100%;
     position: sticky;
     top: 0;
-    padding: var(--px-low);
     display: flex;
-    justify-content: end;
+    padding: var(--px-mid) var(--px-high) 0 var(--px-high);
 }
 
 .info-header {
     display: flex;
     flex-direction: column;
-    align-items: end;
-    color: white;
+    color: var(--clr-font1);
+    margin: var(--px-high) 0; 
 }
 
-.info-header h1 {
+.info-header span {
+    color: var(--clr-primary);
+}
+
+.info-header h2 {
     margin: 0;
+    font-weight: bold;
 }
 
 .content {
-    padding: var(--px-mid);
+    padding: 0 var(--px-mid);
     color: var(--clr-font1);
 }
 
@@ -115,7 +118,7 @@ h3 {
 
 .burger:hover {
     cursor: pointer;
-    background-color: var(--clr-secondary-hvr);
+    background-color: var(--clr-primary-tr);
 }
 
 .toggle .line1 {
@@ -133,7 +136,7 @@ h3 {
 .burger div {
     height: 3px;
     width: var(--px-high);
-    background-color: white;
+    background-color: var(--clr-primary);
     margin: 10px;
     transition: all ease 0.225s;
 }

@@ -65,8 +65,8 @@
             <hr>
             <h3 id="help-h3" onclick="openHelp()">Help</h3>
             <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
-            <h3 id="impressum-h3" onclick="openImpressum()">Impressum</h3>
-            <h3 id="datenschutz-h3" onclick="openDatenschutz()">Datenschutz</h3>
+            <h3 id="impressum-h3" onclick="openImpressum()">Imprint</h3>
+            <h3 id="datenschutz-h3" onclick="openDatenschutz()">Privacy</h3>
             <hr>
             <div id="login-logout">
                 <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
@@ -91,9 +91,8 @@
             </div>
 
             <div class="info-header">
-                <div class="info-header" id="info-header">
-                    <h1>Board</h1>
-                </div>
+                <h2 id="info-header">Add Task</h2>
+
                 <span>
                     Learning Management System Projekt
                 </span>
@@ -104,7 +103,7 @@
             <div class="board" id="board">
                 <div class="card">
                     <div class="card-header">
-                        <h2>ToDo</h2>
+                        <h3>TO DO</h3>
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
                         ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
@@ -118,7 +117,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h2>In Progress</h2>
+                        <h3>IN PROGRESS</h3>
                     </div>
                     <div class="to-do-holder" id="in-progress"
                         ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
@@ -134,7 +133,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h2>Testing</h2>
+                        <h3>TESTING</h3>
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
                         ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
@@ -148,7 +147,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h2>Done</h2>
+                        <h3>DONE</h3>
                     </div>
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
                         ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
@@ -191,6 +190,7 @@
 
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="add-task">
+
                 <form onsubmit="createTask(); return false">
                     <div class="left">
                         <div class="input-holder">
@@ -220,7 +220,8 @@
                                 <h3>COLOR</h3>
 
                                 <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                    <button type="button" onclick="showColor()" class="btn btn-info" id="add-task-color-button">choose
+                                    <button type="button" onclick="showColor()" class="btn btn-info"
+                                        id="add-task-color-button">choose
                                     </button>
                                     <div class="d-none color-picker-container" id="color-picker">
 

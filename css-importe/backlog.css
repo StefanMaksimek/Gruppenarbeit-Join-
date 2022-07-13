@@ -6,6 +6,10 @@
     color: var(--clr-font1);
 }
 
+.backlog table th {
+    color: var(--clr-primary);
+}
+
 caption {
     color: var(--clr-font1);
 }

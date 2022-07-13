@@ -2,9 +2,10 @@
 
 function openBoard() {
     closeAllContent()
+    document.getElementById('header').className = 'd-none'
     document.getElementById('board').className = 'board'
     document.getElementById('board-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Board</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Board</h2>`
 }
 
 
@@ -12,7 +13,7 @@ function openBacklog() {
     closeAllContent()
     document.getElementById('backlog').className = 'backlog'
     document.getElementById('backlog-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Backlog</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Backlog</h2>`
 }
 
 
@@ -20,7 +21,7 @@ function openAddTask() {
     closeAllContent()
     document.getElementById('add-task').className = 'add-task'
     document.getElementById('add-task-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Add Task</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Add Task</h2>`
 
 }
 
@@ -29,7 +30,7 @@ function openHelp() {
     closeAllContent()
     document.getElementById('help').className = 'help'
     document.getElementById('help-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Help</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Help</h2>`
 }
 
 
@@ -37,7 +38,7 @@ function openSettings() {
     closeAllContent()
     document.getElementById('settings').className = 'settings'
     document.getElementById('settings-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Settings</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Settings</h2>`
 }
 
 
@@ -45,7 +46,7 @@ function openImpressum() {
     closeAllContent()
     document.getElementById('impressum').className = 'impressum'
     document.getElementById('impressum-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Impressum</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Impressum</h2>`
 }
 
 
@@ -53,13 +54,14 @@ function openDatenschutz() {
     closeAllContent()
     document.getElementById('datenschutz').className = 'datenschutz'
     document.getElementById('datenschutz-h3').className = 'active-h3'
-    document.getElementById('info-header').innerHTML = `<h1>Datenschutz</h1>`
+    document.getElementById('info-header').innerHTML = `<h2>Datenschutz</h2>`
 }
 
 
 function closeAllContent() {
     removeBorderInSidebar()
     closeContentWindows()
+    document.getElementById('header').className = 'header'
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
 }

@@ -36,7 +36,7 @@ function renderBacklogHTML(task) {
  */
 function renderToDoHTML(toDos) {
     return `
-        <div class="to-do" draggable="true" ondragstart="startDragging(${toDos["id"]})">${toDos.title}</div>
+        <div class="to-do" style="background-color: var(--clr-${toDos.category})" draggable="true" ondragstart="startDragging(${toDos["id"]})">${toDos.title}</div>
     `
 }
 

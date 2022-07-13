@@ -6,17 +6,24 @@
 }
 
 .card {
-    box-shadow: 2px 2px 6px 1px hsl(0deg 0% 0% / 20%);
     color: var(--clr-font1);
     background-color: transparent;
     width: calc((100vw - 180px) * 0.21 );
     margin: var(--px-mid);
+    border: none;
+}
+
+.card-header {
+    border: none;
+    background-color: transparent;
+    text-align: center;
+    padding-bottom: 0;
 }
 
 .to-do-holder {
     border-bottom-left-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
-    background-color: var(--clr-primary-tr);
+    background-color: var(--clr-bg2);
     min-height: 60vh;
 }
 
@@ -27,8 +34,11 @@
     background-color: var(--clr-secondary-tr);
 }
 
-.board h2 {
+.board h3 {
     margin: 0;
+    font-weight: bold;
+    border: none;
+    padding-bottom: var(--px-low);
 }
 
 .drag-area-highlight {
