@@ -161,29 +161,40 @@ function startSearchUser() {
     searchUser(searchText)
 }
 
+let searchMatches;
 
 function searchUser(searchText) {
     const editors = userNames
-    let matches = editors.filter(editor => {
+    searchMatches = editors.filter(editor => {
         const regex = new RegExp(`^${searchText}`, "gi")
         return editor.match(regex)
     })
 
     if (document.getElementById('search').value == '') {
-        matches = '';
+        searchMatches = '';
         document.getElementById('add-task-editor-list').innerHTML = '';
     }
 
-    showMatches(matches)
+    showMatches()
 }
 
 
-function showMatches(matches) {
-    if (matches.length > 0) {
+function showTheFirstTwentyUsersAsProbosals(){
+if(noUserHasBeenSearched())
+}
+
+
+function noUserHasBeenSearched(){
+    return searchMatches.length == 0;
+}
+
+
+function showMatches() {
+    if (searchMatches.length > 0) {
         let userProposals = document.getElementById('add-task-editor-list')
         document.getElementById('add-task-editor-list').innerHTML = '';
-        for (let i = 0; i < matches.length; i++) {
-            let user = matches[i];
+        for (let i = 0; i < searchMatches.length; i++) {
+            let user = searchMatches[i];
             let userObj = users.find(t => t.name == user)
             let icon = userObj.icon
 
@@ -194,7 +205,7 @@ function showMatches(matches) {
             }
         }
     }
-    matches = [];
+    searchMatches = [];
 }
 
 
@@ -231,7 +242,7 @@ function deleteFromList(user, icon) {
     content.parentNode.removeChild(content)
 }
 
-/*
+
 let currentDraggedUserAddTask;
 let currentDraggedIconAddTask;
 
@@ -240,7 +251,7 @@ function deleteResponsibleEmployee(user, icon) {
     currentDraggedUserAddTask = user;
     currentDraggedIconAddTask = icon
 }
-*/
+/**/
 
 //delete by moving the img to the bin
 function moveToBin() {
@@ -260,10 +271,13 @@ function showUserDetails(user) {
     let category = userObj.category;
     let city = userObj.city;
     let hobby = userObj.Hobbys;
-    fillUserDetails(user, icon, mail, tel, category, city, hobby);
+    
     let content = document.getElementById('show-user-details-container');
     content.classList.remove('d-none')
+
+    fillUserDetails(user, icon, mail, tel, category, city, hobby);
 }
+
 
 function fillUserDetails(user, icon, mail, tel, category, city, hobby) {
     fillUserName(user);
@@ -275,41 +289,30 @@ function fillUserDetails(user, icon, mail, tel, category, city, hobby) {
     fillUserHobby(hobby)
 }
 
-function closeUserDetails() {
-    let content = document.getElementById('show-user-details-container');
-    content.classList.add('d-none');
-    clearUserDetails()
-}
-
-function clearUserDetails() {
-    document.getElementById('show-user-details-box-name').innerHTML = '';
-    document.getElementById('show-user-details-box-icon').src = '';
-    document.getElementById('show-user-details-box-mail').innerHTML = '';
-    document.getElementById('show-user-details-box-tel').innerHTML = '';
-    document.getElementById('show-user-details-box-category').innerHTML = '';
-    document.getElementById('show-user-details-box-city').innerHTML = '';
-    document.getElementById('show-user-details-box-hobby').innerHTML = '';
-}
 
 function fillUserName(name) {
     let userName = document.getElementById('show-user-details-box-name')
     userName.innerHTML = `${name}`
 }
 
+
 function fillUserIcon(icon) {
     let userIcon = document.getElementById('show-user-details-box-icon')
     userIcon.src = `${icon}`
 }
+
 
 function fillUserMail(mail) {
     let userMail = document.getElementById('show-user-details-box-mail')
     userMail.innerHTML = `${mail}`
 }
 
+
 function fillUserPhone(tel) {
     let userTel = document.getElementById('show-user-details-box-tel')
     userTel.innerHTML = `${tel}`
 }
+
 
 function fillUserCategory(category) {
     let userCategory = document.getElementById('show-user-details-box-category')
@@ -322,7 +325,26 @@ function fillUserCity(city) {
     userCity.innerHTML = `${city}`
 }
 
+
 function fillUserHobby(hobby) {
     let userHobby = document.getElementById('show-user-details-box-hobby')
     userHobby.innerHTML = `${hobby}`
+}
+
+
+function closeUserDetails() {
+    let content = document.getElementById('show-user-details-container');
+    content.classList.add('d-none');
+    clearUserDetails()
+}
+
+
+function clearUserDetails() {
+    document.getElementById('show-user-details-box-name').innerHTML = '';
+    document.getElementById('show-user-details-box-icon').src = '';
+    document.getElementById('show-user-details-box-mail').innerHTML = '';
+    document.getElementById('show-user-details-box-tel').innerHTML = '';
+    document.getElementById('show-user-details-box-category').innerHTML = '';
+    document.getElementById('show-user-details-box-city').innerHTML = '';
+    document.getElementById('show-user-details-box-hobby').innerHTML = '';
 }
