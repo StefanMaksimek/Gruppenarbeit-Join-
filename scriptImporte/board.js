@@ -57,7 +57,7 @@ function startDragging(id) {
 
 function moveTo(status) {
     tasks[currentDraggedElement].status = status
-    addTasks()
+    uploadTasks()
     renderBoard()
     removeHighlight(status)
 }

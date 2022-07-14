@@ -68,7 +68,7 @@ function createObjTask(title, priority, category, status, description, dueDate, 
     }
     pushAllUsersInTask(task);
     tasks.push(task);
-    addTasks();
+    uploadTasks();
     clearAddTask()
     renderBoard()
     renderBacklog()

@@ -3,8 +3,6 @@
 let userRegistrationObj;
 let temporaryIconArray = [];
 
-//the current user will be chosen by login
-let currentUser;
 
 // init function for body-onloading to load more functions as one!
 
@@ -333,7 +331,7 @@ function showUsersImage(usersLoginName) {
     let imageSource = searchObject.icon; //get the image source of the users image
 
     content.innerHTML = `
-    <img src="${imageSource}">
+    <img src="${imageSource}" onclick="showUserDetails('${usersLoginName}')">
     `;
 }
 
@@ -378,9 +376,7 @@ function loadAllUserNamesInArray() {
 }
 
 
-function setUser(name) {
-    currentUser = `${name}`;
-}
+
 
 
 // Testuser
