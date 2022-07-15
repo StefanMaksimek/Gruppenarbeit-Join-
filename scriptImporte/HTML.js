@@ -14,10 +14,12 @@ function renderBacklogHTML(task) {
             <td class="assigned-to" style="border-left:0.4rem solid var(--clr-${task.category}">
                 <img src="${task.user[0].icon}" alt="">
             </td>
+            
             <td class="assigned-to">
                 <h3>${task.user[0].name}</h3>
                 <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
             </td>
+            
             <td class="category">${task.category}</td>
             <td class="details" style="border-bottom:0.4rem solid ${task.color}">${task.description}</td>
         </tr>

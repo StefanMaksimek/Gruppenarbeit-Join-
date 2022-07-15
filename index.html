@@ -53,6 +53,10 @@
 </head>
 
 <body onload="init()" data-theme="default">
+    <div class="modal" id="myModal">
+        
+    </div>
+
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
             <div class="logo">
@@ -89,14 +93,14 @@
                     <div class="line3"></div>
                 </a>
             </div>
+        </div>
 
-            <div class="info-header">
-                <h2 id="info-header">Add Task</h2>
+        <div class="info-header" id="info">
+            <h2 id="info-header">Add Task</h2>
 
-                <span>
-                    Learning Management System Projekt
-                </span>
-            </div>
+            <span>
+                Learning Management System Projekt
+            </span>
         </div>
 
         <div class="content" id="content">
@@ -107,11 +111,6 @@
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
                         ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -123,11 +122,6 @@
                         ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
                         ondragover="allowDrop(event); highlight('in-progress')"
                         ondragleave="removeHighlight('in-progress')">
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -137,10 +131,6 @@
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
                         ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
                         <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
@@ -358,7 +348,7 @@
                 <div class="theme-holder">
                     <h2>Choose yor theme</h2>
                     <div class="theme-select">
-                        <button onclick="setTheme('default')" data-theme="" class="theme-switch">default</button>
+                        <button onclick="setTheme('default')" data-theme="" class="theme-switch">Default</button>
                         <button onclick="setTheme('dark')" data-theme="theme-dark" class="theme-switch">Dark</button>
                         <button onclick="setTheme('neon')" data-theme="theme-neon" class="theme-switch">Neon</button>
                     </div>
@@ -662,7 +652,7 @@
 
         <div class="log-in-box">
             <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
-            <div id="login-container" class="background-box">
+            <div id="login-container" class="background-box d-none">
                 <div id="login" class="registration-box-input">
                     <h2>Login</h2>
                     <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">

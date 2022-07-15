@@ -2,7 +2,7 @@
 
 function openBoard() {
     closeAllContent()
-    document.getElementById('header').className = 'd-none'
+    document.getElementById('info').className = 'd-none'
     document.getElementById('board').className = 'board'
     document.getElementById('board-h3').className = 'active-h3'
     document.getElementById('info-header').innerHTML = `<h2>Board</h2>`
@@ -61,7 +61,7 @@ function openDatenschutz() {
 function closeAllContent() {
     removeBorderInSidebar()
     closeContentWindows()
-    document.getElementById('header').className = 'header'
+    document.getElementById('info').className = 'info-header'
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
 }
@@ -110,4 +110,15 @@ function setTheme(theme) {
 function openMobileSide() {
     document.getElementById('side-bar').classList.toggle('active-mobile-side');
     document.getElementById('burger').classList.toggle('toggle');
+    document.getElementById('myModal').classList.toggle('d-block')
+}
+
+
+// When user clicks anywhere outside of the sidebar, close sidebar
+window.onclick = function (event) {
+    if (event.target == document.getElementById('myModal')) {
+        document.getElementById('side-bar').classList.remove("active-mobile-side")
+        document.getElementById('burger').classList.remove('toggle')
+        document.getElementById('myModal').classList.toggle('d-block')
+    }
 }

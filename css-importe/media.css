@@ -4,10 +4,9 @@
     }
 
     .header {
-        padding: var(--px-low);
         align-items: center;
-        justify-content: space-between;
-        background-color: var(--clr-bg2);
+        justify-content: center;
+        background-color: var(--clr-primary);
     }
 
     .info-header {
@@ -54,9 +53,9 @@
 }
 
 .active-mobile-side {
-    position: absolute;
-    min-height: calc(100vh - 60px);
+    position: fixed;
+    min-height: calc(100vh - 49px);
     width: 80%;
-    transform: translate(0, 60px);
+    transform: translate(0, 49px);
 }
 
