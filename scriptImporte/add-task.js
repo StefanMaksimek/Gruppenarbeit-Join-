@@ -72,7 +72,7 @@ function createObjTask(title, priority, category, status, description, dueDate, 
     clearAddTask()
     renderBoard()
     renderBacklog()
-    openBoard()
+    openBacklog()
 }
 
 

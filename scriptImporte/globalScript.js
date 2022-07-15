@@ -119,6 +119,8 @@ window.onclick = function (event) {
     if (event.target == document.getElementById('myModal')) {
         document.getElementById('side-bar').classList.remove("active-mobile-side")
         document.getElementById('burger').classList.remove('toggle')
-        document.getElementById('myModal').classList.toggle('d-block')
+        document.getElementById('myModal').classList.remove('d-block')
+
+        document.getElementById('show-backlog-details-container').classList.add('d-none')
     }
 }

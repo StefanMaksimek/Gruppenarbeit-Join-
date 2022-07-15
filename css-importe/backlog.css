@@ -22,6 +22,11 @@ td {
     vertical-align: middle;
 }
 
+.backlog-hover:hover {
+    transform: scale(0.95);
+    cursor: pointer;
+}
+
 .backlog th:last-child {
     text-align: end;
 }
@@ -54,4 +59,21 @@ td {
    padding: 0;
    margin: 0;
    border: none;
+}
+
+#show-backlog-details-container {
+    z-index: 100;
+}
+
+#push-task {
+    border: none;
+    background-color: var(--clr-primary);
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    color: var(--clr-font2);
+    margin-top: var(--px-mid);
+}
+
+#push-task:hover {
+    background-color: var(--clr-primary-hvr);
 }

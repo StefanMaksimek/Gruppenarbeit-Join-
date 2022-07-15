@@ -33,6 +33,10 @@
             await backend.setItem('tasks', JSON.stringify(tasks));
         }
 
+        async function uploadStartedTasks() {
+            await backend.setItem('startedTasks', JSON.stringify(startedTasks));
+        }
+
         async function uploadIcons() {
             await backend.setItem('icons', JSON.stringify(icons));
         }
@@ -41,12 +45,13 @@
             await downloadFromServer();
             users = JSON.parse(backend.getItem('users')) || [];
             tasks = JSON.parse(backend.getItem('tasks')) || [];
+            startedTasks = JSON.parse(backend.getItem('startedTasks')) || [];
             icons = JSON.parse(backend.getItem('icons')) || [];
 
             loadUsers();
             renderBoard()
             renderBacklog()
-            openAddTask()
+            openBacklog()
         }
     </script>
 
@@ -54,7 +59,7 @@
 
 <body onload="init()" data-theme="default">
     <div class="modal" id="myModal">
-        
+
     </div>
 
     <div class="side-bar" id="side-bar">
@@ -131,7 +136,6 @@
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
                         ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
 
@@ -141,11 +145,6 @@
                     </div>
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
                         ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 1</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 2</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 3</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 4</div>
-                        <div class="to-do" draggable="true" ondragstart="startDragging()">Aufgaben 5</div>
                     </div>
                 </div>
             </div>
@@ -176,6 +175,39 @@
                         </tr>
                     </tbody>
                 </table>
+
+
+                <div class="show-user-details-box d-none" id="show-backlog-details-container">
+                    <div class="close-user-details-box">
+                        <div class="close-user-details" onclick="closeBacklogDetails()">X</div>
+                    </div>
+
+                    <h2 id="show-backlog-details-box-name"></h2>
+                    <img id="show-backlog-details-box-icon" class="list-search-result-img" src="" alt="">
+
+                    <table>
+                        <tr>
+                            <td>Assigned to:</td>
+                            <td class="padding-left" id="show-backlog-details-box-assigned-to"></td>
+                        </tr>
+                        <tr>
+                            <td>Category:</td>
+                            <td class="padding-left" id="show-backlog-details-box-category"></td>
+                        </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td class="padding-left" id="show-backlog-details-box-title"></td>
+                        </tr>
+                    </table>
+
+                    <h3>Description</h3>
+                    <span id="show-backlog-details-box-details">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                    </span>
+                    <div class="btn-holder-backlog" id="btn-holder-backlog">
+                        
+                    </div>
+                </div>
             </div>
 
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->

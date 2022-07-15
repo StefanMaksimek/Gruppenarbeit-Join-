@@ -10,7 +10,7 @@
 function renderBacklogHTML(task) {
     // Shows only the first USER! forEach cannot be reapplied
     return `
-        <tr>
+        <tr class="backlog-hover" onclick="openAcceptTask(${task.id})">
             <td class="assigned-to" style="border-left:0.4rem solid var(--clr-${task.category}">
                 <img src="${task.user[0].icon}" alt="">
             </td>
@@ -19,9 +19,9 @@ function renderBacklogHTML(task) {
                 <h3>${task.user[0].name}</h3>
                 <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
             </td>
-            
+
             <td class="category">${task.category}</td>
-            <td class="details" style="border-bottom:0.4rem solid ${task.color}">${task.description}</td>
+            <td class="details">${task.description}</td>
         </tr>
     `
 }
@@ -45,36 +45,36 @@ function renderToDoHTML(toDos) {
 
 /**
  * 
- * @param {*} toDos JSON 
+ * @param {*} inProgress JSON 
  * @returns HTML snippet for renderInProgress function
  */
 function renderInProgressHTML(inProgress) {
     return `
-        <div class="to-do" draggable="true" ondragstart="startDragging(${inProgress["id"]})">${inProgress.title}</div>
+        <div class="to-do" style="background-color: var(--clr-${inProgress.category})" draggable="true" ondragstart="startDragging(${inProgress["id"]})">${inProgress.title}</div>
     `
 }
 
 
 /**
  * 
- * @param {*} toDos JSON 
+ * @param {*} testing JSON 
  * @returns HTML snippet for renderTesting function
  */
 function renderTestingHTML(testing) {
     return `
-        <div class="to-do" draggable="true" ondragstart="startDragging(${testing["id"]})">${testing.title}</div>
+        <div class="to-do" style="background-color: var(--clr-${testing.category})" draggable="true" ondragstart="startDragging(${testing["id"]})">${testing.title}</div>
     `
 }
 
 
 /**
  * 
- * @param {*} toDos JSON 
+ * @param {*} done JSON 
  * @returns HTML snippet for renderDone function
  */
 function renderDoneHTML(done) {
     return `
-        <div class="to-do" draggable="true" ondragstart="startDragging(${done["id"]})">${done.title}</div>
+        <div class="to-do" style="background-color: var(--clr-${done.category})" draggable="true" ondragstart="startDragging(${done["id"]})">${done.title}</div>
     `
 }
 /////////////////////////////////////////////////////////////////////////////////
