@@ -2,6 +2,10 @@ let currentDraggedElement;
 
 
 function renderBoard() {
+    /**
+     * tasks.filter(t => t.statusTask == "board")
+     * let doneTasks = filt...
+     */
     renderToDo()
     renderInProgress()
     renderTesting()

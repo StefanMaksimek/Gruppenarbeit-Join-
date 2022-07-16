@@ -64,7 +64,8 @@ function createObjTask(title, priority, category, status, description, dueDate, 
         "user": [],
         "status": status.value,
         "description": description.value,
-        "color": color
+        "color": color,
+        "statusTask": "board" //proposal for filter attribute for render board. see also loom video 
     }
     pushAllUsersInTask(task);
     tasks.push(task);
