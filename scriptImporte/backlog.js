@@ -2,15 +2,16 @@
 
 function renderBacklog() {
     let bc = document.getElementById('backlog-content')
+    let tasksInBacklog = tasks.filter(t => t.statusTask == "backlog")
 
     bc.innerHTML = ``
-    tasks.reverse().forEach(task => {
+    tasksInBacklog.reverse().forEach(task => {
         bc.innerHTML += renderBacklogHTML(task)
-        if (task.user.length > 1 ) {
+        if (task.user.length > 1) {
             document.getElementById(`assigned-to-${task.id}`).innerHTML += addUserInfoHTML(task)
         }
     });
-    tasks.reverse()
+    tasksInBacklog.reverse()
 }
 
 
@@ -47,11 +48,13 @@ function closeBacklogDetails() {
 
 
 function pushTask(id) {
-    let i = tasks.findIndex(task => task.id == id)
-    startedTasks.push(tasks.find( task => task.id == id))
-    tasks.splice(i, 1)
+    let currentTask = tasks.find(t => t.id == id);
+    currentTask.statusTask = "board";
+    /* let i = tasks.findIndex(task => task.id == id)
+     startedTasks.push(tasks.find( task => task.id == id))
+     tasks.splice(i, 1)*/
     uploadTasks()
-    uploadStartedTasks()
+    //uploadStartedTasks()
     renderBoard()
     renderBacklog()
     openBoard()

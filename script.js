@@ -12,7 +12,7 @@ let startedTasks = [];
 
 
 function init2(){
-    addIcons();
+    uploadIcons();
     uploadUser();
-    addTasks();
+    uploadTasks();
 }*/

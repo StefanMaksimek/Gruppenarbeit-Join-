@@ -168,7 +168,8 @@ let tasks = [
         "user": [users[1], users[4]],
         "status": "status.value",
         "description": "description.value",
-        "color": "color"
+        "color": "color",
+        "statusTask": "backlog"
     }
     
 ]
