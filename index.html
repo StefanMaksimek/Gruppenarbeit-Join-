@@ -154,8 +154,8 @@
                     <caption>Learning Management System Projekt</caption>
                     <thead>
                         <tr>
-                            <th scope="col" colspan="2">ASSINGED TO</th>
-                            <th scope="col">CATEGORY</th>
+                            <th scope="col" >ASSINGED TO</th>
+                            <th scope="col" class="backlog-responsive">CATEGORY</th>
                             <th scope="col">DETAILS</th>
                         </tr>
                     </thead>
@@ -177,19 +177,16 @@
                 </table>
 
 
-                <div class="show-user-details-box d-none" id="show-backlog-details-container">
+                <div class=" d-none" id="show-backlog-details-container">
                     <div class="close-user-details-box">
                         <div class="close-user-details" onclick="closeBacklogDetails()">X</div>
                     </div>
 
-                    <h2 id="show-backlog-details-box-name"></h2>
-                    <img id="show-backlog-details-box-icon" class="list-search-result-img" src="" alt="">
+                    <h2 id="show-backlog-details-box-name">Assigned to:</h2>
 
+                    <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
+                    </div>
                     <table>
-                        <tr>
-                            <td>Assigned to:</td>
-                            <td class="padding-left" id="show-backlog-details-box-assigned-to"></td>
-                        </tr>
                         <tr>
                             <td>Category:</td>
                             <td class="padding-left" id="show-backlog-details-box-category"></td>

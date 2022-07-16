@@ -39,16 +39,24 @@
         font-size: 1.1rem;
     }
 
-    
+
 }
 
 @media screen and (max-width: 700px) {
     .add-task form {
         flex-direction: column;
     }
-    
+
     .left, .right {
         width: 100%;
+    }
+
+    .backlog-responsive {
+        display: none;
+    }
+
+    .backlog-user-info {
+        transform: translate(400%, -180%);
     }
 }
 
@@ -58,4 +66,3 @@
     width: 80%;
     transform: translate(0, 49px);
 }
-

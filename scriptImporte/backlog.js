@@ -6,6 +6,9 @@ function renderBacklog() {
     bc.innerHTML = ``
     tasks.reverse().forEach(task => {
         bc.innerHTML += renderBacklogHTML(task)
+        if (task.user.length > 1 ) {
+            document.getElementById(`assigned-to-${task.id}`).innerHTML += addUserInfoHTML(task)
+        }
     });
     tasks.reverse()
 }
@@ -21,13 +24,19 @@ function openAcceptTask(id) {
 
 
 function fillBaacklogDetailBox(id) {
-    document.getElementById('show-backlog-details-box-icon').src = tasks.find(task => task.id == id).user[0].icon
-    document.getElementById('show-backlog-details-box-assigned-to').innerHTML = tasks.find(task => task.id == id).user[0].name
-    document.getElementById('show-backlog-details-box-category').innerHTML = tasks.find(task => task.id == id).category
-    document.getElementById('show-backlog-details-box-title').innerHTML = tasks.find(task => task.id == id).title
-    document.getElementById('show-backlog-details-box-details').innerHTML = tasks.find(task => task.id == id).description
+    let task = tasks.find(e => e.id == id)
 
-    document.getElementById('btn-holder-backlog').innerHTML = `<button id="push-task" onclick="pushTask(${id})">Accept Task</button>`
+    document.getElementById('show-backlog-details-box-icon').innerHTML = '';
+    task.user.forEach(e => {
+        document.getElementById('show-backlog-details-box-icon').innerHTML += addUserIconsHTML(e)
+    });
+
+    document.getElementById('show-backlog-details-container').style = `border : 2px solid var(--clr-${task.category})`
+    document.getElementById('show-backlog-details-box-icon').src = task.user[0].icon
+    document.getElementById('show-backlog-details-box-category').innerHTML = task.category
+    document.getElementById('show-backlog-details-box-title').innerHTML = task.title
+    document.getElementById('show-backlog-details-box-details').innerHTML = task.description
+    document.getElementById('btn-holder-backlog').innerHTML = `<button id="push-task" style="background-color: var(--clr-${task.category})" onclick="pushTask(${id})">Accept Task</button>`
 }
 
 
@@ -41,6 +50,8 @@ function pushTask(id) {
     let i = tasks.findIndex(task => task.id == id)
     startedTasks.push(tasks.find( task => task.id == id))
     tasks.splice(i, 1)
+    uploadTasks()
+    uploadStartedTasks()
     renderBoard()
     renderBacklog()
     openBoard()

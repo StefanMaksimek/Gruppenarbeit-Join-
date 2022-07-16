@@ -11,21 +11,42 @@ function renderBacklogHTML(task) {
     // Shows only the first USER! forEach cannot be reapplied
     return `
         <tr class="backlog-hover" onclick="openAcceptTask(${task.id})">
-            <td class="assigned-to" style="border-left:0.4rem solid var(--clr-${task.category}">
-                <img src="${task.user[0].icon}" alt="">
-            </td>
-            
-            <td class="assigned-to">
-                <h3>${task.user[0].name}</h3>
-                <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
+            <td style="border-left:0.4rem solid var(--clr-${task.category}">
+                <div class="assigned-to-holder">
+                    <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">
+
+                    <div class="assigned-to" id="assigned-to-${task.id}">
+                        <h3>${task.user[0].name}</h3>
+                        <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
+                    </div>
+                </div>
             </td>
 
-            <td class="category">${task.category}</td>
+            <td class="category backlog-responsive">${task.category}</td>
             <td class="details">${task.description}</td>
         </tr>
     `
 }
-/////////////////////////////////////////////////////////////////////////////////
+
+
+function addUserInfoHTML(task) {
+    return `
+        <div class="backlog-user-info">
+            +${task.user.length}
+        </div>
+    `
+}
+
+
+function addUserIconsHTML(user) {
+    
+    return `
+        <div class="assigned-to-user">
+            <img src="${user.icon}" alt="">
+            <h3>${user.name}</h3>                  
+        </div>
+    `
+}
 
 
 /////////////////////////// HTML Snippets for Board

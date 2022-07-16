@@ -217,7 +217,6 @@
     width: 300px;
     border: 2px solid var(--clr-primary);
     border-radius: 16px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
