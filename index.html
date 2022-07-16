@@ -43,16 +43,28 @@
 
         async function init() {
             await downloadFromServer();
-            users = JSON.parse(backend.getItem('users')) || [];
-            tasks = JSON.parse(backend.getItem('tasks')) || [];
-            startedTasks = JSON.parse(backend.getItem('startedTasks')) || [];
-            icons = JSON.parse(backend.getItem('icons')) || [];
+            users = JSON.parse(backend.getItem(`users`)) || [];
+            icons = JSON.parse(backend.getItem(`icons`)) || [];
 
             loadUsers();
+        } 
+
+        async function loadTaskFromBackend() {
+            let a;
+            if (currentUser == "Testuser"){
+                a = "test"
+            }
+            else{
+                a = ""
+            }
+            await downloadFromServer();
+            tasks = JSON.parse(backend.getItem(`${a}tasks`)) || [];
+            startedTasks = JSON.parse(backend.getItem(`${a}startedTasks`)) || [];
+
             renderBoard()
             renderBacklog()
             openBacklog()
-        }
+        } 
     </script>
 
 </head>

@@ -63,5 +63,6 @@ function pushTask(id) {
 /*function pushTaskToBoard(id)
 let currentTask = tasks.find(t => t.id == id);
 currentTask.statusTask = "board";
+
 ...
 */

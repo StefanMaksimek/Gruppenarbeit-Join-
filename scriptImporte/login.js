@@ -1,4 +1,4 @@
-
+let currentUser;
 
 let userRegistrationObj;
 let temporaryIconArray = [];
@@ -333,6 +333,13 @@ function showUsersImage(usersLoginName) {
     content.innerHTML = `
     <img src="${imageSource}" onclick="showUserDetails('${usersLoginName}')">
     `;
+    setUserName(usersLoginName);
+}
+
+
+function setUserName(usersLoginName){
+    currentUser = usersLoginName;
+    loadTaskFromBackend()
 }
 
 
