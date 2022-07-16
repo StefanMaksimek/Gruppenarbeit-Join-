@@ -33,10 +33,6 @@
             await backend.setItem('tasks', JSON.stringify(tasks));
         }
 
-        async function uploadStartedTasks() {
-            await backend.setItem('startedTasks', JSON.stringify(startedTasks));
-        }
-
         async function uploadIcons() {
             await backend.setItem('icons', JSON.stringify(icons));
         }
@@ -50,16 +46,11 @@
         } 
 
         async function loadTaskFromBackend() {
-            let a;
-            if (currentUser == "Testuser"){
-                a = "test"
-            }
-            else{
-                a = ""
-            }
+            if (currentUser != "Testuser"){
             await downloadFromServer();
-            tasks = JSON.parse(backend.getItem(`${a}tasks`)) || [];
-
+            tasks = JSON.parse(backend.getItem(`tasks`)) || [];
+            }
+            
             renderBoard()
             renderBacklog()
             openBacklog()

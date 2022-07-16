@@ -2,7 +2,6 @@
 let users = [];
 let icons = [];
 let tasks = [];
-let startedTasks = [];
 
 
 
