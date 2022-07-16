@@ -59,7 +59,6 @@
             }
             await downloadFromServer();
             tasks = JSON.parse(backend.getItem(`${a}tasks`)) || [];
-            startedTasks = JSON.parse(backend.getItem(`${a}startedTasks`)) || [];
 
             renderBoard()
             renderBacklog()

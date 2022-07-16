@@ -1,11 +1,10 @@
 let currentDraggedElement;
+let startedTasks = []
 
 
 function renderBoard() {
-    /**
-     * tasks.filter(t => t.statusTask == "board")
-     * let doneTasks = filt...
-     */
+    startedTasks = tasks.filter(t => t.statusTask == "board") // load all tasks for board in an temporary Array
+
     renderToDo()
     renderInProgress()
     renderTesting()
@@ -60,7 +59,7 @@ function startDragging(id) {
 
 
 function moveTo(status) {
-    startedTasks.find(task => task.id == currentDraggedElement).status = status
+    tasks.find(task => task.id == currentDraggedElement).status = status //change the status in main JSON
     uploadTasks()
     renderBoard()
     removeHighlight(status)

@@ -62,10 +62,3 @@ function pushTask(id) {
     closeBacklogDetails()
 
 }
-
-/*function pushTaskToBoard(id)
-let currentTask = tasks.find(t => t.id == id);
-currentTask.statusTask = "board";
-
-...
-*/
