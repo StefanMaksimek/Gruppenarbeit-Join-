@@ -76,6 +76,10 @@ td {
     align-items: baseline;
 }
 
+#show-backlog-details-container td {
+    padding: var(--px-low) var(--px-mid);
+}
+
 #show-backlog-details-container h3 {
     font-weight: bold;
     border: none;
@@ -136,4 +140,19 @@ td {
 
 .assigned-to-user {
     margin-right: var(--px-mid);
+}
+
+.color-picker-container {
+    position: absolute;
+    transform: translate(-0%, -100%);
+    display: flex;
+    background-color: white;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+#show-backlog-details-box-details {
+    margin-bottom: var(--px-mid);
 }

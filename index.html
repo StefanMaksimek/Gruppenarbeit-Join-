@@ -55,7 +55,7 @@
 
             renderBoard()
             renderBacklog()
-            openBacklog()
+            openBoard()
         }
 
 
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-        <div class="info-header" id="info">
+        <div class="d-none" id="info">
             <h2 id="info-header">Add Task</h2>
 
             <span>
@@ -123,6 +123,7 @@
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
                         ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
+
                     </div>
                 </div>
 
@@ -153,6 +154,44 @@
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
                         ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
                     </div>
+                </div>
+
+                <div class=" d-none" id="show-board-details-container">
+                    <div class="close-user-details-box">
+                        <div class="close-user-details" onclick="closeBoardDetails()">X</div>
+                    </div>
+
+                    <h2 id="show-board-details-box-name">Assigned to:</h2>
+
+                    <div class="assigned-to-user-holder" id="show-board-details-box-icon">
+                    </div>
+                    <table>
+                        <tr>
+                            <td>Category:</td>
+                            <td class="padding-left" id="show-board-details-box-category"></td>
+                        </tr>
+                        <tr>
+                            <td>Title:</td>
+                            <td class="padding-left" id="show-board-details-box-title"></td>
+                        </tr>
+                        <tr>
+                            <td>Created on:</td>
+                            <td class="padding-left" id="show-board-details-box-created-on"></td>
+                        </tr>
+                        <tr>
+                            <td>Complete by:</td>
+                            <td class="padding-left" id="show-board-details-box-complete-by"></td>
+                        </tr>
+                        <tr>
+                            <td>Urgency:</td>
+                            <td class="padding-left" id="show-board-details-box-urgency"></td>
+                        </tr>
+                    </table>
+
+                    <h3>Description:</h3>
+                    <span id="show-board-details-box-details">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                    </span>
                 </div>
             </div>
 
@@ -208,6 +247,33 @@
                     <span id="show-backlog-details-box-details">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
                     </span>
+
+                    <div class="input-holder2">
+                        <div class="input-holder">
+                            <h3>COLOR</h3>
+
+                            <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                                <button type="button" onclick="showColor()" class="btn btn-info"
+                                    id="add-task-color-button">choose
+                                </button>
+                                <div class="d-none color-picker-container" id="color-picker">
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-holder">
+                            <h3>STATUS</h3>
+
+                            <select class="form-select" id="status-list-input"
+                                aria-label="Example select with button addon">
+                                <option value="to-do">ToDo</option>
+                                <option value="in-progress">IN PROGRESS</option>
+                                <option value="testing">TESTING</option>
+                                <option value="done">DONE</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="btn-holder-backlog" id="btn-holder-backlog">
 
                     </div>
@@ -226,39 +292,21 @@
                                 <input required type="text" placeholder="Title" id="title-task" class="form-control">
                             </div>
                         </div>
+                        <div class="input-holder">
+                            <h3>CATEGORY</h3>
 
-                        <div class="input-holder2">
-                            <div class="input-holder">
-                                <h3>CATEGORY</h3>
-
-                                <div class="input-group">
-                                    <select class="form-select" id="category-list-input"
-                                        aria-label="Example select with button addon">
-                                        <option value="IT">IT</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Sales">Sales</option>
-                                        <option value="Management">Management</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="input-holder">
-                                <h3>COLOR</h3>
-
-                                <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                    <button type="button" onclick="showColor()" class="btn btn-info"
-                                        id="add-task-color-button">choose
-                                    </button>
-                                    <div class="d-none color-picker-container" id="color-picker">
-
-                                    </div>
-                                </div>
+                            <div class="input-group">
+                                <select class="form-select" id="category-list-input"
+                                    aria-label="Example select with button addon">
+                                    <option value="IT">IT</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Management">Management</option>
+                                </select>
                             </div>
                         </div>
-
-
                         <div class="input-holder">
-                            <h3>DESCRIPTION</h3>
+                            <h3>DESCRIPTION:</h3>
 
                             <!--copied from bootstrap-->
                             <!-- Textarea with class .w-75 -->
@@ -277,34 +325,16 @@
                             <input required class="form-control input-due-date" type="date" name="begin"
                                 placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
                         </div>
+                        
+                        <div class="input-holder">
+                            <h3>URGENCY</h3>
 
-
-                        <div class="input-holder2">
-                            <div class="input-holder">
-                                <h3>URGENCY</h3>
-
-                                <select class="form-select" id="priority-state-input"
-                                    aria-label="Example select with button addon">
-                                    <option value="normal">normal</option>
-                                    <option value="high">high</option>
-                                </select>
-                            </div>
-
-                            <div class="input-holder">
-                                <h3>STATUS</h3>
-
-                                <select class="form-select" id="status-list-input"
-                                    aria-label="Example select with button addon">
-                                    <option value="to-do">ToDo</option>
-                                    <option value="in-progress">IN PROGRESS</option>
-                                    <option value="testing">TESTING</option>
-                                    <option value="done">DONE</option>
-                                </select>
-                            </div>
-
-
+                            <select class="form-select" id="priority-state-input"
+                                aria-label="Example select with button addon">
+                                <option value="normal">normal</option>
+                                <option value="high">high</option>
+                            </select>
                         </div>
-
 
                         <div class="input-holder">
                             <h3>ASSINGED TO</h3>

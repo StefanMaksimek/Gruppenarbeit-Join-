@@ -45,15 +45,16 @@ function createTask() {
     let category = document.getElementById('category-list-input');
     let status = document.getElementById('status-list-input');
     let description = document.getElementById('task-description');
-    let dueDate = document.getElementById('due-date')
     let color = temporaryArrayColor[0]
     let id = tasks.length
 
-    createObjTask(title, priority, category, status, description, dueDate, color, id)
+    createObjTask(title, priority, category, status, description, color, id)
 }
 
 
-function createObjTask(title, priority, category, status, description, dueDate, color, id){
+function createObjTask(title, priority, category, status, description, color, id){
+
+    let dueDate = document.getElementById('due-date')
     let task = {
         "id": id,
         "title": title.value,

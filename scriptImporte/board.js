@@ -19,6 +19,10 @@ function renderToDo() {
     td.innerHTML = ``
     startedTasks.filter(task => task.status == "to-do").forEach(toDos => {
         td.innerHTML += renderToDoHTML(toDos)
+        let id = toDos.id
+        toDos.user.forEach(e => {
+            document.getElementById(`board-card-usericon${id}`).innerHTML += addUserIconsHTML(e)
+        })
     })
 }
 
@@ -29,6 +33,9 @@ function renderInProgress() {
     ip.innerHTML = ``
     startedTasks.filter(task => task.status == "in-progress").forEach(inProgress => {
         ip.innerHTML += renderInProgressHTML(inProgress)
+        inProgress.user.forEach(e => {
+            document.getElementById(`board-card-usericon${inProgress.id}`).innerHTML += addUserIconsHTML(e)
+        })
     })
 }
 
@@ -39,6 +46,9 @@ function renderTesting() {
     t.innerHTML = ``
     startedTasks.filter(task => task.status == "testing").forEach(testing => {
         t.innerHTML += renderTestingHTML(testing)
+        testing.user.forEach(e => {
+            document.getElementById(`board-card-usericon${testing.id}`).innerHTML += addUserIconsHTML(e)
+        })
     })
 }
 
@@ -49,6 +59,9 @@ function renderDone() {
     d.innerHTML = ``
     startedTasks.filter(task => task.status == "done").forEach(done => {
         d.innerHTML += renderDoneHTML(done)
+        done.user.forEach(e => {
+            document.getElementById(`board-card-usericon${done.id}`).innerHTML += addUserIconsHTML(e)
+        })
     })
 }
 
@@ -73,4 +86,41 @@ function highlight(id) {
 
 function removeHighlight(id) {
     document.getElementById(id).parentElement.classList.remove('drag-area-highlight')
+}
+
+
+function openTaskDetails(id) {
+    document.getElementById('myModal').classList.add('d-block')
+    document.getElementById('show-board-details-container').classList.remove('d-none')
+
+    fillBoardDetailBox(id)
+
+}
+
+
+function fillBoardDetailBox(id) {
+    let task = tasks.find(e => e.id == id)
+
+    document.getElementById('show-board-details-box-icon').innerHTML = '';
+    task.user.forEach(e => {
+        document.getElementById('show-board-details-box-icon').innerHTML += addUserIconsHTML(e)
+    });
+
+    document.getElementById('show-board-details-container').style = `border : 2px solid var(--clr-${task.category})`
+    document.getElementById('show-board-details-box-icon').src = task.user[0].icon
+    document.getElementById('show-board-details-box-category').innerHTML = task.category
+    document.getElementById('show-board-details-box-title').innerHTML = task.title
+    document.getElementById('show-board-details-box-details').innerHTML = task.description
+
+
+    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0,10)
+    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0,10)
+    document.getElementById('show-board-details-box-urgency').innerHTML = task.priority
+
+}
+
+
+function closeBoardDetails() {
+    document.getElementById('myModal').classList.remove('d-block')
+    document.getElementById('show-board-details-container').classList.add('d-none')
 }

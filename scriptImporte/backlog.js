@@ -49,16 +49,18 @@ function closeBacklogDetails() {
 
 function pushTask(id) {
     let currentTask = tasks.find(t => t.id == id);
+
     currentTask.statusTask = "board";
-    /* let i = tasks.findIndex(task => task.id == id)
-     startedTasks.push(tasks.find( task => task.id == id))
-     tasks.splice(i, 1)*/
+    setColorAndStatus(currentTask)
     uploadTasks()
-    //uploadStartedTasks()
+    closeBacklogDetails()
     renderBoard()
     renderBacklog()
     openBoard()
+}
 
-    closeBacklogDetails()
 
+function setColorAndStatus(currentTask) {
+    currentTask.status = document.getElementById('status-list-input').value
+    currentTask.color = temporaryArrayColor[0]
 }

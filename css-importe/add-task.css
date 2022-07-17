@@ -57,18 +57,6 @@
     box-shadow: inset 0 0 0 2px rgb(6, 6, 72);
 }
 
-.color-picker-container {
-    position: absolute;
-    left: 480px;
-    top: 210px;
-    display: flex;
-    background-color: white;
-    padding: 8px;
-    border: 1px solid black;
-    border-radius: 25px;
-    z-index: 1;
-}
-
 .list-search-result {
     display: flex;
     flex-direction: column;

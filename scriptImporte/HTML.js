@@ -59,7 +59,22 @@ function addUserIconsHTML(user) {
  */
 function renderToDoHTML(toDos) {
     return `
-        <div class="to-do" style="background-color: var(--clr-${toDos.category})" draggable="true" ondragstart="startDragging(${toDos["id"]})">${toDos.title}</div>
+        <div class="to-do" onclick="openTaskDetails(${toDos.id})" style="background-color: ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
+            <div class="board-card-header">
+                <h4>${toDos.title}</h4>
+            </div>
+
+            <div class="board-card-info">
+                <span>Assinged to:</span>
+                <div class="board-card-usericon" id="board-card-usericon${toDos.id}">
+                </div>
+            </div>
+
+            <div class="board-card-department" style="background-color: var(--clr-${toDos.category})">
+                <span>Department:</span>
+                <span>${toDos.category}</span>
+            </div>
+        </div>
     `
 }
 
@@ -71,8 +86,22 @@ function renderToDoHTML(toDos) {
  */
 function renderInProgressHTML(inProgress) {
     return `
-        <div class="to-do" style="background-color: var(--clr-${inProgress.category})" draggable="true" ondragstart="startDragging(${inProgress["id"]})">${inProgress.title}</div>
-    `
+    <div class="to-do" onclick="openTaskDetails(${inProgress.id})" style="background-color: ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
+        <div class="board-card-header">
+            <h4>${inProgress.title}</h4>
+        </div>
+
+        <div class="board-card-info">
+            <span>Assinged to:</span>
+            <div class="board-card-usericon" id="board-card-usericon${inProgress.id}">
+            </div>
+        </div>
+
+        <div class="board-card-department" style="background-color: var(--clr-${inProgress.category})">
+            <span>Department:</span>
+            <span>${inProgress.category}</span>
+        </div>
+    </div>    `
 }
 
 
@@ -83,8 +112,22 @@ function renderInProgressHTML(inProgress) {
  */
 function renderTestingHTML(testing) {
     return `
-        <div class="to-do" style="background-color: var(--clr-${testing.category})" draggable="true" ondragstart="startDragging(${testing["id"]})">${testing.title}</div>
-    `
+    <div class="to-do" onclick="openTaskDetails(${testing.id})" style="background-color: ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
+        <div class="board-card-header">
+            <h4>${testing.title}</h4>
+        </div>
+
+        <div class="board-card-info">
+            <span>Assinged to:</span>
+            <div class="board-card-usericon" id="board-card-usericon${testing.id}">
+            </div>
+        </div>
+
+        <div class="board-card-department" style="background-color: var(--clr-${testing.category})">
+            <span>Department:</span>
+            <span>${testing.category}</span>
+        </div>
+    </div>    `
 }
 
 
@@ -95,8 +138,22 @@ function renderTestingHTML(testing) {
  */
 function renderDoneHTML(done) {
     return `
-        <div class="to-do" style="background-color: var(--clr-${done.category})" draggable="true" ondragstart="startDragging(${done["id"]})">${done.title}</div>
-    `
+    <div class="to-do" onclick="openTaskDetails(${done.id})" style="background-color: ${done.color}" draggable="true" ondragstart="startDragging(${done["id"]})">
+        <div class="board-card-header">
+            <h4>${done.title}</h4>
+        </div>
+
+        <div class="board-card-info">
+            <span>Assinged to:</span>
+            <div class="board-card-usericon" id="board-card-usericon${done.id}">
+            </div>
+        </div>
+
+        <div class="board-card-department" style="background-color: var(--clr-${done.category})">
+            <span>Department:</span>
+            <span>${done.category}</span>
+        </div>
+    </div>    `
 }
 /////////////////////////////////////////////////////////////////////////////////
 
