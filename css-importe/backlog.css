@@ -139,7 +139,8 @@ td {
 }
 
 .assigned-to-user {
-    margin-right: var(--px-mid);
+    width: 90px;
+    overflow: auto;
 }
 
 .color-picker-container {

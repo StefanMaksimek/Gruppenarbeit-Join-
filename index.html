@@ -71,22 +71,24 @@
 
     <div class="side-bar" id="side-bar">
         <div class="side-bar-holder">
-            <div class="logo">
-                <img src="img/joinlogo.png" alt="">
-            </div>
-
-            <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
-            <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
-            <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
-            <hr>
-            <h3 id="help-h3" onclick="openHelp()">Help</h3>
-            <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
-            <h3 id="impressum-h3" onclick="openImpressum()">Imprint</h3>
-            <h3 id="datenschutz-h3" onclick="openDatenschutz()">Privacy</h3>
-            <hr>
-            <div id="login-logout">
-                <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
-                <h3 id="logout-h3" onclick="executeLogout()" class="d-none">Logout</h3>
+            <div class="nav-holder">
+                <div class="logo">
+                    <img src="img/joinlogo.png" alt="">
+                </div>
+    
+                <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
+                <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
+                <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
+                <hr>
+                <h3 id="help-h3" onclick="openHelp()">Help</h3>
+                <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
+                <h3 id="impressum-h3" onclick="openImpressum()">Imprint</h3>
+                <h3 id="datenschutz-h3" onclick="openDatenschutz()">Privacy</h3>
+                <hr>
+                <div id="login-logout">
+                    <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
+                    <h3 id="logout-h3" onclick="executeLogout()" class="d-none">Logout</h3>
+                </div>
             </div>
 
             <!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
@@ -206,19 +208,6 @@
                         </tr>
                     </thead>
                     <tbody id="backlog-content">
-                        <tr>
-                            <td class="assigned-to" style="border-left:0.4rem solid red">
-                                <img src="./img/001_fb copy.jpg" alt="">
-                            </td>
-                            <td class="assigned-to">
-                                <h3>Stefan</h3>
-                                <a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a>
-                            </td>
-                            <td class="category">IT</td>
-                            <td class="details" style="border-bottom:0.4rem solid red">Lorem ipsum dolor sit, amet
-                                consectetur adipisicing elit. Dolorum, tempore commodi dolorem aspernatur quas debitis.
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -325,7 +314,7 @@
                             <input required class="form-control input-due-date" type="date" name="begin"
                                 placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
                         </div>
-                        
+
                         <div class="input-holder">
                             <h3>URGENCY</h3>
 

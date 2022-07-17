@@ -22,14 +22,6 @@
         position: absolute;
     }
 
-    .board {
-        flex-direction: column;
-    }
-
-    .card {
-        width: auto;
-    }
-
     .to-do-holder {
         min-height: 80px;
     }
@@ -38,8 +30,6 @@
         padding: 0.1rem;
         font-size: 1.1rem;
     }
-
-
 }
 
 @media screen and (max-width: 700px) {
@@ -58,11 +48,29 @@
     .backlog-user-info {
         transform: translate(400%, -180%);
     }
+
+    #show-board-details-container, #show-backlog-details-container {
+        width: 90%;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .board {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+
+    .card {
+        width: auto;
+    }
+
+
+    
 }
 
 .active-mobile-side {
-    position: fixed;
-    min-height: calc(100vh - 49px);
-    width: 80%;
-    transform: translate(0, 49px);
+    min-height: 100%;
+    transform: translate(0);
 }

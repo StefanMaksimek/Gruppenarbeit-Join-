@@ -1,5 +1,3 @@
-
-
 function openBoard() {
     closeAllContent()
     document.getElementById('info').className = 'd-none'
@@ -59,11 +57,15 @@ function openDatenschutz() {
 
 
 function closeAllContent() {
-    removeBorderInSidebar()
-    closeContentWindows()
+    document.getElementById('myModal').classList.remove('d-block')
+    document.getElementById('show-board-details-container').classList.add('d-none')
     document.getElementById('info').className = 'info-header'
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
+    document.getElementById('show-backlog-details-container').classList.add('d-none')
+    
+    removeBorderInSidebar()
+    closeContentWindows()
 }
 
 
@@ -125,3 +127,12 @@ window.onclick = function (event) {
         document.getElementById('show-board-details-container').classList.add('d-none')
     }
 }
+
+
+window.addEventListener('resize', _e => {
+    if (window.innerWidth > 700) {
+        document.getElementById('side-bar').classList.remove("active-mobile-side")
+        document.getElementById('burger').classList.remove('toggle')
+        document.getElementById('myModal').classList.remove('d-block')
+    }
+})
