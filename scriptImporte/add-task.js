@@ -61,7 +61,7 @@ function createObjTask(title, priority, category, status, description, color, id
         "priority": priority.value,
         "category": category.value,
         "createdAt": new Date().getTime(),
-        "dueDate": new Date().getTime(dueDate.value),
+        "dueDate": new Date(dueDate.value).getTime(),
         "user": [],
         "status": status.value,
         "description": description.value,
