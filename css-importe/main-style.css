@@ -195,3 +195,8 @@ h3 {
     display: block;
 }
 
+.user-side-bar-img:hover {
+    cursor: pointer;
+    border: solid 2px gray;
+}
+

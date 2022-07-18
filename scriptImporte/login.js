@@ -163,34 +163,34 @@ function takeInfosFromRegistration() {
 }
 
 
-function createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource){
+function createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource) {
     userRegistrationObj = {
-            "id": "",
-            "name": newUser.value,
-            "password": newUserPassword.value,
-            "icon": iconSource,
-            "category": newUserCategory.value,
-            "Hobbys": newUserHobby.value,
-            "city": newUserCity.value,
-            "mail": newUserMail.value,
-            "telephon": newUserTel.value
-        };
-        submitNewUser();
-    }
+        "id": "",
+        "name": newUser.value,
+        "password": newUserPassword.value,
+        "icon": iconSource,
+        "category": newUserCategory.value,
+        "Hobbys": newUserHobby.value,
+        "city": newUserCity.value,
+        "mail": newUserMail.value,
+        "telephon": newUserTel.value
+    };
+    submitNewUser();
+}
 
 
-    function pushNewUserInArrayUsers() {
-        let userId = users.length;
-        userRegistrationObj.id = userId
-            
-        users.push(userRegistrationObj);
-        loadUsers();
-        closeRegisterBox();
-        showRegistrationAlertReadyForLogin();
-    
-        setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown);
-        uploadUser();
-    }
+function pushNewUserInArrayUsers() {
+    let userId = users.length;
+    userRegistrationObj.id = userId
+
+    users.push(userRegistrationObj);
+    loadUsers();
+    closeRegisterBox();
+    showRegistrationAlertReadyForLogin();
+
+    setTimeout(hideRegistrationAlertReadyForLogin, timeInfoShown);
+    uploadUser();
+}
 
 
 function showRegistrationAlertReadyForLogin() {
@@ -283,8 +283,8 @@ function closeAskForIconSelection() {
 
 
 function submitNewUserWithUnknownIcon() {
-	let iconSource = './img/icon-unknown.svg';
-	userRegistrationObj.icon = iconSource
+    let iconSource = './img/icon-unknown.svg';
+    userRegistrationObj.icon = iconSource
     closeAskForIconSelection();
     pushNewUserInArrayUsers();
 }
@@ -331,13 +331,13 @@ function showUsersImage(usersLoginName) {
     let imageSource = searchObject.icon; //get the image source of the users image
 
     content.innerHTML = `
-    <img src="${imageSource}" onclick="showUserDetails('${usersLoginName}')">
+    <img class="user-side-bar-img" src="${imageSource}" onclick="showUserDetails('${usersLoginName}')">
     `;
     setUserName(usersLoginName);
 }
 
 
-function setUserName(usersLoginName){
+function setUserName(usersLoginName) {
     currentUser = usersLoginName;
     loadTaskFromBackend()
 }
@@ -352,12 +352,12 @@ function executeLogout() {
     clearTasksArrayToHideForTestusers()
 }
 
-function clearTasksArrayToHideForTestusers(){
+function clearTasksArrayToHideForTestusers() {
     tasks.length = 0;
     clearBoardAndBacklog()
 }
 
-function clearBoardAndBacklog(){
+function clearBoardAndBacklog() {
     renderBoard()
     renderBacklog()
 }
@@ -392,9 +392,6 @@ function loadAllUserNamesInArray() {
         userNames.push(name)
     }
 }
-
-
-
 
 
 // Testuser

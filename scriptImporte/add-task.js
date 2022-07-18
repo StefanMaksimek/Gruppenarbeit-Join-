@@ -47,14 +47,13 @@ function createTask() {
     let description = document.getElementById('task-description');
     let color = temporaryArrayColor[0]
     let id = tasks.length
-
-    createObjTask(title, priority, category, status, description, color, id)
+    let dueDate = document.getElementById('due-date')
+    createObjTask(title, priority, category, status, description, color, id, dueDate)
 }
 
 
-function createObjTask(title, priority, category, status, description, color, id){
+function createObjTask(title, priority, category, status, description, color, id, dueDate) {
 
-    let dueDate = document.getElementById('due-date')
     let task = {
         "id": id,
         "title": title.value,
@@ -138,7 +137,7 @@ function closeListOfEmployeesBoxForAddTask() {
 function openListOfEmployeesBoxForAddTask() {
     let content = document.getElementById('list-of-employees-box');
     content.classList.remove('d-none');
-    showTwentyUsersAsProbosals();
+    showTwentyUsersAsProbosalsInSearchfield();
 }
 
 
@@ -155,23 +154,23 @@ function clearUserListForAddEmployees() {
 const search = document.getElementById('search-name')
 const matchList = document.getElementById('add-task-editor-list')
 
-function showSearchInputfield(show, hide){
-    let contentShow = document.getElementById(`show-search-${show}-inputfield`)
-    contentShow.classList.remove('d-none') //if show search Mail is clicked, show clickable text search Name appear
+function showSearchInputfield(visible, hide) {
+    let contentToShow = document.getElementById(`show-search-${visible}-inputfield`)
+    contentToShow.classList.remove('d-none') //if show search Mail is clicked, show clickable text search Name appear
 
-    let contentHide = document.getElementById(`show-search-${hide}-inputfield`)
-    contentHide.classList.add('d-none') // and clickable text search mail disappear
+    let contentToHide = document.getElementById(`show-search-${hide}-inputfield`)
+    contentToHide.classList.add('d-none') // and clickable text search mail disappear
 
-    let inputfieldShow = document.getElementById(`search-${show}`)
-    let inputfieldHide = document.getElementById(`search-${hide}`)
+    let inputfieldToHide = document.getElementById(`search-${visible}`)
+    let inputfieldToShow = document.getElementById(`search-${hide}`)
 
-    inputfieldShow.classList.add('d-none')
-    inputfieldHide.classList.remove('d-none')
-    clearHidedInputfield(show)
+    inputfieldToHide.classList.add('d-none')
+    inputfieldToShow.classList.remove('d-none')
+    clearHidedInputfield(visible)
 }
 
 
-function clearHidedInputfield(show){
+function clearHidedInputfield(show) {
     let inputfieldShow = document.getElementById(`search-${show}`)
     inputfieldShow.value = ''
 }
@@ -182,53 +181,65 @@ function startSearchUser() {
     searchUserName(searchText);
 }
 
-function startSearchMail(){
+
+function startSearchMail() {
     let searchText = document.getElementById('search-mail').value;
     searchUserMail(searchText);
 }
 
 let searchMatches;
 let searchMatchesMails = [];
+let mails = [];
+
 
 function searchUserMail(searchText) {
-    let allUsersMails = users.filter(t => t.mail != '')
-    let mails = allUsersMails.map(function(element){
-        return `${element.mail}`
-    })
-    
-    
+
+    fillTheArrayOfAllUserMailAdresses()
     searchMatchesMails = mails.filter(editor => {
         const regex = new RegExp(`^${searchText}`, "gi")
         return editor.match(regex)
     })
 
     if (document.getElementById('search-mail').value == '') {
-        searchMatches = '';
+        searchMatchesMails = '';
         document.getElementById('add-task-editor-list').innerHTML = '';
     }
 
-    showMatchesMail()
+    showSearchMatchesMail()
+}
+
+
+function fillTheArrayOfAllUserMailAdresses() {
+    let allUsersMails = users.filter(t => t.mail != '')
+    mails = allUsersMails.map(function (element) {
+        return `${element.mail}`
+    })
 }
 
 
 
 
-function showMatchesMail() {
+function showSearchMatchesMail() {
     if (searchMatchesMails.length > 0) {
         let userProposals = document.getElementById('add-task-editor-list')
-        document.getElementById('add-task-editor-list').innerHTML = '';
-        for (let i = 0; i < searchMatchesMails.length; i++) {
-            let mail = searchMatchesMails[i];
-            let userObj = users.find(t => t.mail == mail)
+        document.getElementById('add-task-editor-list').innerHTML = ''; //clear visible list of users
+    
+        searchMatchesMails.forEach(mailAddress => {
+            getAllUserOfTheSearchByMail(mailAddress, userProposals)
+        })
+
+        searchMatches = [];
+    }
+}
+
+
+function getAllUserOfTheSearchByMail(mailAddress, userProposals){
+    let userObj = users.find(u => u.mail == mailAddress)
             let icon = userObj.icon
             let user = userObj.name
-
             if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
                 userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
-        }
-    }
-    searchMatches = [];
 }
 
 
@@ -244,11 +255,11 @@ function searchUserName(searchText) {
         document.getElementById('add-task-editor-list').innerHTML = '';
     }
 
-    showMatches()
+    showSearchMatches()
 }
 
 
-function showTwentyUsersAsProbosals() {
+function showTwentyUsersAsProbosalsInSearchfield() {
     let userProposals = document.getElementById('add-task-editor-list')
     if (noUserHasBeenSearched()) {
         if (notMoreUserObjectsThanTwenty()) {
@@ -299,7 +310,7 @@ function notMoreUserObjectsThanTwenty() {
 }
 
 
-function showMatches() {
+function showSearchMatches() {
     if (searchMatches.length > 0) {
         let userProposals = document.getElementById('add-task-editor-list')
         document.getElementById('add-task-editor-list').innerHTML = '';
@@ -326,7 +337,7 @@ function addUserToResponsibleEmployees(user, icon) {
     let userObj = users.find(t => t.name == user)
     temporaryArrayResponsibleEmployees.push(userObj)
     renderResponsibleUserList()
-    deleteFromList(user, icon);
+    deleteFromSearchListByClickOnIcon(user, icon);
 }
 
 
@@ -342,10 +353,7 @@ function renderResponsibleUserList() {
 }
 
 
-/**content.innerHTML += `<div id="${name}-responsible-editor-box" draggable="true" ondragstart="deleteResponsibleEmployee(${name})"> 
-        <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}"></div>` */
-
-function deleteFromList(user, icon) {
+function deleteFromSearchListByClickOnIcon(user, icon) {
     let content = document.getElementById(`${user}-${icon}`)
     content.parentNode.removeChild(content)
 }
@@ -355,117 +363,28 @@ let currentDraggedUserAddTask;
 let currentDraggedIconAddTask;
 
 
-function deleteResponsibleEmployee(user, icon) {
+function getResponsibleEmployeeForDelete(user, icon) {
     currentDraggedUserAddTask = user;
     currentDraggedIconAddTask = icon
 }
-/**/
+
 
 //delete by moving the img to the bin
 function moveToBin() {
     const index = temporaryArrayResponsibleEmployees.findIndex(x => x.name === currentDraggedUserAddTask);
     if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 
-    //temporaryArrayResponsibleEmployees.splice(currentDraggedUserAddTask, 1)
     renderResponsibleUserList()
 }
 
 
-function showUserDetails(user) {
-    let userObj = users.find(t => t.name == user);
-    let icon = userObj.icon;
-    let mail = userObj.mail;
-    let tel = userObj.phone;
-    let category = userObj.category;
-    let city = userObj.city;
-    let hobby = userObj.Hobbys;
-
-    let content = document.getElementById('show-user-details-container');
-    content.classList.remove('d-none')
-
-    fillUserDetails(user, icon, mail, tel, category, city, hobby);
-}
-
-
-function fillUserDetails(user, icon, mail, tel, category, city, hobby) {
-    fillUserName(user);
-    fillUserIcon(icon);
-    fillUserMail(mail);
-    fillUserPhone(tel);
-    fillUserCategory(category);
-    fillUserCity(city);
-    fillUserHobby(hobby)
-}
-
-
-function fillUserName(name) {
-    let userName = document.getElementById('show-user-details-box-name')
-    userName.innerHTML = `${name}`
-}
-
-
-function fillUserIcon(icon) {
-    let userIcon = document.getElementById('show-user-details-box-icon')
-    userIcon.src = `${icon}`
-}
-
-
-function fillUserMail(mail) {
-    let userMail = document.getElementById('show-user-details-box-mail')
-    userMail.innerHTML = `${mail}`
-}
-
-
-function fillUserPhone(tel) {
-    let userTel = document.getElementById('show-user-details-box-tel')
-    userTel.innerHTML = `${tel}`
-}
-
-
-function fillUserCategory(category) {
-    let userCategory = document.getElementById('show-user-details-box-category')
-    userCategory.innerHTML = `${category}`
-}
-
-
-function fillUserCity(city) {
-    let userCity = document.getElementById('show-user-details-box-city')
-    userCity.innerHTML = `${city}`
-}
-
-
-function fillUserHobby(hobby) {
-    let userHobby = document.getElementById('show-user-details-box-hobby')
-    userHobby.innerHTML = `${hobby}`
-}
-
-
-function closeUserDetails() {
-    let content = document.getElementById('show-user-details-container');
-    content.classList.add('d-none');
-    clearUserDetails()
-}
-
-
-function clearUserDetails() {
-    document.getElementById('show-user-details-box-name').innerHTML = '';
-    document.getElementById('show-user-details-box-icon').src = '';
-    document.getElementById('show-user-details-box-mail').innerHTML = '';
-    document.getElementById('show-user-details-box-tel').innerHTML = '';
-    document.getElementById('show-user-details-box-category').innerHTML = '';
-    document.getElementById('show-user-details-box-city').innerHTML = '';
-    document.getElementById('show-user-details-box-hobby').innerHTML = '';
-}
-
-
-function showHintForBin(){
-    
+function showHintForBin() {
     let content = document.getElementById('add-task-bin-info-box')
     content.classList.remove('d-none')
 }
 
 
-function hideHintForBin(){
+function hideHintForBin() {
     let content = document.getElementById('add-task-bin-info-box')
     content.classList.add('d-none')
 }

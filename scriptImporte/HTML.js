@@ -180,7 +180,7 @@ function renderSearchedEmployeesHTML(user, icon){
 
 
 function renderSelectedEmployeesHTML(name, img){
-    return `<div draggable="true" ondragstart="deleteResponsibleEmployee('${name}', '${img}')" class="responsible-editor-container-box">
+    return `<div draggable="true" ondragstart="getResponsibleEmployeeForDelete('${name}', '${img}')" class="responsible-editor-container-box">
     <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}" onclick="showUserDetails('${name}')">
     <div class="name-responsible-editor crop" onclick="showUserDetails('${name}')">${name}</div>
     </div> 
