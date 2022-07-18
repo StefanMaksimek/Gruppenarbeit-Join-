@@ -76,7 +76,7 @@
                 <div class="logo">
                     <img src="img/joinlogo.png" alt="">
                 </div>
-    
+
                 <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
                 <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
                 <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
@@ -343,8 +343,7 @@
                                     </div>
                                     <div id="responsible-editor-list-bin" ondragover="allowDrop(event)"
                                         ondrop="moveToBin()" onclick="showHintForBin()">
-                                        <img class="add-task-img-bin" src="./img/trash-bin.svg"
-                                            onclick="showHintForBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg">
                                     </div>
                                 </div>
                             </div>
@@ -357,30 +356,25 @@
                     </div>
                 </form>
 
-
-
-
-                <div id="list-of-employees-box" class="background-box d-none">
-                    <div class="select-employees-container">
-                        <h2>Please select</h2>
-                        <div class="select-employees-container-list">
-                            <div class="search-bar">
-                                <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
-                                    onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
-                                <div class="show-switch-text" id="show-search-mail-inputfield"
-                                    onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
-                                <input class="input-search-employees" type="text" placeholder="Search for name"
-                                    id="search-name" onkeyup="startSearchUser()">
-                                <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
-                                    id="search-mail" onkeyup="startSearchMail()">
-                            </div>
-                            <div id="add-task-editor-list" class="add-task-editor-list">
-
-                            </div>
+                <div class="select-employees-container d-none" id="select-employees-container">
+                    <h2>Please select</h2>
+                    <div class="select-employees-container-list">
+                        <div class="search-bar">
+                            <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
+                                onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
+                            <div class="show-switch-text" id="show-search-mail-inputfield"
+                                onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
+                            <input class="input-search-employees" type="text" placeholder="Search for name"
+                                id="search-name" onkeyup="startSearchUser()">
+                            <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
+                                id="search-mail" onkeyup="startSearchMail()">
                         </div>
-                        <button class="btn btn-primary margin-top"
-                            onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
+                        <div id="add-task-editor-list" class="add-task-editor-list">
+
+                        </div>
                     </div>
+                    <button class="btn btn-primary margin-top"
+                        onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
                 </div>
 
                 <div id="add-task-bin-info-box" class="background-box d-none">
@@ -836,14 +830,13 @@
             <!-- ----------------------------- Login END ----------------------------- -->
         </div>
 
-        <div id="show-user-details-container" class="background-box d-none">
-            <div class="show-user-details-box">
+            <div class="show-user-details-box d-none" id="show-user-details-container">
                 <div class="close-user-details-box">
                     <div class="close-user-details" onclick="closeUserDetailsView()">X</div>
                 </div>
 
                 <h2 id="show-user-details-box-name"></h2>
-                <img id="show-user-details-box-icon" class="list-search-result-img" src="" alt="">
+                <img id="show-user-details-box-icon" class="user-detail-img" src="" alt="">
                 <table>
                     <tr>
                         <td>Mail:</td>
@@ -867,8 +860,6 @@
                     </tr>
                 </table>
             </div>
-        </div>
-
     </div>
 </body>
 

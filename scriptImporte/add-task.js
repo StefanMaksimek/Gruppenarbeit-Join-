@@ -128,16 +128,17 @@ function clearColorofButtonForColorSelection() {
 
 
 function closeListOfEmployeesBoxForAddTask() {
-    let content = document.getElementById('list-of-employees-box')
-    content.classList.add('d-none')
+    document.getElementById('select-employees-container').classList.add('d-none')
+    document.getElementById('myModal').classList.remove('d-block')
     clearUserListForAddEmployees()
 }
 
 
 function openListOfEmployeesBoxForAddTask() {
-    let content = document.getElementById('list-of-employees-box');
-    content.classList.remove('d-none');
     showTwentyUsersAsProbosalsInSearchfield();
+
+    document.getElementById('myModal').classList.add('d-block')
+    document.getElementById('select-employees-container').classList.remove('d-none');
 }
 
 
@@ -261,6 +262,8 @@ function searchUserName(searchText) {
 
 function showTwentyUsersAsProbosalsInSearchfield() {
     let userProposals = document.getElementById('add-task-editor-list')
+
+    userProposals.innerHTML = ``
     if (noUserHasBeenSearched()) {
         if (notMoreUserObjectsThanTwenty()) {
             renderUsersAsProposals(userProposals)

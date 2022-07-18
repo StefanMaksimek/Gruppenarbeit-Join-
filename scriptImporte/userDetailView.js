@@ -7,8 +7,8 @@ function showUserDetails(user) {
     let city = userObj.city;
     let hobby = userObj.Hobbys;
 
-    let content = document.getElementById('show-user-details-container');
-    content.classList.remove('d-none')
+    document.getElementById('myModal').classList.add('d-block')
+    document.getElementById('show-user-details-container').classList.remove('d-none')
 
     fillUserDetails(user, icon, mail, tel, category, city, hobby);
 }
@@ -68,8 +68,8 @@ function fillUserHobbyDetailView(hobby) {
 
 
 function closeUserDetailsView() {
-    let content = document.getElementById('show-user-details-container');
-    content.classList.add('d-none');
+    document.getElementById('myModal').classList.remove('d-block')
+    document.getElementById('show-user-details-container').classList.add('d-none');
     clearUserDetailsView()
 }
 
