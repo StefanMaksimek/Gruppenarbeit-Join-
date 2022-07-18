@@ -50,8 +50,10 @@
 
 .board-card-usericon {
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     overflow: auto;
+    max-height: 180px;
 }
 
 .board-card-usericon img {
