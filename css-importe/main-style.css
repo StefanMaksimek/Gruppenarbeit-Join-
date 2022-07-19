@@ -40,10 +40,15 @@ h3 {
 }
 
 .side-bar-holder {
-    position: relative;
+    position: fixed;
     display: flex;
     flex-direction: column;
+    overflow: auto;
     height: 100%;
+}
+
+.side-bar-holder::-webkit-scrollbar {
+    width: 0;
 }
 
 .logo {
