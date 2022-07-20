@@ -204,3 +204,7 @@ h3 {
     border: solid 4px var(--clr-primary-hvr);
 }
 
+.h100-overflow-auto{
+    min-height: 100px;
+    overflow: auto;
+}

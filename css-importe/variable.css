@@ -22,7 +22,7 @@ body[data-theme='default'] {
     --clr-font2: rgb(255, 254, 254);
 
     --clr-primary-tr: hsl(240, 50%, 90%);
-    --clr-secondary-tr: hsla(0, 100%, 80%);
+    --clr-secondary-tr: rgb(255, 255, 255);
 
     --clr-primary-hvr: hsl(240, 50%, 50%);
     --clr-secondary-hvr: hsl(0, 100%, 40%);

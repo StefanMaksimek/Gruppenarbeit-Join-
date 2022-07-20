@@ -23,45 +23,7 @@
     <script src="./scriptImporte/login.js"></script>
     <script src="./scriptImporte/add-task.js"></script>
     <script src="./mini_backend.js"></script>
-    <script>
-        setURL('https://gruppe-272.developerakademie.net/smallest_backend_ever-master')
-
-        async function uploadUser() {
-            await backend.setItem('users', JSON.stringify(users));
-        }
-
-        async function uploadTasks() {
-            if (currentUser != "Testuser") {
-                await backend.setItem('tasks', JSON.stringify(tasks));
-            }
-        }
-
-        async function uploadIcons() {
-            await backend.setItem('icons', JSON.stringify(icons));
-        }
-
-        async function init() {
-            await downloadFromServer();
-            users = JSON.parse(backend.getItem(`users`)) || [];
-            icons = JSON.parse(backend.getItem(`icons`)) || [];
-
-            loadUsers();
-        }
-
-        async function loadTaskFromBackend() {
-            if (currentUser != "Testuser") {
-                await downloadFromServer();
-                tasks = JSON.parse(backend.getItem(`tasks`)) || [];
-            }
-
-            renderBoard()
-            renderBacklog()
-            openBoard()
-        }
-
-
-
-    </script>
+    <script src="./scriptImporte/up-and-download-from-backend.js"></script>
 
 </head>
 
@@ -164,7 +126,7 @@
                         <div class="close-user-details" onclick="closeBoardDetails()">X</div>
                     </div>
 
-                    <h2 id="show-board-details-box-name">Assigned to:</h2>
+                    <h3 id="show-board-details-box-name">Assigned to:</h3>
 
                     <div class="assigned-to-user-holder" id="show-board-details-box-icon">
                     </div>
@@ -192,7 +154,7 @@
                     </table>
 
                     <h3>Description:</h3>
-                    <span id="show-board-details-box-details">
+                    <span id="show-board-details-box-details" class="h100-overflow-auto">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
                     </span>
                 </div>
@@ -218,7 +180,7 @@
                         <div class="close-user-details" onclick="closeBacklogDetails()">X</div>
                     </div>
 
-                    <h2 id="show-backlog-details-box-name">Assigned to:</h2>
+                    <h3 id="show-backlog-details-box-name">Assigned to</h3>
 
                     <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
                     </div>
@@ -772,9 +734,9 @@
                         <div id="registration-box-input-more" class="registration-box-input-more d-none">
                             <input type="text" placeholder="Category like Sales or IT"
                                 id="new-user-inputfield-category">
-                            <input type="email" placeholder="your E-Mail ...@..." id="new-user-inputfield-mail">
+                            <input type="email" placeholder="Your E-Mail ...@..." id="new-user-inputfield-mail">
                             <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
-                            <input type="text" placeholder="residence" id="new-user-inputfield-city">
+                            <input type="text" placeholder="Residence" id="new-user-inputfield-city">
                             <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
                         </div>
                         <div>

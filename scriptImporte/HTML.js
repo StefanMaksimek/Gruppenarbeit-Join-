@@ -49,6 +49,13 @@ function addUserIconsHTML(user) {
 }
 
 
+function colorPickerHTML(color) {
+    return `
+        <div class="color-picker-box" onclick="takeColor('var(--color-${color})')"
+            style="background-color: var(--color-${color});">
+        </div>
+    `
+}
 /////////////////////////// HTML Snippets for Board
 
 
@@ -59,7 +66,7 @@ function addUserIconsHTML(user) {
  */
 function renderToDoHTML(toDos) {
     return `
-        <div class="to-do" onclick="openTaskDetails(${toDos.id})" style="background-color: ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
+        <div class="to-do" onclick="openTaskDetails(${toDos.id})" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
             <div class="board-card-header">
                 <h4>${toDos.title}</h4>
             </div>
@@ -70,7 +77,7 @@ function renderToDoHTML(toDos) {
                 </div>
             </div>
 
-            <div class="board-card-department" style="background-color: var(--clr-${toDos.category})">
+            <div class="board-card-department" style="border: 5px solid var(--clr-${toDos.category})">
                 <span>Department:</span>
                 <span>${toDos.category}</span>
             </div>
@@ -86,7 +93,7 @@ function renderToDoHTML(toDos) {
  */
 function renderInProgressHTML(inProgress) {
     return `
-    <div class="to-do" onclick="openTaskDetails(${inProgress.id})" style="background-color: ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
+    <div class="to-do" onclick="openTaskDetails(${inProgress.id})" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
         <div class="board-card-header">
             <h4>${inProgress.title}</h4>
         </div>
@@ -97,7 +104,7 @@ function renderInProgressHTML(inProgress) {
             </div>
         </div>
 
-        <div class="board-card-department" style="background-color: var(--clr-${inProgress.category})">
+        <div class="board-card-department" style="border: 5px solid var(--clr-${inProgress.category})">
             <span>Department:</span>
             <span>${inProgress.category}</span>
         </div>
@@ -112,7 +119,7 @@ function renderInProgressHTML(inProgress) {
  */
 function renderTestingHTML(testing) {
     return `
-    <div class="to-do" onclick="openTaskDetails(${testing.id})" style="background-color: ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
+    <div class="to-do" onclick="openTaskDetails(${testing.id})" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
         <div class="board-card-header">
             <h4>${testing.title}</h4>
         </div>
@@ -123,7 +130,7 @@ function renderTestingHTML(testing) {
             </div>
         </div>
 
-        <div class="board-card-department" style="background-color: var(--clr-${testing.category})">
+        <div class="board-card-department" style="border: 5px solid var(--clr-${testing.category})">
             <span>Department:</span>
             <span>${testing.category}</span>
         </div>
@@ -138,7 +145,7 @@ function renderTestingHTML(testing) {
  */
 function renderDoneHTML(done) {
     return `
-    <div class="to-do" onclick="openTaskDetails(${done.id})" style="background-color: ${done.color}" draggable="true" ondragstart="startDragging(${done["id"]})">
+    <div class="to-do" onclick="openTaskDetails(${done.id})" style="border-left: 10px solid ${done.color}" draggable="true" ondragstart="startDragging(${done["id"]})">
         <div class="board-card-header">
             <h4>${done.title}</h4>
         </div>
@@ -149,7 +156,7 @@ function renderDoneHTML(done) {
             </div>
         </div>
 
-        <div class="board-card-department" style="background-color: var(--clr-${done.category})">
+        <div class="board-card-department" style="border: 5px solid var(--clr-${done.category})">
             <span>Department:</span>
             <span>${done.category}</span>
         </div>
@@ -161,13 +168,7 @@ function renderDoneHTML(done) {
 /////////////////////////// HTML Snippets for Add Task
 
 
-function colorPickerHTML(color) {
-    return `
-        <div class="color-picker-box" onclick="takeColor('var(--color-${color})')"
-            style="background-color: var(--color-${color});">
-        </div>
-    `
-}
+
 
 
 function renderSearchedEmployeesHTML(user, icon){
