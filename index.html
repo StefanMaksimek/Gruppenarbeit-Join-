@@ -25,6 +25,7 @@
     <script src="./mini_backend.js"></script>
     <script>
         setURL('https://gruppe-272.developerakademie.net/smallest_backend_ever-master')
+       //setURL('https://join.stefan-maksimek/smallest_backend_ever-master')
 
         async function uploadUser() {
             await backend.setItem('users', JSON.stringify(users));
@@ -52,6 +53,8 @@
             if (currentUser != "Testuser") {
                 await downloadFromServer();
                 tasks = JSON.parse(backend.getItem(`tasks`)) || [];
+            } else {
+                tasks = testTasks
             }
 
             renderBoard()

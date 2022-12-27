@@ -1,83 +1,147 @@
-let x = [
-    {
-        "id": 0,
-        "title": "ToDo123",
-        "priority": "high",
-        "category": "Management",
-        "createdAt": 1657548503635,
-        "dueDate": new Date(1657628551554),
-        "user": [{
-            "name": 'Stefan',
-            "icon": "./img/001_fb copy.jpg",
-        },],
-        "status": "to-do",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!",
-        "color": "picker1"
-    },
-    {
-        "id": 1,
-        "title": "In Progress1234",
-        "priority": "priority.value",
-        "category": "IT",
-        "createdAt": 1657548520490,
-        "dueDate": new Date(1657628551554),
-        "user": [{
-            "name": 'Stefan',
-            "icon": "./img/001_fb copy.jpg",
-        }],
-        "status": "in-progress",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!",
-        "color": "picker2"
-    },
-    {
-        "id": 2,
-        "title": "TESTING345",
-        "priority": "priority.value",
-        "category": "Management",
-        "createdAt": 1657548542366,
-        "dueDate": new Date(1657628551554),
-        "user": [{
-            "name": 'Stefan',
-            "icon": "./img/001_fb copy.jpg",
-        }],
-        "status": "testing",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!",
-        "color": "picker3"
-    },
-    {
-        "id": 3,
-        "title": "DONE187",
-        "priority": "priority.value",
-        "category": "Marketing",
-        "createdAt": 1657548551554,
-        "dueDate": new Date(1657628551554),
-        "user": [{
-            "name": 'Stefan',
-            "icon": "./img/001_fb copy.jpg",
-        }],
-        "status": "done",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!",
-        "color": "picker4"
-    },
-    {
-        "id": 4,
-        "title": "ToDo2.0",
-        "priority": "priority.value",
-        "category": "Sales",
-        "createdAt": 1657548580054,
-        "dueDate": new Date(1657628551554),
-        "user": [{
-            "name": 'Stefan',
-            "icon": "./img/001_fb copy.jpg",
-        }],
-        "status": "to-do",
-        "description": "ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!",
-        "color": "picker6"
-    }
-]
+let testTasks = [
+  {
+    id: 0,
+    title: 'ToDo',
+    priority: 'high',
+    category: 'Management',
+    createdAt: 1657548503635,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Test@gmail.de',
+      },
+    ],
+    status: 'to-do',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'board',
+  },
+  {
+    id: 1,
+    title: 'In Progress',
+    priority: 'priority.value',
+    category: 'IT',
+    createdAt: 1657548520490,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Test@gmail.de',
+      },
+    ],
+    status: 'in-progress',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'board',
+  },
+  {
+    id: 2,
+    title: 'TESTING',
+    priority: 'priority.value',
+    category: 'Management',
+    createdAt: 1657548542366,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Test@gmail.de',
+      },
+    ],
+    status: 'testing',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'board',
+  },
+  {
+    id: 3,
+    title: 'DONE',
+    priority: 'priority.value',
+    category: 'Marketing',
+    createdAt: 1657548551554,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Test@gmail.de',
+      },
+    ],
+    status: 'done',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'board',
+  },
+  {
+    id: 4,
+    title: 'ToDo2.0',
+    priority: 'priority.value',
+    category: 'Sales',
+    createdAt: 1657548580054,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'stefan@gmail.de',
+      },
+    ],
+    status: 'to-do',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'board',
+  },
+  {
+    id: 5,
+    title: 'Backlog Test',
+    priority: 'priority.value',
+    category: 'Sales',
+    createdAt: 1657548580054,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Sahra',
+        icon: './img/icon_female_5.jpg',
+        mail: 'sahra@gmail.de',
+      },
+      {
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'stefan@gmail.de',
+      },
+      {
+        name: 'Thorsten',
+        icon: './img/icon_male_5.jpg',
+        mail: 'thorsten@gmail.de',
+      },
+    ],
+    status: 'to-do',
+    description: 'Lorem Test',
+    color: 'lightblue',
+    statusTask: 'backlog',
+  },
+  {
+    id: 6,
+    title: 'ToDo2.0',
+    priority: 'normal',
+    category: 'Sales',
+    createdAt: 1657548580054,
+    dueDate: new Date(1657628551554),
+    user: [
+      {
+        name: 'Thorsten',
+        icon: './img/icon_male_5.jpg',
+        mail: 'Test@gmail.de',
+      },
+    ],
+    status: 'to-do',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    statusTask: 'backlog',
+  },
+];
 
-let colorPicker = [
-    "picker1", "picker2", "picker3", "picker4", "picker5", "picker6"
-]
-
-
+let colorPicker = ['picker1', 'picker2', 'picker3', 'picker4', 'picker5', 'picker6'];
