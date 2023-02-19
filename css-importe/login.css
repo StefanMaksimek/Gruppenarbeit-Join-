@@ -101,11 +101,6 @@
     margin-bottom: 25px;
 }
 
-.registration-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
 .registration-request-no-icon-selected {
     z-index: 15;
     position: absolute;
@@ -137,4 +132,18 @@
     width: 50px;
     padding-top: 4px;
     padding-bottom: 4px;
+}
+
+.login-area-btn-box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.login-area-btn{
+    width: 200px;
+}
+
+.login-area-btn:hover{
+    opacity: 0.8;
 }

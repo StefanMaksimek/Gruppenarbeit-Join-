@@ -1,5 +1,5 @@
-//setURL('https://gruppe-272.developerakademie.net/smallest_backend_ever-master');
-setURL('https://join.stefan-maksimek.de/smallest_backend_ever');
+setURL('https://gruppe-272.developerakademie.net/smallest_backend_ever-master');
+//setURL('https://join.stefan-maksimek.de/smallest_backend_ever');
 
 async function uploadUser() {
   await backend.setItem('users', JSON.stringify(users));

@@ -399,6 +399,7 @@ function loadAllUserNamesInArray() {
 function loginAsTestuser() {
     document.getElementById('login-user-inputfield').value = 'Testuser'
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
+    checkLoginParameters();
 }
 
 

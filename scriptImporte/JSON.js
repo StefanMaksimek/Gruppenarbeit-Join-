@@ -8,8 +8,8 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
+        name: 'Michael',
+        icon: './img/github.jpg',
         mail: 'Test@gmail.de',
       },
     ],
@@ -21,14 +21,14 @@ let testTasks = [
   {
     id: 1,
     title: 'In Progress',
-    priority: 'priority.value',
+    priority: 'normal',
     category: 'IT',
     createdAt: 1657548520490,
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
+        name: 'Michael',
+        icon: './img/github.jpg',
         mail: 'Test@gmail.de',
       },
     ],
@@ -40,14 +40,14 @@ let testTasks = [
   {
     id: 2,
     title: 'TESTING',
-    priority: 'priority.value',
+    priority: 'normal',
     category: 'Management',
     createdAt: 1657548542366,
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
+        name: 'Michael',
+        icon: './img/github.jpg',
         mail: 'Test@gmail.de',
       },
     ],
@@ -59,14 +59,14 @@ let testTasks = [
   {
     id: 3,
     title: 'DONE',
-    priority: 'priority.value',
+    priority: 'normal',
     category: 'Marketing',
     createdAt: 1657548551554,
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
+        name: 'Michael',
+        icon: './img/github.jpg',
         mail: 'Test@gmail.de',
       },
     ],
@@ -78,15 +78,15 @@ let testTasks = [
   {
     id: 4,
     title: 'ToDo2.0',
-    priority: 'priority.value',
+    priority: 'high',
     category: 'Sales',
     createdAt: 1657548580054,
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
-        mail: 'stefan@gmail.de',
+        name: 'Michael',
+        icon: './img/github.jpg',
+        mail: 'Test@gmail.de',
       },
     ],
     status: 'to-do',
@@ -97,25 +97,15 @@ let testTasks = [
   {
     id: 5,
     title: 'Backlog Test',
-    priority: 'priority.value',
+    priority: 'high',
     category: 'Sales',
     createdAt: 1657548580054,
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Sahra',
-        icon: './img/icon_female_5.jpg',
-        mail: 'sahra@gmail.de',
-      },
-      {
-        name: 'Stefan',
-        icon: './img/001_fb copy.jpg',
-        mail: 'stefan@gmail.de',
-      },
-      {
-        name: 'Thorsten',
-        icon: './img/icon_male_5.jpg',
-        mail: 'thorsten@gmail.de',
+        name: 'Michael',
+        icon: './img/github.jpg',
+        mail: 'Test@gmail.de',
       },
     ],
     status: 'to-do',
@@ -132,8 +122,8 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Thorsten',
-        icon: './img/icon_male_5.jpg',
+        name: 'Michael',
+        icon: './img/github.jpg',
         mail: 'Test@gmail.de',
       },
     ],

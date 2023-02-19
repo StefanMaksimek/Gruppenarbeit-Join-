@@ -406,16 +406,16 @@
             <div class="d-none" id="impressum">
                 <h1>Impressum</h1>
                 <p>Angaben gemäß § 5 TMG</p>
-                <p>Stefan MAKSIMEK <br>
-                    Ohfeldring 8<br>
-                    27432 Bremervörde <br>
+                <p>Michael Strauß <br>
+                    Föhrenstraße 6<br>
+                    90766 Fürth <br>
                 </p>
                 <p> <strong>Vertreten durch: </strong><br>
-                    Stefan MAKSIMEK<br>
+                    Michael Strauß<br>
                 </p>
                 <p><strong>Kontakt:</strong> <br>
-                    Telefon: 0160-90971802<br>
-                    E-Mail: <a href='mailto:s.raile86@gmail.com'>s.raile86@gmail.com</a></br></p>
+                    Telefon: 0157-86771555<br>
+                    E-Mail: <a href='mailto:strauss.michael@gmx.net'>strauss.michael@gmx.net</a></br></p>
                 <p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Inhalte</strong><br><br>
                     Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
                     Vollständigkeit und
@@ -512,8 +512,8 @@
                     <li><a class="index-link" href="#m42">Begriffsdefinitionen</a></li>
                 </ul>
                 <h2 id="m3">Verantwortlicher</h2>
-                <p>Stefan MAKSIMEK<br>Ohfeldring 8<br>27432 Bremervörde</p>
-                E-Mail-Adresse: <p><a href="mailto:s.raile86@gmail.com">s.raile86@gmail.com</a></p>
+                <p>Michael Strauß<br>Föhrenstraße 6<br>90766 Fürth</p>
+                E-Mail-Adresse: <p><a href="mailto:strauss.michael@gmx.net">strauss.michael@gmx.net</a></p>
                 <h2 id="mOverview">Übersicht der Verarbeitungen</h2>
                 <p>Die nachfolgende Übersicht fasst die Arten der verarbeiteten Daten und die Zwecke ihrer
                     Verarbeitung
@@ -709,14 +709,17 @@
                         <datalist id="all-users">
                         </datalist>
                         <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
-                        <div class="registration-buttons margin-bottom">
-                            <div onclick="loginAsTestuser()" class="btn btn-primary">Testuser</div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="login-area-btn-box">
+                            <button type="submit" class="btn btn-primary login-area-btn">Login</button>
                         </div>
                     </form>
-                    <div>
+                    <div class="login-area-btn-box">
+                        <button onclick="loginAsTestuser()" id="registration-btn"
+                            class="btn btn-primary login-area-btn">Testuser</button>
+                    </div>
+                    <div class="login-area-btn-box">
                         <button onclick="openRegisterBox()" id="registration-btn"
-                            class="btn btn-primary">Registration</button>
+                            class="btn btn-primary login-area-btn">Registration</button>
                     </div>
                 </div>
             </div>
