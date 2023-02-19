@@ -3,7 +3,7 @@ let testTasks = [
     id: 0,
     title: 'ToDo',
     priority: 'high',
-    category: 'Management',
+    category: 'IT',
     createdAt: 1657548503635,
     dueDate: new Date(1657628551554),
     user: [
@@ -27,9 +27,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Michael',
-        icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        name: 'Sandro',
+        icon: './img/icon_male_5.jpg',
+        mail: 'sandro@gmail.de',
       },
     ],
     status: 'in-progress',
@@ -46,9 +46,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Michael',
-        icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        name: 'Sahra',
+        icon: './img/icon_female_6.png',
+        mail: 'sahra@gmail.de',
       },
     ],
     status: 'testing',
@@ -65,9 +65,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Michael',
-        icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        name: 'Sven',
+        icon: './img/icon_male_2.png',
+        mail: 'sven@gmail.de',
       },
     ],
     status: 'done',
@@ -84,9 +84,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Michael',
-        icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        name: 'Julia',
+        icon: './img/icon_female_3.jpg',
+        mail: 'julia@gmail.de',
       },
     ],
     status: 'to-do',
