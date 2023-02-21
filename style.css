@@ -12,3 +12,7 @@
 @import "./css-importe/add-task.css";
 @import "./css-importe/media.css";
 @import "./css-importe/help.css";
+
+.btn-close-danger{
+    color: red;
+}

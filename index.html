@@ -123,7 +123,10 @@
 
                 <div class=" d-none" id="show-board-details-container">
                     <div class="close-user-details-box">
-                        <div class="close-user-details" onclick="closeBoardDetails()">X</div>
+                        <div class="btn-close-cross-box" onclick="closeBoardDetails()">
+                            <div class="btn-close-cross-1"></div>
+                            <div class="btn-close-cross-2"></div>
+                        </div>
                     </div>
 
                     <h3 id="show-board-details-box-name">Assigned to:</h3>
@@ -177,7 +180,11 @@
 
                 <div class=" d-none" id="show-backlog-details-container">
                     <div class="close-user-details-box">
-                        <div class="close-user-details" onclick="closeBacklogDetails()">X</div>
+                        <div class="btn-close-cross-box" onclick="closeBacklogDetails()">
+                            <div class="btn-close-cross-1"></div>
+                            <div class="btn-close-cross-2"></div>
+                        </div>
+
                     </div>
 
                     <h3 id="show-backlog-details-box-name">Assigned to</h3>
@@ -746,7 +753,7 @@
                             <input type="checkbox" onclick="showPassword()"> Show Password
                         </div>
                         <div class="icon-container">
-                            <div onclick="openWindowIconSelection()" class="btn btn-primary">Icons</div>
+                            <div onclick="openWindowIconSelection()" class="btn btn-secondary">Icons</div>
                             <div id="icon-box" class="icons-box">
                                 <img src="./img/icon-unknown.svg">
                             </div>
@@ -795,36 +802,39 @@
             <!-- ----------------------------- Login END ----------------------------- -->
         </div>
 
-            <div class="show-user-details-box d-none" id="show-user-details-container">
-                <div class="close-user-details-box">
-                    <div class="close-user-details" onclick="closeUserDetailsView()">X</div>
+        <div class="show-user-details-box d-none" id="show-user-details-container">
+            <div class="close-user-details-box">
+                <div class="btn-close-cross-box" onclick="closeUserDetailsView()">
+                    <div class="btn-close-cross-1"></div>
+                    <div class="btn-close-cross-2"></div>
                 </div>
-
-                <h2 id="show-user-details-box-name"></h2>
-                <img id="show-user-details-box-icon" class="user-detail-img" src="" alt="">
-                <table>
-                    <tr>
-                        <td>Mail:</td>
-                        <td class="padding-left" id="show-user-details-box-mail"></td>
-                    </tr>
-                    <tr>
-                        <td>Phone-Number:</td>
-                        <td class="padding-left" id="show-user-details-box-tel"></td>
-                    </tr>
-                    <tr>
-                        <td>Department:</td>
-                        <td class="padding-left" id="show-user-details-box-category"></td>
-                    </tr>
-                    <tr>
-                        <td>Residence:</td>
-                        <td class="padding-left" id="show-user-details-box-city"></td>
-                    </tr>
-                    <tr>
-                        <td>Hobby:</td>
-                        <td class="padding-left" id="show-user-details-box-hobby"></td>
-                    </tr>
-                </table>
             </div>
+
+            <h2 id="show-user-details-box-name"></h2>
+            <img id="show-user-details-box-icon" class="user-detail-img" src="" alt="">
+            <table>
+                <tr>
+                    <td>Mail:</td>
+                    <td class="padding-left" id="show-user-details-box-mail"></td>
+                </tr>
+                <tr>
+                    <td>Phone-Number:</td>
+                    <td class="padding-left" id="show-user-details-box-tel"></td>
+                </tr>
+                <tr>
+                    <td>Department:</td>
+                    <td class="padding-left" id="show-user-details-box-category"></td>
+                </tr>
+                <tr>
+                    <td>Residence:</td>
+                    <td class="padding-left" id="show-user-details-box-city"></td>
+                </tr>
+                <tr>
+                    <td>Hobby:</td>
+                    <td class="padding-left" id="show-user-details-box-hobby"></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </body>
 

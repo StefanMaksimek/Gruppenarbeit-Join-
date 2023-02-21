@@ -147,3 +147,8 @@
 .login-area-btn:hover{
     opacity: 0.8;
 }
+
+.registration-buttons{
+    display: flex;
+    justify-content: space-between;
+}
