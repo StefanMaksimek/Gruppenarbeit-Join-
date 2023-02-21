@@ -406,11 +406,11 @@ function loginAsTestuser() {
 function showMoreRegistrationInput() {
     let content = document.getElementById('new-user-registration-input-more')
     if (document.getElementById('registration-box-input-more').classList.contains('d-none')) {
-        content.innerHTML = 'less <'
+        content.innerHTML = 'less'
         document.getElementById('registration-box-input-more').classList.remove('d-none')
     }
     else {
-        content.innerHTML = 'more >'
+        content.innerHTML = 'more'
         document.getElementById('registration-box-input-more').classList.add('d-none')
     }
 }

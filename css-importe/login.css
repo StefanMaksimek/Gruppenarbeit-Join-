@@ -78,7 +78,12 @@
     background-color: white;
     min-width: 300px;
     max-width: 450px;
+}
 
+.registration-box-input h2{
+    text-align: center;
+    color: var(--clr-primary);
+    font-weight: 600;
 }
 
 .registration-box-input input {
@@ -151,4 +156,14 @@
 .registration-buttons{
     display: flex;
     justify-content: space-between;
+}
+
+.show-more-less-registration{
+    color: var(--clr-primary);
+    font-weight: 600;
+}
+
+.show-more-less-registration:hover{
+    cursor: pointer;
+    opacity: 0.5;
 }
