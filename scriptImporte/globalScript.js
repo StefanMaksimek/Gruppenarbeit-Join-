@@ -110,7 +110,7 @@ function setTheme(theme) {
         let elems = document.getElementsByClassName('card-header-add-icon');
         for (let i = 0; i < elems.length; i++) {
             const content = elems[i];
-            content.innerHTML = '<img src="./img/add-task-icon-white.png">';
+            content.innerHTML = '<img onclick="openSidebarCreateTask()" src="./img/add-task-icon-white.png">';
             content.style = 'border: 1px solid white;';
         }
     }
@@ -118,7 +118,7 @@ function setTheme(theme) {
         let elems = document.getElementsByClassName('card-header-add-icon');
         for (let i = 0; i < elems.length; i++) {
             const content = elems[i];
-            content.innerHTML = '<img src="./img/add-task-icon.png">';
+            content.innerHTML = '<img onclick="openSidebarCreateTask()" src="./img/add-task-icon.png">';
             content.style = 'border: 1px solid black;';
         }
     }

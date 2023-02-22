@@ -61,8 +61,9 @@
 
     </div>
 
-    <div class="side-bar-task" id="side-bar-task">
+    <div class="side-bar-task d-none" id="side-bar-task">
         <div class="side-bar-task-header">
+            <button onclick="openOrCloseSidebarCreateTask()">Close</button>
             <h1>Add Task</h1>
             <button>Create Task</button>
         </div>
@@ -72,14 +73,12 @@
         <div class="input-holder">
             <h3>CATEGORY</h3>
 
-            <div class="input-group mb-3" style="width:200px;">
-                <select id="category-list-input" aria-label="Example select with button addon">
-                    <option value="IT">IT</option>
-                    <option value="Marketing">Marketing</option>
-                    <option value="Sales">Sales</option>
-                    <option value="Management">Management</option>
-                </select>
-            </div>
+            <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+                <option value="Management">Management</option>
+            </select>
         </div>
 
         <div class="input-holder">
@@ -132,6 +131,19 @@
                     </div>
                 </div>
             </div>
+
+            <div id="add-task-bin-info-box" class="background-box d-none">
+                <div class="registration-request-no-icon-selected">
+                    <div class="close-x-div-box">
+                        <div class="btn-close-cross-box" onclick="hideHintForBin()">
+                            <div class="btn-close-cross-1"></div>
+                            <div class="btn-close-cross-2"></div>
+                        </div>
+                    </div>
+                    <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
+                    </h2>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -160,7 +172,7 @@
                     <div class="card-header">
                         <h3>TO DO</h3>
                         <div class="card-header-add-icon">
-                            <img src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask()" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
@@ -173,7 +185,7 @@
                     <div class="card-header">
                         <h3>IN PROGRESS</h3>
                         <div class="card-header-add-icon">
-                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="in-progress"
@@ -187,7 +199,7 @@
                     <div class="card-header">
                         <h3>TESTING</h3>
                         <div class="card-header-add-icon">
-                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
@@ -199,7 +211,7 @@
                     <div class="card-header">
                         <h3>DONE</h3>
                         <div class="card-header-add-icon">
-                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
@@ -270,7 +282,6 @@
                             <div class="btn-close-cross-1"></div>
                             <div class="btn-close-cross-2"></div>
                         </div>
-
                     </div>
 
                     <h3 id="show-backlog-details-box-name">Assigned to</h3>
@@ -411,31 +422,15 @@
                     </div>
                 </form>
 
-                <div class="select-employees-container d-none" id="select-employees-container">
-                    <h2>Please select</h2>
-                    <div class="select-employees-container-list">
-                        <div class="search-bar">
-                            <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
-                                onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
-                            <div class="show-switch-text" id="show-search-mail-inputfield"
-                                onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
-                            <input class="input-search-employees" type="text" placeholder="Search for name"
-                                id="search-name" onkeyup="startSearchUser()">
-                            <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
-                                id="search-mail" onkeyup="startSearchMail()">
-                        </div>
-                        <div id="add-task-editor-list" class="add-task-editor-list">
-
-                        </div>
-                    </div>
-                    <button class="btn btn-primary margin-top"
-                        onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
-                </div>
+                
 
                 <div id="add-task-bin-info-box" class="background-box d-none">
                     <div class="registration-request-no-icon-selected">
                         <div class="close-x-div-box">
-                            <div onclick="hideHintForBin()" class="close-x-div">X</div>
+                            <div class="btn-close-cross-box" onclick="hideHintForBin()">
+                                <div class="btn-close-cross-1"></div>
+                                <div class="btn-close-cross-2"></div>
+                            </div>
                         </div>
                         <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
                         </h2>
@@ -445,6 +440,28 @@
 
 
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
+
+            <div class="select-employees-container d-none" id="select-employees-container">
+                <h2>Please select</h2>
+                <div class="select-employees-container-list">
+                    <div class="search-bar">
+                        <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
+                            onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
+                        <div class="show-switch-text" id="show-search-mail-inputfield"
+                            onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
+                        <input class="input-search-employees" type="text" placeholder="Search for name"
+                            id="search-name" onkeyup="startSearchUser()">
+                        <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
+                            id="search-mail" onkeyup="startSearchMail()">
+                    </div>
+                    <div id="add-task-editor-list" class="add-task-editor-list">
+
+                    </div>
+                </div>
+                <button class="btn btn-primary margin-top"
+                    onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
+            </div>
+
 
             <div class="d-none" id="help">
 

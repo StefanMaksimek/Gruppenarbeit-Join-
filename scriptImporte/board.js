@@ -139,3 +139,13 @@ function closeBoardDetails() {
     document.getElementById('myModal').classList.remove('d-block')
     document.getElementById('show-board-details-container').classList.add('d-none')
 }
+
+
+function openOrCloseSidebarCreateTask() {
+    if (document.getElementById('side-bar-task').classList.contains('d-none')) {
+        document.getElementById('side-bar-task').classList.remove('d-none')
+    }
+    else {
+        document.getElementById('side-bar-task').classList.add('d-none')
+    }
+}

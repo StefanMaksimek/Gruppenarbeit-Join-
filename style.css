@@ -15,10 +15,21 @@
 
 
 .side-bar-task {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    overflow: auto;
+    z-index: 1;
+    background-color: white;
     width: 600px;
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 24px;
+    border-left: 1px solid var(--clr-primary);
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
 }
 
 .side-bar-task-header {
@@ -35,6 +46,7 @@
     border-radius: 8px;
     height: 40px;
     line-height: 40px;
+    width: 140px;
 }
 
 .side-bar-task-header button:hover {
