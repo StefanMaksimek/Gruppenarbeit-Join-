@@ -69,11 +69,18 @@
 
 .board-card-department {
     display: flex;
-    justify-content: space-between;
-    /*background-color: red;*/ 
-    padding: var(--px-low);
+    color: white;
+    font-size: 16px;
+    padding: 2px 4px 2px 4px;
     border-radius: 0.4rem;
     margin-top: var(--px-low);
+    width: fit-content;
+    margin-bottom: 16px;
+    opacity: 0.75;
+}
+
+.board-card-department div{
+    margin-right: 8px;
 }
 
 #show-board-details-container {

@@ -39,7 +39,7 @@ function addUserInfoHTML(task) {
 
 
 function addUserIconsHTML(user) {
-    
+
     return `
         <div class="assigned-to-user">
             <img src="${user.icon}" alt="">
@@ -67,7 +67,12 @@ function colorPickerHTML(color) {
 function renderToDoHTML(toDos) {
     return `
         <div class="to-do" onclick="openTaskDetails(${toDos.id})" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
-            <div class="board-card-header">
+        <div class="board-card-department" style="background-color: var(--clr-${toDos.category})">
+                <div>Department:</div>
+                <span>${toDos.category}</span>
+            </div>    
+
+        <div class="board-card-header">
                 <h4>${toDos.title}</h4>
             </div>
 
@@ -77,10 +82,7 @@ function renderToDoHTML(toDos) {
                 </div>
             </div>
 
-            <div class="board-card-department" style="border: 5px solid var(--clr-${toDos.category})">
-                <span>Department:</span>
-                <span>${toDos.category}</span>
-            </div>
+
         </div>
     `
 }
@@ -94,7 +96,12 @@ function renderToDoHTML(toDos) {
 function renderInProgressHTML(inProgress) {
     return `
     <div class="to-do" onclick="openTaskDetails(${inProgress.id})" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
-        <div class="board-card-header">
+        <div class="board-card-department" style="background-color: var(--clr-${inProgress.category})">
+            <div>Department:</div>
+            <span>${inProgress.category}</span>
+        </div>
+    
+    <div class="board-card-header">
             <h4>${inProgress.title}</h4>
         </div>
 
@@ -102,11 +109,6 @@ function renderInProgressHTML(inProgress) {
             <span>Assinged to:</span>
             <div class="board-card-usericon" id="board-card-usericon${inProgress.id}">
             </div>
-        </div>
-
-        <div class="board-card-department" style="border: 5px solid var(--clr-${inProgress.category})">
-            <span>Department:</span>
-            <span>${inProgress.category}</span>
         </div>
     </div>    `
 }
@@ -120,7 +122,12 @@ function renderInProgressHTML(inProgress) {
 function renderTestingHTML(testing) {
     return `
     <div class="to-do" onclick="openTaskDetails(${testing.id})" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
-        <div class="board-card-header">
+    <div class="board-card-department" style="background-color: var(--clr-${testing.category})">
+            <div>Department:</div>
+            <span>${testing.category}</span>
+        </div>    
+    
+    <div class="board-card-header">
             <h4>${testing.title}</h4>
         </div>
 
@@ -128,11 +135,6 @@ function renderTestingHTML(testing) {
             <span>Assinged to:</span>
             <div class="board-card-usericon" id="board-card-usericon${testing.id}">
             </div>
-        </div>
-
-        <div class="board-card-department" style="border: 5px solid var(--clr-${testing.category})">
-            <span>Department:</span>
-            <span>${testing.category}</span>
         </div>
     </div>    `
 }
@@ -146,7 +148,12 @@ function renderTestingHTML(testing) {
 function renderDoneHTML(done) {
     return `
     <div class="to-do" onclick="openTaskDetails(${done.id})" style="border-left: 10px solid ${done.color}" draggable="true" ondragstart="startDragging(${done["id"]})">
-        <div class="board-card-header">
+        <div class="board-card-department" style="background-color: var(--clr-${done.category})">
+            <div>Department:</div>
+            <span>${done.category}</span>
+            </div>   
+    
+    <div class="board-card-header">
             <h4>${done.title}</h4>
         </div>
 
@@ -154,11 +161,6 @@ function renderDoneHTML(done) {
             <span>Assinged to:</span>
             <div class="board-card-usericon" id="board-card-usericon${done.id}">
             </div>
-        </div>
-
-        <div class="board-card-department" style="border: 5px solid var(--clr-${done.category})">
-            <span>Department:</span>
-            <span>${done.category}</span>
         </div>
     </div>    `
 }
@@ -171,7 +173,7 @@ function renderDoneHTML(done) {
 
 
 
-function renderSearchedEmployeesHTML(user, icon){
+function renderSearchedEmployeesHTML(user, icon) {
     return `
     <div class="list-search-result" id="${user}-${icon}">
     <img src="${icon}" onclick="addUserToResponsibleEmployees('${user}', '${icon}')">
@@ -180,7 +182,7 @@ function renderSearchedEmployeesHTML(user, icon){
 }
 
 
-function renderSelectedEmployeesHTML(name, img){
+function renderSelectedEmployeesHTML(name, img) {
     return `<div draggable="true" ondragstart="getResponsibleEmployeeForDelete('${name}', '${img}')" class="responsible-editor-container-box">
     <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}" onclick="showUserDetails('${name}')">
     <div class="name-responsible-editor crop" onclick="showUserDetails('${name}')">${name}</div>

@@ -1,7 +1,7 @@
 let testTasks = [
   {
     id: 0,
-    title: 'ToDo',
+    title: 'Bug fixing',
     priority: 'high',
     category: 'IT',
     createdAt: 1657548503635,
@@ -20,7 +20,7 @@ let testTasks = [
   },
   {
     id: 1,
-    title: 'In Progress',
+    title: 'Create test process',
     priority: 'normal',
     category: 'IT',
     createdAt: 1657548520490,
@@ -39,7 +39,7 @@ let testTasks = [
   },
   {
     id: 2,
-    title: 'TESTING',
+    title: 'Cost calculation',
     priority: 'normal',
     category: 'Management',
     createdAt: 1657548542366,
@@ -58,7 +58,7 @@ let testTasks = [
   },
   {
     id: 3,
-    title: 'DONE',
+    title: 'Create new slogan',
     priority: 'normal',
     category: 'Marketing',
     createdAt: 1657548551554,
@@ -77,7 +77,7 @@ let testTasks = [
   },
   {
     id: 4,
-    title: 'ToDo2.0',
+    title: 'Plan a special sales event',
     priority: 'high',
     category: 'Sales',
     createdAt: 1657548580054,
@@ -96,7 +96,7 @@ let testTasks = [
   },
   {
     id: 5,
-    title: 'Backlog Test',
+    title: 'Plan company event',
     priority: 'high',
     category: 'Sales',
     createdAt: 1657548580054,
@@ -115,7 +115,7 @@ let testTasks = [
   },
   {
     id: 6,
-    title: 'ToDo2.0',
+    title: 'Calculation of the sales last quarter',
     priority: 'normal',
     category: 'Sales',
     createdAt: 1657548580054,
