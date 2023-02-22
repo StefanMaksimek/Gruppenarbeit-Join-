@@ -32,6 +32,12 @@
     }
 }
 
+@media screen and (max-width: 950px) {
+    .card-header-add-icon{
+        right: 20px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .add-task form {
         flex-direction: column;
