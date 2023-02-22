@@ -52,7 +52,6 @@
 .board-card-usericon {
     display: flex;
     flex-wrap: wrap;
-    text-align: center;
     overflow: auto;
     max-height: 180px;
     margin-left: 24px;
@@ -143,13 +142,27 @@
 .board-card-info {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .user-board{
-    height: 50px;
+    height: 60px;
     overflow: hidden;
+    position: relative;
+    width: 100%;
+    align-items: center;
 }
 
-.user-board:hover{
-    height: 80px;
+.board-user-icon{
+    position: absolute;
+}
+
+.board-user-icon:hover{
+    cursor: pointer;
+    z-index: 50;
+    scale: 1.2;
+}
+
+.board-card-info span{
+    width: 150px;
 }

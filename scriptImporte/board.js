@@ -20,9 +20,13 @@ function renderToDo() {
     startedTasks.filter(task => task.status == "to-do").forEach(toDos => {
         td.innerHTML += renderToDoHTML(toDos)
         let id = toDos.id
-        toDos.user.forEach(e => {
-            document.getElementById(`board-card-usericon${id}`).innerHTML += addUserIconsHTML(e)
-        })
+
+        for (let i = 0; i < toDos.user.length; i++) {
+            const user = toDos.user[i];
+            document.getElementById(`board-card-usericon${toDos.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
+            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+        </div>`
+        }
     })
 }
 
@@ -33,9 +37,12 @@ function renderInProgress() {
     ip.innerHTML = ``
     startedTasks.filter(task => task.status == "in-progress").forEach(inProgress => {
         ip.innerHTML += renderInProgressHTML(inProgress)
-        inProgress.user.forEach(e => {
-            document.getElementById(`board-card-usericon${inProgress.id}`).innerHTML += addUserIconsHTML(e)
-        })
+        for (let i = 0; i < inProgress.user.length; i++) {
+            const user = inProgress.user[i];
+            document.getElementById(`board-card-usericon${inProgress.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
+            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+        </div>`
+        }
     })
 }
 
@@ -46,9 +53,13 @@ function renderTesting() {
     t.innerHTML = ``
     startedTasks.filter(task => task.status == "testing").forEach(testing => {
         t.innerHTML += renderTestingHTML(testing)
-        testing.user.forEach(e => {
-            document.getElementById(`board-card-usericon${testing.id}`).innerHTML += addUserIconsHTML(e)
-        })
+
+        for (let i = 0; i < testing.user.length; i++) {
+            const user = testing.user[i];
+            document.getElementById(`board-card-usericon${testing.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
+            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+        </div>`
+        }
     })
 }
 
@@ -59,9 +70,13 @@ function renderDone() {
     d.innerHTML = ``
     startedTasks.filter(task => task.status == "done").forEach(done => {
         d.innerHTML += renderDoneHTML(done)
-        done.user.forEach(e => {
-            document.getElementById(`board-card-usericon${done.id}`).innerHTML += addUserIconsHTML(e)
-        })
+
+        for (let i = 0; i < done.user.length; i++) {
+            const user = done.user[i];
+            document.getElementById(`board-card-usericon${done.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
+            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+        </div>`
+        }
     })
 }
 
@@ -113,8 +128,8 @@ function fillBoardDetailBox(id) {
     document.getElementById('show-board-details-box-details').innerHTML = task.description
 
 
-    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0,10)
-    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0,10)
+    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10)
+    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-urgency').innerHTML = task.priority
 
 }

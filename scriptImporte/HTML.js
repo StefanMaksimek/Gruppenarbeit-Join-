@@ -49,6 +49,16 @@ function addUserIconsHTML(user) {
 }
 
 
+function addUserIconsHTMLWithoutName(user) {
+
+    return `
+        <div class="assigned-to-user board-user-icon">
+            <img src="${user.icon}" alt="">            
+        </div>
+    `
+}
+
+
 function colorPickerHTML(color) {
     return `
         <div class="color-picker-box" onclick="takeColor('var(--color-${color})')"

@@ -88,6 +88,11 @@ let testTasks = [
         icon: './img/icon_female_3.jpg',
         mail: 'julia@gmail.de',
       },
+      {
+        name: 'Michael',
+        icon: './img/github.jpg',
+        mail: 'Test@gmail.de',
+      },
     ],
     status: 'to-do',
     description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
