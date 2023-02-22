@@ -55,6 +55,7 @@
     text-align: center;
     overflow: auto;
     max-height: 180px;
+    margin-left: 24px;
 }
 
 .board-card-usericon img {
@@ -133,4 +134,18 @@
 .board-card-info-icon-box:hover {
     cursor: pointer;
     opacity: 0.5;
+}
+
+.board-card-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-board{
+    height: 50px;
+    overflow: hidden;
+}
+
+.user-board:hover{
+    height: 80px;
 }

@@ -66,7 +66,7 @@ function colorPickerHTML(color) {
  */
 function renderToDoHTML(toDos) {
     return `
-        <div class="to-do" onclick="openTaskDetails(${toDos.id})" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
+        <div class="to-do" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
         <div class="board-card-department" style="background-color: var(--clr-${toDos.category})">
                 <div>Department:</div>
                 <span>${toDos.category}</span>
@@ -82,11 +82,9 @@ function renderToDoHTML(toDos) {
 
             <div class="board-card-info">
                 <span>Assinged to:</span>
-                <div class="board-card-usericon" id="board-card-usericon${toDos.id}">
+                <div class="board-card-usericon user-board" id="board-card-usericon${toDos.id}">
                 </div>
             </div>
-
-
         </div>
     `
 }
@@ -99,7 +97,7 @@ function renderToDoHTML(toDos) {
  */
 function renderInProgressHTML(inProgress) {
     return `
-    <div class="to-do" onclick="openTaskDetails(${inProgress.id})" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
+    <div class="to-do" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
         <div class="board-card-department" style="background-color: var(--clr-${inProgress.category})">
             <div>Department:</div>
             <span>${inProgress.category}</span>
@@ -115,7 +113,7 @@ function renderInProgressHTML(inProgress) {
 
         <div class="board-card-info">
             <span>Assinged to:</span>
-            <div class="board-card-usericon" id="board-card-usericon${inProgress.id}">
+            <div class="board-card-usericon user-board" id="board-card-usericon${inProgress.id}">
             </div>
         </div>
     </div>    `
@@ -129,7 +127,7 @@ function renderInProgressHTML(inProgress) {
  */
 function renderTestingHTML(testing) {
     return `
-    <div class="to-do" onclick="openTaskDetails(${testing.id})" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
+    <div class="to-do" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
     <div class="board-card-department" style="background-color: var(--clr-${testing.category})">
             <div>Department:</div>
             <span>${testing.category}</span>
@@ -145,7 +143,7 @@ function renderTestingHTML(testing) {
 
         <div class="board-card-info">
             <span>Assinged to:</span>
-            <div class="board-card-usericon" id="board-card-usericon${testing.id}">
+            <div class="board-card-usericon user-board" id="board-card-usericon${testing.id}">
             </div>
         </div>
     </div>    `
@@ -175,7 +173,7 @@ function renderDoneHTML(done) {
 
         <div class="board-card-info">
             <span>Assinged to:</span>
-            <div class="board-card-usericon" id="board-card-usericon${done.id}">
+            <div class="board-card-usericon user-board" id="board-card-usericon${done.id}">
             </div>
         </div>
     </div>    `
