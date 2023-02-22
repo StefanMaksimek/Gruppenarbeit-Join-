@@ -61,6 +61,80 @@
 
     </div>
 
+    <div class="side-bar-task" id="side-bar-task">
+        <div class="side-bar-task-header">
+            <h1>Add Task</h1>
+            <button>Create Task</button>
+        </div>
+
+        <input class="input-title" type="text" placeholder="Enter a title">
+
+        <div class="input-holder">
+            <h3>CATEGORY</h3>
+
+            <div class="input-group mb-3" style="width:200px;">
+                <select id="category-list-input" aria-label="Example select with button addon">
+                    <option value="IT">IT</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Management">Management</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-holder">
+            <h3>DESCRIPTION:</h3>
+
+            <!--copied from bootstrap-->
+            <!-- Textarea with class .w-75 -->
+            <div class="form-outline mb-4 margin-top">
+                <textarea required class="form-control" id="task-description" rows="8" placeholder="..."></textarea>
+            </div>
+            <!--copied from bootstrap-->
+        </div>
+
+        <div>
+            <div class="input-holder">
+                <h3>DUE DATE</h3>
+
+                <input required class="form-control input-due-date" type="date" name="begin" placeholder="dd-mm-yyyy"
+                    value="" min="2022-01-01" max="2030-12-31" id="due-date">
+            </div>
+
+            <div class="input-holder">
+                <h3>URGENCY</h3>
+
+                <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                    <option value="normal">normal</option>
+                    <option value="high">high</option>
+                </select>
+            </div>
+
+            <div class="input-holder">
+                <h3>ASSINGED TO</h3>
+
+                <div class="assinged-to">
+                    <div class="responsible-editor-list-container">
+                        <div class="employees-holder">
+                            <div class="btn-employees" onclick="openListOfEmployeesBoxForAddTask()">
+                                <div class="btn-line1"></div>
+                                <div class="btn-line2"></div>
+                            </div>
+
+                            <div id="responsible-editor-list" class="responsible-editor-list"
+                                ondragover="allowDrop(event)">
+                            </div>
+                        </div>
+                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()"
+                            onclick="showHintForBin()">
+                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="main" id="main">
         <div class="header" id="header">
             <div class="test" id="burger" onclick="openMobileSide()">
@@ -363,7 +437,8 @@
                         <div class="close-x-div-box">
                             <div onclick="hideHintForBin()" class="close-x-div">X</div>
                         </div>
-                        <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.</h2>
+                        <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
+                        </h2>
                     </div>
                 </div>
             </div>
@@ -382,19 +457,23 @@
                     <h2>Add Task</h2>
                     <p>Here you can create a new task. The inputfields "Title", "Description" and "Due date" are
                         obligatory. Under "Category"
-                        you can chose between IT, Sales, Marketing and Management. Also the "Urgency" and the current
+                        you can chose between IT, Sales, Marketing and Management. Also the "Urgency" and the
+                        current
                         "Status" is adjustable.
-                        By clicking on the "+" under the "ASSINGED TO" you are able to add colleagues or other persons
+                        By clicking on the "+" under the "ASSINGED TO" you are able to add colleagues or other
+                        persons
                         who are responsible for
                         this task. You can search by username or by mail. It is possible to dismiss persons from the
                         list per drag and drop over
-                        the bin icon. By clicking on the "Create Task" Button your task will be pushed in the Backlog
+                        the bin icon. By clicking on the "Create Task" Button your task will be pushed in the
+                        Backlog
                         area.</p>
                 </div>
 
                 <div class="help-card margin-bottom-12">
                     <h2>Backlog</h2>
-                    <p>Here you have a list with all tasks which are created. There you can decide which task you want
+                    <p>Here you have a list with all tasks which are created. There you can decide which task you
+                        want
                         on your board. Click on the card
                         to see the details of the card. In the detailed view you have on the bottom a button "Accept
                         Task". After click on this button
