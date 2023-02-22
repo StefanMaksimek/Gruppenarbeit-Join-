@@ -113,27 +113,31 @@
 }
 
 .board-card-info-icon-box {
-    height: 30px;
-    width: 30px;
+    height: 28px;
+    width: 28px;
     border: 1px solid black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    transform: translate(50%, -50%);
+    opacity: 0.5;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: 24px;
+    right: 24px;
 }
 
 .board-card-info-icon-box img {
-    height: 24px;
+    height: 90%;
     object-fit: cover;
+    
 }
 
 .board-card-info-icon-box:hover {
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 1;
+    height: 32px;
+    width: 32px;
 }
 
 .board-card-info {

@@ -223,6 +223,8 @@
     width: 100%;
     display: flex;
     justify-content: right;
+    position: relative;
+    height: 32px;
 }
 
 .padding-left {
