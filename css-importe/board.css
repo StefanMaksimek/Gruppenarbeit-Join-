@@ -33,6 +33,7 @@
     margin: var(--px-low);
     border-radius: 0.2rem;
     background-color: var(--clr-secondary-tr);
+    position: relative;
 }
 
 .board h3 {
@@ -79,13 +80,14 @@
     opacity: 0.75;
 }
 
-.board-card-department div{
+.board-card-department div {
     margin-right: 8px;
 }
 
 #show-board-details-container {
     z-index: 100;
-    position: fixed; /*position fixed because the detail view of task shouldn't be able to scroll*/
+    position: fixed;
+    /*position fixed because the detail view of task shouldn't be able to scroll*/
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -107,4 +109,28 @@
     border-radius: 100%;
     margin: var(--px-low);
     border: 4px solid transparent;
+}
+
+.board-card-info-icon-box {
+    height: 30px;
+    width: 30px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.board-card-info-icon-box img {
+    height: 24px;
+    object-fit: cover;
+}
+
+.board-card-info-icon-box:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }
