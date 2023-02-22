@@ -63,7 +63,7 @@ function closeAllContent() {
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
     document.getElementById('show-backlog-details-container').classList.add('d-none')
-    
+
     removeBorderInSidebar()
     closeContentWindows()
 }
@@ -106,13 +106,29 @@ function allowDrop(ev) {
  */
 function setTheme(theme) {
     document.body.dataset.theme = theme
+    if (theme == 'dark') {
+        let elems = document.getElementsByClassName('card-header-add-icon');
+        for (let i = 0; i < elems.length; i++) {
+            const content = elems[i];
+            content.innerHTML = '<img src="./img/add-task-icon-white.png">';
+            content.style = 'border: 1px solid white;';
+        }
+    }
+    else {
+        let elems = document.getElementsByClassName('card-header-add-icon');
+        for (let i = 0; i < elems.length; i++) {
+            const content = elems[i];
+            content.innerHTML = '<img src="./img/add-task-icon.png">';
+            content.style = 'border: 1px solid black;';
+        }
+    }
 }
 
 
 function openMobileSide() {
     document.getElementById('side-bar').classList.toggle('active-mobile-side');
     document.getElementById('burger').classList.toggle('toggle');
-    document.getElementById('myModal').classList.toggle('d-block')
+    document.getElementById('myModal').classList.toggle('d-block');
 }
 
 

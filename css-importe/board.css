@@ -19,6 +19,13 @@
     background-color: transparent;
     text-align: center;
     padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header h3 {
+    font-size: 32px;
 }
 
 .to-do-holder {
@@ -165,4 +172,32 @@
 
 .board-card-info span{
     width: 150px;
+}
+
+.card-header-add-icon{
+    width: 28px;
+    height: 28px;
+    border: 1px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 4px;
+    position: absolute;
+    right: 36px;
+    transform: translate(50%);
+    opacity: 0.75;
+}
+
+.card-header-add-icon:hover{
+   cursor: pointer;
+   width: 32px;
+   height: 32px;
+   margin-left: 0px;
+   opacity: 1;
+}
+
+.card-header-add-icon img{
+    width: calc(100% - 4px);
+    object-fit: cover;
 }
