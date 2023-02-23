@@ -142,10 +142,23 @@ function closeBoardDetails() {
 
 
 function openOrCloseSidebarCreateTask() {
-    if (document.getElementById('side-bar-task').classList.contains('d-none')) {
+    if (sideBarTaskContainerIsHidden()) {
         document.getElementById('side-bar-task').classList.remove('d-none')
     }
     else {
         document.getElementById('side-bar-task').classList.add('d-none')
     }
+    clearAddTask()
+}
+
+
+function closeBoardAddTask() {
+    if (!sideBarTaskContainerIsHidden()) {
+        document.getElementById('side-bar-task').classList.add('d-none')
+    }
+}
+
+
+function sideBarTaskContainerIsHidden() {
+    return document.getElementById('side-bar-task').classList.contains('d-none')
 }

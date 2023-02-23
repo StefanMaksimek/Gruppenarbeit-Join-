@@ -40,17 +40,17 @@
                 </div>
 
                 <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
-                <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
-                <h3 id="add-task-h3" onclick="openAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add task</h3>
+                <h3 id="backlog-h3" onclick="openBacklog(), closeBoardAddTask()">Backlog</h3>
+                <h3 id="add-task-h3" onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add task</h3>
                 <hr>
-                <h3 id="help-h3" onclick="openHelp()">Help</h3>
-                <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
-                <h3 id="impressum-h3" onclick="openImpressum()">Imprint</h3>
-                <h3 id="datenschutz-h3" onclick="openDatenschutz()">Privacy</h3>
+                <h3 id="help-h3" onclick="openHelp(), closeBoardAddTask()">Help</h3>
+                <h3 id="settings-h3" onclick="openSettings(), closeBoardAddTask()">Settings</h3>
+                <h3 id="impressum-h3" onclick="openImpressum(), closeBoardAddTask()">Imprint</h3>
+                <h3 id="datenschutz-h3" onclick="openDatenschutz(), closeBoardAddTask()">Privacy</h3>
                 <hr>
                 <div id="login-logout">
-                    <h3 id="login-h3" onclick="openLoginBox()">Login</h3>
-                    <h3 id="logout-h3" onclick="executeLogout()" class="d-none">Logout</h3>
+                    <h3 id="login-h3" onclick="openLoginBox(), closeBoardAddTask()">Login</h3>
+                    <h3 id="logout-h3" onclick="executeLogout(), closeBoardAddTask()" class="d-none">Logout</h3>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
         <div class="side-bar-task d-none" id="side-bar-task">
             <div class="side-bar-task-header">
                 <button onclick="openOrCloseSidebarCreateTask()">Close</button>
-                <h1>Add Task</h1>
+                <div class="side-bar-task-header-title"><h1>Add Task</h1><span id="side-bar-task-status"></span></div>
                 <button type="submit">Create Task</button>
             </div>
 

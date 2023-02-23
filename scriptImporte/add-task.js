@@ -8,6 +8,24 @@ function changeStatusTaskAndLocation(status, location) {
     statusTask = status;
     locationTask = location
     temporaryArrayResponsibleEmployees.length = 0; //if someone choose a user in add task card it will also appear in board card after one user added as responsible for task
+    setTextInHeaderOfSideBarTask(status);
+}
+
+
+function setTextInHeaderOfSideBarTask(status) {
+    let content = document.getElementById('side-bar-task-status')
+    if (status == 'to-do') {
+        content.innerHTML = 'TO DO'
+    }
+    if (status == 'in-progress') {
+        content.innerHTML = 'IN PROGRESS'
+    }
+    if (status == 'testing') {
+        content.innerHTML = 'TESTING'
+    }
+    if (status == 'done') {
+        content.innerHTML = 'DONE'
+    }
 }
 
 // ###### Color Options Start ######

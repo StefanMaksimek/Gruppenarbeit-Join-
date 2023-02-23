@@ -64,10 +64,22 @@
     border: 1px solid lightgray;
 }
 
-.select-items div,.select-selected {
+.select-items div, .select-selected {
     color: #ffffff;
     padding: 8px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     width: 200px;
-  }
+}
+
+.side-bar-task-header-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-primary);
+}
+
+.side-bar-task-header-title span {
+    opacity: 0.75;
+}
