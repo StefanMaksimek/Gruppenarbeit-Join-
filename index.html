@@ -41,7 +41,9 @@
 
                 <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
                 <h3 id="backlog-h3" onclick="openBacklog(), closeBoardAddTask()">Backlog</h3>
-                <h3 id="add-task-h3" onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add task</h3>
+                <h3 id="add-task-h3"
+                    onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
+                    task</h3>
                 <hr>
                 <h3 id="help-h3" onclick="openHelp(), closeBoardAddTask()">Help</h3>
                 <h3 id="settings-h3" onclick="openSettings(), closeBoardAddTask()">Settings</h3>
@@ -64,7 +66,9 @@
         <div class="side-bar-task d-none" id="side-bar-task">
             <div class="side-bar-task-header">
                 <button onclick="openOrCloseSidebarCreateTask()">Close</button>
-                <div class="side-bar-task-header-title"><h1>Add Task</h1><span id="side-bar-task-status"></span></div>
+                <div class="side-bar-task-header-title">
+                    <h1>Add Task</h1><span id="side-bar-task-status"></span>
+                </div>
                 <button type="submit">Create Task</button>
             </div>
 
@@ -136,8 +140,7 @@
                     <div class="registration-request-no-icon-selected">
                         <div class="close-x-div-box">
                             <div class="btn-close-cross-box" onclick="hideHintForBin()">
-                                <div class="btn-close-cross-1"></div>
-                                <div class="btn-close-cross-2"></div>
+                                <img src="./img/close-icon.png">
                             </div>
                         </div>
                         <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
@@ -173,7 +176,9 @@
                     <div class="card-header">
                         <h3>TO DO</h3>
                         <div class="card-header-add-icon">
-                            <img class="card-header-add-icon-img" onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')" src="./img/add-task-icon.png">
+                            <img class="card-header-add-icon-img"
+                                onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')"
+                                src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
@@ -186,8 +191,8 @@
                     <div class="card-header">
                         <h3>IN PROGRESS</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')" class="card-header-add-icon-img"
-                                src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')"
+                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="in-progress"
@@ -201,8 +206,8 @@
                     <div class="card-header">
                         <h3>TESTING</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')" class="card-header-add-icon-img"
-                                src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')"
+                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
@@ -214,8 +219,8 @@
                     <div class="card-header">
                         <h3>DONE</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')" class="card-header-add-icon-img"
-                                src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')"
+                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
@@ -226,8 +231,7 @@
                 <div class=" d-none" id="show-board-details-container">
                     <div class="close-user-details-box">
                         <div class="btn-close-cross-box" onclick="closeBoardDetails()">
-                            <div class="btn-close-cross-1"></div>
-                            <div class="btn-close-cross-2"></div>
+                            <img src="./img/close-icon.png">
                         </div>
                     </div>
 
@@ -283,8 +287,7 @@
                 <div class=" d-none" id="show-backlog-details-container">
                     <div class="close-user-details-box">
                         <div class="btn-close-cross-box" onclick="closeBacklogDetails()">
-                            <div class="btn-close-cross-1"></div>
-                            <div class="btn-close-cross-2"></div>
+                            <img src="./img/close-icon.png">
                         </div>
                     </div>
 
@@ -432,8 +435,7 @@
                     <div class="registration-request-no-icon-selected">
                         <div class="close-x-div-box">
                             <div class="btn-close-cross-box" onclick="hideHintForBin()">
-                                <div class="btn-close-cross-1"></div>
-                                <div class="btn-close-cross-2"></div>
+                                <img src="./img/close-icon.png">
                             </div>
                         </div>
                         <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
@@ -916,8 +918,7 @@
         <div class="show-user-details-box d-none" id="show-user-details-container">
             <div class="close-user-details-box">
                 <div class="btn-close-cross-box" onclick="closeUserDetailsView()">
-                    <div class="btn-close-cross-1"></div>
-                    <div class="btn-close-cross-2"></div>
+                    <img src="./img/close-icon.png">
                 </div>
             </div>
 
