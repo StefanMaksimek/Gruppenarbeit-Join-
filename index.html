@@ -916,14 +916,17 @@
         </div>
 
         <div class="show-user-details-box d-none" id="show-user-details-container">
-            <div class="close-user-details-box">
-                <div class="btn-close-cross-box" onclick="closeUserDetailsView()">
-                    <img src="./img/close-icon.png">
+            <div class="show-user-details-box-header">
+                <h2 id="show-user-details-box-name"></h2>
+                <div class="close-user-details-box">
+                    <div class="btn-close-cross-box" onclick="closeUserDetailsView()">
+                        <img src="./img/close-icon.png">
+                    </div>
                 </div>
             </div>
-
-            <h2 id="show-user-details-box-name"></h2>
-            <img id="show-user-details-box-icon" class="user-detail-img" src="" alt="">
+            <div class="user-detail-img-box">
+                <img id="show-user-details-box-icon" class="user-detail-img" src="">
+            </div>
             <table>
                 <tr>
                     <td>Mail:</td>
