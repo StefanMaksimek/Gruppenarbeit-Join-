@@ -3,7 +3,7 @@ let startedTasks = []
 
 
 function renderBoard() {
-    startedTasks = tasks.filter(t => t.statusTask == "board") // load all tasks for board in an temporary Array
+    startedTasks = tasks.filter(t => t.locationTask != "backlog") // load all tasks for board in an temporary Array
 
     renderToDo()
     renderInProgress()

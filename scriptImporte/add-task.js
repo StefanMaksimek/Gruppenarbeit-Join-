@@ -1,5 +1,14 @@
 let temporaryArrayColor = ['lightblue'];
 let temporaryArrayResponsibleEmployees = [];
+let statusTask = 'toDo'; //toDo, inProgress, testing, done
+let locationTask = 'backlog'; // backlog or board
+
+
+function changeStatusTaskAndLocation(status, location) {
+    statusTask = status;
+    locationTask = location
+    temporaryArrayResponsibleEmployees.length = 0; //if someone choose a user in add task card it will also appear in board card after one user added as responsible for task
+}
 
 // ###### Color Options Start ######
 function showColor() {
@@ -48,6 +57,8 @@ function createTask() {
     let color = temporaryArrayColor[0]
     let id = tasks.length
     let dueDate = document.getElementById('due-date')
+
+    console.log(document.getElementById('status-list-input').value)
     createObjTask(title, priority, category, status, description, color, id, dueDate)
 }
 
@@ -65,15 +76,20 @@ function createObjTask(title, priority, category, status, description, color, id
         "status": status.value,
         "description": description.value,
         "color": color,
-        "statusTask": "backlog" //proposal for filter attribute for render board. see also loom video 
+        "locationTask": locationTask //where the task is rendered
     }
     pushAllUsersInTask(task);
     tasks.push(task);
     uploadTasks();
     clearAddTask()
     renderBoard()
-    renderBacklog()
-    openBacklog()
+    if (locationTask == 'backlog') {
+        renderBacklog()
+        openBacklog()
+    }
+    else {
+        pushTask(id, statusTask);
+    }
 }
 
 
@@ -108,6 +124,7 @@ function clearTaskInputfields() {
 
 function clearResponsibleEditorList() {
     document.getElementById('responsible-editor-list').innerHTML = '';
+    document.getElementById('responsible-editor-list-board').innerHTML = '';
 }
 
 
@@ -224,7 +241,7 @@ function showSearchMatchesMail() {
     if (searchMatchesMails.length > 0) {
         let userProposals = document.getElementById('add-task-editor-list')
         document.getElementById('add-task-editor-list').innerHTML = ''; //clear visible list of users
-    
+
         searchMatchesMails.forEach(mailAddress => {
             getAllUserOfTheSearchByMail(mailAddress, userProposals)
         })
@@ -234,13 +251,13 @@ function showSearchMatchesMail() {
 }
 
 
-function getAllUserOfTheSearchByMail(mailAddress, userProposals){
+function getAllUserOfTheSearchByMail(mailAddress, userProposals) {
     let userObj = users.find(u => u.mail == mailAddress)
-            let icon = userObj.icon
-            let user = userObj.name
-            if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
-                userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
-            }
+    let icon = userObj.icon
+    let user = userObj.name
+    if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
+    }
 }
 
 
@@ -345,7 +362,14 @@ function addUserToResponsibleEmployees(user, icon) {
 
 
 function renderResponsibleUserList() {
-    let content = document.getElementById('responsible-editor-list')
+    let content;
+    if (locationTask != 'backlog') {
+        content = document.getElementById('responsible-editor-list-board')
+    }
+    else {
+        content = document.getElementById('responsible-editor-list')
+    }
+
     content.innerHTML = '';
 
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {

@@ -41,7 +41,7 @@
 
                 <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
                 <h3 id="backlog-h3" onclick="openBacklog()">Backlog</h3>
-                <h3 id="add-task-h3" onclick="openAddTask()">Add task</h3>
+                <h3 id="add-task-h3" onclick="openAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add task</h3>
                 <hr>
                 <h3 id="help-h3" onclick="openHelp()">Help</h3>
                 <h3 id="settings-h3" onclick="openSettings()">Settings</h3>
@@ -60,92 +60,93 @@
         </div>
 
     </div>
-
-    <div class="side-bar-task d-none" id="side-bar-task">
-        <div class="side-bar-task-header">
-            <button onclick="openOrCloseSidebarCreateTask()">Close</button>
-            <h1>Add Task</h1>
-            <button>Create Task</button>
-        </div>
-
-        <input class="input-title" type="text" placeholder="Enter a title">
-
-        <div class="input-holder">
-            <h3>CATEGORY</h3>
-
-            <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
-                <option value="IT">IT</option>
-                <option value="Marketing">Marketing</option>
-                <option value="Sales">Sales</option>
-                <option value="Management">Management</option>
-            </select>
-        </div>
-
-        <div class="input-holder">
-            <h3>DESCRIPTION:</h3>
-
-            <!--copied from bootstrap-->
-            <!-- Textarea with class .w-75 -->
-            <div class="form-outline mb-4 margin-top">
-                <textarea required class="form-control" id="task-description" rows="8" placeholder="..."></textarea>
-            </div>
-            <!--copied from bootstrap-->
-        </div>
-
-        <div>
-            <div class="input-holder">
-                <h3>DUE DATE</h3>
-
-                <input required class="form-control input-due-date" type="date" name="begin" placeholder="dd-mm-yyyy"
-                    value="" min="2022-01-01" max="2030-12-31" id="due-date">
+    <form onsubmit="createTask(); openOrCloseSidebarCreateTask(); return false">
+        <div class="side-bar-task d-none" id="side-bar-task">
+            <div class="side-bar-task-header">
+                <button onclick="openOrCloseSidebarCreateTask()">Close</button>
+                <h1>Add Task</h1>
+                <button type="submit">Create Task</button>
             </div>
 
+            <input id="title-task" class="input-title" type="text" placeholder="Enter a title">
+
             <div class="input-holder">
-                <h3>URGENCY</h3>
+                <h3>CATEGORY</h3>
 
                 <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
-                    <option value="normal">normal</option>
-                    <option value="high">high</option>
+                    <option value="IT">IT</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Management">Management</option>
                 </select>
             </div>
 
             <div class="input-holder">
-                <h3>ASSINGED TO</h3>
+                <h3>DESCRIPTION:</h3>
 
-                <div class="assinged-to">
-                    <div class="responsible-editor-list-container">
-                        <div class="employees-holder">
-                            <div class="btn-employees" onclick="openListOfEmployeesBoxForAddTask()">
-                                <div class="btn-line1"></div>
-                                <div class="btn-line2"></div>
-                            </div>
+                <!--copied from bootstrap-->
+                <!-- Textarea with class .w-75 -->
+                <div class="form-outline mb-4 margin-top">
+                    <textarea required class="form-control" id="task-description" rows="8" placeholder="..."></textarea>
+                </div>
+                <!--copied from bootstrap-->
+            </div>
 
-                            <div id="responsible-editor-list" class="responsible-editor-list"
-                                ondragover="allowDrop(event)">
+            <div>
+                <div class="input-holder">
+                    <h3>DUE DATE</h3>
+
+                    <input required class="form-control input-due-date" type="date" name="begin"
+                        placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
+                </div>
+
+                <div class="input-holder">
+                    <h3>URGENCY</h3>
+
+                    <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                        <option value="normal">normal</option>
+                        <option value="high">high</option>
+                    </select>
+                </div>
+
+                <div class="input-holder">
+                    <h3>ASSINGED TO</h3>
+
+                    <div class="assinged-to">
+                        <div class="responsible-editor-list-container">
+                            <div class="employees-holder">
+                                <div class="btn-employees" onclick="openListOfEmployeesBoxForAddTask()">
+                                    <div class="btn-line1"></div>
+                                    <div class="btn-line2"></div>
+                                </div>
+
+                                <div id="responsible-editor-list-board" class="responsible-editor-list"
+                                    ondragover="allowDrop(event)">
+                                </div>
                             </div>
-                        </div>
-                        <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()"
-                            onclick="showHintForBin()">
-                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                            <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()"
+                                onclick="showHintForBin()">
+                                <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="add-task-bin-info-box" class="background-box d-none">
-                <div class="registration-request-no-icon-selected">
-                    <div class="close-x-div-box">
-                        <div class="btn-close-cross-box" onclick="hideHintForBin()">
-                            <div class="btn-close-cross-1"></div>
-                            <div class="btn-close-cross-2"></div>
+                <div id="add-task-bin-info-box" class="background-box d-none">
+                    <div class="registration-request-no-icon-selected">
+                        <div class="close-x-div-box">
+                            <div class="btn-close-cross-box" onclick="hideHintForBin()">
+                                <div class="btn-close-cross-1"></div>
+                                <div class="btn-close-cross-2"></div>
+                            </div>
                         </div>
+                        <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
+                        </h2>
                     </div>
-                    <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
-                    </h2>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
     <div class="main" id="main">
         <div class="header" id="header">
@@ -172,7 +173,7 @@
                     <div class="card-header">
                         <h3>TO DO</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask()" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')" src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
@@ -185,7 +186,8 @@
                     <div class="card-header">
                         <h3>IN PROGRESS</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')" class="card-header-add-icon-img"
+                                src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="in-progress"
@@ -199,7 +201,8 @@
                     <div class="card-header">
                         <h3>TESTING</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')" class="card-header-add-icon-img"
+                                src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
@@ -211,7 +214,8 @@
                     <div class="card-header">
                         <h3>DONE</h3>
                         <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask()" class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')" class="card-header-add-icon-img"
+                                src="./img/add-task-icon.png">
                         </div>
                     </div>
                     <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
@@ -422,7 +426,7 @@
                     </div>
                 </form>
 
-                
+
 
                 <div id="add-task-bin-info-box" class="background-box d-none">
                     <div class="registration-request-no-icon-selected">
@@ -449,8 +453,8 @@
                             onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
                         <div class="show-switch-text" id="show-search-mail-inputfield"
                             onclick="showSearchInputfield('name', 'mail')">Switch to search mail</div>
-                        <input class="input-search-employees" type="text" placeholder="Search for name"
-                            id="search-name" onkeyup="startSearchUser()">
+                        <input class="input-search-employees" type="text" placeholder="Search for name" id="search-name"
+                            onkeyup="startSearchUser()">
                         <input class="input-search-employees d-none" type="text" placeholder="Search for mail"
                             id="search-mail" onkeyup="startSearchMail()">
                     </div>
@@ -458,8 +462,7 @@
 
                     </div>
                 </div>
-                <button class="btn btn-primary margin-top"
-                    onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
+                <button class="btn btn-primary margin-top" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
             </div>
 
 

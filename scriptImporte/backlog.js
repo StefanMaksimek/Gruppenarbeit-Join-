@@ -2,7 +2,7 @@
 
 function renderBacklog() {
     let bc = document.getElementById('backlog-content')
-    let tasksInBacklog = tasks.filter(t => t.statusTask == "backlog")
+    let tasksInBacklog = tasks.filter(t => t.locationTask == "backlog")
 
     bc.innerHTML = ``
     tasksInBacklog.reverse().forEach(task => {
@@ -37,7 +37,7 @@ function fillBaacklogDetailBox(id) {
     document.getElementById('show-backlog-details-box-category').innerHTML = task.category
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
     document.getElementById('show-backlog-details-box-details').innerHTML = task.description
-    document.getElementById('btn-holder-backlog').innerHTML = `<button id="push-task" style="background-color: var(--clr-${task.category})" onclick="pushTask(${id})">Accept Task</button>`
+    document.getElementById('btn-holder-backlog').innerHTML = `<button id="push-task" style="background-color: var(--clr-${task.category})" onclick="pushTask(${id}, '')">Accept Task</button>`
 }
 
 
@@ -47,11 +47,11 @@ function closeBacklogDetails() {
 }
 
 
-function pushTask(id) {
+function pushTask(id, statusTask) {
     let currentTask = tasks.find(t => t.id == id);
 
-    currentTask.statusTask = "board";
-    setColorAndStatus(currentTask)
+    currentTask.locationTask = "board";
+    setColorAndStatus(currentTask, statusTask)
     uploadTasks()
     closeBacklogDetails()
     renderBoard()
@@ -60,7 +60,12 @@ function pushTask(id) {
 }
 
 
-function setColorAndStatus(currentTask) {
-    currentTask.status = document.getElementById('status-list-input').value
-    currentTask.color = temporaryArrayColor[0]
+function setColorAndStatus(currentTask, statusTask) {
+    if (statusTask == '') {
+        currentTask.status = document.getElementById('status-list-input').value;
+    }
+    else {
+        currentTask.status = statusTask;
+    }
+    currentTask.color = temporaryArrayColor[0];
 }
