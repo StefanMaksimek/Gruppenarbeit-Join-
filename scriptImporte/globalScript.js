@@ -106,20 +106,20 @@ function allowDrop(ev) {
  */
 function setTheme(theme) {
     document.body.dataset.theme = theme
-    if (theme == 'dark') {
-        let elems = document.getElementsByClassName('card-header-add-icon');
-        for (let i = 0; i < elems.length; i++) {
-            const content = elems[i];
-            content.innerHTML = '<img onclick="openSidebarCreateTask()" src="./img/add-task-icon-white.png">';
-            content.style = 'border: 1px solid white;';
+    changeAddTaskItemsOnBoard(theme);
+}
+
+
+function changeAddTaskItemsOnBoard(theme) {
+    let imagesAddTaskBoard = document.getElementsByClassName('card-header-add-icon-img');
+    for (let i = 0; i < imagesAddTaskBoard.length; i++) {
+        const img = imagesAddTaskBoard[i];
+        console.log(img.src)
+        if (theme == 'dark') {
+            img.src = './img/add-task-icon-white.png';
         }
-    }
-    else {
-        let elems = document.getElementsByClassName('card-header-add-icon');
-        for (let i = 0; i < elems.length; i++) {
-            const content = elems[i];
-            content.innerHTML = '<img onclick="openSidebarCreateTask()" src="./img/add-task-icon.png">';
-            content.style = 'border: 1px solid black;';
+        else {
+            img.src = './img/add-task-icon.png';
         }
     }
 }
