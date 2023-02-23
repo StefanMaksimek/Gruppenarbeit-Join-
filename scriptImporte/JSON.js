@@ -16,7 +16,7 @@ let testTasks = [
     status: 'to-do',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'board',
+    locationTask: 'board',
   },
   {
     id: 1,
@@ -35,7 +35,7 @@ let testTasks = [
     status: 'in-progress',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'board',
+    locationTask: 'board',
   },
   {
     id: 2,
@@ -54,7 +54,7 @@ let testTasks = [
     status: 'testing',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'board',
+    locationTask: 'board',
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ let testTasks = [
     status: 'done',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'board',
+    locationTask: 'board',
   },
   {
     id: 4,
@@ -97,7 +97,7 @@ let testTasks = [
     status: 'to-do',
     description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'board',
+    locationTask: 'board',
   },
   {
     id: 5,
@@ -116,7 +116,7 @@ let testTasks = [
     status: 'to-do',
     description: 'Lorem Test',
     color: 'lightblue',
-    statusTask: 'backlog',
+    locationTask: 'backlog',
   },
   {
     id: 6,
@@ -135,7 +135,7 @@ let testTasks = [
     status: 'to-do',
     description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
-    statusTask: 'backlog',
+    locationTask: 'backlog',
   },
 ];
 

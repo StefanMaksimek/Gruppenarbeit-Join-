@@ -42,7 +42,7 @@ function addUserIconsHTML(user) {
 
     return `
         <div class="assigned-to-user">
-            <img src="${user.icon}" alt="">
+            <img onclick="showUserDetails('${user.name}')" src="${user.icon}" alt="">
             <h3>${user.name}</h3>                  
         </div>
     `
