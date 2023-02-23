@@ -30,10 +30,15 @@
         padding: 0.1rem;
         font-size: 1.1rem;
     }
+
+    .side-bar-task {
+        top: 49px;
+        height: calc(100vh - 49px);
+    }
 }
 
 @media screen and (max-width: 950px) {
-    .card-header-add-icon{
+    .card-header-add-icon {
         right: 20px;
     }
 }
@@ -76,7 +81,7 @@
     .select-employees-container {
         width: 90%;
     }
-    
+
 }
 
 @media screen and (max-width: 400px) {
@@ -97,7 +102,7 @@
 }
 
 @media screen and (max-height: 500px) {
-    *{
+    * {
         font-size: 0.9rem;
     }
 }
