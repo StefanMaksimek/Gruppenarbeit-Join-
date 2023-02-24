@@ -30,11 +30,17 @@
 <script>
     function showHintForBin() {
         document.getElementById('bin-hint-sidebar-task').classList.remove('d-none')
-        document.getElementById('bin-hint-task').classList.add('d-none')
     }
 
     function hideHintForBin() {
         document.getElementById('bin-hint-sidebar-task').classList.add('d-none')
+    }
+
+    function showHintForBinAddTask() {
+        document.getElementById('bin-hint-task').classList.remove('d-none')
+    }
+
+    function hideHintForBin() {
         document.getElementById('bin-hint-task').classList.add('d-none')
     }
 </script>
@@ -142,7 +148,7 @@
                             <div onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
                                 class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
                                 <img class="add-task-img-bin" src="./img/trash-bin.svg">
-                                <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                <div id="bin-hint-sidebar-task" class="bin-hint-sidebar-task d-none">
                                     Drag and drop an user for delete.
                                 </div>
                             </div>
@@ -416,11 +422,11 @@
                                             ondragover="allowDrop(event)">
                                         </div>
                                     </div>
-                                    <div onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
+                                    <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
                                         class="responsible-editor-list-bin" ondragover="allowDrop(event)"
                                         ondrop="moveToBin()">
                                         <img class="add-task-img-bin" src="./img/trash-bin.svg">
-                                        <div id="bin-hint-sidebar-task" class="bin-hint-sidebar-task d-none">
+                                        <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
                                             Drag and drop an user for delete.
                                         </div>
                                     </div>
