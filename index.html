@@ -28,21 +28,9 @@
 </head>
 
 <script>
-    function showHintForBin() {
-        document.getElementById('bin-hint-sidebar-task').classList.remove('d-none')
-    }
 
-    function hideHintForBin() {
-        document.getElementById('bin-hint-sidebar-task').classList.add('d-none')
-    }
 
-    function showHintForBinAddTask() {
-        document.getElementById('bin-hint-task').classList.remove('d-none')
-    }
 
-    function hideHintForBinAddTask() {
-        document.getElementById('bin-hint-task').classList.add('d-none')
-    }
 </script>
 
 <body onload="init()" data-theme="default">
@@ -235,49 +223,114 @@
                         ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
                     </div>
                 </div>
-
+                <!--Area for details of Task Box START-->
                 <div class=" d-none" id="show-board-details-container">
                     <div class="close-user-details-box">
                         <div class="btn-close-cross-box" onclick="closeBoardDetails()">
                             <img src="./img/close-icon.png">
                         </div>
                     </div>
+                    <!--Sub Area for details of Task Box START-->
+                    <div id="show-board-details-sub-container">
+                        <h3 id="show-board-details-box-name">Assigned to:</h3>
 
-                    <h3 id="show-board-details-box-name">Assigned to:</h3>
+                        <div class="assigned-to-user-holder" id="show-board-details-box-icon">
+                        </div>
+                        <table>
+                            <tr>
+                                <td>Category:</td>
+                                <td class="padding-left" id="show-board-details-box-category"></td>
+                            </tr>
+                            <tr>
+                                <td>Title:</td>
+                                <td class="padding-left" id="show-board-details-box-title"></td>
+                            </tr>
+                            <tr>
+                                <td>Created on:</td>
+                                <td class="padding-left" id="show-board-details-box-created-on"></td>
+                            </tr>
+                            <tr>
+                                <td>Complete by:</td>
+                                <td class="padding-left" id="show-board-details-box-complete-by"></td>
+                            </tr>
+                            <tr>
+                                <td>Urgency:</td>
+                                <td class="padding-left" id="show-board-details-box-urgency"></td>
+                            </tr>
+                        </table>
 
-                    <div class="assigned-to-user-holder" id="show-board-details-box-icon">
+                        <h3>Description:</h3>
+                        <span id="show-board-details-box-details" class="h100-overflow-auto">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                        </span>
+                        <div id="show-board-details-box-btns" class="btn-holder-backlog">
+
+                        </div>
                     </div>
-                    <table>
-                        <tr>
-                            <td>Category:</td>
-                            <td class="padding-left" id="show-board-details-box-category"></td>
-                        </tr>
-                        <tr>
-                            <td>Title:</td>
-                            <td class="padding-left" id="show-board-details-box-title"></td>
-                        </tr>
-                        <tr>
-                            <td>Created on:</td>
-                            <td class="padding-left" id="show-board-details-box-created-on"></td>
-                        </tr>
-                        <tr>
-                            <td>Complete by:</td>
-                            <td class="padding-left" id="show-board-details-box-complete-by"></td>
-                        </tr>
-                        <tr>
-                            <td>Urgency:</td>
-                            <td class="padding-left" id="show-board-details-box-urgency"></td>
-                        </tr>
-                    </table>
+                    <!--Sub Area for details of Task Box END-->
+                    <!--Sub Area for CHANGE details of Task Box START-->
+                    <div id="show-board-details-sub-container">
+                        <h3 id="show-board-details-box-name">Assigned to:</h3>
 
-                    <h3>Description:</h3>
-                    <span id="show-board-details-box-details" class="h100-overflow-auto">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
-                    </span>
-                    <div id="show-board-details-box-btns" class="btn-holder-backlog">
+                        <div class="assigned-to-user-holder" id="show-board-details-box-icon">
+                        </div>
+                        <table>
+                            <tr>
+                                <div class="input-holder">
+                                    <h3>CATEGORY</h3>
 
+                                    <select class="form-select" id="category-state-input-change-detail-box"
+                                        aria-label="Example select with button addon">
+                                        <option value="IT">IT</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Sales">Sales</option>
+                                        <option value="Management">Management</option>
+                                    </select>
+                                </div>
+                            </tr>
+                            <tr>
+                                <h3>TITLE</h3>
+
+                                <div>
+                                    <input required type="text" placeholder="Title" id="title-task-change-detail-box"
+                                        class="form-control">
+                                </div>
+                            </tr>
+                            <tr>
+                                <div class="input-holder">
+                                    <h3>COLOR</h3>
+        
+                                    <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                                        <button type="button" onclick="showColorChangeBoard()" class="btn btn-info"
+                                            id="add-task-color-button">choose
+                                        </button>
+                                        <div class="d-none color-picker-container" id="color-picker-change-board">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td>Complete by:</td>
+                                <td class="padding-left" id="show-board-details-box-complete-by"></td>
+                            </tr>
+                            <tr>
+                                <td>Urgency:</td>
+                                <td class="padding-left" id="show-board-details-box-urgency"></td>
+                            </tr>
+                        </table>
+
+                        <h3>Description:</h3>
+                        <span id="show-board-details-box-details" class="h100-overflow-auto">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                        </span>
+                        <div id="show-board-details-box-btns" class="btn-holder-backlog">
+
+                        </div>
                     </div>
+                    <!--Sub Area for CHANGE details of Task Box END-->
                 </div>
+                <!--Area for details of Task Box END-->
             </div>
 
             <div class="d-none" id="backlog">

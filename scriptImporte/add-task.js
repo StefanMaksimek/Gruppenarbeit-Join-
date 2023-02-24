@@ -44,6 +44,21 @@ function showColor() {
     }
 }
 
+function showColorChangeBoard() {
+    let content = document.getElementById('color-picker-change-board')
+    content.innerHTML = '';
+    colorPicker.forEach(color => {
+        content.innerHTML += colorPickerHTML(color)
+    });
+
+    if (colorOptionsAreHiding(content)) {
+        content.classList.remove('d-none')
+    }
+    else {
+        content.classList.add('d-none')
+    }
+}
+
 
 function colorOptionsAreHiding(content) {
     return content.classList.contains('d-none');
@@ -423,13 +438,10 @@ function moveToBin() {
 }
 
 
-function showHintForBin() {
-    let content = document.getElementById('add-task-bin-info-box')
-    content.classList.remove('d-none')
+function showHintForBinAddTask() {
+    document.getElementById('bin-hint-task').classList.remove('d-none')
 }
 
-
-function hideHintForBin() {
-    let content = document.getElementById('add-task-bin-info-box')
-    content.classList.add('d-none')
+function hideHintForBinAddTask() {
+    document.getElementById('bin-hint-task').classList.add('d-none')
 }

@@ -127,11 +127,32 @@ function fillBoardDetailBox(id) {
     document.getElementById('show-board-details-box-title').innerHTML = task.title
     document.getElementById('show-board-details-box-details').innerHTML = task.description
     document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`
-    
+
     document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-urgency').innerHTML = task.priority
+}
 
+
+function deleteTaskBoard(id) {
+    let currentTask = tasks.find(t => t.id == id);
+    let index = tasks.indexOf(currentTask);
+    tasks.splice(index, 1);
+    uploadTasks();
+    renderBoard();
+    closeBoardDetails();
+}
+
+
+function changeTaskBoard(id) {
+    let currentTask = tasks.find(t => t.id == id);
+    let category = document.getElementById('category-state-input-change-detail-box').value
+    currentTask.category = category;
+    let title = document.getElementById('title-task-change-detail-box').value
+    currentTask.title = title;
+    uploadTasks();
+    renderBoard();
+    closeBoardDetails();
 }
 
 
@@ -161,4 +182,13 @@ function closeBoardAddTask() {
 
 function sideBarTaskContainerIsHidden() {
     return document.getElementById('side-bar-task').classList.contains('d-none')
+}
+
+
+function showHintForBin() {
+    document.getElementById('bin-hint-sidebar-task').classList.remove('d-none')
+}
+
+function hideHintForBin() {
+    document.getElementById('bin-hint-sidebar-task').classList.add('d-none')
 }
