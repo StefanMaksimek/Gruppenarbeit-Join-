@@ -142,17 +142,17 @@
     width: 100%;
 }
 
-#responsible-editor-list-bin {
+.responsible-editor-list-bin {
     border-radius: 50%;
     position: relative;
 }
 
-#responsible-editor-list-bin:hover {
+.responsible-editor-list-bin:hover {
     background-color: var(--clr-primary-tr);
     cursor: pointer;
 }
 
-#responsible-editor-list-bin img {
+.responsible-editor-list-bin img {
     height: 70px;
     width: 70px;
     object-fit: contain;

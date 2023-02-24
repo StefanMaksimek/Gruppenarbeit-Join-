@@ -30,10 +30,12 @@
 <script>
     function showHintForBin() {
         document.getElementById('bin-hint-sidebar-task').classList.remove('d-none')
+        document.getElementById('bin-hint-task').classList.add('d-none')
     }
 
     function hideHintForBin() {
         document.getElementById('bin-hint-sidebar-task').classList.add('d-none')
+        document.getElementById('bin-hint-task').classList.add('d-none')
     }
 </script>
 
@@ -137,11 +139,11 @@
                                     ondragover="allowDrop(event)">
                                 </div>
                             </div>
-                            <div id="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
-                                <img onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
-                                    class="add-task-img-bin" src="./img/trash-bin.svg">
-                                <div id="bin-hint-sidebar-task" class="bin-hint-sidebar-task d-none">
-                                    <div>Drag and drop an user for delete.</div>
+                            <div onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
+                                class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                                <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                    Drag and drop an user for delete.
                                 </div>
                             </div>
                         </div>
@@ -414,9 +416,13 @@
                                             ondragover="allowDrop(event)">
                                         </div>
                                     </div>
-                                    <div id="responsible-editor-list-bin" ondragover="allowDrop(event)"
-                                        ondrop="moveToBin()" onclick="showHintForBin()">
+                                    <div onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
+                                        class="responsible-editor-list-bin" ondragover="allowDrop(event)"
+                                        ondrop="moveToBin()">
                                         <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                        <div id="bin-hint-sidebar-task" class="bin-hint-sidebar-task d-none">
+                                            Drag and drop an user for delete.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -428,20 +434,6 @@
                         </div>
                     </div>
                 </form>
-
-
-
-                <div id="add-task-bin-info-box" class="background-box d-none">
-                    <div class="registration-request-no-icon-selected">
-                        <div class="close-x-div-box">
-                            <div class="btn-close-cross-box" onclick="hideHintForBin()">
-                                <img src="./img/close-icon.png">
-                            </div>
-                        </div>
-                        <h2>If you want to delete a user from the list. Drag the image over the bin and drop it.
-                        </h2>
-                    </div>
-                </div>
             </div>
 
 
