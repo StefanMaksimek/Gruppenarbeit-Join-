@@ -67,3 +67,17 @@
 .side-bar-task-header-title span {
     opacity: 0.75;
 }
+
+.bin-hint-sidebar-task{
+    z-index: 12;
+    background-color: gray;
+    color: white;
+    position: absolute;
+    width: 124px;
+    right: 20px;
+    padding: 12px;
+    bottom: 66px;
+    border-radius: 8px;
+    hyphens: auto;
+    text-align: left;
+}

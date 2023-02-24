@@ -144,6 +144,7 @@
 
 #responsible-editor-list-bin {
     border-radius: 50%;
+    position: relative;
 }
 
 #responsible-editor-list-bin:hover {
