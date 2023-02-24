@@ -126,8 +126,8 @@ function fillBoardDetailBox(id) {
     document.getElementById('show-board-details-box-category').innerHTML = task.category
     document.getElementById('show-board-details-box-title').innerHTML = task.title
     document.getElementById('show-board-details-box-details').innerHTML = task.description
-
-
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`
+    
     document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-urgency').innerHTML = task.priority
