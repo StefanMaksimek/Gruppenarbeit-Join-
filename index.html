@@ -27,12 +27,6 @@
 
 </head>
 
-<script>
-
-
-
-</script>
-
 <body onload="init()" data-theme="default">
     <div class="modal" id="myModal">
 
@@ -226,7 +220,8 @@
                 <!--Area for details of Task Box START-->
                 <div class=" d-none" id="show-board-details-container">
                     <div class="close-user-details-box">
-                        <div class="btn-close-cross-box" onclick="closeBoardDetails()">
+                        <div class="btn-close-cross-box"
+                            onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack()">
                             <img src="./img/close-icon.png">
                         </div>
                     </div>
@@ -240,10 +235,25 @@
                             <tr>
                                 <td>Category:</td>
                                 <td class="padding-left" id="show-board-details-box-category"></td>
+                                <td>
+                                    <select class="form-select d-none" id="category-state-input-change-detail-box"
+                                        aria-label="Example select with button addon">
+                                        <option value="IT">IT</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Sales">Sales</option>
+                                        <option value="Management">Management</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Title:</td>
                                 <td class="padding-left" id="show-board-details-box-title"></td>
+                                <td>
+                                    <div id="title-task-change-detail-box" class="d-none">
+                                        <input required type="text" placeholder="Title"
+                                            id="title-task-change-detail-input" class="form-control">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Created on:</td>
@@ -252,71 +262,18 @@
                             <tr>
                                 <td>Complete by:</td>
                                 <td class="padding-left" id="show-board-details-box-complete-by"></td>
+                                <td><input required class="form-control input-due-date d-none" type="date" name="begin"
+                                        placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31"
+                                        id="due-date-board-details-box"></td>
                             </tr>
                             <tr>
                                 <td>Urgency:</td>
                                 <td class="padding-left" id="show-board-details-box-urgency"></td>
-                            </tr>
-                        </table>
-
-                        <h3>Description:</h3>
-                        <span id="show-board-details-box-details" class="h100-overflow-auto">
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
-                        </span>
-                        <div id="show-board-details-box-btns" class="btn-holder-backlog">
-
-                        </div>
-                    </div>
-                    <!--Sub Area for details of Task Box END-->
-                    <!--Sub Area for CHANGE details of Task Box START-->
-                    <div id="show-board-details-sub-container">
-                        <h3 id="show-board-details-box-name">Assigned to:</h3>
-
-                        <div class="assigned-to-user-holder" id="show-board-details-box-icon">
-                        </div>
-                        <table>
-                            <tr>
-                                <div class="input-holder">
-                                    <h3>CATEGORY</h3>
-
-                                    <select class="form-select" id="category-state-input-change-detail-box"
+                                <td><select class="form-select d-none" id="priority-state-input-board-details-box"
                                         aria-label="Example select with button addon">
-                                        <option value="IT">IT</option>
-                                        <option value="Marketing">Marketing</option>
-                                        <option value="Sales">Sales</option>
-                                        <option value="Management">Management</option>
-                                    </select>
-                                </div>
-                            </tr>
-                            <tr>
-                                <h3>TITLE</h3>
-
-                                <div>
-                                    <input required type="text" placeholder="Title" id="title-task-change-detail-box"
-                                        class="form-control">
-                                </div>
-                            </tr>
-                            <tr>
-                                <div class="input-holder">
-                                    <h3>COLOR</h3>
-        
-                                    <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                        <button type="button" onclick="showColorChangeBoard()" class="btn btn-info"
-                                            id="add-task-color-button">choose
-                                        </button>
-                                        <div class="d-none color-picker-container" id="color-picker-change-board">
-        
-                                        </div>
-                                    </div>
-                                </div>
-                            </tr>
-                            <tr>
-                                <td>Complete by:</td>
-                                <td class="padding-left" id="show-board-details-box-complete-by"></td>
-                            </tr>
-                            <tr>
-                                <td>Urgency:</td>
-                                <td class="padding-left" id="show-board-details-box-urgency"></td>
+                                        <option value="normal">normal</option>
+                                        <option value="high">high</option>
+                                    </select></td>
                             </tr>
                         </table>
 
@@ -324,11 +281,14 @@
                         <span id="show-board-details-box-details" class="h100-overflow-auto">
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
                         </span>
+                        <div id="task-description-board-details-box" class="form-outline mb-4 margin-top d-none">
+                            <textarea required class="form-control" id="task-description-board-details-input" rows="8"
+                                placeholder="..."></textarea>
+                        </div>
                         <div id="show-board-details-box-btns" class="btn-holder-backlog">
 
                         </div>
                     </div>
-                    <!--Sub Area for CHANGE details of Task Box END-->
                 </div>
                 <!--Area for details of Task Box END-->
             </div>

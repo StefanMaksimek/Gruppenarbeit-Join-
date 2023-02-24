@@ -140,9 +140,14 @@ window.onclick = function (event) {
         document.getElementById('myModal').classList.remove('d-block')
 
         document.getElementById('show-backlog-details-container').classList.add('d-none')
-        document.getElementById('show-board-details-container').classList.add('d-none')
+        
         document.getElementById('select-employees-container').classList.add('d-none')
         document.getElementById('show-user-details-container').classList.add('d-none')
+
+        if(!document.getElementById('show-board-details-container').classList.contains('d-none')){
+            document.getElementById('show-board-details-container').classList.add('d-none')
+            setChangeModeOfBoardTaskDetailsContainerBack();
+        }
     }
 }
 

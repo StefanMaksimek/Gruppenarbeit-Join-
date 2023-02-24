@@ -146,6 +146,45 @@ function deleteTaskBoard(id) {
 
 function changeTaskBoard(id) {
     let currentTask = tasks.find(t => t.id == id);
+    //title
+    document.getElementById('show-board-details-box-title').classList.add('d-none')
+    document.getElementById('title-task-change-detail-box').classList.remove('d-none')
+    document.getElementById('title-task-change-detail-input').value = currentTask.title
+    //category
+    document.getElementById('show-board-details-box-category').classList.add('d-none')
+    document.getElementById('category-state-input-change-detail-box').classList.remove('d-none')
+    //due date
+    document.getElementById('show-board-details-box-complete-by').classList.add('d-none')
+    document.getElementById('due-date-board-details-box').classList.remove('d-none')
+    //urgency
+    document.getElementById('show-board-details-box-urgency').classList.add('d-none')
+    document.getElementById('priority-state-input-board-details-box').classList.remove('d-none')
+    //description
+    document.getElementById('show-board-details-box-details').classList.add('d-none')
+    document.getElementById('task-description-board-details-box').classList.remove('d-none')
+    document.getElementById('task-description-board-details-input').value = currentTask.description
+}
+
+function setChangeModeOfBoardTaskDetailsContainerBack() {
+    //title
+    document.getElementById('show-board-details-box-title').classList.remove('d-none')
+    document.getElementById('title-task-change-detail-box').classList.add('d-none')
+    //category
+    document.getElementById('show-board-details-box-category').classList.remove('d-none')
+    document.getElementById('category-state-input-change-detail-box').classList.add('d-none')
+    //due date
+    document.getElementById('show-board-details-box-complete-by').classList.remove('d-none')
+    document.getElementById('due-date-board-details-box').classList.add('d-none')
+    //urgency
+    document.getElementById('show-board-details-box-urgency').classList.remove('d-none')
+    document.getElementById('priority-state-input-board-details-box').classList.add('d-none')
+    //description
+}
+
+
+
+function saveChangesTask() {
+    let currentTask = tasks.find(t => t.id == id);
     let category = document.getElementById('category-state-input-change-detail-box').value
     currentTask.category = category;
     let title = document.getElementById('title-task-change-detail-box').value
