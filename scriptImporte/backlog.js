@@ -37,13 +37,23 @@ function fillBaacklogDetailBox(id) {
     document.getElementById('show-backlog-details-box-category').innerHTML = task.category
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
     document.getElementById('show-backlog-details-box-details').innerHTML = task.description
-    document.getElementById('btn-holder-backlog').innerHTML = `<button id="push-task" style="background-color: var(--clr-${task.category})" onclick="pushTask(${id}, '')">Accept Task</button>`
+    document.getElementById('btn-holder-backlog').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTask(${id})">Delete Task</button><button class="push-task" style="background-color: var(--clr-${task.category})" onclick="pushTask(${id}, '')">Accept Task</button>`
 }
 
 
 function closeBacklogDetails() {
     document.getElementById('myModal').classList.remove('d-block')
     document.getElementById('show-backlog-details-container').classList.add('d-none')
+}
+
+
+function deleteTask(id) {
+    let currentTask = tasks.find(t => t.id == id);
+    let index = tasks.indexOf(currentTask);
+    tasks.splice(index, 1);
+    uploadTasks();
+    renderBacklog();
+    closeBacklogDetails();
 }
 
 
