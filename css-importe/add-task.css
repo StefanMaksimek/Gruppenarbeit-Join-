@@ -62,7 +62,6 @@
     text-align: center;
 }
 
-
 .list-search-result img {
     width: 50px;
     height: 50px;
@@ -70,11 +69,6 @@
     border-radius: 100%;
     margin: var(--px-low);
     border: 4px solid transparent;
-}
-
-.list-search-result img:hover {
-    cursor: pointer;
-    border: 4px solid var(--clr-primary);
 }
 
 .select-employees-container {
@@ -129,9 +123,10 @@
 .responsible-editor-list {
     display: flex;
     align-items: center;
-    height: 120px;
+    height: 150px;
     width: calc(100% - 2.5rem);
     overflow: overlay;
+    margin-left: 60px;
 }
 
 .responsible-editor-list-container {
@@ -173,27 +168,29 @@
 
 .name-responsible-editor {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, +80%);
-    background-color: var(--clr-bg);
-    color: var(--clr-font1);
-    border-radius: 0.4rem;
-    border: 1px solid var(--clr-primary);
+    background-color: gray;
+    color: white;
+    border-radius: 8px;
     display: none;
     cursor: pointer;
     z-index: 2;
+    padding: 8px;
 }
 
 .list-search-result-img:hover+.name-responsible-editor {
     display: block;
 }
 
+.name-responsible-editor:hover {
+    display: block;
+}
+
 .crop {
-    width: 50px;
+    width: 110px;
     overflow: hidden;
-    height: 25px;
-    line-height: 25px;
     text-align: center;
 }
 
@@ -328,6 +325,7 @@
 .btn-employees-add-icon {
     width: 44px;
     height: 44px;
+    position: absolute;
 }
 
 .btn-employees-add-icon img {
@@ -378,4 +376,5 @@
     width: calc(100% - 70px);
     display: flex;
     align-items: center;
+    position: relative;
 }

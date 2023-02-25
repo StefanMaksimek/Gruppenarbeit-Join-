@@ -13,3 +13,44 @@
 @import "./css-importe/side-bar-task.css";
 @import "./css-importe/media.css";
 @import "./css-importe/help.css";
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+
+
+.responsible-editor-list::-webkit-scrollbar {
+    height: 8px;
+}
+
+.responsible-editor-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.responsible-editor-list::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+.side-bar-task::-webkit-scrollbar {
+    width: 8px;
+}
+
+.side-bar-task::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.side-bar-task::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  outline: 1px solid white;
+}
