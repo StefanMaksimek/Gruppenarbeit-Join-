@@ -36,6 +36,8 @@ function fillBaacklogDetailBox(id) {
     document.getElementById('show-backlog-details-box-icon').src = task.user[0].icon
     document.getElementById('show-backlog-details-box-category').innerHTML = task.category
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
+    document.getElementById('show-backlog-details-box-priority').innerHTML = task.priority
+    document.getElementById('show-backlog-details-box-due-date').innerHTML = transformTimeStampToDate(task.dueDate)
     document.getElementById('show-backlog-details-box-details').innerHTML = task.description
     document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id)
 }

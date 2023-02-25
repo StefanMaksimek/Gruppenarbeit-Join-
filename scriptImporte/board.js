@@ -182,9 +182,13 @@ function setValuesForChangeTaskAssignedUser(currentTask) {
 function setValuesForChangeTaskDueDate(currentTask) {
     document.getElementById('show-board-details-box-complete-by').classList.add('d-none')
     document.getElementById('due-date-board-details-box').classList.remove('d-none')
-    let date = new Date(currentTask.dueDate)
-    let dueDate = date.toISOString().split('T')[0]
-    document.getElementById('due-date-board-details-box').value = dueDate;
+    document.getElementById('due-date-board-details-box').value = transformTimeStampToDate(currentTask.dueDate);
+}
+
+
+function transformTimeStampToDate(timestamp) {
+    let date = new Date(timestamp)
+    return date.toISOString().split('T')[0]
 }
 
 
