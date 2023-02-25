@@ -137,8 +137,8 @@ function createObjTask(title, priority, category, description, color, id, dueDat
     pushAllUsersInTask(task);
     tasks.push(task);
     uploadTasks();
-    clearAddTask()
-    renderBoard()
+    clearAddTask();
+    renderBoard();
     if (locationTask == 'backlog') {
         renderBacklog()
         openBacklog()

@@ -100,37 +100,37 @@ function highlight(id) {
 
 
 function removeHighlight(id) {
-    document.getElementById(id).parentElement.classList.remove('drag-area-highlight')
+    document.getElementById(id).parentElement.classList.remove('drag-area-highlight');
 }
 
 
 function openTaskDetails(id) {
-    document.getElementById('myModal').classList.add('d-block')
-    document.getElementById('show-board-details-container').classList.remove('d-none')
+    document.getElementById('myModal').classList.add('d-block');
+    document.getElementById('show-board-details-container').classList.remove('d-none');
 
-    fillBoardDetailBox(id)
-
+    fillBoardDetailBox(id);
+    closeBoardAddTask();
 }
 
 
 function fillBoardDetailBox(id) {
-    let task = tasks.find(e => e.id == id)
+    let task = tasks.find(e => e.id == id);
 
     document.getElementById('show-board-details-box-icon').innerHTML = '';
     task.user.forEach(e => {
-        document.getElementById('show-board-details-box-icon').innerHTML += addUserIconsHTML(e)
+        document.getElementById('show-board-details-box-icon').innerHTML += addUserIconsHTML(e);
     });
 
-    document.getElementById('show-board-details-container').style = `border : 2px solid var(--clr-${task.category})`
-    document.getElementById('show-board-details-box-icon').src = task.user[0].icon
-    document.getElementById('show-board-details-box-category').innerHTML = task.category
-    document.getElementById('show-board-details-box-title').innerHTML = task.title
-    document.getElementById('show-board-details-box-details').innerHTML = task.description
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`
+    document.getElementById('show-board-details-container').style = `border : 2px solid var(--clr-${task.category})`;
+    document.getElementById('show-board-details-box-icon').src = task.user[0].icon;
+    document.getElementById('show-board-details-box-category').innerHTML = task.category;
+    document.getElementById('show-board-details-box-title').innerHTML = task.title;
+    document.getElementById('show-board-details-box-details').innerHTML = task.description;
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`;
 
-    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10)
-    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10)
-    document.getElementById('show-board-details-box-priority').innerHTML = task.priority
+    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10);
+    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10);
+    document.getElementById('show-board-details-box-priority').innerHTML = task.priority;
 }
 
 
