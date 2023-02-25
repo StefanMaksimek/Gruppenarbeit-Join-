@@ -163,9 +163,11 @@ function changeTaskBoard(id) {
     document.getElementById('show-board-details-box-details').classList.add('d-none')
     document.getElementById('task-description-board-details-box').classList.remove('d-none')
     document.getElementById('task-description-board-details-input').value = currentTask.description
+    //buttons
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask(${id}, '')">Save</button>`
 }
 
-function setChangeModeOfBoardTaskDetailsContainerBack() {
+function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     //title
     document.getElementById('show-board-details-box-title').classList.remove('d-none')
     document.getElementById('title-task-change-detail-box').classList.add('d-none')
@@ -179,6 +181,10 @@ function setChangeModeOfBoardTaskDetailsContainerBack() {
     document.getElementById('show-board-details-box-urgency').classList.remove('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.add('d-none')
     //description
+    document.getElementById('show-board-details-box-details').classList.remove('d-none')
+    document.getElementById('task-description-board-details-box').classList.add('d-none')
+    //buttons
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`
 }
 
 
