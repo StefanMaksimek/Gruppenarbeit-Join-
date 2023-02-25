@@ -39,7 +39,8 @@
                     <img src="img/joinlogo.png" alt="">
                 </div>
 
-                <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">Board</h3>
+                <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
+                    Board</h3>
                 <h3 id="backlog-h3" onclick="openBacklog(), closeBoardAddTask()">Backlog</h3>
                 <h3 id="add-task-h3"
                     onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
@@ -77,7 +78,8 @@
             <div class="input-holder">
                 <h3>CATEGORY</h3>
 
-                <select class="form-select" id="category-list-input-sidebar" aria-label="Example select with button addon">
+                <select class="form-select" id="category-list-input-sidebar"
+                    aria-label="Example select with button addon">
                     <option value="IT">IT</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
@@ -91,7 +93,8 @@
                 <!--copied from bootstrap-->
                 <!-- Textarea with class .w-75 -->
                 <div class="form-outline mb-4 margin-top">
-                    <textarea required class="form-control" id="task-description-sidebar" rows="8" placeholder="..."></textarea>
+                    <textarea required class="form-control" id="task-description-sidebar" rows="8"
+                        placeholder="..."></textarea>
                 </div>
                 <!--copied from bootstrap-->
             </div>
@@ -107,7 +110,8 @@
                 <div class="input-holder">
                     <h3>Priority</h3>
 
-                    <select class="form-select" id="priority-state-input-sidebar" aria-label="Example select with button addon">
+                    <select class="form-select" id="priority-state-input-sidebar"
+                        aria-label="Example select with button addon">
                         <option value="normal">normal</option>
                         <option value="high">high</option>
                     </select>
@@ -235,11 +239,13 @@
                             <div class="assinged-to">
                                 <div class="responsible-editor-list-container">
                                     <div class="employees-holder">
-                                        <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                        <div class="btn-employees-add-icon"
+                                            onclick="openListOfEmployeesBoxForAddTask()">
                                             <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                         </div>
 
-                                        <div id="responsible-editor-list-change-task-board" class="responsible-editor-list assigned-to-user-holder"
+                                        <div id="responsible-editor-list-change-task-board"
+                                            class="responsible-editor-list assigned-to-user-holder"
                                             ondragover="allowDrop(event)">
                                         </div>
                                     </div>
@@ -261,10 +267,14 @@
                                 <td>
                                     <select class="form-select d-none" id="category-state-input-change-detail-box"
                                         aria-label="Example select with button addon">
-                                        <option id="category-state-input-board-details-box-option-it" value="IT">IT</option>
-                                        <option id="category-state-input-board-details-box-option-marketing" value="Marketing">Marketing</option>
-                                        <option id="category-state-input-board-details-box-option-sales" value="Sales">Sales</option>
-                                        <option id="category-state-input-board-details-box-option-management" value="Management">Management</option>
+                                        <option id="category-state-input-board-details-box-option-it" value="IT">IT
+                                        </option>
+                                        <option id="category-state-input-board-details-box-option-marketing"
+                                            value="Marketing">Marketing</option>
+                                        <option id="category-state-input-board-details-box-option-sales" value="Sales">
+                                            Sales</option>
+                                        <option id="category-state-input-board-details-box-option-management"
+                                            value="Management">Management</option>
                                     </select>
                                 </td>
                             </tr>
@@ -294,8 +304,10 @@
                                 <td class="padding-left" id="show-board-details-box-priority"></td>
                                 <td><select class="form-select d-none" id="priority-state-input-board-details-box"
                                         aria-label="Example select with button addon">
-                                        <option id="priority-state-input-board-details-box-option-normal" value="normal">normal</option>
-                                        <option id="priority-state-input-board-details-box-option-high" value="high">high</option>
+                                        <option id="priority-state-input-board-details-box-option-normal"
+                                            value="normal">normal</option>
+                                        <option id="priority-state-input-board-details-box-option-high" value="high">
+                                            high</option>
                                     </select></td>
                             </tr>
                         </table>
@@ -337,64 +349,104 @@
                             <img src="./img/close-icon.png">
                         </div>
                     </div>
+                    <div class="show-backlog-details-sub-container">
+                        <h3 id="show-backlog-details-box-name">Assigned to</h3>
 
-                    <h3 id="show-backlog-details-box-name">Assigned to</h3>
+                        <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
+                        </div>
+                        <table>
+                            <tr>
+                                <td>Category:</td>
+                                <td class="padding-left" id="show-backlog-details-box-category"></td>
+                                <td><select class="form-select d-none"
+                                        id="category-state-input-change-detail-box-backlog"
+                                        aria-label="Example select with button addon">
+                                        <option id="category-state-input-backlog-details-box-option-it" value="IT">IT
+                                        </option>
+                                        <option id="category-state-input-backlog-details-box-option-marketing"
+                                            value="Marketing">Marketing</option>
+                                        <option id="category-state-input-backlog-details-box-option-sales"
+                                            value="Sales">
+                                            Sales</option>
+                                        <option id="category-state-input-backlog-details-box-option-management"
+                                            value="Management">Management</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Title:</td>
+                                <td class="padding-left" id="show-backlog-details-box-title"></td>
+                                <td>
+                                    <div id="title-task-change-detail-box-backlog" class="d-none">
+                                        <input required type="text" placeholder="Title"
+                                            id="title-task-change-detail-input-backlog" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Complete by:</td>
+                                <td class="padding-left" id="show-backlog-details-box-due-date"></td>
+                                <td><input required class="form-control input-due-date d-none" type="date" name="begin"
+                                        placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31"
+                                        id="due-date-backlog-details-box"></td>
+                            </tr>
+                            <tr>
+                                <td>Priority:</td>
+                                <td class="padding-left" id="show-backlog-details-box-priority"></td>
+                                <td><select class="form-select d-none" id="show-backlog-details-box-priority-change"
+                                        aria-label="Example select with button addon">
+                                        <option id="priority-state-input-backlog-details-box-option-normal"
+                                            value="normal">
+                                            normal</option>
+                                        <option id="priority-state-input-backlog-details-box-option-high" value="high">
+                                            high</option>
+                                    </select></td>
+                            </tr>
+                        </table>
 
-                    <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
-                    </div>
-                    <table>
-                        <tr>
-                            <td>Category:</td>
-                            <td class="padding-left" id="show-backlog-details-box-category"></td>
-                        </tr>
-                        <tr>
-                            <td>Title:</td>
-                            <td class="padding-left" id="show-backlog-details-box-title"></td>
-                        </tr>
-                        <tr>
-                            <td>Due Date:</td>
-                            <td class="padding-left" id="show-backlog-details-box-due-date"></td>
-                        </tr>
-                        <tr>
-                            <td>Priority:</td>
-                            <td class="padding-left" id="show-backlog-details-box-priority"></td>
-                        </tr>
-                    </table>
-
-                    <h3>Description</h3>
-                    <span id="show-backlog-details-box-details">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
-                    </span>
-
-                    <div class="input-holder2">
-                        <div class="input-holder">
-                            <h3>COLOR</h3>
-
-                            <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
-                                <button type="button" onclick="showColor()" class="btn btn-info"
-                                    id="add-task-color-button">choose
-                                </button>
-                                <div class="d-none color-picker-container" id="color-picker">
-
-                                </div>
+                        <h3>Description</h3>
+                        <div style="width: 100%;">
+                            <span id="show-backlog-details-box-details">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                            </span>
+                            <div id="task-description-backlog-details-box" class="form-outline mb-4 margin-top d-none">
+                                <textarea required class="form-control textarea-change-backlog-task"
+                                    id="task-description-backlog-details-input" rows="3" placeholder="..."></textarea>
                             </div>
                         </div>
 
-                        <div class="input-holder">
-                            <h3>STATUS</h3>
 
-                            <select class="form-select" id="status-list-input"
-                                aria-label="Example select with button addon">
-                                <option value="to-do">ToDo</option>
-                                <option value="in-progress">IN PROGRESS</option>
-                                <option value="testing">TESTING</option>
-                                <option value="done">DONE</option>
-                            </select>
+                        <div class="input-holder2">
+                            <div class="input-holder">
+                                <h3>COLOR</h3>
+
+                                <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                                    <button type="button" onclick="showColor()" class="btn btn-info"
+                                        id="add-task-color-button">choose
+                                    </button>
+                                    <div class="d-none color-picker-container" id="color-picker">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="input-holder">
+                                <h3>STATUS</h3>
+
+                                <select class="form-select" id="status-list-input"
+                                    aria-label="Example select with button addon">
+                                    <option value="to-do">ToDo</option>
+                                    <option value="in-progress">IN PROGRESS</option>
+                                    <option value="testing">TESTING</option>
+                                    <option value="done">DONE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="btn-holder-backlog" id="btn-holder-backlog">
+
                         </div>
                     </div>
-                    <div class="btn-holder-backlog" id="btn-holder-backlog">
 
-                    </div>
+
                 </div>
             </div>
 
@@ -460,7 +512,8 @@
                             <div class="assinged-to">
                                 <div class="responsible-editor-list-container">
                                     <div class="employees-holder">
-                                        <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                        <div class="btn-employees-add-icon"
+                                            onclick="openListOfEmployeesBoxForAddTask()">
                                             <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                         </div>
 

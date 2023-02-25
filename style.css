@@ -54,3 +54,32 @@ body::-webkit-scrollbar-thumb {
   background-color: #ffa500;
   outline: 1px solid white;
 }
+
+
+
+.textarea-change-backlog-task::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textarea-change-backlog-task::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.textarea-change-backlog-task::-webkit-scrollbar-thumb {
+background-color: #ffa500;
+outline: 1px solid white;
+}
+
+.show-backlog-details-sub-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.show-backlog-details-sub-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+.show-backlog-details-sub-container::-webkit-scrollbar-thumb {
+background-color: var(--clr-primary);
+outline: 1px solid white;
+}
+

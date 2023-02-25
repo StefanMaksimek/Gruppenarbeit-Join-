@@ -192,17 +192,28 @@ td {
     height: 32px;
 }
 
-.btn-holder-backlog{
+.btn-holder-backlog {
     display: flex;
     justify-content: space-between;
     width: 100%;
 }
 
-.btn-holder-backlog button{
+.btn-holder-backlog button {
     width: 100px;
 }
 
-.btn-holder-backlog button:hover{
+.btn-holder-backlog button:hover {
     width: 100px;
     color: black;
+}
+
+
+.textarea-change-backlog-task {
+    height: 100px;
+    overflow: auto;
+}
+
+.show-backlog-details-sub-container {
+    overflow: auto;
+    padding: 12px;
 }
