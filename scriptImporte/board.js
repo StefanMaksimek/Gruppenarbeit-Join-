@@ -130,7 +130,7 @@ function fillBoardDetailBox(id) {
 
     document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10)
     document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10)
-    document.getElementById('show-board-details-box-urgency').innerHTML = task.priority
+    document.getElementById('show-board-details-box-priority').innerHTML = task.priority
 }
 
 
@@ -147,10 +147,35 @@ function deleteTaskBoard(id) {
 function changeTaskBoard(id) {
     let currentTask = tasks.find(t => t.id == id);
     //title
-    document.getElementById('show-board-details-box-title').classList.add('d-none')
-    document.getElementById('title-task-change-detail-box').classList.remove('d-none')
-    document.getElementById('title-task-change-detail-input').value = currentTask.title
+    setValuesForChangeTaskTitle(currentTask);
     //category
+    setValuesForChangeTaskCategory(currentTask);
+    //due date
+    setValuesForChangeTaskDueDate(currentTask);
+    //priority
+    setValuesForChangeTaskPriority(currentTask);
+    //description
+    setValuesForChangeTaskDescription(currentTask);
+    //buttons
+    document.getElementById('show-board-details-box-btns').innerHTML = changeButtonsforEditorModusOnBoardChangeTask(id);
+}
+
+
+function changeButtonsforEditorModusOnBoardChangeTask(id) {
+    return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask(${id}, '')">Save</button>`
+}
+
+
+function setValuesForChangeTaskDueDate(currentTask) {
+    document.getElementById('show-board-details-box-complete-by').classList.add('d-none')
+    document.getElementById('due-date-board-details-box').classList.remove('d-none')
+    let date = new Date(currentTask.dueDate)
+    let dueDate = date.toISOString().split('T')[0]
+    document.getElementById('due-date-board-details-box').value = dueDate;
+}
+
+
+function setValuesForChangeTaskCategory(currentTask) {
     document.getElementById('show-board-details-box-category').classList.add('d-none')
     document.getElementById('category-state-input-change-detail-box').classList.remove('d-none')
     if (currentTask.category == 'IT') {
@@ -165,14 +190,18 @@ function changeTaskBoard(id) {
     if (currentTask.category == 'Management') {
         document.getElementById('category-state-input-board-details-box-option-management').selected = 'selected'
     }
-    //due date
-    document.getElementById('show-board-details-box-complete-by').classList.add('d-none')
-    document.getElementById('due-date-board-details-box').classList.remove('d-none')
-    let date = new Date(currentTask.dueDate)
-    let dueDate = date.toISOString().split('T')[0]
-    document.getElementById('due-date-board-details-box').value = dueDate;
-    //priority, urgency
-    document.getElementById('show-board-details-box-urgency').classList.add('d-none')
+}
+
+
+function setValuesForChangeTaskTitle(currentTask) {
+    document.getElementById('show-board-details-box-title').classList.add('d-none')
+    document.getElementById('title-task-change-detail-box').classList.remove('d-none')
+    document.getElementById('title-task-change-detail-input').value = currentTask.title
+}
+
+
+function setValuesForChangeTaskPriority(currentTask) {
+    document.getElementById('show-board-details-box-priority').classList.add('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.remove('d-none')
     if (currentTask.priority == 'normal') {
         document.getElementById('priority-state-input-board-details-box-option-normal').selected = 'selected'
@@ -180,13 +209,15 @@ function changeTaskBoard(id) {
     else {
         document.getElementById('priority-state-input-board-details-box-option-high').selected = 'selected'
     }
-    //description
+}
+
+
+function setValuesForChangeTaskDescription(currentTask) {
     document.getElementById('show-board-details-box-details').classList.add('d-none')
     document.getElementById('task-description-board-details-box').classList.remove('d-none')
     document.getElementById('task-description-board-details-input').value = currentTask.description
-    //buttons
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask(${id}, '')">Save</button>`
 }
+
 
 function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     //title
@@ -198,8 +229,8 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     //due date
     document.getElementById('show-board-details-box-complete-by').classList.remove('d-none')
     document.getElementById('due-date-board-details-box').classList.add('d-none')
-    //priority, urgency
-    document.getElementById('show-board-details-box-urgency').classList.remove('d-none')
+    //priority
+    document.getElementById('show-board-details-box-priority').classList.remove('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.add('d-none')
     //description
     document.getElementById('show-board-details-box-details').classList.remove('d-none')
@@ -210,14 +241,16 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
 
 
 
-function saveChangesTask() {
+function saveChangesTask(id) {
     let currentTask = tasks.find(t => t.id == id);
-    let category = document.getElementById('category-state-input-change-detail-box').value
-    currentTask.category = category;
-    let title = document.getElementById('title-task-change-detail-box').value
-    currentTask.title = title;
+    currentTask.category = document.getElementById('category-state-input-change-detail-box').value
+    currentTask.title = document.getElementById('title-task-change-detail-input').value
+    currentTask.dueDate = new Date(document.getElementById('due-date-board-details-box').value).getTime()
+    currentTask.priority = document.getElementById('priority-state-input-board-details-box').value
+    currentTask.description = document.getElementById('task-description-board-details-input').value
     uploadTasks();
     renderBoard();
+    setChangeModeOfBoardTaskDetailsContainerBack(id);
     closeBoardDetails();
 }
 
