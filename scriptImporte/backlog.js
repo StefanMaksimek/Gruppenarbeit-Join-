@@ -37,7 +37,7 @@ function fillBaacklogDetailBox(id) {
     document.getElementById('show-backlog-details-box-category').innerHTML = task.category
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
     document.getElementById('show-backlog-details-box-details').innerHTML = task.description
-    document.getElementById('btn-holder-backlog').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTask(${id})">Delete Task</button><button class="push-task" style="background-color: green" onclick="pushTask(${id}, '')">Accept Task</button>`
+    document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id)
 }
 
 

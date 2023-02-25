@@ -30,7 +30,7 @@ h3 {
 }
 
 .side-bar {
-    z-index: 99;
+    z-index: 40;
     position: relative;
     width: 180px;
     background-color: var(--clr-primary);

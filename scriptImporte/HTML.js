@@ -213,3 +213,10 @@ function renderSelectedEmployeesHTML(name, img) {
     </div> 
     `
 }
+
+
+function renderButtonsBacklog(id) {
+    return `<button class="push-task" style="background-color: red" onclick="deleteTask(${id})">Delete Task</button>
+    <button class="push-task" style="background-color: #ffa500" onclick="changeTaskBacklog(${id})">Change Task</button>
+    <button class="push-task" style="background-color: green" onclick="pushTask(${id}, '')">Accept Task</button>`
+}
