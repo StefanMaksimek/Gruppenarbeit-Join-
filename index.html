@@ -39,7 +39,7 @@
                     <img src="img/joinlogo.png" alt="">
                 </div>
 
-                <h3 id="board-h3" class="active-h3" onclick="openBoard()">Board</h3>
+                <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">Board</h3>
                 <h3 id="backlog-h3" onclick="openBacklog(), closeBoardAddTask()">Backlog</h3>
                 <h3 id="add-task-h3"
                     onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
@@ -72,12 +72,12 @@
                 <button type="submit">Create Task</button>
             </div>
 
-            <input id="title-task" class="input-title" type="text" placeholder="Enter a title">
+            <input id="title-task-sidebar" class="input-title" type="text" placeholder="Enter a title">
 
             <div class="input-holder">
                 <h3>CATEGORY</h3>
 
-                <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                <select class="form-select" id="category-list-input-sidebar" aria-label="Example select with button addon">
                     <option value="IT">IT</option>
                     <option value="Marketing">Marketing</option>
                     <option value="Sales">Sales</option>
@@ -91,7 +91,7 @@
                 <!--copied from bootstrap-->
                 <!-- Textarea with class .w-75 -->
                 <div class="form-outline mb-4 margin-top">
-                    <textarea required class="form-control" id="task-description" rows="8" placeholder="..."></textarea>
+                    <textarea required class="form-control" id="task-description-sidebar" rows="8" placeholder="..."></textarea>
                 </div>
                 <!--copied from bootstrap-->
             </div>
@@ -101,13 +101,13 @@
                     <h3>DUE DATE</h3>
 
                     <input required class="form-control input-due-date" type="date" name="begin"
-                        placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date">
+                        placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date-sidebar">
                 </div>
 
                 <div class="input-holder">
                     <h3>Priority</h3>
 
-                    <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                    <select class="form-select" id="priority-state-input-sidebar" aria-label="Example select with button addon">
                         <option value="normal">normal</option>
                         <option value="high">high</option>
                     </select>
@@ -473,7 +473,7 @@
                         </div>
 
                         <div class="btns-add-task">
-                            <button type="button" onclick="openBoard()" class="btn-cancel">Cancel</button>
+                            <button type="button" onclick="clearAddTask()" class="btn-cancel">Clear</button>
                             <button type="submit" class="btn btn-primary">Create Task</button>
                         </div>
                     </div>

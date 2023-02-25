@@ -81,22 +81,45 @@ function takeColor(color) {
 // ###### Color Options End ######
 
 function createTask() {
+    if (taskIsWritteninAddTaskArea()) {
+        createTaskFromAddTask()
+    }
+    else {
+        createTaskFromBoard()
+    }
+}
 
+
+function taskIsWritteninAddTaskArea() {
+    return !document.getElementById('add-task').classList.contains('d-none');
+}
+
+
+function createTaskFromBoard() {
+    let title = document.getElementById('title-task-sidebar');
+    let priority = document.getElementById('priority-state-input-sidebar');
+    let category = document.getElementById('category-list-input-sidebar');
+    let description = document.getElementById('task-description-sidebar');
+    let color = temporaryArrayColor[0]
+    let id = tasks.length
+    let dueDate = document.getElementById('due-date-sidebar')
+    createObjTask(title, priority, category, description, color, id, dueDate)
+}
+
+
+function createTaskFromAddTask() {
     let title = document.getElementById('title-task');
     let priority = document.getElementById('priority-state-input');
     let category = document.getElementById('category-list-input');
-    let status = document.getElementById('status-list-input');
     let description = document.getElementById('task-description');
     let color = temporaryArrayColor[0]
     let id = tasks.length
     let dueDate = document.getElementById('due-date')
-
-    console.log(document.getElementById('status-list-input').value)
-    createObjTask(title, priority, category, status, description, color, id, dueDate)
+    createObjTask(title, priority, category, description, color, id, dueDate)
 }
 
 
-function createObjTask(title, priority, category, status, description, color, id, dueDate) {
+function createObjTask(title, priority, category, description, color, id, dueDate) {
 
     let task = {
         "id": id,
@@ -106,7 +129,7 @@ function createObjTask(title, priority, category, status, description, color, id
         "createdAt": new Date().getTime(),
         "dueDate": new Date(dueDate.value).getTime(),
         "user": [],
-        "status": status.value,
+        "status": '',
         "description": description.value,
         "color": color,
         "locationTask": locationTask //where the task is rendered
@@ -179,16 +202,35 @@ function clearColorofButtonForColorSelection() {
 
 function closeListOfEmployeesBoxForAddTask() {
     document.getElementById('select-employees-container').classList.add('d-none')
-    document.getElementById('myModal').classList.remove('d-block')
+    if (currentlyNotInChangeModeOffTaskDetailViewInBoardArea()) {
+        document.getElementById('myModal').classList.remove('d-block')
+    }
+    changeZPositionOfBackgroundContainerlow()
     clearUserListForAddEmployees()
+}
+
+
+function currentlyNotInChangeModeOffTaskDetailViewInBoardArea() {
+    return document.getElementById('show-board-details-container').classList.contains('d-none')
 }
 
 
 function openListOfEmployeesBoxForAddTask() {
     showTwentyUsersAsProbosalsInSearchfield();
+    changeZPositionOfBackgroundContainerHigh();
 
     document.getElementById('myModal').classList.add('d-block')
     document.getElementById('select-employees-container').classList.remove('d-none');
+}
+
+
+function changeZPositionOfBackgroundContainerHigh() {
+    document.getElementById('myModal').style = 'z-index: 99;'
+}
+
+
+function changeZPositionOfBackgroundContainerlow() {
+    document.getElementById('myModal').style = 'z-index: 49;'
 }
 
 

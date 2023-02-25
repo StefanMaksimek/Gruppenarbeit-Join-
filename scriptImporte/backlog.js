@@ -71,10 +71,10 @@ function pushTask(id, statusTask) {
 
 
 function setColorAndStatus(currentTask, statusTask) {
-    if (statusTask == '') {
+    if (statusTask == '') { //task create in add task area
         currentTask.status = document.getElementById('status-list-input').value;
     }
-    else {
+    else { //task create in board area
         currentTask.status = statusTask;
     }
     currentTask.color = temporaryArrayColor[0];

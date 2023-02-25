@@ -138,6 +138,7 @@ window.onclick = function (event) {
         document.getElementById('side-bar').classList.remove("active-mobile-side")
         document.getElementById('burger').classList.remove('toggle')
         document.getElementById('myModal').classList.remove('d-block')
+        changeZPositionOfBackgroundContainerlow()
 
         document.getElementById('show-backlog-details-container').classList.add('d-none')
         
