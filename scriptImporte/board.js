@@ -153,12 +153,33 @@ function changeTaskBoard(id) {
     //category
     document.getElementById('show-board-details-box-category').classList.add('d-none')
     document.getElementById('category-state-input-change-detail-box').classList.remove('d-none')
+    if (currentTask.category == 'IT') {
+        document.getElementById('category-state-input-board-details-box-option-it').selected = 'selected'
+    }
+    if (currentTask.category == 'Marketing') {
+        document.getElementById('category-state-input-board-details-box-option-marketing').selected = 'selected'
+    }
+    if (currentTask.category == 'Sales') {
+        document.getElementById('category-state-input-board-details-box-option-sales').selected = 'selected'
+    }
+    if (currentTask.category == 'Management') {
+        document.getElementById('category-state-input-board-details-box-option-management').selected = 'selected'
+    }
     //due date
     document.getElementById('show-board-details-box-complete-by').classList.add('d-none')
     document.getElementById('due-date-board-details-box').classList.remove('d-none')
-    //urgency
+    let date = new Date(currentTask.dueDate)
+    let dueDate = date.toISOString().split('T')[0]
+    document.getElementById('due-date-board-details-box').value = dueDate;
+    //priority, urgency
     document.getElementById('show-board-details-box-urgency').classList.add('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.remove('d-none')
+    if (currentTask.priority == 'normal') {
+        document.getElementById('priority-state-input-board-details-box-option-normal').selected = 'selected'
+    }
+    else {
+        document.getElementById('priority-state-input-board-details-box-option-high').selected = 'selected'
+    }
     //description
     document.getElementById('show-board-details-box-details').classList.add('d-none')
     document.getElementById('task-description-board-details-box').classList.remove('d-none')
@@ -177,7 +198,7 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     //due date
     document.getElementById('show-board-details-box-complete-by').classList.remove('d-none')
     document.getElementById('due-date-board-details-box').classList.add('d-none')
-    //urgency
+    //priority, urgency
     document.getElementById('show-board-details-box-urgency').classList.remove('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.add('d-none')
     //description
