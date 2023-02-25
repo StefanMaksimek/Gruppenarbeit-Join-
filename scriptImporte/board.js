@@ -146,6 +146,14 @@ function deleteTaskBoard(id) {
 
 function changeTaskBoard(id) {
     let currentTask = tasks.find(t => t.id == id);
+    //assigned user
+    document.getElementById('show-board-details-box-icon').classList.add('d-none')
+    document.getElementById('show-board-details-box-icon-change-detail-box').classList.remove('d-none')
+    document.getElementById('responsible-editor-list-change-task-board').innerHTML = '';
+    currentTask.user.forEach(e => {
+        document.getElementById('responsible-editor-list-change-task-board').innerHTML += addUserIconsHTML(e)
+    });
+
     //title
     setValuesForChangeTaskTitle(currentTask);
     //category
@@ -220,6 +228,9 @@ function setValuesForChangeTaskDescription(currentTask) {
 
 
 function setChangeModeOfBoardTaskDetailsContainerBack(id) {
+    //assigned user
+    document.getElementById('show-board-details-box-icon').classList.remove('d-none')
+    document.getElementById('show-board-details-box-icon-change-detail-box').classList.add('d-none')
     //title
     document.getElementById('show-board-details-box-title').classList.remove('d-none')
     document.getElementById('title-task-change-detail-box').classList.add('d-none')

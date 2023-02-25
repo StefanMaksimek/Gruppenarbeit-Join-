@@ -92,7 +92,7 @@
 }
 
 #show-board-details-container {
-    z-index: 100;
+    z-index: 51;
     position: fixed;
     /*position fixed because the detail view of task shouldn't be able to scroll*/
     top: 50%;

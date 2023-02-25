@@ -1,7 +1,7 @@
 let temporaryArrayColor = ['lightblue'];
 let temporaryArrayResponsibleEmployees = [];
 let statusTask = 'toDo'; //toDo, inProgress, testing, done
-let locationTask = 'backlog'; // backlog or board
+let locationTask = 'board'; // backlog or board
 
 
 function changeStatusTaskAndLocation(status, location) {
@@ -396,10 +396,13 @@ function addUserToResponsibleEmployees(user, icon) {
 
 function renderResponsibleUserList() {
     let content;
-    if (locationTask != 'backlog') {
+    if (locationTask == 'board' && changeInDetailViewOnBoardIsHidden()) {
         content = document.getElementById('responsible-editor-list-board')
     }
-    else {
+    if (locationTask == 'board' && !changeInDetailViewOnBoardIsHidden()) {
+        content = document.getElementById('responsible-editor-list-change-task-board')
+    }
+    if (locationTask == 'backlog') {
         content = document.getElementById('responsible-editor-list')
     }
 
@@ -410,6 +413,10 @@ function renderResponsibleUserList() {
         const img = temporaryArrayResponsibleEmployees[i].icon;
         content.innerHTML += renderSelectedEmployeesHTML(name, img);
     }
+}
+
+function changeInDetailViewOnBoardIsHidden() {
+    return document.getElementById('show-board-details-box-icon-change-detail-box').classList.contains('d-none')
 }
 
 

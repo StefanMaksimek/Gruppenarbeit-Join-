@@ -231,6 +231,29 @@
 
                         <div class="assigned-to-user-holder" id="show-board-details-box-icon">
                         </div>
+                        <div id="show-board-details-box-icon-change-detail-box" class="d-none">
+                            <div class="assinged-to">
+                                <div class="responsible-editor-list-container">
+                                    <div class="employees-holder">
+                                        <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                                        </div>
+
+                                        <div id="responsible-editor-list-change-task-board" class="responsible-editor-list assigned-to-user-holder"
+                                            ondragover="allowDrop(event)">
+                                        </div>
+                                    </div>
+                                    <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                                        class="responsible-editor-list-bin" ondragover="allowDrop(event)"
+                                        ondrop="moveToBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                        <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                            Drag and drop an user for delete.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <table>
                             <tr>
                                 <td>Category:</td>
@@ -429,9 +452,8 @@
                             <div class="assinged-to">
                                 <div class="responsible-editor-list-container">
                                     <div class="employees-holder">
-                                        <div class="btn-employees" onclick="openListOfEmployeesBoxForAddTask()">
-                                            <div class="btn-line1"></div>
-                                            <div class="btn-line2"></div>
+                                        <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                         </div>
 
                                         <div id="responsible-editor-list" class="responsible-editor-list"
