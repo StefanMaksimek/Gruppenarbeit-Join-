@@ -288,7 +288,7 @@ function getAllUserOfTheSearchByMail(mailAddress, userProposals) {
     let userObj = users.find(u => u.mail == mailAddress)
     let icon = userObj.icon
     let user = userObj.name
-    if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+    if (!alreadyResponsibleUserAdded(user) || !alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
         userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
     }
 }
@@ -330,7 +330,7 @@ function renderUsersAsProposals(userProposals) {
         let user = users[i].name;
         let icon = users[i].icon
 
-        if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
         }
         else {
             userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
@@ -344,7 +344,7 @@ function renderFirstTwentyUsersAsProposals(userProposals) {
         let user = users[i].name;
         let icon = users[i].icon
 
-        if (alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
         }
         else {
             userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
@@ -372,7 +372,7 @@ function showSearchMatches() {
             let userObj = users.find(t => t.name == user)
             let icon = userObj.icon
 
-            if (!alreadyResponsibleUserAdded(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+            if (!alreadyResponsibleUserAdded(user) || !alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
                 userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
         }
@@ -383,6 +383,11 @@ function showSearchMatches() {
 
 function alreadyResponsibleUserAdded(user) {
     return document.getElementById('responsible-editor-list').contains(document.getElementById(`${user}-responsible-editor-img`))
+}
+
+
+function alreadyResponsibleUserAddedChangeTaskBoard(user) {
+    return document.getElementById('responsible-editor-list-change-task-board').contains(document.getElementById(`${user}-responsible-editor-img`))
 }
 
 
@@ -438,6 +443,7 @@ function getResponsibleEmployeeForDelete(user, icon) {
 
 //delete by moving the img to the bin
 function moveToBin() {
+    debugger
     const index = temporaryArrayResponsibleEmployees.findIndex(x => x.name === currentDraggedUserAddTask);
     if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 
@@ -449,6 +455,15 @@ function showHintForBinAddTask() {
     document.getElementById('bin-hint-task').classList.remove('d-none')
 }
 
+
 function hideHintForBinAddTask() {
     document.getElementById('bin-hint-task').classList.add('d-none')
+}
+
+
+function loadAlreadyAssignedUserInTemporaryArray(currentTask) {
+    for (let i = 0; i < currentTask.user.length; i++) {
+        const user = currentTask.user[i];
+        temporaryArrayResponsibleEmployees.push(user)
+    }
 }

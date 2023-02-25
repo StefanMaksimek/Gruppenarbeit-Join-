@@ -147,13 +147,7 @@ function deleteTaskBoard(id) {
 function changeTaskBoard(id) {
     let currentTask = tasks.find(t => t.id == id);
     //assigned user
-    document.getElementById('show-board-details-box-icon').classList.add('d-none')
-    document.getElementById('show-board-details-box-icon-change-detail-box').classList.remove('d-none')
-    document.getElementById('responsible-editor-list-change-task-board').innerHTML = '';
-    currentTask.user.forEach(e => {
-        document.getElementById('responsible-editor-list-change-task-board').innerHTML += addUserIconsHTML(e)
-    });
-
+    setValuesForChangeTaskAssignedUser(currentTask)
     //title
     setValuesForChangeTaskTitle(currentTask);
     //category
@@ -171,6 +165,17 @@ function changeTaskBoard(id) {
 
 function changeButtonsforEditorModusOnBoardChangeTask(id) {
     return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask(${id}, '')">Save</button>`
+}
+
+
+function setValuesForChangeTaskAssignedUser(currentTask) {
+    document.getElementById('show-board-details-box-icon').classList.add('d-none')
+    document.getElementById('show-board-details-box-icon-change-detail-box').classList.remove('d-none')
+    document.getElementById('responsible-editor-list-change-task-board').innerHTML = '';
+    loadAlreadyAssignedUserInTemporaryArray(currentTask)
+    currentTask.user.forEach(user => {
+        document.getElementById('responsible-editor-list-change-task-board').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon)
+    });
 }
 
 
@@ -228,6 +233,7 @@ function setValuesForChangeTaskDescription(currentTask) {
 
 
 function setChangeModeOfBoardTaskDetailsContainerBack(id) {
+    setTemporaryArrayResponsibleEmployeesToStandard();
     //assigned user
     document.getElementById('show-board-details-box-icon').classList.remove('d-none')
     document.getElementById('show-board-details-box-icon-change-detail-box').classList.add('d-none')
@@ -259,6 +265,9 @@ function saveChangesTask(id) {
     currentTask.dueDate = new Date(document.getElementById('due-date-board-details-box').value).getTime()
     currentTask.priority = document.getElementById('priority-state-input-board-details-box').value
     currentTask.description = document.getElementById('task-description-board-details-input').value
+    currentTask.user.length = 0; //make it empty because all users will load again in the task on next step
+    pushAllUsersInTask(currentTask)
+    setTemporaryArrayResponsibleEmployeesToStandard()
     uploadTasks();
     renderBoard();
     setChangeModeOfBoardTaskDetailsContainerBack(id);
