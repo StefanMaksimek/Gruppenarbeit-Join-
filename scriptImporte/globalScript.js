@@ -116,7 +116,6 @@ function changeAddTaskItemsOnBoard(theme) {
     let imagesAddTaskBoard = document.getElementsByClassName('card-header-add-icon-img');
     for (let i = 0; i < imagesAddTaskBoard.length; i++) {
         const img = imagesAddTaskBoard[i];
-        console.log(img.src)
         if (theme == 'dark') {
             img.src = './img/add-task-icon-white.png';
         }
@@ -130,7 +129,7 @@ function changeAddTaskItemsOnBoard(theme) {
 function openMobileSide() {
     document.getElementById('side-bar').classList.toggle('active-mobile-side');
     document.getElementById('burger').classList.toggle('toggle');
-   // document.getElementById('myModal').classList.toggle('d-block');
+    // document.getElementById('myModal').classList.toggle('d-block');
 }
 
 
@@ -142,14 +141,16 @@ window.onclick = function (event) {
         document.getElementById('myModal').classList.remove('d-block')
         changeZPositionOfBackgroundContainerlow()
 
-        document.getElementById('show-backlog-details-container').classList.add('d-none')
-        
         document.getElementById('select-employees-container').classList.add('d-none')
         document.getElementById('show-user-details-container').classList.add('d-none')
 
-        if(!document.getElementById('show-board-details-container').classList.contains('d-none')){
+        if (!document.getElementById('show-board-details-container').classList.contains('d-none')) {
             document.getElementById('show-board-details-container').classList.add('d-none')
-            setChangeModeOfBoardTaskDetailsContainerBack();
+            setChangeModeOfBoardTaskDetailsContainerBack('');
+        }
+        if (!document.getElementById('show-backlog-details-container').classList.contains('d-none')) {
+            document.getElementById('show-backlog-details-container').classList.add('d-none')
+            setChangeModeOfBacklogTaskDetailsContainerBack('');
         }
     }
 }

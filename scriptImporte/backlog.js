@@ -158,7 +158,9 @@ function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
     document.getElementById('show-backlog-details-box-details').classList.remove('d-none');
     document.getElementById('task-description-backlog-details-box').classList.add('d-none');
     //buttons
-    document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id);
+    if (id != '') {
+        document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id);
+    }
 }
 
 

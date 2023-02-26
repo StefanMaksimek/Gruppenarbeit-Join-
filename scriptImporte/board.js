@@ -256,7 +256,10 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     document.getElementById('show-board-details-box-details').classList.remove('d-none')
     document.getElementById('task-description-board-details-box').classList.add('d-none')
     //buttons
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
+    if (id != '') {
+        document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
+    }
+
 }
 
 
