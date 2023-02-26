@@ -202,7 +202,7 @@ function clearColorofButtonForColorSelection() {
 
 function closeListOfEmployeesBoxForAddTask() {
     document.getElementById('select-employees-container').classList.add('d-none')
-    if (currentlyNotInChangeModeOffTaskDetailViewInBoardArea()) {
+    if (currentlyNotInChangeModeOffTaskDetailViewInBoardArea() && currentlyNotInChangeModeOffTaskDetailViewInBacklogArea()) {
         document.getElementById('myModal').classList.remove('d-block')
     }
     changeZPositionOfBackgroundContainerlow()
@@ -212,6 +212,11 @@ function closeListOfEmployeesBoxForAddTask() {
 
 function currentlyNotInChangeModeOffTaskDetailViewInBoardArea() {
     return document.getElementById('show-board-details-container').classList.contains('d-none')
+}
+
+
+function currentlyNotInChangeModeOffTaskDetailViewInBacklogArea() {
+    return document.getElementById('show-backlog-details-container').classList.contains('d-none')
 }
 
 
@@ -449,8 +454,13 @@ function renderResponsibleUserList() {
     if (locationTask == 'board' && !changeInDetailViewOnBoardIsHidden()) {
         content = document.getElementById('responsible-editor-list-change-task-board')
     }
-    if (locationTask == 'backlog') {
+    if (locationTask == 'backlog' && changeInDetailViewOnBacklogIsHidden()) {
+        console.log('A')
         content = document.getElementById('responsible-editor-list')
+    }
+    if (locationTask == 'backlog' && !changeInDetailViewOnBacklogIsHidden()) {
+        console.log('B')
+        content = document.getElementById('responsible-editor-list-change-task-backlog')
     }
 
     content.innerHTML = '';
@@ -462,8 +472,14 @@ function renderResponsibleUserList() {
     }
 }
 
+
 function changeInDetailViewOnBoardIsHidden() {
     return document.getElementById('show-board-details-box-icon-change-detail-box').classList.contains('d-none')
+}
+
+
+function changeInDetailViewOnBacklogIsHidden() {
+    return document.getElementById('show-backlog-details-box-icon-change').classList.contains('d-none')
 }
 
 
@@ -485,7 +501,6 @@ function getResponsibleEmployeeForDelete(user, icon) {
 
 //delete by moving the img to the bin
 function moveToBin() {
-    debugger
     const index = temporaryArrayResponsibleEmployees.findIndex(x => x.name === currentDraggedUserAddTask);
     if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 

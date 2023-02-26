@@ -220,3 +220,10 @@ function renderButtonsBacklog(id) {
     <button class="push-task" style="background-color: #ffa500" onclick="changeTaskBacklog(${id})">Change Task</button>
     <button class="push-task" style="background-color: green" onclick="pushTask(${id}, '')">Accept Task</button>`
 }
+
+
+function renderCloseIconBacklogDetailViewBox(id) {
+    return `<div class="btn-close-cross-box" onclick="closeBacklogDetails(); setChangeModeOfBacklogTaskDetailsContainerBack(${id})">
+<img src="./img/close-icon.png">
+</div>`
+}

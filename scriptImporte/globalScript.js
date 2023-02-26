@@ -128,7 +128,7 @@ function changeAddTaskItemsOnBoard(theme) {
 function openMobileSide() {
     document.getElementById('side-bar').classList.toggle('active-mobile-side');
     document.getElementById('burger').classList.toggle('toggle');
-    document.getElementById('myModal').classList.toggle('d-block');
+   // document.getElementById('myModal').classList.toggle('d-block');
 }
 
 

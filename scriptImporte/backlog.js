@@ -32,6 +32,8 @@ function fillBaacklogDetailBox(id) {
         document.getElementById('show-backlog-details-box-icon').innerHTML += addUserIconsHTML(e)
     });
 
+
+    document.getElementById('close-user-details-box-backlog').innerHTML = renderCloseIconBacklogDetailViewBox(id);
     document.getElementById('show-backlog-details-container').style = `border : 2px solid var(--clr-${task.category})`
     document.getElementById('show-backlog-details-box-icon').src = task.user[0].icon
     document.getElementById('show-backlog-details-box-category').innerHTML = task.category
@@ -52,7 +54,7 @@ function closeBacklogDetails() {
 function changeTaskBacklog(id) {
     let currentTask = tasks.find(t => t.id == id);
     //assigned user
-    //setValuesForChangeTaskBacklogAssignedUser(currentTask)
+    setValuesForChangeTaskBacklogAssignedUser(currentTask)
     //title
     setValuesForChangeTaskBacklogTitle(currentTask);
     //category
@@ -64,7 +66,23 @@ function changeTaskBacklog(id) {
     //description
     setValuesForChangeTaskBacklogDescription(currentTask);
     //buttons
-    //document.getElementById('show-board-details-box-btns').innerHTML = changeButtonsforEditorModusOnBoardChangeTask(id);
+    document.getElementById('btn-holder-backlog').innerHTML = changeButtonsforEditorModusOnBacklogChangeTask(id);
+}
+
+
+function changeButtonsforEditorModusOnBacklogChangeTask(id) {
+    return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBacklogTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTaskBacklog(${id}, '')">Save</button>`
+}
+
+
+function setValuesForChangeTaskBacklogAssignedUser(currentTask) {
+    document.getElementById('show-backlog-details-box-icon').classList.add('d-none')
+    document.getElementById('show-backlog-details-box-icon-change').classList.remove('d-none')
+    document.getElementById('responsible-editor-list-change-task-backlog').innerHTML = '';
+    loadAlreadyAssignedUserInTemporaryArray(currentTask)
+    currentTask.user.forEach(user => {
+        document.getElementById('responsible-editor-list-change-task-backlog').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon)
+    });
 }
 
 
@@ -116,6 +134,31 @@ function setValuesForChangeTaskBacklogDescription(currentTask) {
     document.getElementById('show-backlog-details-box-details').classList.add('d-none')
     document.getElementById('task-description-backlog-details-box').classList.remove('d-none')
     document.getElementById('task-description-backlog-details-input').value = currentTask.description
+}
+
+
+function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
+    setTemporaryArrayResponsibleEmployeesToStandard();
+    //assigned user
+    document.getElementById('show-backlog-details-box-icon').classList.remove('d-none');
+    document.getElementById('show-backlog-details-box-icon-change').classList.add('d-none');
+    //title
+    document.getElementById('show-backlog-details-box-title').classList.remove('d-none');
+    document.getElementById('title-task-change-detail-box-backlog').classList.add('d-none');
+    //category
+    document.getElementById('show-backlog-details-box-category').classList.remove('d-none');
+    document.getElementById('category-state-input-change-detail-box-backlog').classList.add('d-none');
+    //due date
+    document.getElementById('show-backlog-details-box-due-date').classList.remove('d-none');
+    document.getElementById('due-date-backlog-details-box').classList.add('d-none');
+    //priority
+    document.getElementById('show-backlog-details-box-priority').classList.remove('d-none');
+    document.getElementById('show-backlog-details-box-priority-change').classList.add('d-none');
+    //description
+    document.getElementById('show-backlog-details-box-details').classList.remove('d-none');
+    document.getElementById('task-description-backlog-details-box').classList.add('d-none');
+    //buttons
+    document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id);
 }
 
 

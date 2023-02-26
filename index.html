@@ -41,19 +41,19 @@
 
                 <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
                     Board</h3>
-                <h3 id="backlog-h3" onclick="openBacklog(), closeBoardAddTask()">Backlog</h3>
+                <h3 id="backlog-h3" onclick="openBacklog(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Backlog</h3>
                 <h3 id="add-task-h3"
-                    onclick="openAddTask(), closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
+                    onclick="openAddTask(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
                     task</h3>
                 <hr>
-                <h3 id="help-h3" onclick="openHelp(), closeBoardAddTask()">Help</h3>
-                <h3 id="settings-h3" onclick="openSettings(), closeBoardAddTask()">Settings</h3>
-                <h3 id="impressum-h3" onclick="openImpressum(), closeBoardAddTask()">Imprint</h3>
-                <h3 id="datenschutz-h3" onclick="openDatenschutz(), closeBoardAddTask()">Privacy</h3>
+                <h3 id="help-h3" onclick="openHelp(); closeBoardAddTask()">Help</h3>
+                <h3 id="settings-h3" onclick="openSettings(); closeBoardAddTask()">Settings</h3>
+                <h3 id="impressum-h3" onclick="openImpressum(); closeBoardAddTask()">Imprint</h3>
+                <h3 id="datenschutz-h3" onclick="openDatenschutz(); closeBoardAddTask()">Privacy</h3>
                 <hr>
                 <div id="login-logout">
-                    <h3 id="login-h3" onclick="openLoginBox(), closeBoardAddTask()">Login</h3>
-                    <h3 id="logout-h3" onclick="executeLogout(), closeBoardAddTask()" class="d-none">Logout</h3>
+                    <h3 id="login-h3" onclick="openLoginBox(); closeBoardAddTask()">Login</h3>
+                    <h3 id="logout-h3" onclick="executeLogout(); closeBoardAddTask()" class="d-none">Logout</h3>
                 </div>
             </div>
 
@@ -344,7 +344,7 @@
 
 
                 <div class=" d-none" id="show-backlog-details-container">
-                    <div class="close-user-details-box">
+                    <div class="close-user-details-box" id="close-user-details-box-backlog">
                         <div class="btn-close-cross-box" onclick="closeBacklogDetails()">
                             <img src="./img/close-icon.png">
                         </div>
@@ -353,6 +353,31 @@
                         <h3 id="show-backlog-details-box-name">Assigned to</h3>
 
                         <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
+                        </div>
+                        <div id="show-backlog-details-box-icon-change" class="d-none">
+                            <div class="assinged-to">
+                                <div class="responsible-editor-list-container">a
+                                    <div class="employees-holder">
+                                        <div class="btn-employees-add-icon"
+                                            onclick="openListOfEmployeesBoxForAddTask()">
+                                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                                        </div>
+
+                                        <div id="responsible-editor-list-change-task-backlog"
+                                            class="responsible-editor-list assigned-to-user-holder"
+                                            ondragover="allowDrop(event)">
+                                        </div>
+                                    </div>
+                                    <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                                        class="responsible-editor-list-bin" ondragover="allowDrop(event)"
+                                        ondrop="moveToBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                        <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                            Drag and drop an user for delete.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <table>
                             <tr>
