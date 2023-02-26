@@ -10,7 +10,7 @@
 function renderBacklogHTML(task) {
     // Shows only the first USER! forEach cannot be reapplied
     return `
-        <tr class="backlog-hover" onclick="openAcceptTask(${task.id})">
+        <tr class="backlog-hover" onclick="openAcceptTask('${task.id}')">
             <td style="border-left:0.4rem solid var(--clr-${task.category}">
                 <div class="assigned-to-holder">
                     <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">
@@ -76,13 +76,13 @@ function colorPickerHTML(color) {
  */
 function renderToDoHTML(toDos) {
     return `
-        <div class="to-do" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging(${toDos["id"]})">
+        <div class="to-do" style="border-left: 10px solid ${toDos.color}" draggable="true" ondragstart="startDragging('${toDos["id"]}')">
         <div class="board-card-department" style="background-color: var(--clr-${toDos.category})">
                 <div>Department:</div>
                 <span>${toDos.category}</span>
             </div>    
 
-            <div class="board-card-info-icon-box"  onclick="openTaskDetails(${toDos.id})">
+            <div class="board-card-info-icon-box"  onclick="openTaskDetails('${toDos.id}')">
             <img src="./img/info-icon.png">
         </div>
 
@@ -107,13 +107,13 @@ function renderToDoHTML(toDos) {
  */
 function renderInProgressHTML(inProgress) {
     return `
-    <div class="to-do" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging(${inProgress["id"]})">
+    <div class="to-do" style="border-left: 10px solid ${inProgress.color}" draggable="true" ondragstart="startDragging('${inProgress["id"]}')">
         <div class="board-card-department" style="background-color: var(--clr-${inProgress.category})">
             <div>Department:</div>
             <span>${inProgress.category}</span>
         </div>
     
-        <div class="board-card-info-icon-box"  onclick="openTaskDetails(${inProgress.id})">
+        <div class="board-card-info-icon-box"  onclick="openTaskDetails('${inProgress.id}')">
         <img src="./img/info-icon.png">
     </div>
 
@@ -137,13 +137,13 @@ function renderInProgressHTML(inProgress) {
  */
 function renderTestingHTML(testing) {
     return `
-    <div class="to-do" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging(${testing["id"]})">
+    <div class="to-do" style="border-left: 10px solid ${testing.color}" draggable="true" ondragstart="startDragging('${testing["id"]}')">
     <div class="board-card-department" style="background-color: var(--clr-${testing.category})">
             <div>Department:</div>
             <span>${testing.category}</span>
         </div>    
 
-        <div class="board-card-info-icon-box"  onclick="openTaskDetails(${testing.id})">
+        <div class="board-card-info-icon-box"  onclick="openTaskDetails('${testing.id}')">
         <img src="./img/info-icon.png">
     </div>
     
@@ -167,13 +167,13 @@ function renderTestingHTML(testing) {
  */
 function renderDoneHTML(done) {
     return `
-    <div class="to-do"style="border-left: 10px solid ${done.color}" draggable="true" ondragstart="startDragging(${done["id"]})">
+    <div class="to-do"style="border-left: 10px solid ${done.color}" draggable="true" ondragstart="startDragging('${done["id"]}')">
         <div class="board-card-department" style="background-color: var(--clr-${done.category})">
             <div>Department:</div>
             <span>${done.category}</span>
             </div>   
 
-        <div class="board-card-info-icon-box"  onclick="openTaskDetails(${done.id})">
+        <div class="board-card-info-icon-box"  onclick="openTaskDetails('${done.id}')">
             <img src="./img/info-icon.png">
         </div>
 
@@ -216,14 +216,14 @@ function renderSelectedEmployeesHTML(name, img) {
 
 
 function renderButtonsBacklog(id) {
-    return `<button class="push-task" style="background-color: red" onclick="deleteTask(${id})">Delete Task</button>
-    <button class="push-task" style="background-color: #ffa500" onclick="changeTaskBacklog(${id})">Change Task</button>
-    <button class="push-task" style="background-color: green" onclick="pushTask(${id}, '')">Accept Task</button>`
+    return `<button class="push-task" style="background-color: red" onclick="deleteTask('${id}')">Delete Task</button>
+    <button class="push-task" style="background-color: #ffa500" onclick="changeTaskBacklog('${id}')">Change Task</button>
+    <button class="push-task" style="background-color: green" onclick="pushTask('${id}', '')">Accept Task</button>`
 }
 
 
 function renderCloseIconBacklogDetailViewBox(id) {
-    return `<div class="btn-close-cross-box" onclick="closeBacklogDetails(); setChangeModeOfBacklogTaskDetailsContainerBack(${id})">
+    return `<div class="btn-close-cross-box" onclick="closeBacklogDetails(); setChangeModeOfBacklogTaskDetailsContainerBack('${id}')">
 <img src="./img/close-icon.png">
 </div>`
 }
@@ -231,7 +231,7 @@ function renderCloseIconBacklogDetailViewBox(id) {
 
 function renderCloseIconBoardDetailViewBox(id) {
     return `<div class="btn-close-cross-box"
-    onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack(${id})">
+    onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack('${id}')">
     <img src="./img/close-icon.png">
 </div>`
 }

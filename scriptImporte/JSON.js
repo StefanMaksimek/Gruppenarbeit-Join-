@@ -27,9 +27,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Sandro',
-        icon: './img/icon_male_5.jpg',
-        mail: 'sandro@gmail.de',
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Stefan@gmail.de',
       },
     ],
     status: 'in-progress',
@@ -84,9 +84,9 @@ let testTasks = [
     dueDate: new Date(1657628551554),
     user: [
       {
-        name: 'Julia',
-        icon: './img/icon_female_3.jpg',
-        mail: 'julia@gmail.de',
+        name: 'Stefan',
+        icon: './img/001_fb copy.jpg',
+        mail: 'Stefan@gmail.de',
       },
       {
         name: 'Michael',

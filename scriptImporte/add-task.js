@@ -113,9 +113,17 @@ function createTaskFromAddTask() {
     let category = document.getElementById('category-list-input');
     let description = document.getElementById('task-description');
     let color = temporaryArrayColor[0]
-    let id = tasks.length
+    let id = createRandomId();
     let dueDate = document.getElementById('due-date')
     createObjTask(title, priority, category, description, color, id, dueDate)
+}
+
+
+function createRandomId() {
+    let textId = Math.round(new Date().getTime() / 1000);
+    let idAdd = Math.random().toString(16).substr(2, 6);
+    let id = textId + idAdd
+    return id
 }
 
 
@@ -377,7 +385,7 @@ function renderUsersAsProposals(userProposals) {
         let user = users[i].name;
         let icon = users[i].icon
 
-        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user) || alreadyResponsibleUserAddedChangeTaskBacklog(user)) { //if user is already in the editor list, it has not to be shown as possible editor
         }
         else {
             userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
@@ -391,7 +399,7 @@ function renderFirstTwentyUsersAsProposals(userProposals) {
         let user = users[i].name;
         let icon = users[i].icon
 
-        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+        if (alreadyResponsibleUserAdded(user) || alreadyResponsibleUserAddedChangeTaskBoard(user) || alreadyResponsibleUserAddedChangeTaskBacklog(user)) { //if user is already in the editor list, it has not to be shown as possible editor
         }
         else {
             userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
@@ -419,7 +427,7 @@ function showSearchMatches() {
             let userObj = users.find(t => t.name == user)
             let icon = userObj.icon
 
-            if (!alreadyResponsibleUserAdded(user) || !alreadyResponsibleUserAddedChangeTaskBoard(user)) { //if user is already in the editor list, it has not to be shown as possible editor
+            if (!alreadyResponsibleUserAdded(user) || !alreadyResponsibleUserAddedChangeTaskBoard(user) || !alreadyResponsibleUserAddedChangeTaskBacklog(user)) { //if user is already in the editor list, it has not to be shown as possible editor
                 userProposals.innerHTML += renderSearchedEmployeesHTML(user, icon);
             }
         }
@@ -435,6 +443,11 @@ function alreadyResponsibleUserAdded(user) {
 
 function alreadyResponsibleUserAddedChangeTaskBoard(user) {
     return document.getElementById('responsible-editor-list-change-task-board').contains(document.getElementById(`${user}-responsible-editor-img`))
+}
+
+
+function alreadyResponsibleUserAddedChangeTaskBacklog(user) {
+    return document.getElementById('responsible-editor-list-change-task-backlog').contains(document.getElementById(`${user}-responsible-editor-img`))
 }
 
 
@@ -455,11 +468,9 @@ function renderResponsibleUserList() {
         content = document.getElementById('responsible-editor-list-change-task-board')
     }
     if (locationTask == 'backlog' && changeInDetailViewOnBacklogIsHidden()) {
-        console.log('A')
         content = document.getElementById('responsible-editor-list')
     }
     if (locationTask == 'backlog' && !changeInDetailViewOnBacklogIsHidden()) {
-        console.log('B')
         content = document.getElementById('responsible-editor-list-change-task-backlog')
     }
 

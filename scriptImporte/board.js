@@ -9,7 +9,7 @@ function renderBoard() {
     renderInProgress()
     renderTesting()
     renderDone()
-    startedTasks.sort((a, b) => (a.id > b.id ? 1 : -1))
+    startedTasks.sort((a, b) => (a.createdAt > b.createdAt ? 1 : -1))
 }
 
 
@@ -19,8 +19,6 @@ function renderToDo() {
     td.innerHTML = ``
     startedTasks.filter(task => task.status == "to-do").forEach(toDos => {
         td.innerHTML += renderToDoHTML(toDos)
-        let id = toDos.id
-
         for (let i = 0; i < toDos.user.length; i++) {
             const user = toDos.user[i];
             document.getElementById(`board-card-usericon${toDos.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
@@ -127,7 +125,7 @@ function fillBoardDetailBox(id) {
     document.getElementById('show-board-details-box-category').innerHTML = task.category;
     document.getElementById('show-board-details-box-title').innerHTML = task.title;
     document.getElementById('show-board-details-box-details').innerHTML = task.description;
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`;
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`;
 
     document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10);
     document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10);
@@ -165,7 +163,7 @@ function changeTaskBoard(id) {
 
 
 function changeButtonsforEditorModusOnBoardChangeTask(id) {
-    return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack(${id})">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask(${id}, '')">Save</button>`
+    return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack('${id}')">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask('${id}', '')">Save</button>`
 }
 
 
@@ -258,7 +256,7 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     document.getElementById('show-board-details-box-details').classList.remove('d-none')
     document.getElementById('task-description-board-details-box').classList.add('d-none')
     //buttons
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard(${id})">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard(${id}, '')">Change Task</button>`
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
 }
 
 
