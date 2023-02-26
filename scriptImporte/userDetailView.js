@@ -1,7 +1,7 @@
-function showUserDetails(user) {
-    let userObj = users.find(t => t.name == user);
+function showUserDetails(userMail) {
+    let userObj = users.find(t => t.mail == userMail);
     let icon = userObj.icon;
-    let mail = userObj.mail;
+    let name = userObj.name;
     let tel = userObj.phone;
     let category = userObj.category;
     let city = userObj.city;
@@ -10,14 +10,14 @@ function showUserDetails(user) {
     document.getElementById('myModal').classList.add('d-block')
     document.getElementById('show-user-details-container').classList.remove('d-none')
 
-    fillUserDetails(user, icon, mail, tel, category, city, hobby);
+    fillUserDetails(user, icon, name, tel, category, city, hobby);
 }
 
 
-function fillUserDetails(user, icon, mail, tel, category, city, hobby) {
+function fillUserDetails(user, icon, name, tel, category, city, hobby) {
     fillUserNameForDetailView(user);
     fillUserIconDetailView(icon);
-    fillUserMailDetailView(mail);
+    fillUserMailDetailView(name);
     fillUserPhoneDetailView(tel);
     fillUserCategoryDetailView(category);
     fillUserCityDetailView(city);
@@ -37,9 +37,9 @@ function fillUserIconDetailView(icon) {
 }
 
 
-function fillUserMailDetailView(mail) {
-    let userMail = document.getElementById('show-user-details-box-mail')
-    userMail.innerHTML = `${mail}`
+function fillUserMailDetailView(name) {
+    let userName = document.getElementById('show-user-details-box-name')
+    userName.innerHTML = `${name}`
 }
 
 
@@ -77,7 +77,7 @@ function closeUserDetailsView() {
 function clearUserDetailsView() {
     document.getElementById('show-user-details-box-name').innerHTML = '';
     document.getElementById('show-user-details-box-icon').src = '';
-    document.getElementById('show-user-details-box-mail').innerHTML = '';
+    document.getElementById('show-user-details-box-name').innerHTML = '';
     document.getElementById('show-user-details-box-tel').innerHTML = '';
     document.getElementById('show-user-details-box-category').innerHTML = '';
     document.getElementById('show-user-details-box-city').innerHTML = '';

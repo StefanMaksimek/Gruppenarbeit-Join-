@@ -18,14 +18,14 @@ function openLoginBox() {
 
 
 function checkLoginParameters() {
-    let usersLoginName = document.getElementById('login-user-inputfield')
+    let usersLoginMail = document.getElementById('login-user-inputfield')
     let usersLoginPW = document.getElementById('login-user-inputfield-pw')
-    let userName = usersLoginName.value
+    let userMail = usersLoginMail.value
 
-    if (checkIfLoginParameterExist(usersLoginName, usersLoginPW)) {
+    if (checkIfLoginParameterExist(usersLoginMail, usersLoginPW)) {
         showLogout();
         closeLoginBox();
-        showUsersImage(userName);
+        showUsersImage(userMail);
         hideLoginButton();
     } else {
         showLoginAlertUsernameNotExist();
@@ -47,8 +47,8 @@ function hideLoginAlertUsernameNotExist() {
 }
 
 
-function checkIfLoginParameterExist(usersLoginName, usersLoginPW) {
-    return users.some(user => user.name === usersLoginName.value && user.password === usersLoginPW.value);
+function checkIfLoginParameterExist(usersLoginMail, usersLoginPW) {
+    return users.some(user => user.mail === usersLoginMail.value && user.password === usersLoginPW.value);
 }
 
 
@@ -116,7 +116,7 @@ function hideRegistrationAlertContent() {
 
 
 function submitNewUser() {
-    let newUser = userRegistrationObj.name
+    let newUser = userRegistrationObj.mail
     if (checkIfUserNameAlreadyExist(newUser) == true) {
         showRegistrationAlertUserAlreadyExist()
         setTimeout(hideRegistrationAlertUserAlreadyExist, timeInfoShown)
@@ -145,34 +145,34 @@ function hideRegistrationAlertUserAlreadyExist() {
 
 
 function checkIfUserNameAlreadyExist(newUser) {
-    return users.some(user => user.name === newUser.value);
+    return users.some(user => user.mail === newUser.mail);
 }
 
 
 function takeInfosFromRegistration() {
-    let newUser = document.getElementById('new-user-inputfield-login');
+    let newUserMail = document.getElementById('new-user-inputfield-login');
     let newUserPassword = document.getElementById('new-user-inputfield-pw');
-    let newUserMail = document.getElementById('new-user-inputfield-mail');
+    let newUserName = document.getElementById('new-user-inputfield-name');
     let newUserTel = document.getElementById('new-user-inputfield-tel');
     let newUserCity = document.getElementById('new-user-inputfield-city');
     let newUserCategory = document.getElementById('new-user-inputfield-category');
     let newUserHobby = document.getElementById('new-user-inputfield-hobby');
     let iconSource = temporaryIconArray[0];
 
-    createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource)
+    createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource)
 }
 
 
-function createÚserRegistrationObj(newUser, newUserPassword, newUserMail, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource) {
+function createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource) {
     userRegistrationObj = {
         "id": "",
-        "name": newUser.value,
+        "mail": newUserMail.value,
         "password": newUserPassword.value,
         "icon": iconSource,
         "category": newUserCategory.value,
         "Hobbys": newUserHobby.value,
         "city": newUserCity.value,
-        "mail": newUserMail.value,
+        "name": newUserName.value,
         "telephon": newUserTel.value
     };
     submitNewUser();
@@ -184,7 +184,7 @@ function pushNewUserInArrayUsers() {
     userRegistrationObj.id = userId
 
     users.push(userRegistrationObj);
-    loadUsers();
+    loadAllUserNamesInArray();
     closeRegisterBox();
     showRegistrationAlertReadyForLogin();
 
@@ -325,20 +325,20 @@ function showLoginButton() {
 }
 
 
-function showUsersImage(usersLoginName) {
+function showUsersImage(userMail) {
     let content = document.getElementById('user');
-    let searchObject = users.find((user) => user.name == usersLoginName); //find object in array according user login name
+    let searchObject = users.find((user) => user.mail == userMail); //find object in array according user login name
     let imageSource = searchObject.icon; //get the image source of the users image
 
     content.innerHTML = `
-    <img class="user-side-bar-img" src="${imageSource}" onclick="showUserDetails('${usersLoginName}')">
+    <img class="user-side-bar-img" src="${imageSource}" onclick="showUserDetails('${userMail}')">
     `;
-    setUserName(usersLoginName);
+    setUserName(userMail);
 }
 
 
-function setUserName(usersLoginName) {
-    currentUser = usersLoginName;
+function setUserName(userMail) {
+    currentUser = userMail;
     loadTaskFromBackend()
 }
 
@@ -369,21 +369,6 @@ function deleteUsersImageAfterLogout() {
 }
 
 
-/** Choice of user */
-function loadUsers() {
-
-    let userOptions = document.getElementById('all-users');
-
-    userOptions.innerHTML = '';
-
-    for (let i = 0; i < users.length; i++) {
-        const userName = users[i].name;
-        userOptions.innerHTML += `<option value="${userName}" onclick="setUser(${userName})"></option>`;
-    }
-    loadAllUserNamesInArray() //for search function in Add Task
-}
-
-
 let userNames = [];
 
 function loadAllUserNamesInArray() {
@@ -397,7 +382,7 @@ function loadAllUserNamesInArray() {
 // Testuser
 
 function loginAsTestuser() {
-    document.getElementById('login-user-inputfield').value = 'Testuser'
+    document.getElementById('login-user-inputfield').value = 'testuser@gmail.net'
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
     checkLoginParameters();
 }

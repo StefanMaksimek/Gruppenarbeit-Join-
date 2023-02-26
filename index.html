@@ -953,10 +953,8 @@
                 <div id="login" class="registration-box-input">
                     <h2>Log in</h2>
                     <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
-                        <input required id="login-user-inputfield" type="text" name="User" list="all-users"
+                        <input required id="login-user-inputfield" type="mail"
                             placeholder="Mail" class="bg-mail">
-                        <datalist id="all-users">
-                        </datalist>
                         <input required id="login-user-inputfield-pw" type="password" placeholder="Password"  class="bg-pw">
                         <div class="login-remember-and-forgot-password-container">
                             <div class="login-remember-me-box">
@@ -978,7 +976,7 @@
                 <form onsubmit="checkPasswortInRegestrationProcess(); return false">
                     <div class="registration-box-input">
                         <h2>Registration</h2>
-                        <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Name">
+                        <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail">
                         <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
                         <input required type="password" placeholder="Repeat password"
                             id="new-user-inputfield-pw-repeat">
@@ -987,7 +985,7 @@
                         <div id="registration-box-input-more" class="registration-box-input-more d-none">
                             <input type="text" placeholder="Category like Sales or IT"
                                 id="new-user-inputfield-category">
-                            <input type="email" placeholder="Your E-Mail ...@..." id="new-user-inputfield-mail">
+                            <input type="name" placeholder="Your name" id="new-user-inputfield-name">
                             <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
                             <input type="text" placeholder="Residence" id="new-user-inputfield-city">
                             <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
@@ -1059,8 +1057,8 @@
             </div>
             <table>
                 <tr>
-                    <td>Mail:</td>
-                    <td class="padding-left" id="show-user-details-box-mail"></td>
+                    <td>Name:</td>
+                    <td class="padding-left" id="show-user-details-box-name"></td>
                 </tr>
                 <tr>
                     <td>Phone-Number:</td>

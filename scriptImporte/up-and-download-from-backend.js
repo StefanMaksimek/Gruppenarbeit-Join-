@@ -6,7 +6,7 @@ async function uploadUser() {
 }
 
 async function uploadTasks() {
-  if (currentUser != 'Testuser') {
+  if (currentUser != 'testuser@gmail.net') {
     await backend.setItem('tasks', JSON.stringify(tasks));
   }
 }
@@ -20,11 +20,11 @@ async function init() {
   users = JSON.parse(backend.getItem(`users`)) || [];
   icons = JSON.parse(backend.getItem(`icons`)) || [];
 
-  loadUsers();
+  loadAllUserNamesInArray();
 }
 
 async function loadTaskFromBackend() {
-  if (currentUser != 'Testuser') {
+  if (currentUser != 'testuser@gmail.net') {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem(`tasks`)) || [];
   } else {
