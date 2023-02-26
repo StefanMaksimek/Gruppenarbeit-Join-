@@ -41,7 +41,9 @@
 
                 <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
                     Board</h3>
-                <h3 id="backlog-h3" onclick="openBacklog(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Backlog</h3>
+                <h3 id="backlog-h3"
+                    onclick="openBacklog(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Backlog
+                </h3>
                 <h3 id="add-task-h3"
                     onclick="openAddTask(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
                     task</h3>
@@ -223,7 +225,7 @@
                 </div>
                 <!--Area for details of Task Box START-->
                 <div class=" d-none" id="show-board-details-container">
-                    <div class="close-user-details-box"  id="close-user-details-box-board">
+                    <div class="close-user-details-box" id="close-user-details-box-board">
                         <div class="btn-close-cross-box"
                             onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack()">
                             <img src="./img/close-icon.png">
@@ -940,26 +942,35 @@
         <div class="log-in-box">
             <!-- /////////////////////////////// Login START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div id="login-container" class="background-box">
+                <div class="login-join-logo-box">
+                    <img src="./img/logos/join-logo-start.svg">
+                </div>
+
+                <div class="login-join-sign-up-box">
+                    <span>Not a Join user?</span>
+                    <button onclick="openRegisterBox()" id="registration-btn">Sign up</button>
+                </div>
                 <div id="login" class="registration-box-input">
-                    <h2>Login</h2>
+                    <h2>Log in</h2>
                     <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
                         <input required id="login-user-inputfield" type="text" name="User" list="all-users"
-                            placeholder="User">
+                            placeholder="Mail" class="bg-mail">
                         <datalist id="all-users">
                         </datalist>
-                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password">
+                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password"  class="bg-pw">
+                        <div class="login-remember-and-forgot-password-container">
+                            <div class="login-remember-me-box">
+                                <input type="checkbox" id="login-remember-me">
+                                <div>Remember me</div>
+                            </div>
+                            <span>Forgot my password</span>
+                        </div>
                         <div class="login-area-btn-box">
-                            <button type="submit" class="btn btn-primary login-area-btn">Login</button>
+                            <button type="submit" class="login-area-btn login-area-btn-login">Log in</button>
+                            <button onclick="loginAsTestuser()" id="registration-btn"
+                                class="login-area-btn login-area-btn-guest">Guest Log in</button>
                         </div>
                     </form>
-                    <div class="login-area-btn-box">
-                        <button onclick="loginAsTestuser()" id="registration-btn"
-                            class="btn btn-primary login-area-btn">Testuser</button>
-                    </div>
-                    <div class="login-area-btn-box">
-                        <button onclick="openRegisterBox()" id="registration-btn"
-                            class="btn btn-primary login-area-btn">Registration</button>
-                    </div>
                 </div>
             </div>
 

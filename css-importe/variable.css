@@ -14,8 +14,8 @@
 body[data-theme='default'] {
     --main-font: 'PT Sans';
 
-    --clr-primary: hsl(240, 50%, 40%);
-    --clr-secondary: hsl(0, 100%, 30%);
+    --clr-primary: #2A3647;
+    --clr-secondary: #29ABE2;
     --clr-bg: rgb(244, 244, 244);
     --clr-bg2: #e9e6fe;
     --clr-font1: rgb(0, 0, 0);
