@@ -15,11 +15,11 @@
 @import "./css-importe/help.css";
 
 body::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 body::-webkit-scrollbar-thumb {
@@ -28,13 +28,26 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+.registration-box-input-more::-webkit-scrollbar {
+  width: 12px;
+}
+
+.registration-box-input-more::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.registration-box-input-more::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
 
 .responsible-editor-list::-webkit-scrollbar {
-    height: 8px;
+  height: 8px;
 }
 
 .responsible-editor-list::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .responsible-editor-list::-webkit-scrollbar-thumb {
@@ -43,11 +56,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .side-bar-task::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
 .side-bar-task::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .side-bar-task::-webkit-scrollbar-thumb {
@@ -62,12 +75,12 @@ body::-webkit-scrollbar-thumb {
 }
 
 .textarea-change-backlog-task::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .textarea-change-backlog-task::-webkit-scrollbar-thumb {
-background-color: #ffa500;
-outline: 1px solid white;
+  background-color: #ffa500;
+  outline: 1px solid white;
 }
 
 .show-backlog-details-sub-container::-webkit-scrollbar {
@@ -75,11 +88,10 @@ outline: 1px solid white;
 }
 
 .show-backlog-details-sub-container::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .show-backlog-details-sub-container::-webkit-scrollbar-thumb {
-background-color: var(--clr-primary);
-outline: 1px solid white;
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
 }
-

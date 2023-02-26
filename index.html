@@ -948,7 +948,7 @@
 
                 <div class="login-join-sign-up-box">
                     <span>Not a Join user?</span>
-                    <button onclick="openRegisterBox()" id="registration-btn">Sign up</button>
+                    <button onclick="openRegisterBox()" id="registration-btn" class="login-btn-shadow">Sign up</button>
                 </div>
                 <div id="login" class="registration-box-input">
                     <h2>Log in</h2>
@@ -964,48 +964,49 @@
                             <span>Forgot my password</span>
                         </div>
                         <div class="login-area-btn-box">
-                            <button type="submit" class="login-area-btn login-area-btn-login">Log in</button>
+                            <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Log in</button>
                             <button onclick="loginAsTestuser()" id="registration-btn"
-                                class="login-area-btn login-area-btn-guest">Guest Log in</button>
+                                class="login-area-btn login-area-btn-guest login-btn-shadow">Guest Log in</button>
+                        </div>
+                    </form>
+                </div>
+                <div id="registration-box" class="d-none">
+                    <form onsubmit="checkPasswortInRegestrationProcess(); return false">
+                        <div class="registration-box-input">
+                            <h2>Registration</h2>
+                            <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail">
+                            <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
+                            <input required type="password" placeholder="Repeat password"
+                                id="new-user-inputfield-pw-repeat">
+                            <div id="new-user-registration-input-more" class="show-more-less-registration"
+                                onclick="showMoreRegistrationInput()">more</div>
+                            <div id="registration-box-input-more" class="registration-box-input-more d-none">
+                                <input type="text" placeholder="Category like Sales or IT"
+                                    id="new-user-inputfield-category">
+                                <input type="name" placeholder="Your name" id="new-user-inputfield-name">
+                                <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
+                                <input type="text" placeholder="Residence" id="new-user-inputfield-city">
+                                <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
+                            </div>
+                            <div>
+                                <input type="checkbox" onclick="showPassword()"> Show Password
+                            </div>
+                            <div class="icon-container">
+                                <div onclick="openWindowIconSelection()" class="registration-icon-btn login-btn-shadow">Icons</div>
+                                <div id="icon-box" class="icons-box">
+                                    <img src="./img/icon-unknown.svg">
+                                </div>
+                            </div>
+                            <div class="login-area-btn-box">
+                                <button type="button" onclick="closeRegisterBox()" class="login-area-btn login-area-btn-guest login-btn-shadow">Cancel</button>
+                                <button type="submit" class="login-btn-shadow login-area-btn login-area-btn-login">Submit</button>
+                            </div>
                         </div>
                     </form>
                 </div>
             </div>
 
-            <div id="registration-box" class="background-box d-none">
-                <form onsubmit="checkPasswortInRegestrationProcess(); return false">
-                    <div class="registration-box-input">
-                        <h2>Registration</h2>
-                        <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail">
-                        <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
-                        <input required type="password" placeholder="Repeat password"
-                            id="new-user-inputfield-pw-repeat">
-                        <div id="new-user-registration-input-more" class="show-more-less-registration"
-                            onclick="showMoreRegistrationInput()">more</div>
-                        <div id="registration-box-input-more" class="registration-box-input-more d-none">
-                            <input type="text" placeholder="Category like Sales or IT"
-                                id="new-user-inputfield-category">
-                            <input type="name" placeholder="Your name" id="new-user-inputfield-name">
-                            <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
-                            <input type="text" placeholder="Residence" id="new-user-inputfield-city">
-                            <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
-                        </div>
-                        <div>
-                            <input type="checkbox" onclick="showPassword()"> Show Password
-                        </div>
-                        <div class="icon-container">
-                            <div onclick="openWindowIconSelection()" class="btn btn-secondary">Icons</div>
-                            <div id="icon-box" class="icons-box">
-                                <img src="./img/icon-unknown.svg">
-                            </div>
-                        </div>
-                        <div class="registration-buttons">
-                            <button type="button" onclick="closeRegisterBox()" class="btn btn-primary">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            
             <div id="registration-request-no-icon-selected-box" class="background-box d-none">
                 <div class="registration-request-no-icon-selected">
                     <h2>Do you want to take the "Unknown Avatar" as icon?</h2>

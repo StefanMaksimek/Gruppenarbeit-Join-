@@ -74,15 +74,19 @@ function clearLoginInputfields() {
 
 // ####### Registration functions #######
 function openRegisterBox() {
-    let content = document.getElementById('registration-box');
-    content.classList.remove('d-none');
+    let contentReg = document.getElementById('registration-box');
+    contentReg.classList.remove('d-none');
+    let contentLogin = document.getElementById('login');
+    contentLogin.classList.add('d-none');
     clearLoginInputfields()
 }
 
 
 function closeRegisterBox() {
-    let content = document.getElementById('registration-box');
-    content.classList.add('d-none');
+    let contentReg = document.getElementById('registration-box');
+    contentReg.classList.add('d-none');
+    let contentLogin = document.getElementById('login');
+    contentLogin.classList.remove('d-none');
     clearInputfieldsRegistration();
     clearIconSelection();
     clearTemporaryIconArray();
