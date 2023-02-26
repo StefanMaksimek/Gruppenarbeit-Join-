@@ -121,6 +121,7 @@ function fillBoardDetailBox(id) {
         document.getElementById('show-board-details-box-icon').innerHTML += addUserIconsHTML(e);
     });
 
+    document.getElementById('close-user-details-box-board').innerHTML = renderCloseIconBoardDetailViewBox(id);
     document.getElementById('show-board-details-container').style = `border : 2px solid var(--clr-${task.category})`;
     document.getElementById('show-board-details-box-icon').src = task.user[0].icon;
     document.getElementById('show-board-details-box-category').innerHTML = task.category;

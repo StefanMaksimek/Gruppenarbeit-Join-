@@ -227,3 +227,11 @@ function renderCloseIconBacklogDetailViewBox(id) {
 <img src="./img/close-icon.png">
 </div>`
 }
+
+
+function renderCloseIconBoardDetailViewBox(id) {
+    return `<div class="btn-close-cross-box"
+    onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack(${id})">
+    <img src="./img/close-icon.png">
+</div>`
+}

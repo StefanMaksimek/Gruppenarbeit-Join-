@@ -162,6 +162,23 @@ function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
 }
 
 
+function saveChangesTaskBacklog(id) {
+    let currentTask = tasks.find(t => t.id == id);
+    currentTask.category = document.getElementById('category-state-input-change-detail-box-backlog').value
+    currentTask.title = document.getElementById('title-task-change-detail-input-backlog').value
+    currentTask.dueDate = new Date(document.getElementById('due-date-backlog-details-box').value).getTime()
+    currentTask.priority = document.getElementById('show-backlog-details-box-priority-change').value
+    currentTask.description = document.getElementById('task-description-backlog-details-input').value
+    currentTask.user.length = 0; //make it empty because all users will load again in the task on next step
+    pushAllUsersInTask(currentTask)
+    setTemporaryArrayResponsibleEmployeesToStandard()
+    uploadTasks();
+    renderBacklog();
+    setChangeModeOfBacklogTaskDetailsContainerBack(id);
+    closeBacklogDetails();
+}
+
+
 function deleteTask(id) {
     let currentTask = tasks.find(t => t.id == id);
     let index = tasks.indexOf(currentTask);
