@@ -953,18 +953,19 @@
                 <div id="login" class="registration-box-input">
                     <h2>Log in</h2>
                     <form onsubmit="checkLoginParameters(); return false" class="login-input-fields">
-                        <input required id="login-user-inputfield" type="mail"
-                            placeholder="Mail" class="bg-mail">
-                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password"  class="bg-pw">
+                        <input required id="login-user-inputfield" type="mail" placeholder="Mail" class="bg-mail">
+                        <input required id="login-user-inputfield-pw" type="password" placeholder="Password"
+                            class="bg-pw">
                         <div class="login-remember-and-forgot-password-container">
                             <div class="login-remember-me-box">
                                 <input type="checkbox" id="login-remember-me">
                                 <div>Remember me</div>
                             </div>
-                            <span>Forgot my password</span>
+                            <span onclick="openForgotPasswordWindow()">Forgot my password</span>
                         </div>
                         <div class="login-area-btn-box">
-                            <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Log in</button>
+                            <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Log
+                                in</button>
                             <button onclick="loginAsTestuser()" id="registration-btn"
                                 class="login-area-btn login-area-btn-guest login-btn-shadow">Guest Log in</button>
                         </div>
@@ -974,14 +975,15 @@
                     <form onsubmit="checkPasswortInRegestrationProcess(); return false">
                         <div class="registration-box-input">
                             <h2>Registration</h2>
-                            <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail">
-                            <input required id="new-user-inputfield-pw" type="password" placeholder="Password">
+                            <input maxlength="30" required id="new-user-inputfield-login" type="text"
+                                placeholder="Mail" class="bg-mail">
+                            <input required id="new-user-inputfield-pw" type="password" placeholder="Password" class="bg-pw">
                             <input required type="password" placeholder="Repeat password"
-                                id="new-user-inputfield-pw-repeat">
+                                id="new-user-inputfield-pw-repeat" class="bg-pw">
                             <div id="new-user-registration-input-more" class="show-more-less-registration"
                                 onclick="showMoreRegistrationInput()">more</div>
                             <div id="registration-box-input-more" class="registration-box-input-more d-none">
-                                <input type="text" placeholder="Category like Sales or IT"
+                                <input type="text" placeholder="Department like Sales or IT"
                                     id="new-user-inputfield-category">
                                 <input type="name" placeholder="Your name" id="new-user-inputfield-name">
                                 <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
@@ -992,21 +994,63 @@
                                 <input type="checkbox" onclick="showPassword()"> Show Password
                             </div>
                             <div class="icon-container">
-                                <div onclick="openWindowIconSelection()" class="registration-icon-btn login-btn-shadow">Icons</div>
+                                <div onclick="openWindowIconSelection()" class="registration-icon-btn login-btn-shadow">
+                                    Icons</div>
                                 <div id="icon-box" class="icons-box">
                                     <img src="./img/icon-unknown.svg">
                                 </div>
                             </div>
                             <div class="login-area-btn-box">
-                                <button type="button" onclick="closeRegisterBox()" class="login-area-btn login-area-btn-guest login-btn-shadow">Cancel</button>
-                                <button type="submit" class="login-btn-shadow login-area-btn login-area-btn-login">Submit</button>
+                                <button type="button" onclick="closeRegisterBox()"
+                                    class="login-area-btn login-area-btn-guest login-btn-shadow">Cancel</button>
+                                <button type="submit"
+                                    class="login-btn-shadow login-area-btn login-area-btn-login">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
+                <div id="forgot-pw-box" class="d-none">
+                    <form onsubmit="sendMailWithPasswordToUser(); return false">
+                        <div class="registration-box-input">
+                            <h2>I forgot my password</h2>
+                            <div class="forgot-pw-text">Don't worry! We will send you an email with the instructions to reset your
+                                password</div>
+                            <input maxlength="30" required id="forgot-pw-mail-input" type="text"
+                                placeholder="Email" class="bg-mail">
+                            <div class="login-area-btn-box">
+                                <button type="button" onclick="backToLogIn()"
+                                    class="login-area-btn login-area-btn-guest login-btn-shadow">Cancel</button>
+                                <button type="submit" class="login-btn-shadow login-area-btn login-area-btn-login forgot-pw-send-mail-btn">Send
+                                    me the email</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="forgot-pw-answer-box" class="d-none">
+                        <div class="registration-box-input">
+                            <h2>I forgot my password</h2>
+                            <div class="forgot-pw-text">Look to your mails. We send you your password</div>
+                            <div class="login-area-btn-box forgot-pw-anser-box-btn-container">
+                                <button type="button" onclick="backToLogIn()"
+                                class="login-area-btn login-area-btn-guest login-btn-shadow">Back to log in</button>
+                            </div>
+                        </div>
+                </div>
+                <div id="forgot-pw-answer-box-no-such-mail-adress" class="d-none">
+                    <div class="registration-box-input">
+                        <h2>I forgot my password</h2>
+                        <div class="forgot-pw-text">We are sorry, there is no such mail address registered.</div>
+                        <div class="login-area-btn-box">
+                            <button type="button" onclick="backToLogIn()"
+                            class="login-area-btn login-area-btn-guest login-btn-shadow">Back to log in</button>
+                            <button type="button" onclick="backToForgotPassword()"
+                            class="login-area-btn login-area-btn-guest login-btn-shadow">Retry</button>
+                        </div>
+                    </div>
+            </div>
             </div>
 
-            
+
             <div id="registration-request-no-icon-selected-box" class="background-box d-none">
                 <div class="registration-request-no-icon-selected">
                     <h2>Do you want to take the "Unknown Avatar" as icon?</h2>

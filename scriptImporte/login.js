@@ -74,10 +74,11 @@ function clearLoginInputfields() {
 
 // ####### Registration functions #######
 function openRegisterBox() {
-    let contentReg = document.getElementById('registration-box');
-    contentReg.classList.remove('d-none');
-    let contentLogin = document.getElementById('login');
-    contentLogin.classList.add('d-none');
+    document.getElementById('registration-box').classList.remove('d-none'); //open reistration box
+    document.getElementById('login').classList.add('d-none'); //close login
+    document.getElementById('forgot-pw-box').classList.add('d-none') //close forgot pw box
+    document.getElementById('forgot-pw-answer-box').classList.add('d-none') //close you received email box from forgot pw
+    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.add('d-none') //close forgot pw box "no such mail registered"
     clearLoginInputfields()
 }
 
@@ -402,4 +403,74 @@ function showMoreRegistrationInput() {
         content.innerHTML = 'more'
         document.getElementById('registration-box-input-more').classList.add('d-none')
     }
+}
+
+
+async function sendMailWithPasswordToUser() {
+    let userData = findUserPassword();
+    if (userData != '') {
+        let message = `Dear user. You asked for your password. Your password is -> ${userData.pw} <- If you don't ask please tell us.`
+        let fd = new FormData();
+        fd.append('message', message)
+        fd.append('mail', userData.mail)
+
+        await fetch('https://michael-strauss.developerakademie.net/join/send_mail/send_mail.php', {
+            method: 'POST',
+            body: fd
+        });
+
+        openYouGetMailFromUs();
+    }
+    else {
+        openMessageBoxForNoUserWithSuchAMailAdress();
+    }
+
+}
+
+
+function findUserPassword() {
+    let mail = document.getElementById('forgot-pw-mail-input').value
+    let user = users.find(user => user.mail == mail)
+    if (user == undefined) {
+        return '';
+    }
+    else {
+        let obj = {
+            'mail': mail,
+            'pw': user.password
+        }
+        return obj;
+    }
+}
+
+
+function openForgotPasswordWindow() {
+    document.getElementById('login').classList.add('d-none')
+    document.getElementById('forgot-pw-box').classList.remove('d-none')
+}
+
+
+function openYouGetMailFromUs() {
+    document.getElementById('forgot-pw-answer-box').classList.remove('d-none')
+    document.getElementById('forgot-pw-box').classList.add('d-none')
+}
+
+
+function backToLogIn() {
+    document.getElementById('login').classList.remove('d-none')
+    document.getElementById('forgot-pw-box').classList.add('d-none')
+    document.getElementById('forgot-pw-answer-box').classList.add('d-none')
+    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.add('d-none')
+}
+
+
+function backToForgotPassword() {
+    document.getElementById('forgot-pw-box').classList.remove('d-none')
+    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.add('d-none')
+}
+
+
+function openMessageBoxForNoUserWithSuchAMailAdress() {
+    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.remove('d-none')
+    document.getElementById('forgot-pw-box').classList.add('d-none')
 }

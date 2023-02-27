@@ -297,3 +297,17 @@
     color: var(--clr-primary);
     font-weight: 600;
 }
+
+.forgot-pw-send-mail-btn {
+    width: 150px !important;
+}
+
+.forgot-pw-text{
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.forgot-pw-anser-box-btn-container {
+    justify-content: center !important;
+}
