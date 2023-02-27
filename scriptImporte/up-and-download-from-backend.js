@@ -19,8 +19,12 @@ async function init() {
   await downloadFromServer();
   users = JSON.parse(backend.getItem(`users`)) || [];
   icons = JSON.parse(backend.getItem(`icons`)) || [];
+  setTimeout(() => {
+    loadAllUserNamesInArray();
+    logInUserIfPossible();
 
-  loadAllUserNamesInArray();
+  }, 100);
+
 }
 
 async function loadTaskFromBackend() {
@@ -34,4 +38,19 @@ async function loadTaskFromBackend() {
   renderBoard();
   renderBacklog();
   openBoard();
+}
+
+
+function logInUserIfPossible() {
+
+  const usersLoginMail = localStorage.getItem('joinLoginMail');
+  const usersLoginPW = localStorage.getItem('joinLoginPassword');
+  if (usersLoginPW != null && usersLoginMail != null) {
+    if (checkIfLoginParameterExist(usersLoginMail, usersLoginPW)) {
+      showLogout();
+      showUsersImage(usersLoginMail);
+      hideLoginButton();
+      closeLoginBox();
+    }
+  }
 }

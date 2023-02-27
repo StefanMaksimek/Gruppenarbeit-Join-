@@ -20,17 +20,27 @@ function openLoginBox() {
 function checkLoginParameters() {
     let usersLoginMail = document.getElementById('login-user-inputfield')
     let usersLoginPW = document.getElementById('login-user-inputfield-pw')
+    let rememberMe = document.getElementById('login-remember-me')
     let userMail = usersLoginMail.value
 
-    if (checkIfLoginParameterExist(usersLoginMail, usersLoginPW)) {
+    if (checkIfLoginParameterExist(usersLoginMail.value, usersLoginPW.value)) {
+
         showLogout();
-        closeLoginBox();
         showUsersImage(userMail);
         hideLoginButton();
+        checkRememberMe(rememberMe, usersLoginMail, usersLoginPW);
+        closeLoginBox();
     } else {
         showLoginAlertUsernameNotExist();
         setTimeout(hideLoginAlertUsernameNotExist, timeInfoShownLong)
         clearLoginInputfields();
+    }
+}
+
+function checkRememberMe(rememberMe, usersLoginMail, usersLoginPW) {
+    if (rememberMe.checked) {
+        localStorage.setItem('joinLoginMail', usersLoginMail.value)
+        localStorage.setItem('joinLoginPassword', usersLoginPW.value)
     }
 }
 
@@ -48,7 +58,7 @@ function hideLoginAlertUsernameNotExist() {
 
 
 function checkIfLoginParameterExist(usersLoginMail, usersLoginPW) {
-    return users.some(user => user.mail === usersLoginMail.value && user.password === usersLoginPW.value);
+    return users.some(user => user.mail === usersLoginMail && user.password === usersLoginPW);
 }
 
 
