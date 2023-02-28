@@ -10,7 +10,7 @@ let testTasks = [
       {
         name: 'Michael',
         icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        mail: 'michael@gmail.net',
       },
     ],
     status: 'to-do',
@@ -29,7 +29,7 @@ let testTasks = [
       {
         name: 'Stefan',
         icon: './img/001_fb copy.jpg',
-        mail: 'Stefan@gmail.de',
+        mail: 'stefan@gmail.net',
       },
     ],
     status: 'in-progress',
@@ -48,7 +48,7 @@ let testTasks = [
       {
         name: 'Sahra',
         icon: './img/icon_female_6.png',
-        mail: 'sahra@gmail.de',
+        mail: 'sahra@gmail.net',
       },
     ],
     status: 'testing',
@@ -67,7 +67,7 @@ let testTasks = [
       {
         name: 'Sven',
         icon: './img/icon_male_2.png',
-        mail: 'sven@gmail.de',
+        mail: 'sven@gmail.net',
       },
     ],
     status: 'done',
@@ -86,12 +86,12 @@ let testTasks = [
       {
         name: 'Stefan',
         icon: './img/001_fb copy.jpg',
-        mail: 'Stefan@gmail.de',
+        mail: 'stefan@gmail.net',
       },
       {
         name: 'Michael',
         icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        mail: 'michael@gmail.net',
       },
     ],
     status: 'to-do',
@@ -110,7 +110,7 @@ let testTasks = [
       {
         name: 'Michael',
         icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        mail: 'michael@gmail.net',
       },
     ],
     status: 'to-do',
@@ -129,7 +129,7 @@ let testTasks = [
       {
         name: 'Michael',
         icon: './img/github.jpg',
-        mail: 'Test@gmail.de',
+        mail: 'michael@gmail.net',
       },
     ],
     status: 'to-do',

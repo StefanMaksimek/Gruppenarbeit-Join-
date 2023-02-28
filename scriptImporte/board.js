@@ -22,7 +22,7 @@ function renderToDo() {
         for (let i = 0; i < toDos.user.length; i++) {
             const user = toDos.user[i];
             document.getElementById(`board-card-usericon${toDos.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
-            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+            <img onclick="showUserDetails('${user.mail}')" src="${user.icon}">            
         </div>`
         }
     })
@@ -38,7 +38,7 @@ function renderInProgress() {
         for (let i = 0; i < inProgress.user.length; i++) {
             const user = inProgress.user[i];
             document.getElementById(`board-card-usericon${inProgress.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
-            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+            <img onclick="showUserDetails('${user.mail}')" src="${user.icon}">            
         </div>`
         }
     })
@@ -55,7 +55,7 @@ function renderTesting() {
         for (let i = 0; i < testing.user.length; i++) {
             const user = testing.user[i];
             document.getElementById(`board-card-usericon${testing.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
-            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+            <img onclick="showUserDetails('${user.mail}')" src="${user.icon}">            
         </div>`
         }
     })
@@ -72,7 +72,7 @@ function renderDone() {
         for (let i = 0; i < done.user.length; i++) {
             const user = done.user[i];
             document.getElementById(`board-card-usericon${done.id}`).innerHTML += `<div style="left: calc(10px + 20px*${i})" class="assigned-to-user board-user-icon">
-            <img onclick="showUserDetails('${user.name}')" src="${user.icon}">            
+            <img onclick="showUserDetails('${user.mail}')" src="${user.icon}">            
         </div>`
         }
     })
