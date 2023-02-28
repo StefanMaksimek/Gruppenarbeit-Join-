@@ -46,9 +46,7 @@ function logInUserIfPossible() {
   const usersLoginPW = localStorage.getItem('joinLoginPassword');
   if (usersLoginPW != null && usersLoginMail != null) {
     if (checkIfLoginParameterExist(usersLoginMail, usersLoginPW)) {
-      showLogout();
       showUsersImage(usersLoginMail);
-      hideLoginButton();
       closeLoginBox();
     }
   }

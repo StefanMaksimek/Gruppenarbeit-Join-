@@ -24,10 +24,7 @@ function checkLoginParameters() {
     let userMail = usersLoginMail.value
 
     if (checkIfLoginParameterExist(usersLoginMail.value, usersLoginPW.value)) {
-
-        showLogout();
         showUsersImage(userMail);
-        hideLoginButton();
         checkRememberMe(rememberMe, usersLoginMail, usersLoginPW);
         closeLoginBox();
     } else {
@@ -312,31 +309,6 @@ function clearTemporaryIconArray() {
 
 function noIconIsSelected() {
     return temporaryIconArray.length == 0
-}
-
-
-//sidebar visibility login, logout, userImage
-function hideLoginButton() {
-    let content = document.getElementById('login-h3');
-    content.classList.add('d-none');
-}
-
-
-function showLogout() {
-    let logoutButton = document.getElementById('logout-h3');
-    logoutButton.classList.remove('d-none');
-}
-
-
-function hideLogoutButton() {
-    let logoutButton = document.getElementById('logout-h3');
-    logoutButton.classList.add('d-none');
-}
-
-
-function showLoginButton() {
-    let loginArea = document.getElementById('login-h3');
-    loginArea.classList.remove('d-none');
 }
 
 

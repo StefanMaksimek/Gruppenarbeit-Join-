@@ -163,3 +163,19 @@ window.addEventListener('resize', _e => {
         document.getElementById('myModal').classList.remove('d-block')
     }
 })
+
+function changeIconColorHover() {
+    document.getElementById('header-desktop-help').src = 'img/logos/help-btn-hover.svg'
+}
+
+function changeIconColorNoHover() {
+    document.getElementById('header-desktop-help').src = 'img/logos/help-btn.svg'
+}
+
+function changeIconColorHoverLogout() {
+    document.getElementById('logout-btn').src = 'img/logos/logout-join-hover.png'
+}
+
+function changeIconColorNoHoverLogout() {
+    document.getElementById('logout-btn').src = 'img/logos/logout-join.png'
+}

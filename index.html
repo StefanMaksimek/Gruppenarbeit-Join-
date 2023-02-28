@@ -72,18 +72,12 @@
                 <h3 id="impressum-h3" onclick="openImpressum(); closeBoardAddTask()">Imprint</h3>
                 <h3 id="datenschutz-h3" onclick="openDatenschutz(); closeBoardAddTask()">Privacy</h3>
                 <hr>
-                <div id="login-logout">
-                    <h3 id="login-h3" onclick="openLoginBox(); closeBoardAddTask()">Login</h3>
-                    <h3 id="logout-h3" onclick="executeLogout(); closeBoardAddTask()" class="d-none">Logout</h3>
-                </div>
-            </div>
-
-            <!-- MS: I created a function which load all users images automatically with the class d-none in JS. After successful Login the image of the user will be shown -->
-            <div class="user" id="user">
             </div>
         </div>
 
     </div>
+
+
     <form onsubmit="createTask(); openOrCloseSidebarCreateTask(); return false">
         <div class="side-bar-task d-none" id="side-bar-task">
             <div class="side-bar-task-header">
@@ -167,6 +161,18 @@
     </form>
 
     <div class="main d-none" id="main">
+        <div id="header-desktop-box" class="header-desktop-box">
+            <div class="header-desktop-title">
+                Kanban Project Management Tool
+            </div>
+            <div class="header-desktop-icons">
+                <img id="header-desktop-help" class="header-desktop-help-icon" onmouseout="changeIconColorNoHover()"
+                    onmouseover="changeIconColorHover()" src="img/logos/help-btn.svg" alt="">
+                <div id="user"></div>
+                <img onmouseout="changeIconColorNoHoverLogout()" onmouseover="changeIconColorHoverLogout()"
+                    id="logout-btn" src="img/logos/logout-join.png" onclick="executeLogout(); closeBoardAddTask()">
+            </div>
+        </div>
         <div class="header" id="header">
             <div class="test" id="burger" onclick="openMobileSide()">
                 <a class="burger" href="#">
