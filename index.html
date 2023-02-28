@@ -29,10 +29,29 @@
 
 <body onload="init()" data-theme="default">
     <div class="modal" id="myModal">
-
+    </div>
+    <div id="loading-view" class="loading-circle-box">
+        <div class="loading-circle">
+            <span style="--i:0"></span>
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <span style="--i:4"></span>
+            <span style="--i:5"></span>
+            <span style="--i:6"></span>
+            <span style="--i:7"></span>
+            <span style="--i:8"></span>
+            <span style="--i:9"></span>
+            <span style="--i:10"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:13"></span>
+        </div>
+        <img src="img/logos/join-logo-start.svg" alt="">
     </div>
 
-    <div class="side-bar" id="side-bar">
+
+    <div class="side-bar d-none" id="side-bar">
         <div class="side-bar-holder">
             <div class="nav-holder">
                 <div class="logo">
@@ -147,7 +166,7 @@
         </div>
     </form>
 
-    <div class="main" id="main">
+    <div class="main d-none" id="main">
         <div class="header" id="header">
             <div class="test" id="burger" onclick="openMobileSide()">
                 <a class="burger" href="#">
@@ -567,7 +586,7 @@
 
 
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
-
+            <!-- ----------------------------- Select employees for tasks box START ----------------------------- -->
             <div class="select-employees-container d-none" id="select-employees-container">
                 <h2>Please select</h2>
                 <div class="select-employees-container-list">
@@ -587,7 +606,7 @@
                 </div>
                 <button class="btn btn-primary margin-top" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
             </div>
-
+            <!-- ----------------------------- Select employees for tasks box END ----------------------------- -->
 
             <div class="d-none" id="help">
 
@@ -975,9 +994,10 @@
                     <form onsubmit="checkPasswortInRegestrationProcess(); return false">
                         <div class="registration-box-input">
                             <h2>Registration</h2>
-                            <input maxlength="30" required id="new-user-inputfield-login" type="text"
-                                placeholder="Mail" class="bg-mail">
-                            <input required id="new-user-inputfield-pw" type="password" placeholder="Password" class="bg-pw">
+                            <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail"
+                                class="bg-mail">
+                            <input required id="new-user-inputfield-pw" type="password" placeholder="Password"
+                                class="bg-pw">
                             <input required type="password" placeholder="Repeat password"
                                 id="new-user-inputfield-pw-repeat" class="bg-pw">
                             <div id="new-user-registration-input-more" class="show-more-less-registration"
@@ -1013,28 +1033,30 @@
                     <form onsubmit="sendMailWithPasswordToUser(); return false">
                         <div class="registration-box-input">
                             <h2>I forgot my password</h2>
-                            <div class="forgot-pw-text">Don't worry! We will send you an email with the instructions to reset your
+                            <div class="forgot-pw-text">Don't worry! We will send you an email with the instructions to
+                                reset your
                                 password</div>
-                            <input maxlength="30" required id="forgot-pw-mail-input" type="text"
-                                placeholder="Email" class="bg-mail">
+                            <input maxlength="30" required id="forgot-pw-mail-input" type="text" placeholder="Email"
+                                class="bg-mail">
                             <div class="login-area-btn-box">
                                 <button type="button" onclick="backToLogIn()"
                                     class="login-area-btn login-area-btn-guest login-btn-shadow">Cancel</button>
-                                <button type="submit" class="login-btn-shadow login-area-btn login-area-btn-login forgot-pw-send-mail-btn">Send
+                                <button type="submit"
+                                    class="login-btn-shadow login-area-btn login-area-btn-login forgot-pw-send-mail-btn">Send
                                     me the email</button>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div id="forgot-pw-answer-box" class="d-none">
-                        <div class="registration-box-input">
-                            <h2>I forgot my password</h2>
-                            <div class="forgot-pw-text">Look to your mails. We send you your password</div>
-                            <div class="login-area-btn-box forgot-pw-anser-box-btn-container">
-                                <button type="button" onclick="backToLogIn()"
+                    <div class="registration-box-input">
+                        <h2>I forgot my password</h2>
+                        <div class="forgot-pw-text">Look to your mails. We send you your password</div>
+                        <div class="login-area-btn-box forgot-pw-anser-box-btn-container">
+                            <button type="button" onclick="backToLogIn()"
                                 class="login-area-btn login-area-btn-guest login-btn-shadow">Back to log in</button>
-                            </div>
                         </div>
+                    </div>
                 </div>
                 <div id="forgot-pw-answer-box-no-such-mail-adress" class="d-none">
                     <div class="registration-box-input">
@@ -1042,12 +1064,12 @@
                         <div class="forgot-pw-text">We are sorry, there is no such mail address registered.</div>
                         <div class="login-area-btn-box">
                             <button type="button" onclick="backToLogIn()"
-                            class="login-area-btn login-area-btn-guest login-btn-shadow">Back to log in</button>
+                                class="login-area-btn login-area-btn-guest login-btn-shadow">Back to log in</button>
                             <button type="button" onclick="backToForgotPassword()"
-                            class="login-area-btn login-area-btn-guest login-btn-shadow">Retry</button>
+                                class="login-area-btn login-area-btn-guest login-btn-shadow">Retry</button>
                         </div>
                     </div>
-            </div>
+                </div>
             </div>
 
 

@@ -22,8 +22,7 @@ async function init() {
   setTimeout(() => {
     loadAllUserNamesInArray();
     logInUserIfPossible();
-
-  }, 100);
+  }, 2000);
 
 }
 
@@ -53,4 +52,7 @@ function logInUserIfPossible() {
       closeLoginBox();
     }
   }
+  document.getElementById('main').classList.remove('d-none')
+  document.getElementById('side-bar').classList.remove('d-none')
+  document.getElementById('loading-view').classList.add('d-none')
 }
