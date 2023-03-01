@@ -13,6 +13,16 @@
         margin: 0;
     }
 
+    .login-join-logo-box {
+        top: 5%;
+        left: 5%;
+    }
+
+    .login-join-sign-up-box {
+        top: 5%;
+        right: 5%;
+    }
+
     .test {
         display: flex;
     }
@@ -50,6 +60,16 @@
 
     .left, .right {
         width: 100%;
+    }
+
+    .login-join-logo-box {
+        top: 5%;
+        left: 5%;
+    }
+
+    .login-join-sign-up-box {
+        top: 85%;
+        right: 5%;
     }
 
     .backlog-responsive {
@@ -94,12 +114,46 @@
         width: 50px;
         height: 50px;
     }
+
+    .registration-box-input {
+        min-width: 250px;
+        width: calc(100% - 16px);
+    }
+
+    .login-area-btn-box {
+        width: 100%;
+    }
+
+    .bg-mail {
+        background: white url(/img/logos/login-mail.svg) calc(100% - 12px) 50% no-repeat;
+    }
+
+    .bg-pw {
+        background: white url(/img/logos/login-pw.svg) calc(100% - 12px) 50% no-repeat;
+    }
+
+    .login-area-btn {
+        width: 100px;
+    }
+
+    .login-remember-and-forgot-password-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .login-remember-and-forgot-password-container span{
+        margin-top: 12px;
+    }
 }
+
 
 .active-mobile-side {
     min-height: 100%;
     transform: translate(0);
 }
+
+
 
 @media screen and (max-height: 500px) {
     * {
