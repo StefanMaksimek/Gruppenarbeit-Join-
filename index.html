@@ -67,7 +67,6 @@
                     onclick="openAddTask(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
                     task</h3>
                 <hr>
-                <h3 id="help-h3" onclick="openHelp(); closeBoardAddTask()">Help</h3>
                 <h3 id="settings-h3" onclick="openSettings(); closeBoardAddTask()">Settings</h3>
                 <h3 id="impressum-h3" onclick="openImpressum(); closeBoardAddTask()">Imprint</h3>
                 <h3 id="datenschutz-h3" onclick="openDatenschutz(); closeBoardAddTask()">Privacy</h3>
@@ -167,7 +166,8 @@
             </div>
             <div class="header-desktop-icons">
                 <img id="header-desktop-help" class="header-desktop-help-icon" onmouseout="changeIconColorNoHover()"
-                    onmouseover="changeIconColorHover()" src="img/logos/help-btn.svg" alt="">
+                    onmouseover="changeIconColorHover()" src="img/logos/help-btn.svg"
+                    onclick="openHelp(); closeBoardAddTask()">
                 <div id="user"></div>
                 <img onmouseout="changeIconColorNoHoverLogout()" onmouseover="changeIconColorHoverLogout()"
                     id="logout-btn" src="img/logos/logout-join.png" onclick="executeLogout(); closeBoardAddTask()">

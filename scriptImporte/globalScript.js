@@ -29,7 +29,6 @@ function openAddTask() {
 function openHelp() {
     closeAllContent()
     document.getElementById('help').className = 'help';
-    document.getElementById('help-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Help</h2>`;
 }
 
@@ -87,12 +86,9 @@ function removeBorderInSidebar() {
     document.getElementById('board-h3').className = '';
     document.getElementById('backlog-h3').className = '';
     document.getElementById('add-task-h3').className = '';
-    document.getElementById('help-h3').className = '';
     document.getElementById('impressum-h3').className = '';
     document.getElementById('datenschutz-h3').className = '';
-    document.getElementById('help-h3').className = '';
     document.getElementById('settings-h3').className = '';
-
 }
 
 
