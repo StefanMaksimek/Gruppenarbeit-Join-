@@ -53,9 +53,19 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    .login-join-logo-box img {
+        width: 100px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .add-task form {
         flex-direction: column;
+    }
+
+       .login-join-logo-box img {
+        width: 80px;
     }
 
     .left, .right {
@@ -142,7 +152,7 @@
         margin-bottom: 12px;
     }
 
-    .login-remember-and-forgot-password-container span{
+    .login-remember-and-forgot-password-container span {
         margin-top: 12px;
     }
 }
