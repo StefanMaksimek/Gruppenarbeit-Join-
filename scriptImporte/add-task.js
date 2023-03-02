@@ -114,7 +114,7 @@ function createTaskFromAddTask() {
     let description = document.getElementById('task-description');
     let color = temporaryArrayColor[0]
     let id = createRandomId();
-    let dueDate = document.getElementById('due-date')
+    let dueDate = document.getElementById('due-date')    
     createObjTask(title, priority, category, description, color, id, dueDate)
 }
 
@@ -128,20 +128,9 @@ function createRandomId() {
 
 
 function createObjTask(title, priority, category, description, color, id, dueDate) {
+    let taskInfo = createJsonForTask(title, priority, category, description, color, id, dueDate);
+    let task = new Task(taskInfo);
 
-    let task = {
-        "id": id,
-        "title": title.value,
-        "priority": priority.value,
-        "category": category.value,
-        "createdAt": new Date().getTime(),
-        "dueDate": new Date(dueDate.value).getTime(),
-        "user": [],
-        "status": '',
-        "description": description.value,
-        "color": color,
-        "locationTask": locationTask //where the task is rendered
-    }
     pushAllUsersInTask(task);
     tasks.push(task);
     uploadTasks();
@@ -154,6 +143,24 @@ function createObjTask(title, priority, category, description, color, id, dueDat
     else {
         pushTask(id, statusTask);
     }
+}
+
+function createJsonForTask(title, priority, category, description, color, id, dueDate) {
+    let taskInfo = {
+        "id": id,
+        "title": title.value,
+        "priority": priority.value,
+        "category": category.value,
+        "createdAt": new Date().getTime(),
+        "dueDate": new Date(dueDate.value).getTime(),
+        "user": [],
+        "status": '',
+        "description": description.value,
+        "color": color,
+        "locationTask": locationTask //where the task is rendered
+    }
+    console.log(taskInfo)
+    return taskInfo;
 }
 
 
