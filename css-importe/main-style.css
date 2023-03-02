@@ -26,13 +26,22 @@ h3 {
     color: white;
     display: flex;
     justify-content: center;
+    height: 100vh;
+}
+
+.legal-notice-container{
+    position: absolute;
+    bottom: 24px;
+}
+
+.legal-notice-container img{
+    margin-right: 8px;
 }
 
 .side-bar-holder {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    height: 100vh;
     width: 100%;
 }
 
@@ -67,9 +76,9 @@ h3 {
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
     width: calc(100vw - 180px);
+    height: 100vh;
+    position: relative;
 }
 
 .header {
@@ -99,6 +108,11 @@ h3 {
 .content {
     padding: 0 var(--px-mid);
     color: var(--clr-font1);
+    position: absolute;
+    top: 63px;
+    overflow: auto;
+    height: calc(100vh - 63px);
+    width: 100%;
 }
 
 .test {
@@ -266,7 +280,8 @@ h3 {
     width: 100%;
     box-shadow: 0 3px rgba(41, 71, 226, 0.25);
 
-    position: relative;
+    position: absolute;
+    top: 0;
 }
 
 .header-desktop-title {
