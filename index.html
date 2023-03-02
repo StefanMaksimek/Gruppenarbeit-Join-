@@ -55,22 +55,50 @@
         <div class="side-bar-holder">
             <div class="nav-holder">
                 <div class="logo">
-                    <img src="img/joinlogo.png" alt="">
+                    <img src="img/logos/join-logo-white.png" alt="">
+                </div>
+                <div class="sidebar-point-container">
+                    <div class="sidebar-box-point">
+                        <img src="img/logos/uit_web-grid.svg">
+                        <h3
+                            onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
+                            Summary</h3>
+                    </div>
+                    <div class="sidebar-box-point">
+                        <img src="img/logos/board-icon.svg">
+                        <h3
+                            onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
+                            Board</h3>
+                    </div>
+                    <div class="sidebar-box-point">
+                        <img src="img/logos/icon-backlog.png">
+                        <h3 id="backlog-h3"
+                            onclick="openBacklog(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">
+                            Backlog
+                        </h3>
+                    </div>
+                    <div class="sidebar-box-point">
+                        <img src="img/logos/write-task-icon.svg">
+                        <h3 id="add-task-h3"
+                            onclick="openAddTask(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">
+                            Add
+                            Task</h3>
+                    </div>
+                    <div class="sidebar-box-point">
+                        <img src="img/logos/icon-contact.svg">
+                        <h3 id="add-task-h3"
+                            onclick="openContact(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">
+                            Contacts</h3>
+                    </div>
                 </div>
 
-                <h3 id="board-h3" class="active-h3" onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
-                    Board</h3>
-                <h3 id="backlog-h3"
-                    onclick="openBacklog(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Backlog
-                </h3>
-                <h3 id="add-task-h3"
-                    onclick="openAddTask(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">Add
-                    task</h3>
-                <hr>
+<!--
+                    <hr>
                 <h3 id="settings-h3" onclick="openSettings(); closeBoardAddTask()">Settings</h3>
                 <h3 id="impressum-h3" onclick="openImpressum(); closeBoardAddTask()">Imprint</h3>
                 <h3 id="datenschutz-h3" onclick="openDatenschutz(); closeBoardAddTask()">Privacy</h3>
                 <hr>
+-->
             </div>
         </div>
 
@@ -184,11 +212,7 @@
         </div>
 
         <div class="d-none" id="info">
-            <h2 id="info-header">Add Task</h2>
-
-            <span>
-                Learning Management System Projekt
-            </span>
+            <h2 id="info-header">Board</h2>
         </div>
 
         <div class="content" id="content">

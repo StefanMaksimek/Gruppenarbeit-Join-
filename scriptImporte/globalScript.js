@@ -2,7 +2,6 @@ function openBoard() {
     closeAllContent();
     document.getElementById('info').className = 'd-none';
     document.getElementById('board').className = 'board';
-    document.getElementById('board-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Board</h2>`;
     setTemporaryArrayResponsibleEmployeesToStandard();
 }
@@ -11,7 +10,6 @@ function openBoard() {
 function openBacklog() {
     closeAllContent();
     document.getElementById('backlog').className = 'backlog';
-    document.getElementById('backlog-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Backlog</h2>`;
     setTemporaryArrayResponsibleEmployeesToStandard();
 }
@@ -20,9 +18,12 @@ function openBacklog() {
 function openAddTask() {
     closeAllContent();
     document.getElementById('add-task').className = 'add-task';
-    document.getElementById('add-task-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Add Task</h2>`;
     setTemporaryArrayResponsibleEmployeesToStandard();
+}
+
+function openContact() {
+//
 }
 
 
@@ -36,7 +37,6 @@ function openHelp() {
 function openSettings() {
     closeAllContent();
     document.getElementById('settings').className = 'settings';
-    document.getElementById('settings-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Settings</h2>`;
 }
 
@@ -44,7 +44,6 @@ function openSettings() {
 function openImpressum() {
     closeAllContent();
     document.getElementById('impressum').className = 'impressum';
-    document.getElementById('impressum-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Impressum</h2>`;
 }
 
@@ -52,7 +51,6 @@ function openImpressum() {
 function openDatenschutz() {
     closeAllContent();
     document.getElementById('datenschutz').className = 'datenschutz';
-    document.getElementById('datenschutz-h3').className = 'active-h3';
     document.getElementById('info-header').innerHTML = `<h2>Datenschutz</h2>`;
 }
 
@@ -64,8 +62,6 @@ function closeAllContent() {
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
     document.getElementById('show-backlog-details-container').classList.add('d-none');
-
-    removeBorderInSidebar();
     closeContentWindows();
 }
 
@@ -79,16 +75,6 @@ function closeContentWindows() {
     document.getElementById('help').className = 'd-none';
     document.getElementById('settings').className = 'd-none';
 
-}
-
-
-function removeBorderInSidebar() {
-    document.getElementById('board-h3').className = '';
-    document.getElementById('backlog-h3').className = '';
-    document.getElementById('add-task-h3').className = '';
-    document.getElementById('impressum-h3').className = '';
-    document.getElementById('datenschutz-h3').className = '';
-    document.getElementById('settings-h3').className = '';
 }
 
 

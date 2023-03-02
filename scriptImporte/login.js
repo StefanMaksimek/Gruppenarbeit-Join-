@@ -332,8 +332,6 @@ function setUserName(userMail) {
 
 // Logout function
 function executeLogout() {
-    hideLogoutButton();
-    showLoginButton();
     deleteUsersImageAfterLogout();
     openLoginBox()
     clearTasksArrayToHideForTestusers()
