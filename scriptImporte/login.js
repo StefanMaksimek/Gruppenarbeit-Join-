@@ -1,6 +1,6 @@
 let currentUser;
 
-let userRegistrationObj;
+let user;
 let temporaryIconArray = [];
 
 
@@ -128,8 +128,8 @@ function hideRegistrationAlertContent() {
 
 
 function submitNewUser() {
-    let newUser = userRegistrationObj.mail
-    if (checkIfUserNameAlreadyExist(newUser) == true) {
+
+    if (checkIfUserMailAlreadyExist() == true) {
         showRegistrationAlertUserAlreadyExist()
         setTimeout(hideRegistrationAlertUserAlreadyExist, timeInfoShown)
     }
@@ -156,8 +156,8 @@ function hideRegistrationAlertUserAlreadyExist() {
 }
 
 
-function checkIfUserNameAlreadyExist(newUser) {
-    return users.some(user => user.mail === newUser.mail);
+function checkIfUserMailAlreadyExist() {
+    return users.some(u => u.mail === user.mail);
 }
 
 
@@ -170,13 +170,13 @@ function takeInfosFromRegistration() {
     let newUserCategory = document.getElementById('new-user-inputfield-category');
     let newUserHobby = document.getElementById('new-user-inputfield-hobby');
     let iconSource = temporaryIconArray[0];
-
+    debugger
     createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource)
 }
 
 
 function createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource) {
-    userRegistrationObj = {
+    let userInfo = {
         "id": "",
         "mail": newUserMail.value,
         "password": newUserPassword.value,
@@ -187,15 +187,16 @@ function createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, n
         "name": newUserName.value,
         "telephon": newUserTel.value
     };
+    user = new User(userInfo);
     submitNewUser();
 }
 
 
 function pushNewUserInArrayUsers() {
     let userId = users.length;
-    userRegistrationObj.id = userId
+    user.id = userId
 
-    users.push(userRegistrationObj);
+    users.push(user);
     loadAllUserNamesInArray();
     closeRegisterBox();
     showRegistrationAlertReadyForLogin();
@@ -218,12 +219,14 @@ function hideRegistrationAlertReadyForLogin() {
 
 
 function clearInputfieldsRegistration() {
-    let input1 = document.getElementById('new-user-inputfield-login')
-    let input2 = document.getElementById('new-user-inputfield-pw')
-    let input3 = document.getElementById('new-user-inputfield-pw-repeat')
-    input1.value = '';
-    input2.value = '';
-    input3.value = '';
+    document.getElementById('new-user-inputfield-login').value = '';
+    document.getElementById('new-user-inputfield-pw').value = '';
+    document.getElementById('new-user-inputfield-pw-repeat').value = '';
+    document.getElementById('new-user-inputfield-name').value = '';
+    document.getElementById('new-user-inputfield-tel').value = '';
+    document.getElementById('new-user-inputfield-city').value = '';
+    document.getElementById('new-user-inputfield-category').value = '';
+    document.getElementById('new-user-inputfield-hobby').value = '';
 }
 
 
@@ -296,7 +299,7 @@ function closeAskForIconSelection() {
 
 function submitNewUserWithUnknownIcon() {
     let iconSource = './img/icon-unknown.svg';
-    userRegistrationObj.icon = iconSource
+    user.icon = iconSource
     closeAskForIconSelection();
     pushNewUserInArrayUsers();
 }
@@ -410,14 +413,14 @@ async function sendMailWithPasswordToUser() {
 
 function findUserPassword() {
     let mail = document.getElementById('forgot-pw-mail-input').value
-    let user = users.find(user => user.mail == mail)
-    if (user == undefined) {
+    let userForgotPassword = users.find(user => user.mail == mail)
+    if (userForgotPassword == undefined) {
         return '';
     }
     else {
         let obj = {
             'mail': mail,
-            'pw': user.password
+            'pw': userForgotPassword.password
         }
         return obj;
     }

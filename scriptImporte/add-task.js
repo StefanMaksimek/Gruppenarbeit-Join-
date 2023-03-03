@@ -159,7 +159,6 @@ function createJsonForTask(title, priority, category, description, color, id, du
         "color": color,
         "locationTask": locationTask //where the task is rendered
     }
-    console.log(taskInfo)
     return taskInfo;
 }
 

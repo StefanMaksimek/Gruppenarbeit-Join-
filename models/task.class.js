@@ -12,7 +12,6 @@ class Task {
     locationTask; // string; where the task is rendered
 
     constructor (taskInfo) {
-        console.log(taskInfo)
         this.id = taskInfo.id;
         this.title = taskInfo.title;
         this.priority = taskInfo.priority;
