@@ -17,6 +17,7 @@
     <script src="./models/user.class.js"></script>
     <script src="./scriptImporte/JSON.js"></script>
     <script src="./scriptImporte/HTML.js"></script>
+    <script src="./scriptImporte/summary.js"></script>
     <script src="./scriptImporte/globalScript.js"></script>
     <script src="./scriptImporte/board.js"></script>
     <script src="./scriptImporte/backlog.js"></script>
@@ -62,7 +63,7 @@
                 <div class="sidebar-point-container">
                     <div class="sidebar-box-point">
                         <img src="img/logos/uit_web-grid.svg">
-                        <h3 onclick="openBoard(); changeZPositionOfBackgroundContainerlow()">
+                        <h3 onclick="openSummary(); changeZPositionOfBackgroundContainerlow()">
                             Summary</h3>
                     </div>
                     <div class="sidebar-box-point">
@@ -215,7 +216,32 @@
             </div>
         </div>
 
+
         <div class="content" id="content">
+            <!-- /////////////////////////////// Summary START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div class="summary d-none" id="summary">
+                <div class="contact-detail-headline">
+                    <h2>SUMMARY</h2>
+                    <div>Everything in a nutshell</div>
+                </div>
+
+                <div class="summary-overview-container-one">
+                    <div class="summary-overview-sub-container-one">
+                        <div id="summary-nbr-tasks-board"></div>
+                        <div class="summary-overview-sub-container-one-text">Tasks in Board</div>
+                    </div>
+                    <div class="summary-overview-sub-container-one">
+                        <div id="summary-nbr-tasks-progress"></div>
+                        <div class="summary-overview-sub-container-one-text">Tasks in Progress</div>
+                    </div>
+                    <div class="summary-overview-sub-container-one">
+                        <div id="summary-nbr-tasks-feedback"></div>
+                        <div class="summary-overview-sub-container-one-text">Awaiting Feedback</div>
+                    </div>
+                </div>
+            </div>
+            <!-- /////////////////////////////// Summary END \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <!-- /////////////////////////////// Board START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div id="board">
                 <h2 class="headline-card">BOARD</h2>
                 <div class="board">
@@ -379,6 +405,7 @@
                 </div>
                 <!--Area for details of Task Box END-->
             </div>
+            <!-- /////////////////////////////// Board END \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <!-- /////////////////////////////// Backlog START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="backlog">
                 <h2 class="headline-card">BACKLOG</h2>
@@ -395,8 +422,6 @@
                         </tbody>
                     </table>
                 </div>
-
-
 
                 <div class=" d-none" id="show-backlog-details-container">
                     <div class="close-user-details-box" id="close-user-details-box-backlog">

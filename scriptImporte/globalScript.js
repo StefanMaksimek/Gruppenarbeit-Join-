@@ -54,12 +54,22 @@ function openContacts() {
 }
 
 
+function openSummary() {
+    closeAllContent();
+    document.getElementById('summary').classList.remove('d-none');
+    loadSummaryContent();
+}
+
+
+
+
 function closeAllContent() {
     document.getElementById('myModal').classList.remove('d-block');
     document.getElementById('show-board-details-container').classList.add('d-none');
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
     document.getElementById('show-backlog-details-container').classList.add('d-none');
+    document.getElementById('summary').classList.add('d-none');
     closeContentWindows();
 }
 

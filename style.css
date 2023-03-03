@@ -14,6 +14,7 @@
 @import "./css-importe/media.css";
 @import "./css-importe/help.css";
 @import "./css-importe/contact.css";
+@import "./css-importe/summary.css";
 
 body::-webkit-scrollbar {
   width: 12px;

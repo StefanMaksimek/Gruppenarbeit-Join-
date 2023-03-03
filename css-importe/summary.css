@@ -1,0 +1,25 @@
+.summary-overview-container-one {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    margin-left: 60px;
+}
+
+.summary-overview-sub-container-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+    background-color: white;
+    margin-right: 24px;
+    border-radius: 16px;
+}
+
+.summary-overview-sub-container-one-text{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
