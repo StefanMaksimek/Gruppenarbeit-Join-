@@ -1,64 +1,62 @@
 function openBoard() {
     closeAllContent();
-    document.getElementById('info').className = 'd-none';
-    document.getElementById('board').className = 'board';
-    document.getElementById('info-header').innerHTML = `<h2>Board</h2>`;
+    document.getElementById('board').classList.remove('d-none');
     setTemporaryArrayResponsibleEmployeesToStandard();
 }
 
 
 function openBacklog() {
     closeAllContent();
-    document.getElementById('backlog').className = 'backlog';
-    document.getElementById('info-header').innerHTML = `<h2>Backlog</h2>`;
+    document.getElementById('backlog').classList.remove('d-none');
     setTemporaryArrayResponsibleEmployeesToStandard();
 }
 
 
 function openAddTask() {
     closeAllContent();
-    document.getElementById('add-task').className = 'add-task';
-    document.getElementById('info-header').innerHTML = `<h2>Add Task</h2>`;
+    document.getElementById('add-task').classList.remove('d-none');
     setTemporaryArrayResponsibleEmployeesToStandard();
 }
 
 function openContact() {
-//
+    //
 }
 
 
 function openHelp() {
     closeAllContent()
-    document.getElementById('help').className = 'help';
-    document.getElementById('info-header').innerHTML = `<h2>Help</h2>`;
+    document.getElementById('help').classList.remove('d-none');
 }
 
 
 function openSettings() {
     closeAllContent();
-    document.getElementById('settings').className = 'settings';
-    document.getElementById('info-header').innerHTML = `<h2>Settings</h2>`;
+    document.getElementById('settings').classList.remove('d-none');
 }
 
 
 function openImpressum() {
     closeAllContent();
-    document.getElementById('impressum').className = 'impressum';
-    document.getElementById('info-header').innerHTML = `<h2>Impressum</h2>`;
+    document.getElementById('impressum').classList.remove('d-none');
 }
 
 
 function openDatenschutz() {
     closeAllContent();
-    document.getElementById('datenschutz').className = 'datenschutz';
-    document.getElementById('info-header').innerHTML = `<h2>Datenschutz</h2>`;
+    document.getElementById('datenschutz').classList.remove('d-none');
+}
+
+
+function openContacts() {
+    closeAllContent();
+    document.getElementById('contacts').classList.remove('d-none');
+    loadUserListForContacts();
 }
 
 
 function closeAllContent() {
     document.getElementById('myModal').classList.remove('d-block');
     document.getElementById('show-board-details-container').classList.add('d-none');
-    document.getElementById('info').className = 'info-header';
     document.getElementById('side-bar').classList.remove('active-mobile-side');
     document.getElementById('burger').classList.remove('toggle');
     document.getElementById('show-backlog-details-container').classList.add('d-none');
@@ -67,13 +65,14 @@ function closeAllContent() {
 
 
 function closeContentWindows() {
-    document.getElementById('impressum').className = 'd-none';
-    document.getElementById('datenschutz').className = 'd-none';
-    document.getElementById('board').className = 'd-none';
-    document.getElementById('add-task').className = 'd-none';
-    document.getElementById('backlog').className = 'd-none';
-    document.getElementById('help').className = 'd-none';
-    document.getElementById('settings').className = 'd-none';
+    document.getElementById('impressum').classList.add('d-none');
+    document.getElementById('datenschutz').classList.add('d-none');
+    document.getElementById('board').classList.add('d-none');
+    document.getElementById('add-task').classList.add('d-none');
+    document.getElementById('backlog').classList.add('d-none');
+    document.getElementById('help').classList.add('d-none');
+    document.getElementById('contacts').classList.add('d-none');
+    document.getElementById('settings').classList.add('d-none');
 
 }
 
@@ -160,4 +159,19 @@ function changeIconColorHoverLogout() {
 
 function changeIconColorNoHoverLogout() {
     document.getElementById('logout-btn').src = 'img/logos/logout-join.png'
+}
+
+function loadUserListForContacts() {
+    let content = document.getElementById('contact-list')
+    content.innerHTML = '';
+    for (let i = 0; i < users.length; i++) {
+        const user = users[i];
+        content.innerHTML += `<div class="contact-list-detail-box">
+                                <img src="${user.icon}" alt="">
+                                <div>
+                                    <div>${user.name}</div>
+                                    <div>${user.mail}</div>
+                                </div>
+                            </div>`
+    }
 }

@@ -87,7 +87,7 @@
                     <div class="sidebar-box-point">
                         <img src="img/logos/icon-contact.svg">
                         <h3 id="add-task-h3"
-                            onclick="openContact(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">
+                            onclick="openContacts(); closeBoardAddTask(); changeStatusTaskAndLocation('toDo', 'backlog')">
                             Contacts</h3>
                     </div>
                 </div>
@@ -215,65 +215,62 @@
             </div>
         </div>
 
-        <div class="d-none" id="info">
-            <h2 id="info-header">Board</h2>
-        </div>
-
         <div class="content" id="content">
-            <div class="board" id="board">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>TO DO</h3>
-                        <div class="card-header-add-icon">
-                            <img class="card-header-add-icon-img"
-                                onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')"
-                                src="./img/add-task-icon.png">
+            <div id="board">
+                <h2 class="headline-card">BOARD</h2>
+                <div class="board">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>TO DO</h3>
+                            <div class="card-header-add-icon">
+                                <img class="card-header-add-icon-img"
+                                    onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')"
+                                    src="./img/add-task-icon.png">
+                            </div>
+                        </div>
+                        <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
+                            ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
+
                         </div>
                     </div>
-                    <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
-                        ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>IN PROGRESS</h3>
-                        <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')"
-                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>IN PROGRESS</h3>
+                            <div class="card-header-add-icon">
+                                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')"
+                                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            </div>
+                        </div>
+                        <div class="to-do-holder" id="in-progress"
+                            ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
+                            ondragover="allowDrop(event); highlight('in-progress')"
+                            ondragleave="removeHighlight('in-progress')">
                         </div>
                     </div>
-                    <div class="to-do-holder" id="in-progress"
-                        ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
-                        ondragover="allowDrop(event); highlight('in-progress')"
-                        ondragleave="removeHighlight('in-progress')">
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>TESTING</h3>
-                        <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')"
-                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>TESTING</h3>
+                            <div class="card-header-add-icon">
+                                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')"
+                                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            </div>
+                        </div>
+                        <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
+                            ondragover="allowDrop(event); highlight('testing')"
+                            ondragleave="removeHighlight('testing')">
                         </div>
                     </div>
-                    <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
-                        ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        <h3>DONE</h3>
-                        <div class="card-header-add-icon">
-                            <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')"
-                                class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>DONE</h3>
+                            <div class="card-header-add-icon">
+                                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')"
+                                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            </div>
                         </div>
-                    </div>
-                    <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
-                        ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
+                        <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
+                            ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
+                        </div>
                     </div>
                 </div>
                 <!--Area for details of Task Box START-->
@@ -382,8 +379,9 @@
                 </div>
                 <!--Area for details of Task Box END-->
             </div>
-
+            <!-- /////////////////////////////// Backlog START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="backlog">
+                <h2 class="headline-card">BACKLOG</h2>
                 <table class="table">
                     <caption>Learning Management System Projekt</caption>
                     <thead>
@@ -526,10 +524,10 @@
 
                 </div>
             </div>
-
+            <!-- /////////////////////////////// Backlog END \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <!-- /////////////////////////////// ADD TASK AREA START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="add-task">
-
+                <h2 class="headline-card">ADD TASK</h2>
                 <form onsubmit="createTask(); return false">
                     <div class="left">
                         <div class="input-holder">
@@ -617,8 +615,6 @@
                     </div>
                 </form>
             </div>
-
-
             <!-- ----------------------------- ADD TASK AREA END ----------------------------- -->
             <!-- ----------------------------- Select employees for tasks box START ----------------------------- -->
             <div class="select-employees-container d-none" id="select-employees-container">
@@ -641,6 +637,16 @@
                 <button class="btn btn-primary margin-top" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
             </div>
             <!-- ----------------------------- Select employees for tasks box END ----------------------------- -->
+            <!-- /////////////////////////////// Contacts START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
+            <div class="d-none" id="contacts">
+
+                <div class="contact-list" id="contact-list">
+
+                </div>
+                <div class="contact-main-container">
+                    <h2 class="headline-card">CONTACTS</h2>
+                </div>
+            </div>
 
             <div class="d-none" id="help">
 

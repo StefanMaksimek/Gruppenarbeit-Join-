@@ -1,0 +1,28 @@
+#contacts {
+    display: flex;
+}
+
+.contact-main-container{
+    height: calc(100vh - 63px);
+    width: calc(100vw - 250px - 180px);
+}
+
+.contact-list {
+    background-color: white;
+    overflow: auto;
+    width: 250px;
+    height: calc(100vh - 63px);
+}
+
+.contact-list-detail-box {
+    display: flex;
+    align-items: center;
+}
+
+.contact-list-detail-box img {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 12px;
+}

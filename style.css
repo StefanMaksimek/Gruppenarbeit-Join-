@@ -13,6 +13,7 @@
 @import "./css-importe/side-bar-task.css";
 @import "./css-importe/media.css";
 @import "./css-importe/help.css";
+@import "./css-importe/contact.css";
 
 body::-webkit-scrollbar {
   width: 12px;
