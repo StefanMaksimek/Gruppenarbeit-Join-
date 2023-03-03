@@ -7,7 +7,7 @@ class User {
     Hobbys;
     city;
     name;
-    telephon;
+    phone;
 
     constructor(userInfo) {
         this.id = userInfo.id;
@@ -18,6 +18,6 @@ class User {
         this.Hobbys = userInfo.Hobbys;
         this.city = userInfo.city;
         this.name = userInfo.name;
-        this.telephon = userInfo.telephon;
+        this.phone = userInfo.telephon;
     }
 }

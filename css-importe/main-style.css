@@ -370,3 +370,18 @@ h3 {
     text-shadow: 0.1em 0.1em 0.2em rgb(100 100 100 / 50%);
     font-weight: 500;
 }
+
+.change-user-details{
+    margin-top: 4px;
+    width: 150px;
+    margin-bottom: 4px;
+    padding: 4px;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+}
+
+.detail-view-btn-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

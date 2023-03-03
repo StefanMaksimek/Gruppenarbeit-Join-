@@ -174,7 +174,7 @@ function loadUserListForContacts() {
             content.innerHTML += `<div class="contact-list-detail-box" id="${getFirstCharacterOfName(user.name)}">${getFirstCharacterOfName(user.name)}</div>`
         }
 
-        content.innerHTML += `<div class="contact-list-detail-box">
+        content.innerHTML += `<div onclick="showUserDetails('${user.mail}')" class="contact-list-detail-box">
                                 <img src="${user.icon}" alt="">
                                 <div>
                                     <div>${user.name}</div>
@@ -183,6 +183,7 @@ function loadUserListForContacts() {
                             </div>`
     }
 }
+
 
 function getFirstCharacterOfName(name) {
     let firstCharacter = Array.from(name)[0].toUpperCase();

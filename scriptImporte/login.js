@@ -25,7 +25,8 @@ function checkLoginParameters() {
 
     if (checkIfLoginParameterExist(usersLoginMail.value, usersLoginPW.value)) {
         showUsersImage(userMail);
-        checkRememberMe(rememberMe, usersLoginMail, usersLoginPW);
+        checkRememberMe(rememberMe, usersLoginPW);
+        localStorage.setItem('joinLoginMail', usersLoginMail.value)
         closeLoginBox();
     } else {
         showLoginAlertUsernameNotExist();
@@ -34,9 +35,8 @@ function checkLoginParameters() {
     }
 }
 
-function checkRememberMe(rememberMe, usersLoginMail, usersLoginPW) {
+function checkRememberMe(rememberMe, usersLoginPW) {
     if (rememberMe.checked) {
-        localStorage.setItem('joinLoginMail', usersLoginMail.value)
         localStorage.setItem('joinLoginPassword', usersLoginPW.value)
     }
 }
