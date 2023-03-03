@@ -644,8 +644,46 @@
 
                 </div>
                 <div class="contact-main-container">
-                    <h2 class="headline-card">CONTACTS</h2>
+                    <div class="contact-detail-headline">
+                        <h2>CONTACTS</h2> <div>Better with a team</div> 
+                    </div>
+                    
+                    <div id="contact-detail-info" class="d-none">
+                        <div class="contact-detail-name-img-box">
+                            <img id="contact-user-detail-img" src="" alt="">
+                            <div id="contact-user-detail-name"></div>
+                        </div>
+                        <div>
+                            <div class="contact-detail-sub-headline">Contact Information</div>
+                            <div class="contact-detail-sub-box">
+                                <span>Email</span>
+                                <div class="color-secondary" id="contact-user-detail-mail"></div>
+                            </div>
+                            <div class="contact-detail-sub-box">
+                                <span>Phone</span>
+                                <div id="contact-user-detail-phone"></div>
+                            </div>
+                            <div class="contact-detail-sub-box">
+                                <span>Department</span>
+                                <div id="contact-user-detail-category"></div>
+                            </div>
+                            <div class="contact-detail-sub-box">
+                                <span>Residenz</span>
+                                <div id="contact-user-detail-city"></div>
+                            </div>
+                            <div class="contact-detail-sub-box">
+                                <span>Hobby</span>
+                                <div id="contact-user-detail-hobby"></div>
+                            </div>
+                            <div id="contact-details-edit-btn" class="login-area-btn-box">
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+
             </div>
             <!-- /////////////////////////////// Contacts END \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="help">
@@ -1022,7 +1060,7 @@
                             </div>
                             <span onclick="openForgotPasswordWindow()">Forgot my password</span>
                         </div>
-                        <div class="login-area-btn-box">
+                        <div class="login-area-btn-box ">
                             <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Log
                                 in</button>
                             <button onclick="loginAsTestuser()" id="registration-btn"

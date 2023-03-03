@@ -384,3 +384,7 @@ h3 {
     display: flex;
     justify-content: center;
 }
+
+.color-secondary{
+    color: var(--clr-secondary);
+}
