@@ -168,8 +168,12 @@ function loadUserListForContacts() {
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
         if (user.name == '') {
-            user.name = 'default'
+            user.name = user.mail
         }
+        if (document.getElementById(`${getFirstCharacterOfName(user.name)}`) == null || document.getElementById(`${getFirstCharacterOfName(user.name)}`) == undefined) {
+            content.innerHTML += `<div class="contact-list-detail-box" id="${getFirstCharacterOfName(user.name)}">${getFirstCharacterOfName(user.name)}</div>`
+        }
+
         content.innerHTML += `<div class="contact-list-detail-box">
                                 <img src="${user.icon}" alt="">
                                 <div>
@@ -178,4 +182,9 @@ function loadUserListForContacts() {
                                 </div>
                             </div>`
     }
+}
+
+function getFirstCharacterOfName(name) {
+    let firstCharacter = Array.from(name)[0].toUpperCase();
+    return firstCharacter
 }

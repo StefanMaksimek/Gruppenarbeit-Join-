@@ -170,7 +170,6 @@ function takeInfosFromRegistration() {
     let newUserCategory = document.getElementById('new-user-inputfield-category');
     let newUserHobby = document.getElementById('new-user-inputfield-hobby');
     let iconSource = temporaryIconArray[0];
-    debugger
     createÚserRegistrationObj(newUserMail, newUserPassword, newUserName, newUserTel, newUserCity, newUserCategory, newUserHobby, iconSource)
 }
 
