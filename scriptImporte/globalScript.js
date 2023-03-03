@@ -171,7 +171,7 @@ function loadUserListForContacts() {
             user.name = user.mail
         }
         if (document.getElementById(`${getFirstCharacterOfName(user.name)}`) == null || document.getElementById(`${getFirstCharacterOfName(user.name)}`) == undefined) {
-            content.innerHTML += `<div class="contact-list-detail-box" id="${getFirstCharacterOfName(user.name)}">${getFirstCharacterOfName(user.name)}</div>`
+            content.innerHTML += `<div class="contact-list-char" id="${getFirstCharacterOfName(user.name)}">${getFirstCharacterOfName(user.name)}</div>`
         }
 
         content.innerHTML += `<div onclick="showUserDetails('${user.mail}')" class="contact-list-detail-box">

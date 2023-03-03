@@ -106,7 +106,6 @@ h3 {
 }
 
 .content {
-    padding: 0 var(--px-mid);
     color: var(--clr-font1);
     position: absolute;
     top: 63px;

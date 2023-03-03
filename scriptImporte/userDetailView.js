@@ -44,8 +44,6 @@ function fillUserMailForDetailView(mail) {
 }
 
 
-
-
 function fillUserIconDetailView(icon) {
     let userIcon = document.getElementById('show-user-details-box-icon')
     userIcon.src = `${icon}`
