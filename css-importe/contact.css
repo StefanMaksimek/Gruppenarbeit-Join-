@@ -16,7 +16,14 @@
 
 .contact-list-detail-box {
     display: flex;
-    align-items: center;
+    align-items: start;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.contact-list-detail-mail {
+    color: var(--clr-secondary);
+    font-size: 12px;
 }
 
 .contact-list-detail-box img {

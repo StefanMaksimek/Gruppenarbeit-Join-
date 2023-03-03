@@ -164,13 +164,17 @@ function changeIconColorNoHoverLogout() {
 function loadUserListForContacts() {
     let content = document.getElementById('contact-list')
     content.innerHTML = '';
+    users.sort((a, b) => a.name.localeCompare(b.name))
     for (let i = 0; i < users.length; i++) {
         const user = users[i];
+        if (user.name == '') {
+            user.name = 'default'
+        }
         content.innerHTML += `<div class="contact-list-detail-box">
                                 <img src="${user.icon}" alt="">
                                 <div>
                                     <div>${user.name}</div>
-                                    <div>${user.mail}</div>
+                                    <div class="contact-list-detail-mail">${user.mail}</div>
                                 </div>
                             </div>`
     }
