@@ -136,6 +136,84 @@ let testTasks = [
     description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
     color: 'lightblue',
     locationTask: 'backlog',
+  }
+  ,
+  {
+    id: 7,
+    title: 'Create Login Area',
+    priority: 'normal',
+    category: 'IT',
+    createdAt: 1657548580054,
+    dueDate: new Date(1697735551554),
+    user: [
+      {
+        name: 'Testuser',
+        icon: './img/icon-unknown.svg',
+        mail: 'testuser@gmail.net',
+      },
+    ],
+    status: 'to-do',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    locationTask: 'backlog',
+  }
+  ,
+  {
+    id: 8,
+    title: 'Calculation of the sales last quarter',
+    priority: 'normal',
+    category: 'Sales',
+    createdAt: 1657548580054,
+    dueDate: new Date(1697732551554),
+    user: [
+      {
+        name: 'Testuser',
+        icon: './img/icon-unknown.svg',
+        mail: 'testuser@gmail.net',
+      },
+    ],
+    status: 'done',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    locationTask: 'board',
+  },
+  {
+    id: 9,
+    title: 'Report of Q3',
+    priority: 'normal',
+    category: 'Sales',
+    createdAt: 1657548580054,
+    dueDate: new Date(1678730551554),
+    user: [
+      {
+        name: 'Testuser',
+        icon: './img/icon-unknown.svg',
+        mail: 'testuser@gmail.net',
+      },
+    ],
+    status: 'in-progress',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    locationTask: 'board',
+  },
+  {
+    id: 10,
+    title: 'Kickoff Project Rapid',
+    priority: 'normal',
+    category: 'Management',
+    createdAt: 1657548580054,
+    dueDate: new Date(1687729551554),
+    user: [
+      {
+        name: 'Testuser',
+        icon: './img/icon-unknown.svg',
+        mail: 'testuser@gmail.net',
+      },
+    ],
+    status: 'to-do',
+    description: 'ID 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit accusamus debitis veniam!',
+    color: 'lightblue',
+    locationTask: 'board',
   },
 ];
 

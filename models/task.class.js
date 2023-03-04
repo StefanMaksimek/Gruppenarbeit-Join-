@@ -4,12 +4,12 @@ class Task {
     priority; // string
     category; // string
     createdAt; // timestamp
-    dieDate; // timestamp
+    dueDate; // timestamp
     user; // array of user objects
-    status; // string
+    status; // string / to-do / in-progress / testing / done
     description; // string
     color; // string
-    locationTask; // string; where the task is rendered
+    locationTask; // string; where the task is rendered / backlog / board
 
     constructor (taskInfo) {
         this.id = taskInfo.id;
