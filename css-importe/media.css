@@ -59,6 +59,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+
+    .header-desktop-icons {
+        right: 24px;
+    }
 }
 
 @media screen and (max-width: 950px) {
