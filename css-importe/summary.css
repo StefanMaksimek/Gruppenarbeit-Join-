@@ -101,3 +101,18 @@
     margin-right: 24px;
     border-radius: 16px;
 }
+
+.summary-main-container{
+    display: flex;
+    align-items: center;
+}
+
+.summary-greeting-container{
+    font-size: 64px;
+    font-weight: 600;
+    margin-left: 60px;
+}
+
+.summary-name{
+    font-size: 80px !important;
+}
