@@ -173,7 +173,7 @@ function setValuesForChangeTaskAssignedUser(currentTask) {
     document.getElementById('responsible-editor-list-change-task-board').innerHTML = '';
     loadAlreadyAssignedUserInTemporaryArray(currentTask)
     currentTask.user.forEach(user => {
-        document.getElementById('responsible-editor-list-change-task-board').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon)
+        document.getElementById('responsible-editor-list-change-task-board').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon, user.mail)
     });
 }
 

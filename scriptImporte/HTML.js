@@ -42,7 +42,7 @@ function addUserIconsHTML(user) {
 
     return `
         <div class="assigned-to-user">
-            <img onclick="showUserDetails('${user.name}')" src="${user.icon}" alt="">
+            <img onclick="showUserDetails('${user.mail}')" src="${user.icon}" alt="">
             <h3>${user.name}</h3>                  
         </div>
     `
@@ -206,10 +206,10 @@ function renderSearchedEmployeesHTML(user, icon) {
 }
 
 
-function renderSelectedEmployeesHTML(name, img) {
+function renderSelectedEmployeesHTML(name, img, mail) {
     return `<div draggable="true" ondragstart="getResponsibleEmployeeForDelete('${name}', '${img}')" class="responsible-editor-container-box">
-    <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}" onclick="showUserDetails('${name}')">
-    <div class="name-responsible-editor crop" onclick="showUserDetails('${name}')">Click for infos</div>
+    <img id="${name}-responsible-editor-img" class="list-search-result-img" src="${img}" onclick="showUserDetails('${mail}')">
+    <div class="name-responsible-editor crop" onclick="showUserDetails('${mail}')">Click for infos</div>
     </div> 
     `
 }
