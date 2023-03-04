@@ -36,7 +36,7 @@ async function loadTaskFromBackend() {
 
   renderBoard();
   renderBacklog();
-  openBoard();
+  openSummary();
 }
 
 
