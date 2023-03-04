@@ -10,6 +10,8 @@ function loadSummaryContent() {
     document.getElementById('summary-nbr-tasks-backlog').innerHTML = tasksOfUser.filter(t => t.locationTask == 'backlog').length;
     document.getElementById('summary-nbr-tasks-feedback').innerHTML = tasksOfUser.filter(t => t.status == 'done').length;
     document.getElementById('summary-nbr-tasks-progress').innerHTML = tasksOfUser.filter(t => t.status == 'in-progress').length;
+    document.getElementById('summary-to-do-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'to-do' && t.locationTask == 'board').length;
+    document.getElementById('summary-done-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'done' && t.locationTask == 'board').length;
     let urgentsTasks = findUrgentTasks(tasksOfUser);
     document.getElementById('summary-urgent-nbr').innerHTML = urgentsTasks.length;
 }
@@ -29,3 +31,4 @@ function getUrgentTasksNextDate(urgentTasks) {
     let newSortedUrgentTasks = urgentTasks.sort(function (a, b) { return a.dueDate - b.dueDate })
     document.getElementById('summary-next-due-date').innerHTML = new Date(newSortedUrgentTasks[0].dueDate).toISOString().substring(0, 10);
 }
+
