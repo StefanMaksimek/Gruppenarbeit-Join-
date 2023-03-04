@@ -288,6 +288,16 @@ h3 {
     transform: translate(0, -50%);
 }
 
+.header-desktop-title-small {
+    display: none;
+    font-size: 18px;
+    font-weight: 600;
+    position: absolute;
+    left: 36px;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
 .header-desktop-icons {
     font-size: 18px;
     font-weight: 600;
