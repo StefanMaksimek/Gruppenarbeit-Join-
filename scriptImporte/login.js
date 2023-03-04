@@ -371,6 +371,7 @@ function loadAllUserNamesInArray() {
 function loginAsTestuser() {
     document.getElementById('login-user-inputfield').value = 'testuser@gmail.net'
     document.getElementById('login-user-inputfield-pw').value = 'e=mc²';
+    localStorage.setItem('joinLoginMail', 'testuser@gmail.net')
     checkLoginParameters();
 }
 
