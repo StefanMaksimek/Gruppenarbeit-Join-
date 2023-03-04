@@ -10,7 +10,7 @@
 function renderBacklogHTML(task) {
     // Shows only the first USER! forEach cannot be reapplied
     return `
-        <tr class="backlog-hover" onclick="openAcceptTask('${task.id}')">
+        <tr class="backlog-card backlog-hover" onclick="openAcceptTask('${task.id}')">
             <td style="border-left:0.4rem solid var(--clr-${task.category}">
                 <div class="assigned-to-holder">
                     <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">

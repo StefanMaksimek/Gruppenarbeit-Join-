@@ -15,6 +15,11 @@
     color: var(--clr-primary);
 }
 
+table{
+    border-collapse: unset;
+    border-spacing: 0 4px;
+}
+
 td {
     border-style: none;
 }
@@ -223,3 +228,17 @@ td {
     overflow: auto;
     padding: 12px;
 }
+
+.backlog-card{
+    background-color: white;
+    opacity: 0.75;
+}
+
+.backlog-card:hover{
+    background-color: white;
+    opacity: 1;
+}
+
+tr.backlog-card>td {
+    padding-bottom: 4px;
+  }
