@@ -122,14 +122,43 @@ function fillBoardDetailBox(id) {
     document.getElementById('close-user-details-box-board').innerHTML = renderCloseIconBoardDetailViewBox(id);
     document.getElementById('show-board-details-container').style = `border : 2px solid var(--clr-${task.category})`;
     document.getElementById('show-board-details-box-icon').src = task.user[0].icon;
-    document.getElementById('show-board-details-box-category').innerHTML = task.category;
+    document.getElementById('show-board-details-box-category').innerHTML = `<div style="background-color: var(--clr-${task.category})" class="board-task-detail-box">${task.category}</div>`;
     document.getElementById('show-board-details-box-title').innerHTML = task.title;
     document.getElementById('show-board-details-box-details').innerHTML = task.description;
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`;
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change Task</button>`;
 
-    document.getElementById('show-board-details-box-created-on').innerHTML = new Date(task.createdAt).toISOString().substring(0, 10);
-    document.getElementById('show-board-details-box-complete-by').innerHTML = new Date(task.dueDate).toISOString().substring(0, 10);
-    document.getElementById('show-board-details-box-priority').innerHTML = task.priority;
+    document.getElementById('show-board-details-box-created-on').innerHTML = returnTaskDate(new Date(task.createdAt).toISOString().substring(0, 10));
+    document.getElementById('show-board-details-box-complete-by').innerHTML = returnTaskDate(new Date(task.dueDate).toISOString().substring(0, 10));
+    document.getElementById('show-board-details-box-priority').innerHTML = returnTaskPriority(task.priority);
+}
+
+
+function returnTaskDate(taskDate) {
+    return `<div class="task-details-prio-box">
+<div>${taskDate}</div>
+</div>`
+}
+
+
+function returnTaskPriority(taskPriority) {
+    if (taskPriority == 'high') {
+        return `<div class="task-details-prio-box">
+<div>high</div>
+<img src="img/logos/icon-priority-high.svg">
+</div>`
+    }
+    if (taskPriority == 'normal') {
+        return `<div class="task-details-prio-box">
+<div>medium</div>
+<img src="img/logos/icon-priority-medium.svg">
+</div>`
+    }
+    if (taskPriority == 'low') {
+        return `<div class="task-details-prio-box">
+    <div>low</div>
+    <img src="img/logos/icon-priority-low.svg">
+    </div>`
+    }
 }
 
 
@@ -163,7 +192,7 @@ function changeTaskBoard(id) {
 
 
 function changeButtonsforEditorModusOnBoardChangeTask(id) {
-    return `<button class="push-task" style="background-color: red" onclick="setChangeModeOfBoardTaskDetailsContainerBack('${id}')">Cancel</button><button class="push-task" style="background-color: green" onclick="saveChangesTask('${id}', '')">Save</button>`
+    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="setChangeModeOfBoardTaskDetailsContainerBack('${id}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="saveChangesTask('${id}', '')">Save</button>`
 }
 
 
@@ -257,7 +286,7 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     document.getElementById('task-description-board-details-box').classList.add('d-none')
     //buttons
     if (id != '') {
-        document.getElementById('show-board-details-box-btns').innerHTML = `<button class="push-task" style="background-color: red" onclick="deleteTaskBoard('${id}')">Delete Task</button><button class="push-task" style="background-color: #ffa500" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
+        document.getElementById('show-board-details-box-btns').innerHTML = `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
     }
 
 }

@@ -216,9 +216,9 @@ function renderSelectedEmployeesHTML(name, img, mail) {
 
 
 function renderButtonsBacklog(id) {
-    return `<button class="push-task" style="background-color: red" onclick="deleteTask('${id}')">Delete Task</button>
-    <button class="push-task" style="background-color: #ffa500" onclick="changeTaskBacklog('${id}')">Change Task</button>
-    <button class="push-task" style="background-color: green" onclick="pushTask('${id}', '')">Accept Task</button>`
+    return `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTask('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button>
+    <button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBacklog('${id}')">Change Task</button>
+    <button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="pushTask('${id}', '')">Accept Task</button>`
 }
 
 

@@ -88,13 +88,10 @@ td {
 }
 
 .assigned-to-user-holder {
-    text-align: center;
     display: flex;
     flex-wrap: wrap;
-    /*max-height: calc(90vh - 500px);*/
-    min-width: 60vw;
     overflow: auto;
-    min-height: 150px;
+    max-height: 150px;
 }
 
 .assigned-to-user-holder img {
@@ -106,7 +103,15 @@ td {
 }
 
 .assigned-to-user {
-    flex: 1 1 80px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.assigned-to-user h3 {
+    margin-top: -14px;
 }
 
 .assigned-to-user img:hover {
