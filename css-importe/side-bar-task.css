@@ -1,9 +1,9 @@
 .side-bar-task {
     position: fixed;
-    top: 0;
+    top: 63px;
     right: 0;
     bottom: 0;
-    height: 100vh;
+    height: calc(100vh - 63px);
     overflow: auto;
     z-index: 1;
     background-color: white;
@@ -80,4 +80,40 @@
     border-radius: 8px;
     hyphens: auto;
     text-align: left;
+}
+
+@media screen and (max-width: 700px) {
+    .side-bar-task {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .side-bar-task {
+        width: 470px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .side-bar-task {
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .side-bar-task {
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .side-bar-task {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .side-bar-task {
+        width: 100vw;
+    }
 }

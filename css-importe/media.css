@@ -50,11 +50,6 @@
         font-size: 1.1rem;
     }
 
-    .side-bar-task {
-        top: 49px;
-        height: calc(100vh - 49px);
-    }
-
     .header-desktop-title {
         left: 50%;
         transform: translate(-50%, -50%);
