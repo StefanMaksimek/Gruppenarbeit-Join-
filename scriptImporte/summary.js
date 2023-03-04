@@ -7,19 +7,24 @@ function loadSummaryContent() {
         }
     })
     if (tasksOfUser.length > 0) {
-        document.getElementById('summary-nbr-tasks-board').innerHTML = tasksOfUser.filter(t => t.locationTask == 'board').length;
-        document.getElementById('summary-nbr-tasks-backlog').innerHTML = tasksOfUser.filter(t => t.locationTask == 'backlog').length;
-        document.getElementById('summary-nbr-tasks-feedback').innerHTML = tasksOfUser.filter(t => t.status == 'testing').length;
-        document.getElementById('summary-nbr-tasks-progress').innerHTML = tasksOfUser.filter(t => t.status == 'in-progress').length;
-        document.getElementById('summary-to-do-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'to-do' && t.locationTask == 'board').length;
-        document.getElementById('summary-done-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'done' && t.locationTask == 'board').length;
-        let urgentsTasks = findUrgentTasks(tasksOfUser);
-        document.getElementById('summary-urgent-nbr').innerHTML = urgentsTasks.length;
+        fillSummaryCardsWithTaskOfUsers(tasksOfUser);
     }
     else {
-        fillSummaryCardsWithZero()
+        fillSummaryCardsWithZero();
     }
     document.getElementById('summary-name').innerHTML = returnUsersName();
+}
+
+
+function fillSummaryCardsWithTaskOfUsers(tasksOfUser){
+    document.getElementById('summary-nbr-tasks-board').innerHTML = tasksOfUser.filter(t => t.locationTask == 'board').length;
+    document.getElementById('summary-nbr-tasks-backlog').innerHTML = tasksOfUser.filter(t => t.locationTask == 'backlog').length;
+    document.getElementById('summary-nbr-tasks-feedback').innerHTML = tasksOfUser.filter(t => t.status == 'testing').length;
+    document.getElementById('summary-nbr-tasks-progress').innerHTML = tasksOfUser.filter(t => t.status == 'in-progress').length;
+    document.getElementById('summary-to-do-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'to-do' && t.locationTask == 'board').length;
+    document.getElementById('summary-done-nbr').innerHTML = tasksOfUser.filter(t => t.status == 'done' && t.locationTask == 'board').length;
+    let urgentsTasks = findUrgentTasks(tasksOfUser);
+    document.getElementById('summary-urgent-nbr').innerHTML = urgentsTasks.length;
 }
 
 
