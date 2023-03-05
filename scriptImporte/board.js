@@ -125,7 +125,7 @@ function fillBoardDetailBox(id) {
     document.getElementById('show-board-details-box-category').innerHTML = `<div style="background-color: var(--clr-${task.category})" class="board-task-detail-box">${task.category}</div>`;
     document.getElementById('show-board-details-box-title').innerHTML = task.title;
     document.getElementById('show-board-details-box-details').innerHTML = task.description;
-    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change Task</button>`;
+    document.getElementById('show-board-details-box-btns').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete <img src="img/logos/icon-bin.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`;
 
     document.getElementById('show-board-details-box-created-on').innerHTML = returnTaskDate(new Date(task.createdAt).toISOString().substring(0, 10));
     document.getElementById('show-board-details-box-complete-by').innerHTML = returnTaskDate(new Date(task.dueDate).toISOString().substring(0, 10));
@@ -192,7 +192,7 @@ function changeTaskBoard(id) {
 
 
 function changeButtonsforEditorModusOnBoardChangeTask(id) {
-    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="setChangeModeOfBoardTaskDetailsContainerBack('${id}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="saveChangesTask('${id}', '')">Save</button>`
+    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="setChangeModeOfBoardTaskDetailsContainerBack('${id}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-lgin login-btn-shadow" onclick="saveChangesTask('${id}', '')">Save <img src="img/logos/icon-save.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
 }
 
 
@@ -286,7 +286,7 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     document.getElementById('task-description-board-details-box').classList.add('d-none')
     //buttons
     if (id != '') {
-        document.getElementById('show-board-details-box-btns').innerHTML = `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change Task</button>`
+        document.getElementById('show-board-details-box-btns').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change <img src="img/logos/icon-pencil.svg" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button>`
     }
 
 }

@@ -216,9 +216,9 @@ function renderSelectedEmployeesHTML(name, img, mail) {
 
 
 function renderButtonsBacklog(id) {
-    return `<button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTask('${id}')">Delete Task <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button>
-    <button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="changeTaskBacklog('${id}')">Change Task</button>
-    <button class="w130 login-area-btn login-area-btn-guest login-btn-shadow" onclick="pushTask('${id}', '')">Accept Task</button>`
+    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTask('${id}')">Delete <img src="img/logos/icon-bin.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
+    <button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="changeTaskBacklog('${id}')">Change <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
+    <button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="pushTask('${id}', '')">Accept <img src="img/logos/icon-accept.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
 }
 
 

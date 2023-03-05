@@ -12,7 +12,7 @@ function showUserDetails(userMail) {
 
     fillUserDetails(user, icon, name, phone, category, city, hobby, userMail);
     if (userMail == localStorage.getItem('joinLoginMail')) {
-        document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUser()">Edit</button>`;
+        document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUser()">Edit <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
     }
     else {
         document.getElementById('user-detail-view-btn-box').innerHTML = '';
@@ -107,7 +107,7 @@ function editUser() {
     document.getElementById('show-user-details-box-city').innerHTML = `<input class="change-user-details" id="user-detail-view-change-city" type="tesx" value="${user.city}">`;
     document.getElementById('show-user-details-box-hobby').innerHTML = `<input class="change-user-details" id="user-detail-view-change-hobby" type="text" value="${user.Hobbys}">`;
     document.getElementById('show-user-details-box-mail').innerHTML = `<input class="change-user-details" id="user-detail-view-change-mail" type="mail" value="${user.mail}">`;
-    document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="saveUserChanges('${user.id}')">Save</button>`;
+    document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="saveUserChanges('${user.id}')">Save <img src="img/logos/icon-save.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
 }
 
 
@@ -143,7 +143,7 @@ function goBackInViewingModusOfUserDetailView(index) {
     document.getElementById('show-user-details-box-city').innerHTML = `${users[index].city}`;
     document.getElementById('show-user-details-box-hobby').innerHTML = `${users[index].Hobbys}`;
     document.getElementById('show-user-details-box-mail').innerHTML = `${users[index].mail}`;
-    document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUser()">Edit</button>`;
+    document.getElementById('user-detail-view-btn-box').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUser()">Edit <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
     uploadUser();
     loadUserListForContacts();
 }
@@ -161,7 +161,7 @@ function showUserDetailsContact(mail) {
     document.getElementById('contact-detail-info').classList.remove('d-none')
 
     if (mail == localStorage.getItem('joinLoginMail')) {
-        document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUserContact()">Edit</button>`;
+        document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUserContact()">Edit <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
     }
     else {
         document.getElementById('contact-details-edit-btn').innerHTML = '';
@@ -178,7 +178,7 @@ function editUserContact() {
     document.getElementById('contact-user-detail-city').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-city-contact" type="tesx" value="${user.city}">`;
     document.getElementById('contact-user-detail-hobby').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-hobby-contact" type="text" value="${user.Hobbys}">`;
     document.getElementById('contact-user-detail-mail').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-mail-contact" type="mail" value="${user.mail}">`;
-    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="showUserDetailsContact('${user.mail}')">Cancel</button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="saveUserChangesContact('${user.id}')">Save</button>`;
+    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="showUserDetailsContact('${user.mail}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px; margin-left:24px;"></button><button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="saveUserChangesContact('${user.id}')">Save <img src="img/logos/icon-save.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
 }
 
 
@@ -214,7 +214,7 @@ function goBackInViewingModusOfUserContact(index) {
     document.getElementById('contact-user-detail-city').innerHTML = `${users[index].city}`;
     document.getElementById('contact-user-detail-hobby').innerHTML = `${users[index].Hobbys}`;
     document.getElementById('contact-user-detail-mail').innerHTML = `${users[index].mail}`;
-    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUserContact()">Edit</button>`;
+    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="editUserContact()">Edit <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
     uploadUser();
     loadUserListForContacts();
 }
