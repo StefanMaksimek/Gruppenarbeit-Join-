@@ -32,14 +32,14 @@ function fillBaacklogDetailBox(id) {
         document.getElementById('show-backlog-details-box-icon').innerHTML += addUserIconsHTML(e)
     });
 
-
     document.getElementById('close-user-details-box-backlog').innerHTML = renderCloseIconBacklogDetailViewBox(id);
     document.getElementById('show-backlog-details-container').style = `border : 2px solid var(--clr-${task.category})`
     document.getElementById('show-backlog-details-box-icon').src = task.user[0].icon
     document.getElementById('show-backlog-details-box-category').innerHTML = `<div style="background-color: var(--clr-${task.category})" class="board-task-detail-box">${task.category}</div>`;
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
-    document.getElementById('show-backlog-details-box-priority').innerHTML = task.priority
-    document.getElementById('show-backlog-details-box-due-date').innerHTML = transformTimeStampToDate(task.dueDate)
+    document.getElementById('show-backlog-details-box-priority').innerHTML = returnTaskPriority(task.priority);
+    document.getElementById('show-backlog-details-box-due-date').innerHTML = returnTaskDate(new Date(task.dueDate).toISOString().substring(0, 10));
+    document.getElementById('show-backlog-details-box-created-by').innerHTML = returnTaskDate(new Date(task.createdAt).toISOString().substring(0, 10));
     document.getElementById('show-backlog-details-box-details').innerHTML = task.description
     document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id)
 }

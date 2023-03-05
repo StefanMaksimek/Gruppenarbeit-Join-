@@ -147,7 +147,7 @@ function returnTaskPriority(taskPriority) {
 <img src="img/logos/icon-priority-high.svg">
 </div>`
     }
-    if (taskPriority == 'normal') {
+    if (taskPriority == 'medium') {
         return `<div class="task-details-prio-box">
 <div>medium</div>
 <img src="img/logos/icon-priority-medium.svg">

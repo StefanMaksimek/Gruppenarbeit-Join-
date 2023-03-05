@@ -504,7 +504,78 @@
                             </div>
                         </div>
 
-                        <div class="show-backlog-details-sub-container">
+                        <div id="show-backlog-details-box-details" class="h100-overflow-auto">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+                        </div>
+                        <div id="task-description-backlog-details-box" class="form-outline mb-4 margin-top d-none">
+                            <div class="show-board-detail-task-change-box">
+                                <div class="task-details-table-text">Description:</div>
+                                <textarea required class="form-control" id="task-description-backlog-details-input"
+                                    rows="8" placeholder="..."></textarea>
+                            </div>
+                        </div>
+
+
+                        <table>
+                            <tr>
+                                <td class="task-details-table-text">Created on:</td>
+                                <td class="padding-left" id="show-backlog-details-box-created-by"></td>
+                            </tr>
+                            <tr>
+                                <td class="task-details-table-text">Complete by:</td>
+                                <td class="padding-left" id="show-backlog-details-box-due-date"></td>
+                                <td><input required class="form-control input-due-date d-none" type="date" name="begin"
+                                        placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31"
+                                        id="due-date-backlog-details-box"></td>
+                            </tr>
+                            <tr>
+                                <td class="task-details-table-text">Priority:</td>
+                                <td class="padding-left" id="show-backlog-details-box-priority"></td>
+                                <td><select class="form-select d-none" id="priority-state-input-board-details-box"
+                                        aria-label="Example select with button addon">
+                                        <option id="priority-state-input-backlog-details-box-option-low" value="low">low
+                                        </option>
+                                        <option id="priority-state-input-backlog-details-box-option-normal"
+                                            value="medium">medium</option>
+                                        <option id="priority-state-input-backlog-details-box-option-high" value="high">
+                                            high</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td class="task-details-table-text">Assigned to:</td>
+                            </tr>
+                        </table>
+                        <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
+                        </div>
+                        <div id="show-backlog-details-box-icon-change" class="d-none">
+                            <div class="assinged-to">
+                                <div class="responsible-editor-list-container">
+                                    <div class="employees-holder">
+                                        <div class="btn-employees-add-icon"
+                                            onclick="openListOfEmployeesBoxForAddTask()">
+                                            <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                                        </div>
+
+                                        <div id="responsible-editor-list-change-task-backlog"
+                                            class="responsible-editor-list assigned-to-user-holder"
+                                            ondragover="allowDrop(event)">
+                                        </div>
+                                    </div>
+                                    <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                                        class="responsible-editor-list-bin" ondragover="allowDrop(event)"
+                                        ondrop="moveToBin()">
+                                        <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                                        <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                            Drag and drop an user for delete.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="show-backlog-details-sub-container"><!--
                             <h3 id="show-backlog-details-box-name">Assigned to</h3>
 
                             <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
@@ -534,37 +605,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <table>
-                                <!--
-                               <tr>
-                                <td>Category:</td>
-                                <td class="padding-left" id="show-backlog-details-box-category"></td>
-                                <td><select class="form-select d-none"
-                                        id="category-state-input-change-detail-box-backlog"
-                                        aria-label="Example select with button addon">
-                                        <option id="category-state-input-backlog-details-box-option-it" value="IT">IT
-                                        </option>
-                                        <option id="category-state-input-backlog-details-box-option-marketing"
-                                            value="Marketing">Marketing</option>
-                                        <option id="category-state-input-backlog-details-box-option-sales"
-                                            value="Sales">
-                                            Sales</option>
-                                        <option id="category-state-input-backlog-details-box-option-management"
-                                            value="Management">Management</option>
-                                    </select></td>
-                            </tr> 
-                            
-
-                            <tr>
-                                <td>Title:</td>
-                                <td class="padding-left" id="show-backlog-details-box-title"></td>
-                                <td>
-                                    <div id="title-task-change-detail-box-backlog" class="d-none">
-                                        <input required type="text" placeholder="Title"
-                                            id="title-task-change-detail-input-backlog" class="form-control">
-                                    </div>
-                                </td>
-                            </tr>-->
+                            -->
+                            <!--
+                                 <table>
+                               
 
                                 <tr>
                                     <td>Complete by:</td>
@@ -590,20 +634,8 @@
                                         </select></td>
                                 </tr>
                             </table>
+                            -->
 
-                            <h3>Description</h3>
-                            <div style="width: 100%;">
-                                <span id="show-backlog-details-box-details">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non
-                                    eaque?
-                                </span>
-                                <div id="task-description-backlog-details-box"
-                                    class="form-outline mb-4 margin-top d-none">
-                                    <textarea required class="form-control textarea-change-backlog-task"
-                                        id="task-description-backlog-details-input" rows="3"
-                                        placeholder="..."></textarea>
-                                </div>
-                            </div>
 
 
                             <div class="input-holder2">
