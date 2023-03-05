@@ -343,9 +343,9 @@ function sideBarTaskContainerIsHidden() {
 
 
 function showHintForBin() {
-    document.getElementById('bin-hint-sidebar-task').classList.remove('d-none')
+    document.getElementById('bin-hint-task').classList.remove('d-none')
 }
 
 function hideHintForBin() {
-    document.getElementById('bin-hint-sidebar-task').classList.add('d-none')
+    document.getElementById('bin-hint-task').classList.add('d-none')
 }

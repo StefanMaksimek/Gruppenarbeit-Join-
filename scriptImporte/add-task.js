@@ -527,12 +527,16 @@ function moveToBin() {
 
 
 function showHintForBinAddTask() {
-    document.getElementById('bin-hint-task').classList.remove('d-none')
+    document.getElementById('bin-hint-task-one').classList.remove('d-none')
+    document.getElementById('bin-hint-task-two').classList.remove('d-none')
+    document.getElementById('bin-hint-task-three').classList.remove('d-none')
 }
 
 
 function hideHintForBinAddTask() {
-    document.getElementById('bin-hint-task').classList.add('d-none')
+    document.getElementById('bin-hint-task-one').classList.add('d-none')
+    document.getElementById('bin-hint-task-two').classList.add('d-none')
+    document.getElementById('bin-hint-task-three').classList.add('d-none')
 }
 
 
