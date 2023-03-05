@@ -67,6 +67,7 @@ function changeTaskBacklog(id) {
     setValuesForChangeTaskBacklogDescription(currentTask);
     //buttons
     document.getElementById('btn-holder-backlog').innerHTML = changeButtonsforEditorModusOnBacklogChangeTask(id);
+    document.getElementById('show-backlog-details-color-status-box').classList.add('d-none')
 }
 
 
@@ -164,6 +165,7 @@ function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
     if (id != '') {
         document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id);
     }
+    document.getElementById('show-backlog-details-color-status-box').classList.remove('d-none')
 }
 
 

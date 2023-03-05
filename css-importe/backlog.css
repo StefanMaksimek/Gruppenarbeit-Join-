@@ -242,3 +242,21 @@ td {
 tr.backlog-card>td {
     padding-bottom: 4px;
   }
+
+  .show-backlog-details-sub-box-color{
+    display: flex;
+    align-items: center;
+  }
+
+  .show-backlog-details-sub-box-color h3{
+    padding: 0;
+    margin: 0;
+    font-weight: 600;
+    margin-right: 12px;
+  }
+
+  .btn-color{
+    background-color: var(--clr-secondary);
+    font-weight: 600px;
+    color: white;
+  }
