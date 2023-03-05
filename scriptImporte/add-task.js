@@ -485,7 +485,8 @@ function renderResponsibleUserList() {
     for (let i = 0; i < temporaryArrayResponsibleEmployees.length; i++) {
         const name = temporaryArrayResponsibleEmployees[i].name;
         const img = temporaryArrayResponsibleEmployees[i].icon;
-        content.innerHTML += renderSelectedEmployeesHTML(name, img);
+        const mail = temporaryArrayResponsibleEmployees[i].mail;
+        content.innerHTML += renderSelectedEmployeesHTML(name, img, mail);
     }
 }
 
@@ -510,15 +511,15 @@ let currentDraggedUserAddTask;
 let currentDraggedIconAddTask;
 
 
-function getResponsibleEmployeeForDelete(user, icon) {
-    currentDraggedUserAddTask = user;
+function getResponsibleEmployeeForDelete(mail, icon) {
+    currentDraggedUserAddTask = mail;
     currentDraggedIconAddTask = icon
 }
 
 
 //delete by moving the img to the bin
 function moveToBin() {
-    const index = temporaryArrayResponsibleEmployees.findIndex(x => x.name === currentDraggedUserAddTask);
+    const index = temporaryArrayResponsibleEmployees.findIndex(x => x.mail === currentDraggedUserAddTask);
     if (index !== undefined) temporaryArrayResponsibleEmployees.splice(index, 1);
 
     renderResponsibleUserList()

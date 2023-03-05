@@ -81,7 +81,7 @@ function setValuesForChangeTaskBacklogAssignedUser(currentTask) {
     document.getElementById('responsible-editor-list-change-task-backlog').innerHTML = '';
     loadAlreadyAssignedUserInTemporaryArray(currentTask)
     currentTask.user.forEach(user => {
-        document.getElementById('responsible-editor-list-change-task-backlog').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon)
+        document.getElementById('responsible-editor-list-change-task-backlog').innerHTML += renderSelectedEmployeesHTML(user.name, user.icon, user.mail)
     });
 }
 
