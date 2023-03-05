@@ -222,7 +222,7 @@ function transformTimeStampToDate(timestamp) {
 
 function setValuesForChangeTaskCategory(currentTask) {
     document.getElementById('show-board-details-box-category').classList.add('d-none')
-    document.getElementById('category-state-input-change-detail-box').classList.remove('d-none')
+    document.getElementById('show-board-details-sub-container-category').classList.remove('d-none')
     if (currentTask.category == 'IT') {
         document.getElementById('category-state-input-board-details-box-option-it').selected = 'selected'
     }
@@ -277,7 +277,7 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     document.getElementById('title-task-change-detail-box').classList.add('d-none')
     //category
     document.getElementById('show-board-details-box-category').classList.remove('d-none')
-    document.getElementById('category-state-input-change-detail-box').classList.add('d-none')
+    document.getElementById('cshow-board-details-sub-container-category').classList.add('d-none')
     //due date
     document.getElementById('show-board-details-box-complete-by').classList.remove('d-none')
     document.getElementById('due-date-board-details-box').classList.add('d-none')

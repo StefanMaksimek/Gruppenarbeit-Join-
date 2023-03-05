@@ -85,6 +85,7 @@ td {
     align-items: baseline;
     max-height: 95vh;
     overflow: auto;
+    width: 500px;
 }
 
 .assigned-to-user-holder {

@@ -36,7 +36,7 @@ function fillBaacklogDetailBox(id) {
     document.getElementById('close-user-details-box-backlog').innerHTML = renderCloseIconBacklogDetailViewBox(id);
     document.getElementById('show-backlog-details-container').style = `border : 2px solid var(--clr-${task.category})`
     document.getElementById('show-backlog-details-box-icon').src = task.user[0].icon
-    document.getElementById('show-backlog-details-box-category').innerHTML = task.category
+    document.getElementById('show-backlog-details-box-category').innerHTML = `<div style="background-color: var(--clr-${task.category})" class="board-task-detail-box">${task.category}</div>`;
     document.getElementById('show-backlog-details-box-title').innerHTML = task.title
     document.getElementById('show-backlog-details-box-priority').innerHTML = task.priority
     document.getElementById('show-backlog-details-box-due-date').innerHTML = transformTimeStampToDate(task.dueDate)
@@ -95,7 +95,7 @@ function setValuesForChangeTaskBacklogDueDate(currentTask) {
 
 function setValuesForChangeTaskBacklogCategory(currentTask) {
     document.getElementById('show-backlog-details-box-category').classList.add('d-none')
-    document.getElementById('category-state-input-change-detail-box-backlog').classList.remove('d-none')
+    document.getElementById('show-backlog-details-box-category-change').classList.remove('d-none')
     if (currentTask.category == 'IT') {
         document.getElementById('category-state-input-backlog-details-box-option-it').selected = 'selected'
     }
@@ -150,7 +150,7 @@ function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
     document.getElementById('title-task-change-detail-box-backlog').classList.add('d-none');
     //category
     document.getElementById('show-backlog-details-box-category').classList.remove('d-none');
-    document.getElementById('category-state-input-change-detail-box-backlog').classList.add('d-none');
+    document.getElementById('show-backlog-details-box-category-change').classList.add('d-none');
     //due date
     document.getElementById('show-backlog-details-box-due-date').classList.remove('d-none');
     document.getElementById('due-date-backlog-details-box').classList.add('d-none');
