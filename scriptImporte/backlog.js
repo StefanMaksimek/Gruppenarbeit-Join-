@@ -121,10 +121,13 @@ function setValuesForChangeTaskBacklogTitle(currentTask) {
 function setValuesForChangeTaskBacklogPriority(currentTask) {
     document.getElementById('show-backlog-details-box-priority').classList.add('d-none')
     document.getElementById('show-backlog-details-box-priority-change').classList.remove('d-none')
-    if (currentTask.priority == 'normal') {
+    if (currentTask.priority == 'medium') {
         document.getElementById('priority-state-input-backlog-details-box-option-normal').selected = 'selected'
     }
-    else {
+    if (currentTask.priority == 'low') {
+        document.getElementById('priority-state-input-backlog-details-box-option-low').selected = 'selected'
+    }
+    if (currentTask.priority == 'high') {
         document.getElementById('priority-state-input-backlog-details-box-option-high').selected = 'selected'
     }
 }

@@ -243,3 +243,13 @@
     font-weight: 600;
     font-size: 20px;
 }
+
+.show-board-detail-task-change-box{
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.show-board-detail-task-change-box div{
+    margin-right: 8px;
+    width: 136px;
+}

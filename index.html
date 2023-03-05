@@ -159,7 +159,8 @@
 
                     <select class="form-select" id="priority-state-input-sidebar"
                         aria-label="Example select with button addon">
-                        <option value="normal">normal</option>
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
                         <option value="high">high</option>
                     </select>
                 </div>
@@ -352,9 +353,10 @@
                         </div>
                     </div>
                     <!--Sub Area for details of Task Box START-->
-                    <div id="show-board-details-sub-container">
+                    <div id="show-board-details-sub-container" class="w100">
                         <div id="show-board-details-box-category"></div>
-                        <div>
+                        <div class="show-board-detail-task-change-box">
+                            <div class="task-details-table-text">Category:</div>
                             <select class="form-select d-none" id="category-state-input-change-detail-box"
                                 aria-label="Example select with button addon">
                                 <option id="category-state-input-board-details-box-option-it" value="IT">IT
@@ -369,15 +371,21 @@
                         </div>
                         <div id="show-board-details-box-title" class="show-board-details-box-title"></div>
                         <div id="title-task-change-detail-box" class="d-none">
-                            <input required type="text" placeholder="Title" id="title-task-change-detail-input"
-                                class="form-control">
+                            <div class="show-board-detail-task-change-box">
+                                <div class="task-details-table-text">Title:</div>
+                                <input required type="text" placeholder="Title" id="title-task-change-detail-input"
+                                    class="form-control">
+                            </div>
                         </div>
                         <div id="show-board-details-box-details" class="h100-overflow-auto">
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
                         </div>
                         <div id="task-description-board-details-box" class="form-outline mb-4 margin-top d-none">
-                            <textarea required class="form-control" id="task-description-board-details-input" rows="8"
-                                placeholder="..."></textarea>
+                            <div class="show-board-detail-task-change-box">
+                                <div class="task-details-table-text">Description:</div>
+                                <textarea required class="form-control" id="task-description-board-details-input"
+                                    rows="8" placeholder="..."></textarea>
+                            </div>
                         </div>
                         <table>
                             <tr>
@@ -396,8 +404,10 @@
                                 <td class="padding-left" id="show-board-details-box-priority"></td>
                                 <td><select class="form-select d-none" id="priority-state-input-board-details-box"
                                         aria-label="Example select with button addon">
+                                        <option id="priority-state-input-board-details-box-option-low"
+                                            value="low">low</option>
                                         <option id="priority-state-input-board-details-box-option-normal"
-                                            value="normal">normal</option>
+                                            value="medium">medium</option>
                                         <option id="priority-state-input-board-details-box-option-high" value="high">
                                             high</option>
                                     </select></td>
@@ -532,9 +542,12 @@
                                 <td class="padding-left" id="show-backlog-details-box-priority"></td>
                                 <td><select class="form-select d-none" id="show-backlog-details-box-priority-change"
                                         aria-label="Example select with button addon">
+                                        <option id="priority-state-input-backlog-details-box-option-low"
+                                            value="low">
+                                            low</option>
                                         <option id="priority-state-input-backlog-details-box-option-normal"
-                                            value="normal">
-                                            normal</option>
+                                            value="medium">
+                                            medium</option>
                                         <option id="priority-state-input-backlog-details-box-option-high" value="high">
                                             high</option>
                                     </select></td>
@@ -639,7 +652,8 @@
 
                             <select class="form-select" id="priority-state-input"
                                 aria-label="Example select with button addon">
-                                <option value="normal">normal</option>
+                                <option value="low">low</option>
+                                <option value="medium">medium</option>
                                 <option value="high">high</option>
                             </select>
                         </div>

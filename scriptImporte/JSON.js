@@ -21,7 +21,7 @@ let testTasks = [
   {
     id: 1,
     title: 'Create test process',
-    priority: 'normal',
+    priority: 'medium',
     category: 'IT',
     createdAt: 1657548520490,
     dueDate: new Date(1657628551554),
@@ -40,7 +40,7 @@ let testTasks = [
   {
     id: 2,
     title: 'Cost calculation',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Management',
     createdAt: 1657548542366,
     dueDate: new Date(1657628551554),
@@ -59,7 +59,7 @@ let testTasks = [
   {
     id: 3,
     title: 'Create new slogan',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Marketing',
     createdAt: 1657548551554,
     dueDate: new Date(1657628551554),
@@ -121,7 +121,7 @@ let testTasks = [
   {
     id: 6,
     title: 'Calculation of the sales last quarter',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Sales',
     createdAt: 1657548580054,
     dueDate: new Date(1657628551554),
@@ -141,7 +141,7 @@ let testTasks = [
   {
     id: 7,
     title: 'Create Login Area',
-    priority: 'normal',
+    priority: 'medium',
     category: 'IT',
     createdAt: 1657548580054,
     dueDate: new Date(1697735551554),
@@ -161,7 +161,7 @@ let testTasks = [
   {
     id: 8,
     title: 'Calculation of the sales last quarter',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Sales',
     createdAt: 1657548580054,
     dueDate: new Date(1697732551554),
@@ -180,7 +180,7 @@ let testTasks = [
   {
     id: 9,
     title: 'Report of Q3',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Sales',
     createdAt: 1657548580054,
     dueDate: new Date(1678730551554),
@@ -199,7 +199,7 @@ let testTasks = [
   {
     id: 10,
     title: 'Kickoff Project Rapid',
-    priority: 'normal',
+    priority: 'medium',
     category: 'Management',
     createdAt: 1657548580054,
     dueDate: new Date(1687729551554),

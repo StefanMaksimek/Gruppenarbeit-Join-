@@ -248,11 +248,14 @@ function setValuesForChangeTaskTitle(currentTask) {
 function setValuesForChangeTaskPriority(currentTask) {
     document.getElementById('show-board-details-box-priority').classList.add('d-none')
     document.getElementById('priority-state-input-board-details-box').classList.remove('d-none')
-    if (currentTask.priority == 'normal') {
-        document.getElementById('priority-state-input-board-details-box-option-normal').selected = 'selected'
+    if (currentTask.priority == 'medium') {
+        document.getElementById('priority-state-input-board-details-box-option-normal').selected = 'selected';
     }
-    else {
-        document.getElementById('priority-state-input-board-details-box-option-high').selected = 'selected'
+    if (currentTask.priority == 'low') {
+        document.getElementById('priority-state-input-board-details-box-option-low').selected = 'selected';
+    }
+    if (currentTask.priority == 'high') {
+        document.getElementById('priority-state-input-board-details-box-option-high').selected = 'selected';
     }
 }
 
