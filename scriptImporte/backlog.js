@@ -2,8 +2,8 @@
 
 function renderBacklog() {
     let bc = document.getElementById('backlog-content')
+    console.log(document.getElementById('backlog'))
     let tasksInBacklog = tasks.filter(t => t.locationTask == "backlog")
-
     bc.innerHTML = ``
     tasksInBacklog.reverse().forEach(task => {
         bc.innerHTML += renderBacklogHTML(task)

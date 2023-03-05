@@ -242,17 +242,13 @@
 .task-details-table-text{
     font-weight: 600;
     font-size: 20px;
+    margin-right: 8px;
+    width: 124px;
 }
 
 .show-board-detail-task-change-box{
     display: flex;
     margin-bottom: 12px;
-    margin-left: 16px;
-}
-
-.show-board-detail-task-change-box div{
-    margin-right: 8px;
-    width: 124px;
 }
 
 .board-card-priority-icon{
@@ -261,4 +257,12 @@
     right: 24px;
     width: 32px;
     object-fit: cover;
+}
+
+.w200{
+    width: 200px !important;
+}
+
+.w320{
+    width: 320px !important;
 }
