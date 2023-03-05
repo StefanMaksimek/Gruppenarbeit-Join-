@@ -253,3 +253,11 @@
     margin-right: 8px;
     width: 136px;
 }
+
+.board-card-priority-icon{
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    width: 32px;
+    object-fit: cover;
+}

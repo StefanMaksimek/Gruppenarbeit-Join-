@@ -95,6 +95,7 @@ function renderToDoHTML(toDos) {
                 <div class="board-card-usericon user-board" id="board-card-usericon${toDos.id}">
                 </div>
             </div>
+            <img class="board-card-priority-icon" src="img/logos/icon-priority-${toDos.priority}.svg">
         </div>
     `
 }
@@ -126,6 +127,7 @@ function renderInProgressHTML(inProgress) {
             <div class="board-card-usericon user-board" id="board-card-usericon${inProgress.id}">
             </div>
         </div>
+        <img class="board-card-priority-icon" src="img/logos/icon-priority-${inProgress.priority}.svg">
     </div>    `
 }
 
@@ -156,6 +158,7 @@ function renderTestingHTML(testing) {
             <div class="board-card-usericon user-board" id="board-card-usericon${testing.id}">
             </div>
         </div>
+        <img class="board-card-priority-icon" src="img/logos/icon-priority-${testing.priority}.svg">
     </div>    `
 }
 
@@ -186,6 +189,7 @@ function renderDoneHTML(done) {
             <div class="board-card-usericon user-board" id="board-card-usericon${done.id}">
             </div>
         </div>
+        <img class="board-card-priority-icon" src="img/logos/icon-priority-${done.priority}.svg">
     </div>    `
 }
 /////////////////////////////////////////////////////////////////////////////////
