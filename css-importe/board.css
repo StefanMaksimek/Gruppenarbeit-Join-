@@ -266,3 +266,35 @@
 .w320{
     width: 320px !important;
 }
+
+@media screen and (max-width: 540px) {
+    .change-task-small {
+        flex-direction: column;
+    }
+
+    .change-task-small textarea{
+        width: 100% !important;
+    }
+
+    .change-task-small input{
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .change-task-small-two {
+        flex-direction: column;
+    }
+
+    .change-task-small-two textarea{
+        width: 100% !important;
+    }
+
+    .change-task-small-two input{
+        width: 100% !important;
+    }
+
+    .change-task-small-two select{
+        width: 100% !important;
+    }
+}
