@@ -196,7 +196,7 @@
     <div class="main d-none" id="main">
         <div id="header-desktop-box" class="header-desktop-box">
             <div class="header" id="header">
-                <div class="test" id="burger" onclick="openMobileSide()">
+                <div class="test toggle" id="burger" onclick="openMobileSide()">
                     <a class="burger" href="#">
                         <div class="line1"></div>
                         <div class="line2"></div>
@@ -480,7 +480,7 @@
                         <div class="show-board-detail-task-change-box d-none"
                             id="show-backlog-details-box-category-change">
                             <div class="task-details-table-text">Category:</div>
-                            <select class="form-select" id="category-state-input-change-detail-box-backlog"
+                            <select class="form-select w200" id="category-state-input-change-detail-box-backlog"
                                 aria-label="Example select with button addon">
                                 <option id="category-state-input-backlog-details-box-option-it" value="IT">IT
                                 </option>
@@ -498,7 +498,7 @@
                             <div class="show-board-detail-task-change-box">
                                 <div class="task-details-table-text">Title:</div>
                                 <input required type="text" placeholder="Title"
-                                    id="title-task-change-detail-input-backlog" class="form-control">
+                                    id="title-task-change-detail-input-backlog" class="w320 form-control">
                             </div>
                         </div>
 
@@ -508,41 +508,39 @@
                         <div id="task-description-backlog-details-box" class="form-outline mb-4 margin-top d-none">
                             <div class="show-board-detail-task-change-box">
                                 <div class="task-details-table-text">Description:</div>
-                                <textarea required class="form-control" id="task-description-backlog-details-input"
+                                <textarea required class="w320 form-control" id="task-description-backlog-details-input"
                                     rows="8" placeholder="..."></textarea>
                             </div>
                         </div>
+                        <div class="show-board-detail-task-change-box">
+                            <div class="task-details-table-text">Created on:</div>
+                            <div id="show-backlog-details-box-created-by"></div>
+                        </div>
 
+                        <div class="show-board-detail-task-change-box">
+                            <div class="task-details-table-text">Complete by:</div>
+                            <div id="show-backlog-details-box-due-date"></div>
+                            <input required class="form-control w200 input-due-date d-none" type="date" name="begin"
+                                placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31"
+                                id="due-date-backlog-details-box">
+                        </div>
 
-                        <table>
-                            <tr>
-                                <td class="task-details-table-text">Created on:</td>
-                                <td class="padding-left" id="show-backlog-details-box-created-by"></td>
-                            </tr>
-                            <tr>
-                                <td class="task-details-table-text">Complete by:</td>
-                                <td class="padding-left" id="show-backlog-details-box-due-date"></td>
-                                <td><input required class="form-control input-due-date d-none" type="date" name="begin"
-                                        placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31"
-                                        id="due-date-backlog-details-box"></td>
-                            </tr>
-                            <tr>
-                                <td class="task-details-table-text">Priority:</td>
-                                <td class="padding-left" id="show-backlog-details-box-priority"></td>
-                                <td><select class="form-select d-none" id="show-backlog-details-box-priority-change"
-                                        aria-label="Example select with button addon">
-                                        <option id="priority-state-input-backlog-details-box-option-low" value="low">low
-                                        </option>
-                                        <option id="priority-state-input-backlog-details-box-option-normal"
-                                            value="medium">medium</option>
-                                        <option id="priority-state-input-backlog-details-box-option-high" value="high">
-                                            high</option>
-                                    </select></td>
-                            </tr>
-                            <tr>
-                                <td class="task-details-table-text">Assigned to:</td>
-                            </tr>
-                        </table>
+                        <div class="show-board-detail-task-change-box">
+                            <div class="task-details-table-text">Priority:</div>
+                            <div id="show-backlog-details-box-priority"></div>
+                            <select class="form-select w200 d-none" id="show-backlog-details-box-priority-change"
+                                aria-label="Example select with button addon">
+                                <option id="priority-state-input-backlog-details-box-option-low" value="low">low
+                                </option>
+                                <option id="priority-state-input-backlog-details-box-option-normal" value="medium">
+                                    medium
+                                </option>
+                                <option id="priority-state-input-backlog-details-box-option-high" value="high">
+                                    high</option>
+                            </select>
+                        </div>
+                        <div class="task-details-table-text">Assigned to:</div>
+
                         <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
                         </div>
                         <div id="show-backlog-details-box-icon-change" class="d-none">
