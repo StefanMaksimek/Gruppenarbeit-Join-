@@ -68,7 +68,7 @@
     opacity: 0.75;
 }
 
-.bin-hint-sidebar-task{
+.bin-hint-sidebar-task {
     z-index: 12;
     background-color: gray;
     color: white;
@@ -98,6 +98,20 @@
     .side-bar-task {
         width: 450px;
     }
+
+    .side-bar-task-btn-top-big {
+        display: none;
+    }
+
+    .side-bar-task-btn-top-small {
+        display: block;
+        width: 80px !important;
+    }
+
+    .side-bar-task-btn-top-small img {
+        height: 20px;
+        margin-bottom: 4px;
+    }
 }
 
 @media screen and (max-width: 460px) {
@@ -109,6 +123,11 @@
 @media screen and (max-width: 410px) {
     .side-bar-task {
         width: 350px;
+    }
+
+    .side-bar-task-btn-top-small {
+        display: block;
+        width: 60px !important;
     }
 }
 
