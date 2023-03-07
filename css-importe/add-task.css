@@ -310,12 +310,6 @@
     margin-bottom: var(--px-mid);
 }
 
-.input-holder2 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
-
 .assinged-to {
     display: flex;
     height: 150px;

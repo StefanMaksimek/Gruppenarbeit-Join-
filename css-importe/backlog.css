@@ -15,7 +15,7 @@
     color: var(--clr-primary);
 }
 
-table{
+table {
     border-collapse: unset;
     border-spacing: 0 4px;
 }
@@ -52,7 +52,7 @@ td {
     background-color: var(--clr-primary-tr);
 }
 
-.assigned-to h3{
+.assigned-to h3 {
     margin-bottom: 4px;
     padding: 0;
 }
@@ -229,34 +229,87 @@ td {
     padding: 12px;
 }
 
-.backlog-card{
+.backlog-card {
     background-color: white;
     opacity: 0.75;
 }
 
-.backlog-card:hover{
+.backlog-card:hover {
     background-color: white;
     opacity: 1;
 }
 
 tr.backlog-card>td {
     padding-bottom: 4px;
-  }
+}
 
-  .show-backlog-details-sub-box-color{
+.show-backlog-details-sub-box-color {
     display: flex;
     align-items: center;
-  }
+}
 
-  .show-backlog-details-sub-box-color h3{
+.show-backlog-details-sub-box-color h3 {
     padding: 0;
     margin: 0;
     font-weight: 600;
     margin-right: 12px;
-  }
+}
 
-  .btn-color{
+.btn-color {
     background-color: var(--clr-secondary);
     font-weight: 600px;
     color: white;
-  }
+}
+
+.btn-text {
+    font-size: 18px !important;
+}
+
+.input-holder2 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.backlog-details-content{
+    height: 600px;
+    overflow: auto;
+}
+
+@media screen and (max-width: 460px) {
+    .input-holder2 {
+        flex-direction: column;
+    }
+
+    .input-holder2 h3{
+        margin: 0;
+    }
+
+    .input-holder2 select{
+        width: 100px !important;
+    }
+
+    .show-backlog-details-sub-box-color {
+        margin-bottom: 12px;
+    }
+
+    .show-backlog-details-sub-box-color h3{
+        width: 80px;
+    }
+
+    .show-backlog-details-sub-box-color button{
+        width: 100px;
+        height: 30px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .change-task-detail-view-btn-small {
+        width: 60px !important;
+    }
+
+    .change-task-detail-view-btn-small span {
+       display: none;
+    }
+}

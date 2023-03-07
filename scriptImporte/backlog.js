@@ -72,7 +72,7 @@ function changeTaskBacklog(id) {
 
 
 function changeButtonsforEditorModusOnBacklogChangeTask(id) {
-    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="setChangeModeOfBacklogTaskDetailsContainerBack('${id}')">Cancel  <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="saveChangesTaskBacklog('${id}', '')">Save <img src="img/logos/icon-save-white.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
+    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow change-task-detail-view-btn-small" onclick="setChangeModeOfBacklogTaskDetailsContainerBack('${id}')"><span class="btn-text">Cancel </span><img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow change-task-detail-view-btn-small" onclick="saveChangesTaskBacklog('${id}', '')"><span class="btn-text">Save </span><img src="img/logos/icon-save-white.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
 }
 
 

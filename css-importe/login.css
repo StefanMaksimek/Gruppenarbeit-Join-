@@ -166,6 +166,10 @@
     background: white url('/img/logos/login-pw.svg') 270px 50% no-repeat;
 }
 
+.bg-name {
+    background: white url('/img/logos/icon-user-login.svg') 268px 50% no-repeat;
+}
+
 .registration-box-input-more {
     display: flex;
     flex-direction: column;

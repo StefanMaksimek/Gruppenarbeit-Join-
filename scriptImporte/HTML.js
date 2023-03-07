@@ -220,9 +220,9 @@ function renderSelectedEmployeesHTML(name, img, mail) {
 
 
 function renderButtonsBacklog(id) {
-    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTask('${id}')">Delete <img src="img/logos/icon-bin.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
-    <button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="changeTaskBacklog('${id}')">Change <img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
-    <button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="pushTask('${id}', '')">Accept <img src="img/logos/icon-accept.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
+    return `<button class="login-area-btn login-area-btn-guest login-btn-shadow change-task-detail-view-btn-small" onclick="deleteTask('${id}')"><span>Delete </span><img src="img/logos/icon-bin.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
+    <button class="login-area-btn login-area-btn-login login-btn-shadow change-task-detail-view-btn-small" onclick="changeTaskBacklog('${id}')"><span>Change </span><img src="img/logos/icon-pencil.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>
+    <button class="login-area-btn login-area-btn-guest login-btn-shadow change-task-detail-view-btn-small" onclick="pushTask('${id}', '')"><span>Accept </span><img src="img/logos/icon-accept.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px;"></button>`
 }
 
 

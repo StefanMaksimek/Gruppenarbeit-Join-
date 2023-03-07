@@ -189,6 +189,10 @@
         background: white url(/img/logos/login-pw.svg) calc(100% - 12px) 50% no-repeat;
     }
 
+    .bg-name {
+        background: white url('/img/logos/icon-user-login.svg') calc(100% - 12px) 50% no-repeat;
+    }
+
     .login-area-btn {
         width: 100%;
         margin-bottom: 16px;

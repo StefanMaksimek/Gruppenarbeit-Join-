@@ -114,12 +114,14 @@
         <div class="side-bar-task d-none" id="side-bar-task">
             <div class="side-bar-task-header">
                 <button class="side-bar-task-btn-top-big" onclick="openOrCloseSidebarCreateTask()">Close</button>
-                <button class="side-bar-task-btn-top-small" onclick="openOrCloseSidebarCreateTask()"><img src="img/logos/icon-close-white.svg"></button>
+                <button class="side-bar-task-btn-top-small" onclick="openOrCloseSidebarCreateTask()"><img
+                        src="img/logos/icon-close-white.svg"></button>
                 <div class="side-bar-task-header-title">
                     <h1>Add Task</h1><span id="side-bar-task-status"></span>
                 </div>
                 <button class="side-bar-task-btn-top-big" type="submit">Create Task</button>
-                <button class="side-bar-task-btn-top-small" type="submit"><img src="img/logos/icon-accept-white.svg"></button>
+                <button class="side-bar-task-btn-top-small" type="submit"><img
+                        src="img/logos/icon-accept-white.svg"></button>
             </div>
 
             <input id="title-task-sidebar" class="input-title" type="text" placeholder="Enter a title">
@@ -477,7 +479,7 @@
                     <div class="close-user-details-box" id="close-user-details-box-backlog">
                     </div>
 
-                    <div class="w100">
+                    <div class="w100 backlog-details-content">
                         <div id="show-backlog-details-box-category"></div>
                         <div class="show-board-detail-task-change-box change-task-small-two d-none"
                             id="show-backlog-details-box-category-change">
@@ -601,14 +603,11 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="btn-holder-backlog" id="btn-holder-backlog">
-
-                            </div>
                         </div>
                     </div>
+                    <div class="btn-holder-backlog" id="btn-holder-backlog">
 
-
-
+                    </div>
                 </div>
             </div>
             <!-- /////////////////////////////// Backlog END \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
@@ -1163,6 +1162,8 @@
                             <h2>Registration</h2>
                             <input maxlength="30" required id="new-user-inputfield-login" type="text" placeholder="Mail"
                                 class="bg-mail">
+                            <input maxlength="30" required id="new-user-inputfield-name" type="text" placeholder="Name"
+                                class="bg-name">
                             <input required id="new-user-inputfield-pw" type="password" placeholder="Password"
                                 class="bg-pw">
                             <input required type="password" placeholder="Repeat password"
@@ -1172,7 +1173,6 @@
                             <div id="registration-box-input-more" class="registration-box-input-more d-none">
                                 <input type="text" placeholder="Department like Sales or IT"
                                     id="new-user-inputfield-category">
-                                <input type="name" placeholder="Your name" id="new-user-inputfield-name">
                                 <input type="tel" placeholder="012586165127" id="new-user-inputfield-tel">
                                 <input type="text" placeholder="Residence" id="new-user-inputfield-city">
                                 <input type="text" placeholder="Hobby" id="new-user-inputfield-hobby">
