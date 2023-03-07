@@ -178,7 +178,7 @@ function editUserContact() {
     document.getElementById('contact-user-detail-city').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-city-contact" type="tesx" value="${user.city}">`;
     document.getElementById('contact-user-detail-hobby').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-hobby-contact" type="text" value="${user.Hobbys}">`;
     document.getElementById('contact-user-detail-mail').innerHTML = `<input class="change-user-details-contacts" id="user-detail-view-change-mail-contact" type="mail" value="${user.mail}">`;
-    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="showUserDetailsContact('${user.mail}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px; margin-left:24px;"></button><button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="saveUserChangesContact('${user.id}')">Save <img src="img/logos/icon-save.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
+    document.getElementById('contact-details-edit-btn').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="showUserDetailsContact('${user.mail}')">Cancel <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px; margin-left:24px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="saveUserChangesContact('${user.id}')">Save <img src="img/logos/icon-save-white.svg" style="height: 24px; object-fit: cover; padding-bottom: 2px; margin-left: 24px"></button>`;
 }
 
 

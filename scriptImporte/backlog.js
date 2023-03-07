@@ -166,6 +166,9 @@ function setChangeModeOfBacklogTaskDetailsContainerBack(id) {
         document.getElementById('btn-holder-backlog').innerHTML = renderButtonsBacklog(id);
     }
     document.getElementById('show-backlog-details-color-status-box').classList.remove('d-none')
+
+    //Clear responsible user List
+    document.getElementById('responsible-editor-list-change-task-backlog').innerHTML = '';
 }
 
 

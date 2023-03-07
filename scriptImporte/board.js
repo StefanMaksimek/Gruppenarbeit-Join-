@@ -291,7 +291,8 @@ function setChangeModeOfBoardTaskDetailsContainerBack(id) {
     if (id != '') {
         document.getElementById('show-board-details-box-btns').innerHTML = `<button class="login-area-btn login-area-btn-guest login-btn-shadow" onclick="deleteTaskBoard('${id}')">Delete <img src="img/close-icon.png" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button><button class="login-area-btn login-area-btn-login login-btn-shadow" onclick="changeTaskBoard('${id}', '')">Change <img src="img/logos/icon-pencil.svg" style="height: 16px; object-fit: cover; padding-bottom: 2px;"></button>`
     }
-
+    //Clear responsible user List
+    document.getElementById('responsible-editor-list-change-task-board').innerHTML = '';
 }
 
 

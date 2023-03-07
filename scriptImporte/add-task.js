@@ -7,7 +7,7 @@ let locationTask = 'board'; // backlog or board
 function changeStatusTaskAndLocation(status, location) {
     statusTask = status;
     locationTask = location
-    temporaryArrayResponsibleEmployees.length = 0; //if someone choose a user in add task card it will also appear in board card after one user added as responsible for task
+    setTemporaryArrayResponsibleEmployeesToStandard() //if someone choose a user in add task card it will also appear in board card after one user added as responsible for task
     setTextInHeaderOfSideBarTask(status);
 }
 
