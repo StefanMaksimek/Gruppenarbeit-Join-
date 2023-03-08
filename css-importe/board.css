@@ -248,6 +248,7 @@
 
 .show-board-detail-task-change-box{
     display: flex;
+    align-items: center;
     margin-bottom: 12px;
 }
 
@@ -267,9 +268,14 @@
     width: 320px !important;
 }
 
+.task-details-tabke-text-two{
+    font-size: 18px;
+}
+
 @media screen and (max-width: 540px) {
     .change-task-small {
         flex-direction: column;
+        align-items: start;
     }
 
     .change-task-small textarea{
@@ -279,11 +285,16 @@
     .change-task-small input{
         width: 100% !important;
     }
+
+    .task-details-prio-box{
+        width: 120px;
+    }
 }
 
 @media screen and (max-width: 340px) {
     .change-task-small-two {
         flex-direction: column;
+        align-items: start;
     }
 
     .change-task-small-two textarea{

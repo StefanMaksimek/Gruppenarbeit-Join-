@@ -135,7 +135,7 @@ function fillBoardDetailBox(id) {
 
 function returnTaskDate(taskDate) {
     return `<div class="task-details-prio-box">
-<div>${taskDate}</div>
+<div class="task-details-tabke-text-two">${taskDate}</div>
 </div>`
 }
 
@@ -143,19 +143,19 @@ function returnTaskDate(taskDate) {
 function returnTaskPriority(taskPriority) {
     if (taskPriority == 'high') {
         return `<div class="task-details-prio-box">
-<div>high</div>
+<div class="task-details-tabke-text-two">high</div>
 <img src="img/logos/icon-priority-high.svg">
 </div>`
     }
     if (taskPriority == 'medium') {
         return `<div class="task-details-prio-box">
-<div>medium</div>
+<div class="task-details-tabke-text-two">medium</div>
 <img src="img/logos/icon-priority-medium.svg">
 </div>`
     }
     if (taskPriority == 'low') {
         return `<div class="task-details-prio-box">
-    <div>low</div>
+    <div class="task-details-tabke-text-two">low</div>
     <img src="img/logos/icon-priority-low.svg">
     </div>`
     }
