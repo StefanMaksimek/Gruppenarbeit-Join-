@@ -1,11 +1,7 @@
 function loadSummaryContent() {
     let userMail = localStorage.getItem('joinLoginMail')
     let tasksOfUser = [];
-    tasks.forEach(task => {
-        if (task.user.some(user => user.mail == userMail)) {
-            tasksOfUser.push(task)
-        }
-    })
+    tasksOfUser = getUsersTasks(userMail);
     if (tasksOfUser.length > 0) {
         fillSummaryCardsWithTaskOfUsers(tasksOfUser);
     }
@@ -13,6 +9,17 @@ function loadSummaryContent() {
         fillSummaryCardsWithZero();
     }
     document.getElementById('summary-name').innerHTML = returnUsersName();
+}
+
+
+function getUsersTasks(userMail) {
+    let tasksOfUser = [];
+    tasks.forEach(task => {
+        if (task.user.some(user => user.mail == userMail)) {
+            tasksOfUser.push(task)
+        }
+    })
+    return tasksOfUser;
 }
 
 
@@ -74,13 +81,58 @@ function changeOverview(x, y) {
 }
 
 
-function loadSummaryAllTasksContent(){
+function loadSummaryAllTasksContent() {
     document.getElementById('summary-nbr-tasks-board').innerHTML = tasks.filter(t => t.locationTask == 'board').length;
     document.getElementById('summary-nbr-tasks-backlog').innerHTML = tasks.filter(t => t.locationTask == 'backlog').length;
     document.getElementById('summary-nbr-tasks-feedback').innerHTML = tasks.filter(t => t.status == 'testing').length;
     document.getElementById('summary-nbr-tasks-progress').innerHTML = tasks.filter(t => t.status == 'in-progress').length;
     document.getElementById('summary-to-do-nbr').innerHTML = tasks.filter(t => t.status == 'to-do' && t.locationTask == 'board').length;
     document.getElementById('summary-done-nbr').innerHTML = tasks.filter(t => t.status == 'done' && t.locationTask == 'board').length;
-    let urgentsTasks = findUrgentTasks(tasks);
-    document.getElementById('summary-urgent-nbr').innerHTML = urgentsTasks.length;
+    let urgentTasks = findUrgentTasks(tasks);
+    document.getElementById('summary-urgent-nbr').innerHTML = urgentTasks.length;
+}
+
+
+function getUrgentTasks() {
+    if (document.getElementById('summary-show-my-task-box').classList.contains('text-underline')) {
+        let userMail = localStorage.getItem('joinLoginMail')
+        let tasksOfUser = [];
+        debugger
+        tasksOfUser = getUsersTasks(userMail);
+        let urgentTasks = findUrgentTasks(tasksOfUser);
+        console.log(urgentTasks)
+        showUrgentTasks(urgentTasks)
+    }
+    if (document.getElementById('summary-show-all-task-box').classList.contains('text-underline')) {
+        let urgentTasks = findUrgentTasks(tasks);
+        showUrgentTasks(urgentTasks)
+    }
+}
+
+
+function showUrgentTasks(urgentTasks) {
+    console.log(urgentTasks)
+    document.getElementById('show-urgent-tasks-summary').classList.remove('d-none')
+    let content = document.getElementById('urgent-tasks-summary-content')
+    content.innerHTML = '';
+    for (let i = 0; i < urgentTasks.length; i++) {
+        const task = urgentTasks[i];
+        content.innerHTML += `
+        <tr class="backlog-card backlog-hover" onclick="openAcceptTask('${task.id}')">
+            <td style="border-left:0.4rem solid var(--clr-${task.category}">
+                <div class="assigned-to-holder">
+                    <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">
+
+                    <div class="assigned-to" id="assigned-to-${task.id}">
+                        <h3>${task.user[0].name}</h3>
+                        <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
+                    </div>
+                </div>
+            </td>
+
+            <td class="category backlog-responsive">${task.category}</td>
+            <td class="details">${task.title}</td>
+        </tr>
+    `
+    }
 }
