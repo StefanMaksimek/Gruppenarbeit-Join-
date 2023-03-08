@@ -23,7 +23,7 @@ function renderBacklogHTML(task) {
             </td>
 
             <td class="category backlog-responsive">${task.category}</td>
-            <td class="details">${task.description}</td>
+            <td class="details">${task.title}</td>
         </tr>
     `
 }
