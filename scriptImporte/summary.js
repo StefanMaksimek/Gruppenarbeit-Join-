@@ -136,3 +136,8 @@ function showUrgentTasks(urgentTasks) {
     `
     }
 }
+
+
+function closeUrgentDetails() {
+    document.getElementById('show-urgent-tasks-summary').classList.add('d-none')
+}

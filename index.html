@@ -198,8 +198,14 @@
     </form>
 
     <div id="show-urgent-tasks-summary" class="d-none show-urgent-tasks-summary-container">
-        <h2 class="headline-card">URGENT TASKS</h2>
-        <div class="backlog-table">
+        <div class="close-user-details-box" id="close-user-details-box-board">
+            <div class="btn-close-cross-box close-summary-detail-view-urgent"
+                onclick="closeUrgentDetails()">
+                <img src="./img/close-icon.png">
+            </div>
+        </div>
+        <h2 class="headline-card mg-urgent-headline-12">URGENT TASKS</h2>
+        <div class="backlog-table show-urgent-tasks-summary-container-table">
             <table class="table">
                 <thead>
                     <tr>
@@ -208,7 +214,7 @@
                         <th scope="col">TITLE</th>
                     </tr>
                 </thead>
-                <tbody id="urgent-tasks-summary-content">
+                <tbody id="urgent-tasks-summary-content" class="overflow">
                 </tbody>
             </table>
         </div>

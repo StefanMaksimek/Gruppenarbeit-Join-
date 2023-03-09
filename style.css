@@ -97,3 +97,18 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--clr-primary);
   outline: 1px solid white;
 }
+
+
+
+.show-urgent-tasks-summary-container-table::-webkit-scrollbar {
+  width: 8px;
+}
+
+.show-urgent-tasks-summary-container-table::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.show-urgent-tasks-summary-container-table::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
