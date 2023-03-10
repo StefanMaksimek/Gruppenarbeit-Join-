@@ -52,9 +52,19 @@ td {
     background-color: var(--clr-primary-tr);
 }
 
+.assigned-to-summary{
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .assigned-to h3 {
     margin-bottom: 4px;
     padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .assigned-to img {

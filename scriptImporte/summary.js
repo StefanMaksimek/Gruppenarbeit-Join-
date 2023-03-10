@@ -99,7 +99,6 @@ function getUrgentTasks() {
         let tasksOfUser = [];
         tasksOfUser = getUsersTasks(userMail);
         let urgentTasks = findUrgentTasks(tasksOfUser);
-        console.log(urgentTasks)
         showUrgentTasks(urgentTasks)
     }
     if (document.getElementById('summary-show-all-task-box').classList.contains('text-underline')) {
@@ -110,7 +109,6 @@ function getUrgentTasks() {
 
 
 function showUrgentTasks(urgentTasks) {
-    console.log(urgentTasks)
     document.getElementById('show-urgent-tasks-summary').classList.remove('d-none')
     let content = document.getElementById('urgent-tasks-summary-content')
     content.innerHTML = '';
@@ -122,7 +120,7 @@ function showUrgentTasks(urgentTasks) {
                 <div class="assigned-to-holder">
                     <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">
 
-                    <div class="assigned-to" id="assigned-to-${task.id}">
+                    <div class="assigned-to-summary" id="assigned-to-${task.id}">
                         <h3>${task.user[0].name}</h3>
                         <a href="mailto:${task.user[0].mail}">${task.user[0].mail}</a>
                     </div>

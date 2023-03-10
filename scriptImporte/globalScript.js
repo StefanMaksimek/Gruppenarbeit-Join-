@@ -83,7 +83,7 @@ function closeContentWindows() {
     document.getElementById('help').classList.add('d-none');
     document.getElementById('contacts').classList.add('d-none');
     document.getElementById('settings').classList.add('d-none');
-
+    closeUrgentDetails()
 }
 
 
