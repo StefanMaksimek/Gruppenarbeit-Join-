@@ -399,3 +399,71 @@ h3 {
 .w100{
     width: 100% !important;
 }
+
+@media screen and (max-height: 640px) {
+    .logo {
+        height: 80px;
+    }
+
+    .logo img{
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .sidebar-point-container{
+        margin-top: 24px;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .logo {
+        height: 60px;
+        margin-bottom: 0;
+    }
+
+    .sidebar-point-container{
+        margin-top: 12px;
+    }
+}
+
+@media screen and (max-height: 550px) {
+    .logo {
+        display: none;
+    }
+
+    .sidebar-point-container{
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .nav-holder {
+        margin-top: 12px;
+    }
+    .sidebar-box-point{
+        padding-top: 4px;
+    padding-bottom: 4px;
+    }
+}
+
+@media screen and (max-height: 380px) {
+    .nav-holder {
+        margin-top: 4px;
+    }
+    .sidebar-box-point img{
+        width: 20px;
+    }
+
+    .sidebar-box-point h3{
+        font-size: 16px;
+    }
+
+    .sidebar-box-point{
+        padding-top: 2px;
+    padding-bottom: 2px;
+    }
+
+    .legal-notice-container{
+        bottom: 4px;
+    }
+}
