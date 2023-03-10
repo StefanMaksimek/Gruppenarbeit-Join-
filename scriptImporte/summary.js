@@ -97,7 +97,6 @@ function getUrgentTasks() {
     if (document.getElementById('summary-show-my-task-box').classList.contains('text-underline')) {
         let userMail = localStorage.getItem('joinLoginMail')
         let tasksOfUser = [];
-        debugger
         tasksOfUser = getUsersTasks(userMail);
         let urgentTasks = findUrgentTasks(tasksOfUser);
         console.log(urgentTasks)
@@ -118,7 +117,7 @@ function showUrgentTasks(urgentTasks) {
     for (let i = 0; i < urgentTasks.length; i++) {
         const task = urgentTasks[i];
         content.innerHTML += `
-        <tr class="backlog-card backlog-hover" onclick="openAcceptTask('${task.id}')">
+        <tr class="backlog-card backlog-hover" onclick="openTaskSummary('${task.id}')">
             <td style="border-left:0.4rem solid var(--clr-${task.category}">
                 <div class="assigned-to-holder">
                     <img class="backlog-responsive table-img" src="${task.user[0].icon}" alt="">
@@ -140,4 +139,21 @@ function showUrgentTasks(urgentTasks) {
 
 function closeUrgentDetails() {
     document.getElementById('show-urgent-tasks-summary').classList.add('d-none')
+}
+
+
+function openTaskSummary(taskId) {
+    let task = tasks.find(t => t.id == taskId)
+    if (task.locationTask == 'board') {
+        // openBoard();
+        // closeUrgentDetails();
+        openTaskDetails(taskId);
+    }
+    if (task.locationTask == 'backlog') {
+        // openBacklog(); 
+        // closeBoardAddTask();
+        // closeUrgentDetails();
+        openAcceptTask(taskId);
+
+    }
 }
