@@ -49,9 +49,14 @@ function fillSummaryCardsWithZero() {
 function findUrgentTasks(tasksOfUser) {
     let currentDate = new Date().getTime();
     //10day in milliseconds are 864000000
-    let urgentTasks = tasksOfUser.filter(t => t.dueDate <= currentDate + 864000000)
-    getUrgentTasksNextDate(urgentTasks)
-    return urgentTasks
+    if (tasks.length > 0) {
+        let urgentTasks = tasksOfUser.filter(t => t.dueDate <= currentDate + 864000000)
+        getUrgentTasksNextDate(urgentTasks)
+        return urgentTasks
+    }
+    else {
+        return [];
+    }
 }
 
 
@@ -64,7 +69,6 @@ function getUrgentTasksNextDate(urgentTasks) {
 function returnUsersName() {
     const usersMail = localStorage.getItem('joinLoginMail');
     let user = users.find(u => u.mail == usersMail)
-    console.log(user)
     return user.name
 }
 

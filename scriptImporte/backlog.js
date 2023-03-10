@@ -2,7 +2,6 @@
 
 function renderBacklog() {
     let bc = document.getElementById('backlog-content')
-    console.log(document.getElementById('backlog'))
     let tasksInBacklog = tasks.filter(t => t.locationTask == "backlog")
     bc.innerHTML = ``
     tasksInBacklog.reverse().forEach(task => {
@@ -20,7 +19,6 @@ function openAcceptTask(id) {
     document.getElementById('show-backlog-details-container').classList.remove('d-none')
 
     fillBaacklogDetailBox(id)
-
 }
 
 

@@ -339,10 +339,12 @@ function executeLogout() {
     clearTasksArrayToHideForTestusers()
 }
 
+
 function clearTasksArrayToHideForTestusers() {
     tasks.length = 0;
     clearBoardAndBacklog()
 }
+
 
 function clearBoardAndBacklog() {
     renderBoard()

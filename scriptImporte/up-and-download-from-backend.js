@@ -31,12 +31,42 @@ async function loadTaskFromBackend() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem(`tasks`)) || [];
   } else {
-    tasks = testTasks;
+    tasks = createTestTasks();
   }
 
   renderBoard();
   renderBacklog();
   openSummary();
+}
+
+
+function createTestTasks() {
+  let testUserTasks = [];
+  for (let i = 0; i < testTasks.length; i++) {
+    const taskForTestUser = testTasks[i];
+    let taskInfo = createJsonForTestTask(taskForTestUser.id, taskForTestUser.title, taskForTestUser.priority, taskForTestUser.category, taskForTestUser.createdAt, taskForTestUser.dueDate, taskForTestUser.user, taskForTestUser.status, taskForTestUser.description, taskForTestUser.color, taskForTestUser.locationTask)
+    let task = new Task(taskInfo);
+    testUserTasks.push(task);
+  }
+  return testUserTasks;
+}
+
+
+function createJsonForTestTask(id, title, priority, category, createdAt, dueDate, user, status, description, color, locationTask) {
+  let taskInfo = {
+    "id": id,
+    "title": title,
+    "priority": priority,
+    "category": category,
+    "createdAt": createdAt,
+    "dueDate": dueDate,
+    "user": user,
+    "status": status,
+    "description": description,
+    "color": color,
+    "locationTask": locationTask //where the task is rendered
+  }
+  return taskInfo;
 }
 
 

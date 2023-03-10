@@ -1,4 +1,4 @@
-let testTasks = [
+const testTasks = [
   {
     id: 0,
     title: 'Bug fixing',
