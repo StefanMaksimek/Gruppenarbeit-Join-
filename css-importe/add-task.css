@@ -137,6 +137,10 @@
     width: 100%;
 }
 
+.main-add-task-content-container {
+    display: flex;
+}
+
 .responsible-editor-list-container {
     display: flex;
     justify-content: space-between;
@@ -371,4 +375,11 @@
     display: flex;
     align-items: center;
     position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    .main-add-task-content-container {
+        display: flex;
+        flex-direction: column;
+    }
 }

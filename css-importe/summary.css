@@ -173,6 +173,18 @@
     margin-top: 12px;
 }
 
+.assigned-to-summary {
+    width: 100px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.assigned-to-summary h3 {
+    padding: 0;
+    margin-bottom: 4px;
+}
+
 @media screen and (max-width: 1300px) {
     .summary-overview-container-one {
         height: 120px;
@@ -480,7 +492,7 @@
     }
 }
 
-@media screen and (max-height: 760px) {    
+@media screen and (max-height: 760px) {
     .show-urgent-tasks-summary-container-table {
         min-height: 246px;
         height: calc(80vh - 130px);
@@ -488,7 +500,7 @@
     }
 }
 
-@media screen and (max-height: 460px) {    
+@media screen and (max-height: 460px) {
     .show-urgent-tasks-summary-container-table {
         min-height: 215px;
     }

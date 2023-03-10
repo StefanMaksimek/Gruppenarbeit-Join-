@@ -633,7 +633,7 @@
             <div class="d-none" id="add-task">
                 <h2 class="headline-card">ADD TASK</h2>
                 <form onsubmit="createTask(); return false">
-                    <div style="display: flex;">
+                    <div class="main-add-task-content-container">
                         <div class="left">
                             <div class="input-holder">
                                 <h3>TITLE</h3>
@@ -715,8 +715,8 @@
                             </div>
 
                             <div class="btns-add-task">
-                                <button type="button" onclick="clearAddTask()" class="btn-cancel">Clear</button>
-                                <button type="submit" class="btn btn-primary">Create Task</button>
+                                <button type="button" onclick="clearAddTask()" class="login-area-btn login-area-btn-guest login-btn-shadow mg-right">Clear</button>
+                                <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Create Task</button>
                             </div>
                         </div>
                     </div>
@@ -841,8 +841,6 @@
                         task which you are working on from
                         "TO DO" to "IN PROGRESS" or on the step you are.</p>
                 </div>
-                <a href="https://youtu.be/awd9SJdOcUs" target="_blank" class="btn btn-info">Short Youtube Video</a>
-
             </div>
 
             <div class="d-none" id="settings">
