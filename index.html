@@ -18,6 +18,7 @@
     <script src="./scriptImporte/JSON.js"></script>
     <script src="./scriptImporte/HTML.js"></script>
     <script src="./scriptImporte/summary.js"></script>
+    <script src="./scriptImporte/contact.js"></script>
     <script src="./scriptImporte/globalScript.js"></script>
     <script src="./scriptImporte/board.js"></script>
     <script src="./scriptImporte/backlog.js"></script>
@@ -745,10 +746,16 @@
             <!-- ----------------------------- Select employees for tasks box END ----------------------------- -->
             <!-- /////////////////////////////// Contacts START \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\-->
             <div class="d-none" id="contacts">
+                <div class="contact-list-container">
+                    <div class="contact-list-container-close-img d-none" id="close-open-icon-contact-list-container">
+                        <img onclick="closeAndOpenContactList()" id="close-open-icon-contact-list"
+                            src="img/logos/icon-arrow-left-line.svg" alt="">
+                    </div>
+                    <div class="contact-list" id="contact-list">
 
-                <div class="contact-list" id="contact-list">
-
+                    </div>
                 </div>
+
                 <div class="contact-main-container">
                     <div class="contact-detail-headline">
                         <h2>CONTACTS</h2>
@@ -763,24 +770,25 @@
                         <div>
                             <div class="contact-detail-sub-headline">Contact Information</div>
                             <div class="contact-detail-sub-box">
-                                <span>Email</span>
-                                <div class="color-secondary" id="contact-user-detail-mail"></div>
+                                <span class="detail-contact-info-text">Email</span>
+                                <div class="color-secondary detail-contact-info-text" id="contact-user-detail-mail">
+                                </div>
                             </div>
                             <div class="contact-detail-sub-box">
-                                <span>Phone</span>
-                                <div id="contact-user-detail-phone"></div>
+                                <span class="detail-contact-info-text">Phone</span>
+                                <div id="contact-user-detail-phone" class="detail-contact-info-text"></div>
                             </div>
                             <div class="contact-detail-sub-box">
-                                <span>Department</span>
-                                <div id="contact-user-detail-category"></div>
+                                <span class="detail-contact-info-text">Department</span>
+                                <div id="contact-user-detail-category" class="detail-contact-info-text"></div>
                             </div>
                             <div class="contact-detail-sub-box">
-                                <span>Residenz</span>
-                                <div id="contact-user-detail-city"></div>
+                                <span class="detail-contact-info-text">Residenz</span>
+                                <div id="contact-user-detail-city" class="detail-contact-info-text"></div>
                             </div>
                             <div class="contact-detail-sub-box">
-                                <span>Hobby</span>
-                                <div id="contact-user-detail-hobby"></div>
+                                <span class="detail-contact-info-text">Hobby</span>
+                                <div id="contact-user-detail-hobby" class="detail-contact-info-text"></div>
                             </div>
                             <div id="contact-details-edit-btn" class="login-area-btn-box">
 
