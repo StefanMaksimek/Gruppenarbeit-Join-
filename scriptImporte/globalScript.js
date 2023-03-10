@@ -171,31 +171,3 @@ function changeIconColorNoHoverLogout() {
     document.getElementById('logout-btn').src = 'img/logos/logout-join.png'
 }
 
-function loadUserListForContacts() {
-    let content = document.getElementById('contact-list')
-    content.innerHTML = '';
-    users.sort((a, b) => a.name.localeCompare(b.name))
-    for (let i = 0; i < users.length; i++) {
-        const user = users[i];
-        if (user.name == '') {
-            user.name = user.mail
-        }
-        if (document.getElementById(`${getFirstCharacterOfName(user.name)}`) == null || document.getElementById(`${getFirstCharacterOfName(user.name)}`) == undefined) {
-            content.innerHTML += `<div class="contact-list-char" id="${getFirstCharacterOfName(user.name)}">${getFirstCharacterOfName(user.name)}</div>`
-        }
-
-        content.innerHTML += `<div onclick="showUserDetailsContact('${user.mail}')" class="contact-list-detail-box">
-                                <img src="${user.icon}" alt="">
-                                <div>
-                                    <div>${user.name}</div>
-                                    <div class="contact-list-detail-mail">${user.mail}</div>
-                                </div>
-                            </div>`
-    }
-}
-
-
-function getFirstCharacterOfName(name) {
-    let firstCharacter = Array.from(name)[0].toUpperCase();
-    return firstCharacter
-}

@@ -142,6 +142,11 @@
         display: none;
     }
 
+    .headline-card{
+        font-size: 32px;
+        margin-left: 12px;
+    }
+
     .search-bar {
         flex-direction: column;
         justify-content: flex-start;

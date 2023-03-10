@@ -377,7 +377,21 @@
     }
 }
 
+@media screen and (max-width: 540px) {
+    .show-urgent-tasks-summary-container {
+        width: calc(100vw - 36px);
+    }
+
+    .assigned-to-summary{
+        width: 90px;
+    }
+}
+
 @media screen and (max-width: 500px) {
+    .assigned-to-summary{
+        width: 80px;
+    }
+
     .summary-overview-sub-container-one {
         height: 70px;
         margin-right: 12px;
@@ -408,6 +422,10 @@
 }
 
 @media screen and (max-width: 400px) {
+    .assigned-to-summary{
+        width: 60px;
+    }
+
     .contact-detail-headline div {
         display: none;
     }
