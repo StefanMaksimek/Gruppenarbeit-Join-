@@ -160,7 +160,7 @@
                 </div>
 
                 <div class="input-holder">
-                    <h3>Priority</h3>
+                    <h3>PRIORITY</h3>
 
                     <select class="form-select" id="priority-state-input-sidebar"
                         aria-label="Example select with button addon">
@@ -179,7 +179,7 @@
                                 <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
                                     <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                 </div>
-
+                                <div class="btn-employees-add-text">User select</div>
                                 <div id="responsible-editor-list-board" class="responsible-editor-list"
                                     ondragover="allowDrop(event)">
                                 </div>
@@ -455,7 +455,8 @@
                                     <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
                                         <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                     </div>
-
+                                    <div class="btn-employees-add-text">User select</div>
+                                    <div class="btn-employees-add-text">User select</div>
                                     <div id="responsible-editor-list-change-task-board"
                                         class="responsible-editor-list assigned-to-user-holder"
                                         ondragover="allowDrop(event)">
@@ -575,7 +576,7 @@
                                     <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
                                         <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                     </div>
-
+                                    <div class="btn-employees-add-text">User select</div>
                                     <div id="responsible-editor-list-change-task-backlog"
                                         class="responsible-editor-list assigned-to-user-holder"
                                         ondragover="allowDrop(event)">
@@ -615,7 +616,7 @@
 
                                 <select class=" form-select" id="status-list-input"
                                 aria-label="Example select with button addon">
-                                <option value="to-do">ToDo</option>
+                                <option value="to-do">TO DO</option>
                                 <option value="in-progress">IN PROGRESS</option>
                                 <option value="testing">TESTING</option>
                                 <option value="done">DONE</option>
@@ -677,7 +678,7 @@
                             </div>
 
                             <div class="input-holder">
-                                <h3>Priority</h3>
+                                <h3>PRIORITY</h3>
 
                                 <select class="form-select" id="priority-state-input"
                                     aria-label="Example select with button addon">
@@ -697,7 +698,7 @@
                                                 onclick="openListOfEmployeesBoxForAddTask()">
                                                 <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
                                             </div>
-
+                                            <div class="btn-employees-add-text">User select</div>
                                             <div id="responsible-editor-list" class="responsible-editor-list"
                                                 ondragover="allowDrop(event)">
                                             </div>
@@ -715,8 +716,10 @@
                             </div>
 
                             <div class="btns-add-task">
-                                <button type="button" onclick="clearAddTask()" class="login-area-btn login-area-btn-guest login-btn-shadow mg-right">Clear</button>
-                                <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Create Task</button>
+                                <button type="button" onclick="clearAddTask()"
+                                    class="login-area-btn login-area-btn-guest login-btn-shadow mg-right">Clear</button>
+                                <button type="submit"
+                                    class="login-area-btn login-area-btn-login login-btn-shadow">Create Task</button>
                             </div>
                         </div>
                     </div>

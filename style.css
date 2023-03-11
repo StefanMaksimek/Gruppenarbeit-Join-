@@ -66,11 +66,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .side-bar-task::-webkit-scrollbar-thumb {
-  background-color: #ffa500;
+  background-color: var(--clr-primary);
   outline: 1px solid white;
 }
-
-
 
 .textarea-change-backlog-task::-webkit-scrollbar {
   width: 8px;
@@ -109,6 +107,78 @@ body::-webkit-scrollbar-thumb {
 }
 
 .show-urgent-tasks-summary-container-table::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+
+
+.backlog-details-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.backlog-details-content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.backlog-details-content::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+
+.add-task-editor-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.add-task-editor-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.add-task-editor-list::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+
+
+.contact-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contact-list::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.contact-list::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  outline: 1px solid white;
+}
+
+
+
+.contact-main-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.contact-main-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.contact-main-container::-webkit-scrollbar-thumb {
   background-color: var(--clr-primary);
   outline: 1px solid white;
 }
