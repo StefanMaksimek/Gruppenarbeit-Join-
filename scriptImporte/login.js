@@ -83,10 +83,19 @@ function clearLoginInputfields() {
 function openRegisterBox() {
     document.getElementById('registration-box').classList.remove('d-none'); //open reistration box
     document.getElementById('login').classList.add('d-none'); //close login
-    document.getElementById('forgot-pw-box').classList.add('d-none') //close forgot pw box
-    document.getElementById('forgot-pw-answer-box').classList.add('d-none') //close you received email box from forgot pw
-    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.add('d-none') //close forgot pw box "no such mail registered"
-    clearLoginInputfields()
+    document.getElementById('forgot-pw-box').classList.add('d-none'); //close forgot pw box
+    document.getElementById('forgot-pw-answer-box').classList.add('d-none'); //close you received email box from forgot pw
+    document.getElementById('forgot-pw-answer-box-no-such-mail-adress').classList.add('d-none'); //close forgot pw box "no such mail registered"
+    showHintPrivateData();
+    clearLoginInputfields();
+}
+
+
+function showHintPrivateData(){
+document.getElementById('registration-hint-private-data').classList.remove('d-none')
+setTimeout(() => {
+    document.getElementById('registration-hint-private-data').classList.add('d-none')
+}, 4000);
 }
 
 

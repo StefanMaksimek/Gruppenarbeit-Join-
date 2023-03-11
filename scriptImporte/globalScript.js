@@ -74,7 +74,6 @@ function closeAllContent() {
 
 function closeContentWindows() {
     document.getElementById('impressum').classList.add('d-none');
-    document.getElementById('datenschutz').classList.add('d-none');
     document.getElementById('board').classList.add('d-none');
     document.getElementById('add-task').classList.add('d-none');
     document.getElementById('backlog').classList.add('d-none');
