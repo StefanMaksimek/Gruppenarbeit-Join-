@@ -61,8 +61,6 @@ function openSummary() {
 }
 
 
-
-
 function closeAllContent() {
     document.getElementById('myModal').classList.remove('d-block');
     document.getElementById('show-board-details-container').classList.add('d-none');
@@ -82,7 +80,6 @@ function closeContentWindows() {
     document.getElementById('backlog').classList.add('d-none');
     document.getElementById('help').classList.add('d-none');
     document.getElementById('contacts').classList.add('d-none');
-    document.getElementById('settings').classList.add('d-none');
     closeUrgentDetails()
 }
 

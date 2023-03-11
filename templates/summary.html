@@ -1,0 +1,64 @@
+<div class="contact-detail-headline">
+    <h2>SUMMARY</h2>
+    <div>Everything in a nutshell</div>
+</div>
+<div class="text-summary-container-overview-decision">
+    <div id="summary-show-all-task-box" onclick="changeOverview('all', 'my')">All tasks</div>
+    <div id="summary-show-my-task-box" class="text-underline" onclick="changeOverview('my', 'all')">My
+        task</div>
+</div>
+<div class="summary-main-container">
+    <div class="summary-overview-main-container">
+        <div class="summary-overview-container-one">
+            <div class="summary-overview-sub-container-one">
+                <div id="summary-nbr-tasks-board" class="summary-nbr-task"></div>
+                <div class="summary-overview-sub-container-one-text">Tasks in Board</div>
+            </div>
+            <div class="summary-overview-sub-container-one">
+                <div id="summary-nbr-tasks-progress" class="summary-nbr-task"></div>
+                <div class="summary-overview-sub-container-one-text">Tasks in Progress</div>
+            </div>
+            <div class="summary-overview-sub-container-one">
+                <div id="summary-nbr-tasks-feedback" class="summary-nbr-task"></div>
+                <div class="summary-overview-sub-container-one-text">Awaiting Feedback</div>
+            </div>
+            <div class="summary-overview-sub-container-one">
+                <div id="summary-nbr-tasks-backlog" class="summary-nbr-task"></div>
+                <div class="summary-overview-sub-container-one-text">Tasks in Backlog</div>
+            </div>
+        </div>
+        <div class="summary-overview-sub-container-two" onclick="getUrgentTasks()">
+            <div class="summary-urgent-container-one">
+                <img src="img/logos/icon-urgent-summary.svg" alt="">
+                <div class="summary-urgent-sub-container-one">
+                    <div id="summary-urgent-nbr" class="summary-nbr-task">2</div>
+                    <div class="summary-overview-sub-container-one-text">Urgent</div>
+                </div>
+            </div>
+            <div class="summary-urgent-container-two">
+                <div class="summary-nbr-task" id="summary-next-due-date"></div>
+                <div class="summary-overview-sub-container-one-text">Upcoming Deadline</div>
+            </div>
+        </div>
+        <div class="summary-overview-container-three">
+            <div class="summary-overview-sub-container-three">
+                <img src="img/logos/icon-summary-todo.svg" alt="">
+                <div class="summary-sub-container-three">
+                    <div id="summary-to-do-nbr" class="summary-nbr-task">2</div>
+                    <div class="summary-overview-sub-container-one-text">To-do</div>
+                </div>
+            </div>
+            <div class="summary-overview-sub-container-three">
+                <img src="img/logos/icon-summary-done.svg" alt="">
+                <div class="summary-sub-container-three">
+                    <div id="summary-done-nbr" class="summary-nbr-task">2</div>
+                    <div class="summary-overview-sub-container-one-text">Done</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="summary-greeting-container">
+        <div class="summary-greeting-container-pre">Hello,</div>
+        <div id="summary-name" class="color-secondary summary-name"></div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="close-user-details-box" id="close-user-details-box-board">
+    <div class="btn-close-cross-box" onclick="closeBoardDetails(); setChangeModeOfBoardTaskDetailsContainerBack()">
+        <img src="./img/close-icon.png">
+    </div>
+</div>
+<!--Sub Area for details of Task Box START-->
+<div id="show-board-details-sub-container" class="w100 backlog-details-content">
+    <div id="show-board-details-box-category"></div>
+    <div class="show-board-detail-task-change-box change-task-small-two d-none"
+        id="show-board-details-sub-container-category">
+        <div class="task-details-table-text">Category:</div>
+        <select class="form-select w200" id="category-state-input-change-detail-box"
+            aria-label="Example select with button addon">
+            <option id="category-state-input-board-details-box-option-it" value="IT">IT
+            </option>
+            <option id="category-state-input-board-details-box-option-marketing" value="Marketing">
+                Marketing</option>
+            <option id="category-state-input-board-details-box-option-sales" value="Sales">
+                Sales</option>
+            <option id="category-state-input-board-details-box-option-management" value="Management">
+                Management</option>
+        </select>
+    </div>
+    <div id="show-board-details-box-title" class="show-board-details-box-title"></div>
+    <div id="title-task-change-detail-box" class="d-none">
+        <div class="show-board-detail-task-change-box change-task-small">
+            <div class="task-details-table-text">Title:</div>
+            <input required type="text" placeholder="Title" id="title-task-change-detail-input"
+                class="w320 form-control">
+        </div>
+    </div>
+    <div id="show-board-details-box-details" class="h100-overflow-auto">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+    </div>
+    <div id="task-description-board-details-box" class="form-outline mb-4 margin-top d-none">
+        <div class="show-board-detail-task-change-box change-task-small">
+            <div class="task-details-table-text">Description:</div>
+            <textarea required class="w320 form-control" id="task-description-board-details-input" rows="8"
+                placeholder="..."></textarea>
+        </div>
+    </div>
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Created on:</div>
+        <div id="show-board-details-box-created-on"></div>
+    </div>
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Complete by:</div>
+        <div id="show-board-details-box-complete-by"></div>
+        <input required class="form-control w200 input-due-date d-none" type="date" name="begin"
+            placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31" id="due-date-board-details-box">
+    </div>
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Priority:</div>
+        <div id="show-board-details-box-priority"></div>
+        <select class="form-select w200 d-none" id="priority-state-input-board-details-box"
+            aria-label="Example select with button addon">
+            <option id="priority-state-input-board-details-box-option-low" value="low">low
+            </option>
+            <option id="priority-state-input-board-details-box-option-normal" value="medium">medium
+            </option>
+            <option id="priority-state-input-board-details-box-option-high" value="high">
+                high</option>
+        </select>
+    </div>
+    <div class="task-details-table-text">Assigned to:</div>
+    <div class="assigned-to-user-holder" id="show-board-details-box-icon">
+    </div>
+    <div id="show-board-details-box-icon-change-detail-box" class="d-none">
+        <div class="assinged-to">
+            <div class="responsible-editor-list-container">
+                <div class="employees-holder">
+                    <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                        <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                    </div>
+                    <div class="btn-employees-add-text">User select</div>
+                    <div class="btn-employees-add-text">User select</div>
+                    <div id="responsible-editor-list-change-task-board"
+                        class="responsible-editor-list assigned-to-user-holder" ondragover="allowDrop(event)">
+                    </div>
+                </div>
+                <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                    class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                    <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                    <div id="bin-hint-task-one" class="bin-hint-sidebar-task d-none">
+                        Drag and drop an user for delete.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="show-board-details-box-btns" class="btn-holder-backlog">
+
+</div>

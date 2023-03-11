@@ -1,0 +1,126 @@
+<div class="close-user-details-box" id="close-user-details-box-backlog">
+</div>
+
+<div class="w100 backlog-details-content">
+    <div id="show-backlog-details-box-category"></div>
+    <div class="show-board-detail-task-change-box change-task-small-two d-none"
+        id="show-backlog-details-box-category-change">
+        <div class="task-details-table-text">Category:</div>
+        <select class="form-select w200" id="category-state-input-change-detail-box-backlog"
+            aria-label="Example select with button addon">
+            <option id="category-state-input-backlog-details-box-option-it" value="IT">IT
+            </option>
+            <option id="category-state-input-backlog-details-box-option-marketing" value="Marketing">
+                Marketing</option>
+            <option id="category-state-input-backlog-details-box-option-sales" value="Sales">
+                Sales</option>
+            <option id="category-state-input-backlog-details-box-option-management" value="Management">
+                Management</option>
+        </select>
+    </div>
+
+    <div id="show-backlog-details-box-title" class="show-board-details-box-title"></div>
+    <div id="title-task-change-detail-box-backlog" class="d-none">
+        <div class="show-board-detail-task-change-box change-task-small">
+            <div class="task-details-table-text">Title:</div>
+            <input required type="text" placeholder="Title" id="title-task-change-detail-input-backlog"
+                class="w320 form-control">
+        </div>
+    </div>
+
+    <div id="show-backlog-details-box-details" class="h100-overflow-auto">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dignissimos non eaque?
+    </div>
+    <div id="task-description-backlog-details-box" class="form-outline mb-4 margin-top d-none">
+        <div class="show-board-detail-task-change-box change-task-small">
+            <div class="task-details-table-text">Description:</div>
+            <textarea required class="w320 form-control" id="task-description-backlog-details-input" rows="8"
+                placeholder="..."></textarea>
+        </div>
+    </div>
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Created on:</div>
+        <div id="show-backlog-details-box-created-by"></div>
+    </div>
+
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Complete by:</div>
+        <div id="show-backlog-details-box-due-date"></div>
+        <input required class="form-control w200 input-due-date d-none" type="date" name="begin"
+            placeholder="yyyy-mm-dd" value="" min="2022-01-01" max="2030-12-31" id="due-date-backlog-details-box">
+    </div>
+
+    <div class="show-board-detail-task-change-box change-task-small-two">
+        <div class="task-details-table-text">Priority:</div>
+        <div id="show-backlog-details-box-priority"></div>
+        <select class="form-select w200 d-none" id="show-backlog-details-box-priority-change"
+            aria-label="Example select with button addon">
+            <option id="priority-state-input-backlog-details-box-option-low" value="low">low
+            </option>
+            <option id="priority-state-input-backlog-details-box-option-normal" value="medium">
+                medium
+            </option>
+            <option id="priority-state-input-backlog-details-box-option-high" value="high">
+                high</option>
+        </select>
+    </div>
+    <div class="task-details-table-text">Assigned to:</div>
+
+    <div class="assigned-to-user-holder" id="show-backlog-details-box-icon">
+    </div>
+    <div id="show-backlog-details-box-icon-change" class="d-none">
+        <div class="assinged-to">
+            <div class="responsible-editor-list-container">
+                <div class="employees-holder">
+                    <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                        <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                    </div>
+                    <div class="btn-employees-add-text">User select</div>
+                    <div id="responsible-editor-list-change-task-backlog"
+                        class="responsible-editor-list assigned-to-user-holder" ondragover="allowDrop(event)">
+                    </div>
+                </div>
+                <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                    class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                    <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                    <div id="bin-hint-task-two" class="bin-hint-sidebar-task d-none">
+                        Drag and drop an user for delete.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="show-backlog-details-sub-container">
+        <div class="input-holder2 margin-bottom-12" id="show-backlog-details-color-status-box">
+            <div class="show-backlog-details-sub-box-color">
+                <h3>COLOR</h3>
+
+                <div id="color-picker-selection-box" class="margin-right color-picker-selection-box">
+                    <button type="button" onclick="showColor()" class="btn btn-color login-btn-shadow"
+                        id="add-task-color-button">Pick one
+                    </button>
+                    <div class="d-none color-picker-container" id="color-picker">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="show-backlog-details-sub-box-color"">
+                <h3>STATUS</h3>
+
+                <select class=" form-select" id="status-list-input" aria-label="Example select with button addon">
+                <option value="to-do">TO DO</option>
+                <option value="in-progress">IN PROGRESS</option>
+                <option value="testing">TESTING</option>
+                <option value="done">DONE</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn-holder-backlog" id="btn-holder-backlog">
+
+</div>

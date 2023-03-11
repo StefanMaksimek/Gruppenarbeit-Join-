@@ -1,0 +1,82 @@
+<form onsubmit="createTask(); openOrCloseSidebarCreateTask(); return false">
+    <div class="side-bar-task d-none" id="side-bar-task">
+        <div class="side-bar-task-header">
+            <button class="side-bar-task-btn-top-big" onclick="openOrCloseSidebarCreateTask()">Close</button>
+            <button class="side-bar-task-btn-top-small" onclick="openOrCloseSidebarCreateTask()"><img
+                    src="img/logos/icon-close-white.svg"></button>
+            <div class="side-bar-task-header-title">
+                <h1>Add Task</h1><span id="side-bar-task-status"></span>
+            </div>
+            <button class="side-bar-task-btn-top-big" type="submit">Create Task</button>
+            <button class="side-bar-task-btn-top-small" type="submit"><img
+                    src="img/logos/icon-accept-white.svg"></button>
+        </div>
+
+        <input id="title-task-sidebar" class="input-title" type="text" placeholder="Enter a title">
+
+        <div class="input-holder">
+            <h3>CATEGORY</h3>
+
+            <select class="form-select" id="category-list-input-sidebar"
+                aria-label="Example select with button addon">
+                <option value="IT">IT</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Sales">Sales</option>
+                <option value="Management">Management</option>
+            </select>
+        </div>
+
+        <div class="input-holder">
+            <h3>DESCRIPTION:</h3>
+            <div class="form-outline mb-4 margin-top">
+                <textarea required class="form-control" id="task-description-sidebar" rows="8"
+                    placeholder="..."></textarea>
+            </div>
+        </div>
+
+        <div>
+            <div class="input-holder">
+                <h3>DUE DATE</h3>
+
+                <input required class="form-control input-due-date" type="date" name="begin"
+                    placeholder="dd-mm-yyyy" value="" min="2022-01-01" max="2030-12-31" id="due-date-sidebar">
+            </div>
+
+            <div class="input-holder">
+                <h3>PRIORITY</h3>
+
+                <select class="form-select" id="priority-state-input-sidebar"
+                    aria-label="Example select with button addon">
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
+            </div>
+
+            <div class="input-holder">
+                <h3>ASSINGED TO</h3>
+
+                <div class="assinged-to">
+                    <div class="responsible-editor-list-container">
+                        <div class="employees-holder">
+                            <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            </div>
+                            <div class="btn-employees-add-text">User select</div>
+                            <div id="responsible-editor-list-board" class="responsible-editor-list"
+                                ondragover="allowDrop(event)">
+                            </div>
+                        </div>
+                        <div onmouseover="showHintForBin()" onmouseout="hideHintForBin()"
+                            class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                            <div id="bin-hint-task" class="bin-hint-sidebar-task d-none">
+                                Drag and drop an user for delete.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

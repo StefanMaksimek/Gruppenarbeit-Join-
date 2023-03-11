@@ -18,6 +18,9 @@ h3 {
     padding: var(--px-low);
 }
 
+#impressum{
+    margin-left: 12px
+}
 .side-bar {
     z-index: 40;
     position: relative;

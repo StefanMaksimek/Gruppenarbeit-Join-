@@ -1,0 +1,85 @@
+<h2 class="headline-card">ADD TASK</h2>
+<form onsubmit="createTask(); return false">
+    <div class="main-add-task-content-container">
+        <div class="left">
+            <div class="input-holder">
+                <h3>TITLE</h3>
+
+                <div>
+                    <input required type="text" placeholder="Title" id="title-task" class="form-control">
+                </div>
+            </div>
+            <div class="input-holder">
+                <h3>CATEGORY</h3>
+
+                <div class="input-group">
+                    <select class="form-select" id="category-list-input" aria-label="Example select with button addon">
+                        <option value="IT">IT</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Management">Management</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input-holder">
+                <h3>DESCRIPTION:</h3>
+
+                <!--copied from bootstrap-->
+                <!-- Textarea with class .w-75 -->
+                <div class="form-outline mb-4 margin-top">
+                    <textarea required class="form-control" id="task-description" rows="8" placeholder="..."></textarea>
+                </div>
+                <!--copied from bootstrap-->
+            </div>
+        </div>
+        <div class="right">
+            <div class="input-holder">
+                <h3>DUE DATE</h3>
+
+                <input required class="form-control input-due-date" type="date" name="begin" placeholder="dd-mm-yyyy"
+                    value="" min="2022-01-01" max="2030-12-31" id="due-date">
+            </div>
+
+            <div class="input-holder">
+                <h3>PRIORITY</h3>
+
+                <select class="form-select" id="priority-state-input" aria-label="Example select with button addon">
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
+            </div>
+
+            <div class="input-holder">
+                <h3>ASSINGED TO</h3>
+
+                <div class="assinged-to">
+                    <div class="responsible-editor-list-container">
+                        <div class="employees-holder">
+                            <div class="btn-employees-add-icon" onclick="openListOfEmployeesBoxForAddTask()">
+                                <img class="card-header-add-icon-img" src="./img/add-task-icon.png">
+                            </div>
+                            <div class="btn-employees-add-text">User select</div>
+                            <div id="responsible-editor-list" class="responsible-editor-list"
+                                ondragover="allowDrop(event)">
+                            </div>
+                        </div>
+                        <div onmouseover="showHintForBinAddTask()" onmouseout="hideHintForBinAddTask()"
+                            class="responsible-editor-list-bin" ondragover="allowDrop(event)" ondrop="moveToBin()">
+                            <img class="add-task-img-bin" src="./img/trash-bin.svg">
+                            <div id="bin-hint-task-three" class="bin-hint-sidebar-task d-none">
+                                Drag and drop an user for delete.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btns-add-task">
+                <button type="button" onclick="clearAddTask()"
+                    class="login-area-btn login-area-btn-guest login-btn-shadow mg-right">Clear</button>
+                <button type="submit" class="login-area-btn login-area-btn-login login-btn-shadow">Create Task</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,53 @@
+<h2 class="headline-card">BOARD</h2>
+<div class="board">
+    <div class="card">
+        <div class="card-header">
+            <h3>TO DO</h3>
+            <div class="card-header-add-icon">
+                <img class="card-header-add-icon-img"
+                    onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('to-do','board')"
+                    src="./img/add-task-icon.png">
+            </div>
+        </div>
+        <div class="to-do-holder" id="to-do" ondrop="moveTo('to-do'); removeHighlight('to-do')"
+            ondragover="allowDrop(event); highlight('to-do')" ondragleave="removeHighlight('to-do')">
+
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>IN PROGRESS</h3>
+            <div class="card-header-add-icon">
+                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('in-progress','board')"
+                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+            </div>
+        </div>
+        <div class="to-do-holder" id="in-progress" ondrop="moveTo('in-progress'); removeHighlight('in-progress')"
+            ondragover="allowDrop(event); highlight('in-progress')" ondragleave="removeHighlight('in-progress')">
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>TESTING</h3>
+            <div class="card-header-add-icon">
+                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('testing','board')"
+                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+            </div>
+        </div>
+        <div class="to-do-holder" id="testing" ondrop="moveTo('testing'); removeHighlight('testing')"
+            ondragover="allowDrop(event); highlight('testing')" ondragleave="removeHighlight('testing')">
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>DONE</h3>
+            <div class="card-header-add-icon">
+                <img onclick="openOrCloseSidebarCreateTask(); changeStatusTaskAndLocation('done', 'board')"
+                    class="card-header-add-icon-img" src="./img/add-task-icon.png">
+            </div>
+        </div>
+        <div class="to-do-holder" id="done" ondrop="moveTo('done'); removeHighlight('done')"
+            ondragover="allowDrop(event); highlight('done')" ondragleave="removeHighlight('done')">
+        </div>
+    </div>
+</div>

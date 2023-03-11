@@ -1,0 +1,23 @@
+<div class="header" id="header">
+    <div class="test toggle" id="burger" onclick="openMobileSide()">
+        <a class="burger" href="#">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </a>
+    </div>
+</div>
+<div class="header-desktop-title">
+    Kanban Project Management Tool
+</div>
+<div class="header-desktop-title-small">
+    Kanban Project Tool
+</div>
+<div class="header-desktop-icons">
+    <img id="header-desktop-help" class="header-desktop-help-icon" onmouseout="changeIconColorNoHover()"
+        onmouseover="changeIconColorHover()" src="img/logos/help-btn.svg"
+        onclick="openHelp(); closeBoardAddTask()">
+    <div id="user"></div>
+    <img onmouseout="changeIconColorNoHoverLogout()" onmouseover="changeIconColorHoverLogout()"
+        id="logout-btn" src="img/logos/logout-join.png" onclick="executeLogout(); closeBoardAddTask()">
+</div>

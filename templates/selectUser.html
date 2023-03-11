@@ -1,0 +1,17 @@
+<h2>Please select</h2>
+<div class="select-employees-container-list">
+    <div class="search-bar">
+        <div class="show-switch-text d-none" id="show-search-name-inputfield" class="d-none"
+            onclick="showSearchInputfield('mail', 'name')">Switch to search name</div>
+        <div class="show-switch-text" id="show-search-mail-inputfield" onclick="showSearchInputfield('name', 'mail')">
+            Switch to search mail</div>
+        <input class="input-search-employees" type="text" placeholder="Search for name" id="search-name"
+            onkeyup="startSearchUser()">
+        <input class="input-search-employees d-none" type="text" placeholder="Search for mail" id="search-mail"
+            onkeyup="startSearchMail()">
+    </div>
+    <div id="add-task-editor-list" class="add-task-editor-list">
+
+    </div>
+</div>
+<button class="btn btn-primary margin-top" onclick="closeListOfEmployeesBoxForAddTask()">Close</button>
